@@ -1,0 +1,180 @@
+
+#######################################
+
+Íncice de Classes
+
+Renegado                      Classe_SC
+Sicário                       Classe_GX
+Cavaleiro Rúnico              Classe_RK
+Guardião Real                 Classe_RG
+Shura                         Classe_SU
+Arcebispo                     Classe_AB
+Alquimista                    Classe_BI
+Mecânico                      Classe_ME
+Sentinela                     Classe_SE
+Trovador                      Classe_TR
+Musa                          Classe_MU
+Arcano                        Classe_WL
+Feiticeiro                    Classe_SO
+Insurgente                    Classe_IN
+Kagerou                       Classe_KA
+Oboro                         Classe_OB
+Invocador                     Classe_DO
+
+#######################################
+
+
+Índice de tipos de classes
+
+Primeira classe               Classe1
+Segunda classe                Classe2
+Terceira classe               Classe3
+
+Classe 1 trans                ClasseT1
+Classe 2 trans                ClasseT2
+Terceira classe trans         ClasseT3
+
+Classe expandida 1            ClasseExp1
+Classe expandida 2            ClasseExp2
+
+Doram                         Doram
+
+
+#######################################
+
+Índice de Builds
+
+### Renegado ###
+Crítico com Arco              Arco_Critico
+Disparo Triplo                Disparo_Triplo
+Rajada de Flechas             Rajada_de_Flechas
+Impacto de Tyr                Impacto_de_Tyr
+Apunhalar                     Apunhalar
+
+### Sicário ###
+Impacto Meteoro               Impacto_Meteoro
+Lâminas de Loki               Laminas_de_Loki
+Lamento de Loki               Lamento_de_Loki
+Crítico com katar             Katar_Critico
+Crítico com duas armas        Dual_Critico
+
+
+
+
+#######################################
+
+Índice de Armas
+
+Adaga                         Arma_Adaga
+Arco                          Arma_Arco
+Cajado de uma mão             Arma_Cajado1
+Cajado de duas mãos           Arma_Cajado2
+Chicote                       Arma_Chicote
+Instrumento Musical           Arma_Instrumento
+Espada de uma mão             Arma_Espada1
+Espada de duas mãos           Arma_Espada2
+Katar                         Arma_Katar
+Lança de uma mão              Arma_Lanca1
+Lança de duas mãos            Arma_Lanca2
+Livro                         Arma_Livro
+Machado                       Arma_Machado1
+Machado de duas mãos          Arma_Machado2
+Maça                          Arma_Maca
+Shuriken                      Arma_Shuriken
+Soqueira                      Arma_Soqueira
+Pistola                       Arma_Pistola
+Rifle                         Arma_Rifle
+Metralhadora Gatling          Arma_Metralhadora
+Espingarda                    Arma_Espingarda
+Lança-Granadas                Arma_Granadas
+
+
+#######################################
+
+Íncice de Requisitos
+
+Velocidade de Ataque          REQ_Aspd
+Dano Físico                   REQ_DFisico
+Dano Mágico                   REQ_DMagico
+Dano a Distância              REQ_DDist
+Dano Corpo a Corpo            REQ_DCorp
+Taxa Crítica                  REQ_TCrit
+Taxa Crítica a Distância      REQ_TCritD
+Dano Crítico                  REQ_DCrit
+Ignora DEF                    REQ_IgnDef
+Ignora DEFM                   REQ_IgnDefm
+Conjuração Variável           REQ_CVar
+Conjuração Fixa               REQ_CFix
+Pós-conjuração                REQ_Pos
+Efetividade de cura           REQ_Cura
+Esquiva Perfeita              REQ_EP
+HP                            REQ_HP
+SP                            REQ_SP
+Precisão                      REQ_Precisao
+Efetividade de Cura           REQ_Cura
+Conversão de dano em HP       REQ_CHP
+Conversão de dano em SP       REQ_CSP
+FOR                           REQ_FOR
+AGI                           REQ_AGI
+VIT                           REQ_VIT
+INT                           REQ_INT
+DES                           REQ_DES
+SOR                           REQ_SOR
+-----
+Acerto de Contas              REQ_Acerto_de_Contas
+Ataque Aéreo                  REQ_Ataque_Aereo
+Bomba Relógio                 REQ_Bomba_Relogio
+Castigo de Loki               REQ_Castigo_de_Loki
+Choque do Carrinho            REQ_Choque_do_Carrinho
+Chuva de Flechas              REQ_Chuva_de_Flechas
+Cópia Explosiva               REQ_Copia_Explosiva
+Disparo Certeiro              REQ_Disparo_Certeiro
+Disparo Perfurante            REQ_Disparo_Perfurante
+Disparo Triplo                REQ_Disparo_Triplo
+Escudo Compressor             REQ_Escudo_Compressor
+Estilingue                    REQ_Estilingue
+Flecha Melódica               REQ_Flecha_Melodica
+Fúria do Furacão              REQ_Furia_do_Furacao
+Garra de Tigre                REQ_Garra_de_Tigre
+Golpe Fulminante              REQ_Golpe_Fulminante
+Impacto de Tyr                REQ_Impacto_de_Tyr
+Lâminas Retalhadoras          REQ_Laminas_Retalhadoras
+Onda de Choque                REQ_Onda_de_Choque
+Perfurar em Espiral           REQ_Perfurar_em_Espiral
+Rajada de Flechas             REQ_Rajada_de_Flechas
+Ruído Estridente              REQ_Ruido_Estridente
+Tempestade de Flechas         REQ_Tempestade_de_Flechas
+Temporal de Mil Flechas       REQ_Temporal_de_Mil_Flechas
+Tiro Preciso                  REQ_Tiro_Preciso
+Toque do Oblívio              REQ_Toque_do_Oblivio
+Vulcão de Flechas             REQ_Vulcao_de_Flechas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FIM

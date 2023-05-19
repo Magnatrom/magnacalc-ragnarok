@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MagnaCalc Ragnarok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link href="assets/css/simple-grid.css" rel="stylesheet">
+  <link href="assets/css/new-style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row header">
+      <div class="col-12 center">
+        <img src="assets/img/magnacalc-logo.png" width="200" alt="MagnaCalc Ragnarok logo">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="cool-box">
+          <div class="cool-box--header font-heavy">
+            Personagem
+          </div>
+          <div class="alternating-rows alternating-rows-sd">
+            <div class="row row-wrap">
+              <div class="col-2">
+                Nv. de base:
+              </div>
+              <div class="col-3">
+                <select id="nivelPersonagem" tabindex="1">
+                  <option value="175">175</option>
+                </select>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-2">
+                Classe:
+              </div>
+              <div class="col-4">
+                <select id="classePersonagem" autocomplete="off" tabindex="3">
+                  <option value="Classe_SC">Renegado</option>
+                  <option value="Classe_GX">Sicário</option>
+                </select>
+              </div>
+            </div>
+            <div class="row row-wrap">
+              <div class="col-2">
+                Nv. de classe:
+              </div>
+              <div class="col-3">
+                <select id="nivelClasse" tabindex="2">
+                  <option value="60">60</option>
+                </select>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-2">
+                Dano de:
+              </div>
+              <div class="col-4">
+                <select id="buildPersonagem" autocomplete="off" tabindex="4">
+                </select>
+              </div>
+            </div>
+            <div class="row row-wrap">
+              <div class="col-1">
+                FOR:
+              </div>
+              <div class="col-3 atributo">
+                <select class="atributoBase" id="for" autocomplete="off" tabindex="5"></select>
+                <input type="text" id="bonusFor" autocomplete="off" value="" disabled>
+                <input type="text" id="custoFor" autocomplete="off" value="" disabled>
+              </div>
+              <div class="col-1">
+                AGI:
+              </div>
+              <div class="col-3 atributo">
+                <select class="atributoBase" id="agi" autocomplete="off" tabindex="6"></select>
+                <input type="text" id="bonusAgi" autocomplete="off" value="" disabled>
+                <input type="text" id="custoAgi" autocomplete="off" value="" disabled>
+              </div>
+              <div class="col-1">
+                VIT:
+              </div>
+              <div class="col-3 atributo">
+                <select class="atributoBase" id="vit" autocomplete="off" tabindex="7"></select>
+                <input type="text" id="bonusVit" autocomplete="off" value="" disabled>
+                <input type="text" id="custoVit" autocomplete="off" value="" disabled>
+              </div>
+            </div>
+            <div class="row row-wrap">
+              <div class="col-1">
+                INT:
+              </div>
+              <div class="col-3 atributo">
+                <select class="atributoBase" id="int" autocomplete="off" tabindex="8"></select>
+                <input type="text" id="bonusInt" autocomplete="off" value="" disabled>
+                <input type="text" id="custoInt" autocomplete="off" value="" disabled>
+              </div>
+              <div class="col-1">
+                DES:
+              </div>
+              <div class="col-3 atributo">
+                <select class="atributoBase" id="des" autocomplete="off" tabindex="9"></select>
+                <input type="text" id="bonusDes" autocomplete="off" value="" disabled>
+                <input type="text" id="custoDes" autocomplete="off" value="" disabled>
+              </div>
+              <div class="col-1">
+                SOR:
+              </div>
+              <div class="col-3 atributo">
+                <select class="atributoBase" id="sor" autocomplete="off" tabindex="10"></select>
+                <input type="text" id="bonusSor" autocomplete="off" value="" disabled>
+                <input type="text" id="custoSor" autocomplete="off" value="" disabled>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                Pontos disponíveis:
+              </div>
+              <div class="col-2 force-space-sd">
+                <input type="text" id="disponiveis" class="input-invisivel" value="1" disabled>
+              </div>
+              <div class="col-4"></div>
+              <div class="col-2 right">
+                Adotado:
+              </div>
+              <div class="col-1">
+                <input type="checkbox" id="adotado" tabindex="11">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row flex-colum-md flex-colum-sd">
+      <div class="col-8 col-12-md col-12-sd">
+        <div id="alvo" class="cool-box">
+          <div class="cool-box--header font-heavy">
+            Alvo do ataque
+          </div>
+          <div class="flex flex-colum-sd">
+            <div class="alternating-rows" style="flex:1">
+              <!-- <div class="row">
+                <div class="col-5">
+                  Monstro:
+                </div>
+                <div class="col-7">
+                  <select id="idMonstro" autocomplete="off">
+                    <option value="">Personalizado</option>
+                    <option value="1059">Abelha-Rainha</option>
+                    <option value="1647">Algoz Eremes</option>
+                    <option value="2476">Amdarais</option>
+                    <option value="3150">Amdarais Sombrio</option>
+                    <option value="1511">Amon Ra</option>
+                    <option value="2362">Amon Ra do Pesadelo</option>
+                    <option value="1651">Arquimaga Kathryne</option>
+                    <option value="1650">Atiradora de Elite Cecil</option>
+                    <option value="1785">Atroce</option>
+                    <option value="1039">Bafomé</option>
+                    <option value="2322">Bakonawa</option>
+                    <option value="2317">Bangungot</option>
+                    <option value="1874">Belzebu</option>
+                    <option value="1086">Besouro-Ladrão Dourado</option>
+                    <option value="3450">Bijou</option>
+                    <option value="1871">Bispo Decadente</option>
+                    <option value="2068">Boitatá</option>
+                    <option value="2319">Buwaya</option>
+                    <option value="1251">Cavaleiro da Tempestade</option>
+                    <option value="3029">Ceifador Ankou</option>
+                    <option value="2996">Celine Kimi</option>
+                    <option value="3124">Charleston 03</option>
+                    <option value="2241">Cigana Trentini</option>
+                    <option value="2236">Criador Flamel Emul</option>
+                    <option value="1719">Detardeurus</option>
+                    <option value="2239">Desordeira Gertie Wie</option>
+                    <option value="3097">deus Morroc</option>
+                    <option value="1046">Doppelganger</option>
+                    <option value="1389">Drácula</option>
+                    <option value="1112">Drake</option>
+                    <option value="1115">Eddga</option>
+                    <option value="1658">Egnigem Cenia</option>
+                    <option value="1957">Entweihen Crothen</option>
+                    <option value="2942">Fanático das Trevas</option>
+                    <option value="1157">Faraó</option>
+                    <option value="2564">Fenris Fenrir</option>
+                    <option value="1150">Flor do Luar</option>
+                    <option value="1159">Freeoni</option>
+                    <option value="2253">General Daehyun</option>
+                    <option value="1312">General Tartaruga</option>
+                    <option value="2251">Gioia</option>
+                    <option value="1885">Gorynych</option>
+                    <option value="2255">Guardião Morto Kades</option>
+                    <option value="1252">Hatii</option>
+                    <option value="1832">Ifrit</option>
+                    <option value="3473">Jack Wolf</option>
+                    <option value="1734">Kiel-D-01</option>
+                    <option value="2202">Kraken</option>
+                    <option value="1779">Ktullanux</option>
+                    <option value="1980">Kublin</option>
+                    <option value="1630">Lady Branca</option>
+                    <option value="1688">Lady Tanee</option>
+                    <option value="2156">Leak</option>
+                    <option value="1646">Lorde Seyren - Ativado</option>
+                    <option value="1147">Maya</option>
+                    <option value="1708">Memória de Thanatos</option>
+                    <option value="2240">Menestrel Alphoccio</option>
+                    <option value="2238">Mestre Chen Liu</option>
+                    <option value="1648">Mestre-ferreiro Howard</option>
+                    <option value="1917">Morroc Ferido</option>
+                    <option value="1956">Naght Sieger</option>
+                    <option value="3000">Necromante de Morroc</option>
+                    <option value="1087">Orc Herói</option>
+                    <option value="3151">Origem da Escuridão</option>
+                    <option value="2475">Origem da Maldição</option>
+                    <option value="1038">Osíris</option>
+                    <option value="2235">Paladino Randel Lawrence</option>
+                    <option value="1768">Pesar Noturno</option>
+                    <option value="2237">Professora Celia Alde</option>
+                    <option value="2249">Pyuriel Furiosa</option>
+                    <option value="2087">Rainha Scaraba</option>
+                    <option value="2165">Rainha Scaraba Dourada</option>
+                    <option value="2529">Rainha Verme</option>
+                    <option value="3073">Réquiem de Marfim</option>
+                    <option value="1623">RSX-0806</option>
+                    <option value="1492">Samurai Encarnado</option>
+                    <option value="1272">Senhor das Trevas</option>
+                    <option value="1373">Senhor dos Mortos</option>
+                    <option value="1190">Senhor dos Orcs</option>
+                    <option value="1418">Serpente Suprema</option>
+                    <option value="2022">Sombra de Nidhogg</option>
+                    <option value="1649">Sumo Sacerdotisa Margaretha</option>
+                    <option value="1583">Tao Gunka</option>
+                    <option value="3254">T_W_O</option>
+                    <option value="1751">Valkyrie Randgris</option>
+                    <option value="1685">Vesper</option>
+                    <option value="3074">Vigia do Tempo</option>
+                  </select>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-5">
+                  Nível:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="nivelMonstro" value="100">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  Propriedade:
+                </div>
+                <div class="col-7">
+                  <select id="propriedadeMonstro">
+                    <option value="00">Neutro 1</option>
+                    <option value="01">Neutro 2</option>
+                    <option value="02">Neutro 3</option>
+                    <option value="03">Neutro 4</option>
+                    <option value="10">Fogo 1</option>
+                    <option value="11">Fogo 2</option>
+                    <option value="12">Fogo 3</option>
+                    <option value="13">Fogo 4</option>
+                    <option value="20">Vento 1</option>
+                    <option value="21">Vento 2</option>
+                    <option value="22">Vento 3</option>
+                    <option value="23">Vento 4</option>
+                    <option value="30">Terra 1</option>
+                    <option value="31">Terra 2</option>
+                    <option value="32">Terra 3</option>
+                    <option value="33">Terra 4</option>
+                    <option value="40">Água 1</option>
+                    <option value="41">Água 2</option>
+                    <option value="42">Água 3</option>
+                    <option value="43">Água 4</option>
+                    <option value="50">Sagrado 1</option>
+                    <option value="51">Sagrado 2</option>
+                    <option value="52">Sagrado 3</option>
+                    <option value="53">Sagrado 4</option>
+                    <option value="60">Sombrio 1</option>
+                    <option value="61">Sombrio 2</option>
+                    <option value="62">Sombrio 3</option>
+                    <option value="63">Sombrio 4</option>
+                    <option value="70">Maldito 1</option>
+                    <option value="71">Maldito 2</option>
+                    <option value="72">Maldito 3</option>
+                    <option value="73">Maldito 4</option>
+                    <option value="80">Veneno 1</option>
+                    <option value="81">Veneno 2</option>
+                    <option value="82">Veneno 3</option>
+                    <option value="83">Veneno 4</option>
+                    <option value="90">Fantasma 1</option>
+                    <option value="91">Fantasma 2</option>
+                    <option value="92">Fantasma 3</option>
+                    <option value="93">Fantasma 4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  Raça:
+                </div>
+                <div class="col-7">
+                  <select id="racaMonstro">
+                    <option value="0">Amorfo</option>
+                    <option value="1">Anjo</option>
+                    <option value="2">Bruto</option>
+                    <option value="3">Demônio</option>
+                    <option value="11">Doram</option>
+                    <option value="4">Dragão</option>
+                    <option value="10">Humano</option>
+                    <option value="5">Humanoide</option>
+                    <option value="6">Inseto</option>
+                    <option value="7">Morto-Vivo</option>
+                    <option value="8">Peixe</option>
+                    <option value="9">Planta</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  Tamanho:
+                </div>
+                <div class="col-7">
+                  <select id="tamanhoMonstro">
+                    <option value="0">Pequeno</option>
+                    <option value="1">Médio</option>
+                    <option value="2">Grande</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  DEF:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="hardDEF" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  DEFM:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="hardDEFM" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  Esquiva:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroEsquiva" value="1">
+                </div>
+              </div>
+            </div>
+
+            <div class="alternating-rows" style="flex:1">
+              <div class="row">
+                <div class="col-5">
+                  FOR:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroFor" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  AGI:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroAgi" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  VIT:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroVit" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  INT:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroInt" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  DES:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroDes" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  SOR:
+                </div>
+                <div class="col-7">
+                  <input type="number" id="monstroSor" value="1">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  Chefe:
+                </div>
+                <div class="col-7">
+                  <input type="checkbox" id="chefe">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 col-12-md col-12-sd">
+        <div class="cool-box">
+
+          <div class="cool-box--header font-heavy">
+            Propriedade do ataque
+          </div>
+          <div class="alternating-rows">
+            <div class="row">
+              <div class="col-5">
+                Conversor:
+              </div>
+              <div class="col-7">
+                <select id="propriedadeConversor" autocomplete="off">
+                  <option value="">Nenhum</option>
+                  <option value="1">Agua</option>
+                  <option value="2">Terra</option>
+                  <option value="3">Fogo</option>
+                  <option value="4">Vento</option>
+                  <option value="5">Veneno</option>
+                  <option value="6">Sagrado</option>
+                  <option value="7">Sombrio</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                Arma/Munição:
+              </div>
+              <div class="col-7">
+                <select id="municao" autocomplete="off" disabled>
+                  <option value="0">Neutro</option>
+                  <option value="1">Agua</option>
+                  <option value="2">Terra</option>
+                  <option value="3">Fogo</option>
+                  <option value="4">Vento</option>
+                  <option value="5">Veneno</option>
+                  <option value="6">Sagrado</option>
+                  <option value="7">Sombrio</option>
+                  <option value="8">Fantasma</option>
+                  <option value="9">Maldito</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="cool-box">
+          <div class="cool-box--header font-heavy">
+            Buffs
+          </div>
+          <div id="buffs"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row flex-colum-md flex-colum-sd">
+      <div class="col-8 col-12-md col-12-sd no-padding">
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemTopo" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Cabeça [topo]
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                    <option value="11">+11</option>
+                    <option value="12">+12</option>
+                    <option value="13">+13</option>
+                    <option value="14">+14</option>
+                    <option value="15">+15</option>
+                    <option value="16">+16</option>
+                    <option value="17">+17</option>
+                    <option value="18">+18</option>
+                    <option value="19">+19</option>
+                    <option value="20">+20</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemMeio" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Cabeça [meio]
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemBaixo" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Cabeça [baixo]
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemArmadura" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Armadura
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                    <option value="11">+11</option>
+                    <option value="12">+12</option>
+                    <option value="13">+13</option>
+                    <option value="14">+14</option>
+                    <option value="15">+15</option>
+                    <option value="16">+16</option>
+                    <option value="17">+17</option>
+                    <option value="18">+18</option>
+                    <option value="19">+19</option>
+                    <option value="20">+20</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemMaoDireita" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Mão direita
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                    <option value="11">+11</option>
+                    <option value="12">+12</option>
+                    <option value="13">+13</option>
+                    <option value="14">+14</option>
+                    <option value="15">+15</option>
+                    <option value="16">+16</option>
+                    <option value="17">+17</option>
+                    <option value="18">+18</option>
+                    <option value="19">+19</option>
+                    <option value="20">+20</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemMaoEsquerda" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Mão esquerda
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                    <option value="11">+11</option>
+                    <option value="12">+12</option>
+                    <option value="13">+13</option>
+                    <option value="14">+14</option>
+                    <option value="15">+15</option>
+                    <option value="16">+16</option>
+                    <option value="17">+17</option>
+                    <option value="18">+18</option>
+                    <option value="19">+19</option>
+                    <option value="20">+20</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemCapa" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Capa
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                    <option value="11">+11</option>
+                    <option value="12">+12</option>
+                    <option value="13">+13</option>
+                    <option value="14">+14</option>
+                    <option value="15">+15</option>
+                    <option value="16">+16</option>
+                    <option value="17">+17</option>
+                    <option value="18">+18</option>
+                    <option value="19">+19</option>
+                    <option value="20">+20</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemSapatos" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Calçados
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                    <option value="11">+11</option>
+                    <option value="12">+12</option>
+                    <option value="13">+13</option>
+                    <option value="14">+14</option>
+                    <option value="15">+15</option>
+                    <option value="16">+16</option>
+                    <option value="17">+17</option>
+                    <option value="18">+18</option>
+                    <option value="19">+19</option>
+                    <option value="20">+20</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemAcessorioD" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Acessório [direita]
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemAcessorioE" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Acessório [esquerda]
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row no-padding flex-colum-sd">
+          <div class="col-6"></div>
+          <div id="itemMalhaSombria" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Malha Sombria
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemLuvaSombria" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Luvas Sombrias
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemEscudoSombrio" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Escudo Sombrio
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row no-padding flex-colum-sd">
+          <div class="col-6"></div>
+          <div id="itemGrevaSombria" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Grevas Sombrias
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row no-padding flex-colum-sd">
+          <div id="itemBrincoSombrio" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Brincos Sombrios
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+          <div id="itemColarSombrio" class="col-6 itemSlot">
+            <div class="cool-box">
+              <div class="cool-box--header font-heavy">
+                Colar Sombrio
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <select autocomplete="off" class="refino">
+                    <option value="0">+0</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                    <option value="4">+4</option>
+                    <option value="5">+5</option>
+                    <option value="6">+6</option>
+                    <option value="7">+7</option>
+                    <option value="8">+8</option>
+                    <option value="9">+9</option>
+                    <option value="10">+10</option>
+                  </select>
+                </div>
+                <div class="col-8">
+                  <select autocomplete="off" class="equipamento">
+                    <option value="">Nenhum</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row carta"></div>
+              <div class="row itemBonus"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 col-12-md col-12-sd">
+        <div class="cool-box sticky">
+          <div class="cool-box--header font-heavy">
+            Resultados
+          </div>
+          <div id="resultados" class="alternating-rows">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="doidin"></div>
+  <script>
+    windowWidth = $(window).width();
+    doidinWidth = $("#doidin").width();
+    trackWidth = windowWidth + doidinWidth;
+    speed = (trackWidth/doidinWidth) * 530;
+    setInterval(function(){
+      $("#doidin")
+        .delay(20000)
+        .animate({left: trackWidth + 'px'}, speed, "linear")
+        .queue(function (next) {
+          $(this).css("transform","scaleX(-1)")
+          next();
+        })
+        .delay(20000)
+        .animate({left: "-" + doidinWidth + 'px'}, speed, "linear")
+        .delay(20000)
+        .queue(function (next) {
+          $(this).css("transform","scaleX(1)")
+          next();
+        });
+    }, 300000);
+  </script>
+
+  <script type="text/javascript" src="assets/js/itemBonuses.js"></script>
+  <script type="text/javascript" src="assets/js/itens.js"></script>
+  <script type="text/javascript" src="assets/js/cartas.js"></script>
+  <script type="text/javascript" src="assets/js/municoes.js"></script>
+  <script type="text/javascript" src="assets/js/tiposArmas.js"></script>
+  <script type="text/javascript" src="assets/js/classes.js"></script>
+  <script type="text/javascript" src="assets/js/tabelaElementos.js"></script>
+  <script type="text/javascript" src="assets/js/buffs.js"></script>
+  <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+<html>
