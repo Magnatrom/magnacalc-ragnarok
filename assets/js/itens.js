@@ -3246,6 +3246,21 @@ var items = [
     }
   },
   {
+    itemId:     "460000",
+    itemNome:   "Égide das Divindades [1]",
+    itemTipo:   "itemEscudo",
+    itemNivel:  99,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Cura","REQ_Pos"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "efetividadecura": 15 + (getItemRefino(slot) * 2),
+        "posconjuracao": (getItemRefino(slot) >= 8 ? (-10) : 0) + (getItemRefino(slot) >= 10 ? (-10) : 0)
+      }
+    }
+  },
+  {
     itemId:     "5127",
     itemNome:   "Elmo de Morrigane",
     itemTipo:   "itemTopo",
@@ -3301,6 +3316,23 @@ var items = [
     }
   },
   {
+    itemId:     "460003",
+    itemNome:   "Escudo de Penas [1]",
+    itemTipo:   "itemEscudo",
+    itemNivel:  90,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_Pos","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "posconjuracao": (-4) + (getItemRefino(slot) >= 7 ? (-4) : 0) + (getItemRefino(slot) >= 9 ? (-4) : 0),
+        "aspdp": (4) + (getItemRefino(slot) >= 7 ? (4) : 0) + (getItemRefino(slot) >= 9 ? (4) : 0),
+        "atq": (getItemRefino(slot) >= 8 ? (50) : 0),
+        "atqm": (getItemRefino(slot) >= 8 ? (50) : 0)
+      }
+    }
+  },
+  {
     itemId:     "28941",
     itemNome:   "Escudo E.X.C [1]",
     itemTipo:   "itemEscudo",
@@ -3352,16 +3384,16 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
       }
     }
   },
@@ -3378,16 +3410,16 @@ var items = [
         "hpf": (getItemRefino(slot) * 10),
         "aspdp": getItemRefino(slot),
         "aspdf": (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 1 : 0),
-        "hpp": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["24295","28391","24253","24263","24276"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
       }
     }
   },
@@ -4014,7 +4046,7 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "atq": (getItemRefino(slot)),
-        "danode--Disparo_Triplo": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0) + (hasCombo(slot, itemId, [["24308"]]) ? 20 : 0),
+        "danode--Disparo_Triplo": 10 + (getItemRefino(slot) * 5) + (hasCombo(slot, itemId, [["24308"]]) ? 20 : 0),
         "atqarmap": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
         "danomagicop": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
         "danodistancia": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
@@ -4165,6 +4197,25 @@ var items = [
         "danofisicotamanho": isClasse(["Classe_SC"]) ? 10 : 0,
         "danode--Disparo_Triplo": isClasse(["Classe_SC"]) ? 150 : 0,
         "danode--Copia_Explosiva": isClasse(["Classe_SC"]) ? 45 : 0
+      }
+    }
+  },
+  {
+    itemId:     "480045",
+    itemNome:   "Manto do Guardião Morto ",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd","REQ_Pos","REQ_HP"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 18) * 15,
+        "atqm": parseInt((getAtributoBase("int") + getAtributoBase("des")) / 18) * 15,
+        "posconjuracao": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 18) * (-1),
+        "conjuracaovariavel": parseInt((getAtributoBase("int") + getAtributoBase("des")) / 18) * (-1),
+        "hpp": parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 18) * 2,
+        "aspdp": parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 18) * 2
       }
     }
   },
@@ -5406,6 +5457,27 @@ var items = [
     }
   },
   {
+    itemId:     "22214",
+    itemNome:   "Sapatos de Salto Dourado",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_IgnDef","REQ_IgnDefm","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "ignoredef": 50,
+        "ignoredefm": 50,
+        "atributoforca": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "atributoagilidade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "atributovitalidade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "atributointeligencia": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "atributodestreza": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "atributosorte": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "470056",
     itemNome:   "Sapatos do Perseguidor",
     itemTipo:   "itemSapatos",
@@ -5414,7 +5486,9 @@ var items = [
     itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_IgnDef","REQ_DFisico","REQ_Acerto_de_Contas"],
     slots: 0,
     itemFuncao: function(slot, itemId) {
-      temDrake = true;
+      if(isClasse("Classe_SC")) {
+        temDrake = true;
+      }
       return {
         "esquiva": (isClasse("Classe_SC") ? 52 : 0),
         "ignoredef": (isClasse("Classe_SC") ? 100 : 0),
