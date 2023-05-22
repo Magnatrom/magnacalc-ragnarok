@@ -293,6 +293,21 @@ var items = [
     }
   },
   {
+    itemId:     "490076",
+    itemNome:   "Anel Distorcido",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DMagico","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": 10,
+        "danomagicop": 10
+      }
+    }
+  },
+  {
     itemId:     "28505",
     itemNome:   "Anel do Capiroto [1]",
     itemTipo:   "itemAcessorio",
