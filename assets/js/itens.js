@@ -2792,7 +2792,7 @@ var items = [
     ],
     itemFuncao: function(slot, itemId) {
       return {
-        "danofisicop": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 50) * 4,
+        "danofisicotamanho": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 50) * 4,
         "precisaoperfeita": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 50) * 5
       }
     }
