@@ -64,7 +64,12 @@ function isClasse(lista) {
 }
 
 function isTipoArma(slot, lista) {
-  return lista.includes((filterItemById($(".itemSlot#" + slot + " select.equipamento").val())).itemSubtipo);
+  let armaId = $(".itemSlot#" + slot + " select.equipamento").val();
+  if(armaId != "") {
+    return lista.includes((filterItemById(armaId)).itemSubtipo);
+  } else {
+    return false;
+  }
 }
 
 function hasCombo(slotOriginal, itemOriginal, opcoesItens) {
