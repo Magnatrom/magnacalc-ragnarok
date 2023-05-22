@@ -3167,7 +3167,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 1,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 4 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 4 : 0
       }
     }
   },
@@ -3180,7 +3180,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 2,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 8 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 8 : 0
       }
     }
   },
@@ -3193,7 +3193,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 3,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 12 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 12 : 0
       }
     }
   },
@@ -3206,7 +3206,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 4,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 16 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 16 : 0
       }
     }
   },
@@ -3219,7 +3219,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 5,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 20 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 20 : 0
       }
     }
   },
@@ -3232,7 +3232,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 6,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 24 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 24 : 0
       }
     }
   },
@@ -3245,7 +3245,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 7,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 28 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 28 : 0
       }
     }
   },
@@ -3258,7 +3258,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 8,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 32 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 32 : 0
       }
     }
   },
@@ -3271,7 +3271,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 9,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 36 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 36 : 0
       }
     }
   },
@@ -3284,7 +3284,7 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "aspdp": 10,
-        "danodistancia": isTipoArma(slot, ["Arma_Arco"]) ? 44 : 0
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 44 : 0
       }
     }
   },
