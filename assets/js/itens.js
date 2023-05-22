@@ -452,6 +452,8 @@ var items = [
       return {
         "hpp": 10 + (hasCombo(slot, itemId, [["4875"]]) ? 10 : 0),
         "spp": 10 + (hasCombo(slot, itemId, [["4876"]]) ? 10 : 0),
+        "atq": 50,
+        "atqm": 50,
         "atributoforca": hasCombo(slot, itemId, [["4875"]]) ? 40 : 0,
         "posconjuracao": hasCombo(slot, itemId, [["4877"]]) ? -30 : 0,
         "esquiva": hasCombo(slot, itemId, [["4877"]]) ? 40 : 0,
@@ -4080,7 +4082,7 @@ var items = [
       return {
         "atributosorte": 1,
         "hpf": (getItemRefino(slot) * 10),
-        "precisao": (getItemRefino(slot) * 10),
+        "precisao": (getItemRefino(slot) * 1),
         "atq": isClasse(["Classe_LO","Classe_PA","Classe_SX","Classe_ST","Classe_TA","Classe_MT","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_GX","Classe_GX_NT","Classe_SC","Classe_SC_NT"]) ? (15 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 15 : 0)) : 0,
         "aspdf": isClasse(["Classe_LO","Classe_PA","Classe_SX","Classe_ST","Classe_TA","Classe_MT","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_GX","Classe_GX_NT","Classe_SC","Classe_SC_NT"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 1 : 0)) : 0,
         "atqm": isClasse(["Classe_AQ","Classe_PR","Classe_SU","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? (15 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 15 : 0)) : 0,
