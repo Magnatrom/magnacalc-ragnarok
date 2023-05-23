@@ -359,9 +359,9 @@ var items = [
         "conjuracaovariavel": (-20) + (hasCombo(slot, itemId, [["19393"]]) ? -5 : 0),
         "atq": (hasCombo(slot, itemId, [["19393"]]) ? 30 : 0),
         "atqm": (hasCombo(slot, itemId, [["19393"]]) ? 30 : 0),
-        "conjuracaofixas": -0.2,
-        "danofisicochefe": 20,
-        "danomagicochefe": 20
+        "conjuracaofixas": (hasCombo(slot, itemId, [["19393"]]) ? (-0.2) : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, [["19393"]]) ? 20 : 0),
+        "danomagicochefe": (hasCombo(slot, itemId, [["19393"]]) ? 20 : 0)
       }
     }
   },
