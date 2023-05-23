@@ -699,6 +699,7 @@ function calcularAspd() {
   // Pendente: Adicionar skills de ASPD
   Skill_P = 0;
   if(hasBuff("359") && (buildAtual.ataque.tipoAtaque == "basico" || buildAtual.ataque.tipoAtaque == "basicocritico")) { Skill_P += 30; } // Frenesi
+  if(hasBuff("2350")) { Skill_P += 25; } // Frenesi
   Base_Aspd = (parseInt((200 - (200 - (Job_ASPD + Shield_Penalty - ASPD_Correction + Math.sqrt((Total_AGI * 9.9987) + (Total_DEX * 0.1922)) * Aspd_Penalty)) * (1 - (Speed_Potion / 100) - (Skill_P / 100))) * 1000) / 1000);
   ASPD_Equipment_P = (parseInt(((195 - Base_Aspd) * (Equips_P / 100)) * 100) / 100);
   Final_ASPD = Math.min(Base_Aspd + ASPD_Equipment_P + Equips_F, 193);
@@ -729,6 +730,15 @@ function calcular() {
   if(hasBuff("29a")) {  bonusConsolidados.atributoagilidade += 12; } // Aumentar Agilidade nv10
   if(hasBuff("34b") && !hasBuff("34a")) {  bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributoforca += 5; } // Bênção nv5
   if(hasBuff("34a")) {  bonusConsolidados.atributodestreza += 10; bonusConsolidados.atributointeligencia += 10; bonusConsolidados.atributoforca += 10; } // Bênção nv10
+  if(hasBuff("45b") && !hasBuff("45a")) { // Visão Real nv.5
+    bonusConsolidados.atributoagilidade += parseInt((getAtributoBase("agi") + classeAtual.bonusClasse.agi[nivelClasse]) * 0.07);
+    bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.07);
+  }
+  if(hasBuff("45a")) { // Visão Real nv.10
+    bonusConsolidados.atributoagilidade += parseInt((getAtributoBase("agi") + classeAtual.bonusClasse.agi[nivelClasse]) * 0.12);
+    bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.12);
+  }
+  if(hasBuff("380b") && !hasBuff("380a")) { bonusConsolidados.atributoforca += 5; bonusConsolidados.atributoagilidade += 5; bonusConsolidados.atributovitalidade += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributosorte += 5; }
 
   $("input#bonusFor").val((bonusConsolidados.atributoforca >= 0 ? "+" : "") + bonusConsolidados.atributoforca);
   $("input#bonusAgi").val((bonusConsolidados.atributoagilidade >= 0 ? "+" : "") + bonusConsolidados.atributoagilidade);
@@ -868,9 +878,11 @@ function calcular() {
 
   // Pentente: Frenesi, Olhos de Águia, Força Violenta, Força Violentíssima, Furor, Dedicação
   let damageModifier = skillFormula;
-  if(hasBuff("113") && !hasBuff("486")) { damageModifier += 25; } // Força Violentíssima
+  if(hasBuff("113") && !hasBuff("486")) { damageModifier += 25; } // Força Violenta
   if(hasBuff("486")) { damageModifier += 100; } // Força Violentíssima
   if(hasBuff("359") && (buildAtual.ataque.tipoAtaque == "basico" || buildAtual.ataque.tipoAtaque == "basicocritico")) { damageModifier += 200; } // Frenesi
+  if(hasBuff("45b") && !hasBuff("45a")) { damageModifier += 10; } // Visão Real nv.5
+  if(hasBuff("45a")) { damageModifier += 20; } // Visão Real nv.5
   damageModifier = damageModifier / skillFormula;
 
   // Calculo defesa leve do monstro

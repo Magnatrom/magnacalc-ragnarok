@@ -283,10 +283,16 @@ let buffs = [
         disponivel: false
       },
       {
-        skillID: 45,
-        skillName: "Concentração",
+        skillID: "45a",
+        skillName: "Concentração nv.10",
         niveis: 1,
-        disponivel: false
+        disponivel: true
+      },
+      {
+        skillID: "45b",
+        skillName: "Concentração nv.5",
+        niveis: 1,
+        disponivel: true
       },
       {
         skillID: 126,
@@ -361,10 +367,16 @@ let buffs = [
         disponivel: false
       },
       {
-        skillID: 380,
-        skillName: "Visão Real",
+        skillID: "380a",
+        skillName: "Visão Real nv.10",
         niveis: 1,
-        disponivel: false
+        disponivel: true
+      },
+      {
+        skillID: "380b",
+        skillName: "Visão Real nv.5",
+        niveis: 1,
+        disponivel: true
       },
       {
         skillID: 2235,
@@ -439,10 +451,10 @@ let buffs = [
         disponivel: false
       },
       {
-        skillID: 2350,
+        skillID: "2350",
         skillName: "Ritmo Contagiante",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: 2352,
