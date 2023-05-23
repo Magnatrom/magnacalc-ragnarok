@@ -72,6 +72,17 @@ function isTipoArma(slot, lista) {
   }
 }
 
+function getNivelArma(slot) {
+  let armaId = $(".itemSlot#" + slot + " select.equipamento").val();
+  if(armaId != "") {
+    return (filterItemById(armaId)).itemArmaNivel
+  } else {
+    return 0
+  }
+}
+
+
+
 function hasCombo(slotOriginal, itemOriginal, opcoesItens) {
   let temTodosItens = true;
   opcoesItens.forEach(function(itemCombo, index) {
@@ -619,7 +630,7 @@ function definirBonusItens() {
           if(((["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(indexBonus) || indexBonus.indexOf("recargade--") >= 0 || indexBonus.indexOf("variavelde--" || indexBonus.indexOf("fixade--") >= 0) >= 0) && (valueBonus > 0)) || (!(["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(indexBonus) || indexBonus.indexOf("recargade--") >= 0) & (valueBonus < 0))) {
             bonusRuim = `style="color:#ea2465"`;
           }
-          if(!(indexBonus.indexOf("--") >= 0 && indexBonus.replace(indexBonus.substr(0,indexBonus.indexOf("--")) + "--","") != buildAtual.id)) {
+          if(!(indexBonus.indexOf("--") >= 0 && indexBonus.replace(indexBonus.substr(0,indexBonus.indexOf("--")) + "--","") != buildAtual.id.split("--")[0])) {
             elemento.append(
               `<div class="col-12"><span>${getItemBonusName(indexBonus)}:</span><span ${bonusRuim}>${valueBonus > 0 ? "+" : ""}${valueBonus}${isItemBonusPercentage(indexBonus) ? "%" : ""}</span></div>`
             )
@@ -849,7 +860,7 @@ function calcular() {
 
   // Se for skill, pega a fórmula da habilidade e considera os bônus de dano da habilidade
   let skillModifier = (buildAtual.ataque.tipoAtaque == "skill" || buildAtual.ataque.tipoAtaque == "skillcritico") ? (getBonusPercentage(skillFormula)) : 1;
-  let skillBonus = (buildAtual.ataque.tipoAtaque == "skill" || buildAtual.ataque.tipoAtaque == "skillcritico") ? (1 + getBonusPercentage(bonusConsolidados["danode--" + buildAtual.id])) : 1;
+  let skillBonus = (buildAtual.ataque.tipoAtaque == "skill" || buildAtual.ataque.tipoAtaque == "skillcritico") ? (1 + getBonusPercentage(bonusConsolidados["danode--" + (buildAtual.id.split("--")[0])])) : 1;
 
   // Curta = dano corpo a corpo | Longa = dano a distância
   if(hasBuff("5002")) { bonusConsolidados.danodistancia = (bonusConsolidados.danodistancia ? bonusConsolidados.danodistancia : 0) + 250; } // Ilimitar
@@ -899,7 +910,7 @@ function calcular() {
     let conjuracaovariavel = (buildAtual.ataque.conjuracaovariavel || 0) * Math.max(1 + getBonusPercentage(bonusConsolidados.conjuracaovariavel), 0) * Math.max(1 - (((bonusConsolidados.atributodestreza || 0) * 2 + (bonusConsolidados.atributointeligencia || 0)) / 530), 0);
     let conjuracaofixa = (Math.max((buildAtual.ataque.conjuracaofixa || 0) + (bonusConsolidados.conjuracaofixas || 0), 0) * (1 + (menorconjuracaofixaP / 100)));
     let posconjuracao = (buildAtual.ataque.posconjuracao || 0) * (1 + (Math.max((bonusConsolidados.posconjuracao || 0), -100) / 100));
-    let recarga = Math.max((buildAtual.ataque.recarga || 0) + (bonusConsolidados["recargade--" + buildAtual.id] || 0), 0);
+    let recarga = Math.max((buildAtual.ataque.recarga || 0) + (bonusConsolidados["recargade--" + (buildAtual.id.split("--")[0])] || 0), 0);
 
     let tempoConjuracao = conjuracaovariavel + conjuracaofixa;
     let tempoEspera = Math.max(posconjuracao, recarga);

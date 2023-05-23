@@ -687,6 +687,14 @@ var classes = [
     classeNome: "Trovador",
     classeTipo: "ClasseT3",
     transclasse: true,
+    bonusClasse: {
+      for: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,7,7,7],
+      agi: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,3,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5],
+      vit: [0,0,0,1,1,1,1,1,1,1,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,7,7,7,7],
+      int: [0,1,1,1,1,1,1,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9],
+      des: [0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,6,6,6,6,6,6,7,7,7,7,8],
+      sor: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1]
+    },
     classeAspdBase: 156,
     classePenEscudo: -7,
     classeArmas: [
@@ -703,13 +711,127 @@ var classes = [
         penalidade: -5
       }
     ],
-    classeBuilds: []
+    classeBuilds: [
+      {
+        id: "Temporal_de_Mil_Flechas--1",
+        nome: "Temporal de Mil Flechas nv.1",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 1.5,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 5,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--2",
+        nome: "Temporal de Mil Flechas nv.2",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 2,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 5.5,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--3",
+        nome: "Temporal de Mil Flechas nv.3",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 2.5,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 6,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--4",
+        nome: "Temporal de Mil Flechas nv.4",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 6.5,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--5",
+        nome: "Temporal de Mil Flechas nv.5",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3.5,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 7,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+    ]
   },
   {
     classeID: "Classe_MU",
     classeNome: "Musa",
     classeTipo: "ClasseT3",
     transclasse: true,
+    bonusClasse: {
+      for: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3],
+      agi: [0,0,0,0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,6,6,7,7,7,7,7,8,8,8,8,8,8,8,8,8,9,9],
+      vit: [0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,7,7,7],
+      int: [0,0,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,6,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,9,9,9,9,9],
+      des: [0,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,8],
+      sor: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
+    },
     classeAspdBase: 156,
     classePenEscudo: -7,
     classeArmas: [
@@ -726,7 +848,113 @@ var classes = [
         penalidade: -5
       }
     ],
-    classeBuilds: []
+    classeBuilds: [
+      {
+        id: "Temporal_de_Mil_Flechas--1",
+        nome: "Temporal de Mil Flechas nv.1",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 1.5,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 5,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--2",
+        nome: "Temporal de Mil Flechas nv.2",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 2,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 5.5,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--3",
+        nome: "Temporal de Mil Flechas nv.3",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 2.5,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 6,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--4",
+        nome: "Temporal de Mil Flechas nv.4",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 6.5,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Temporal_de_Mil_Flechas--5",
+        nome: "Temporal de Mil Flechas nv.5",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3.5,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 7,
+          golpes: 12
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+    ]
   },
   {
     classeID: "Classe_WL",

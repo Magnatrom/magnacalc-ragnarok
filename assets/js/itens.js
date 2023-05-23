@@ -31,6 +31,25 @@ var items = [
     }
   },
   {
+    itemId:     "480064",
+    itemNome:   "Abafador de Tempestades",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["Classe_MU","Classe_TR"],
+    itemBonus: ["REQ_Temporal_de_Mil_Flechas","REQ_Precisao"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danodistancia": 22 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
+        "precisaoperfeita": 20,
+        "posconjuracao": -10,
+        "recargade--Temporal_de_Mil_Flechas": -2 + (hasCombo(slot, itemId, [["1746"],["15368"]]) ? 2 : 0),
+        "danode--Temporal_de_Mil_Flechas": 10
+      }
+    }
+  },
+  {
     itemId:     "18180",
     itemNome:   "AC-B44-OS [2]",
     itemTipo:   "itemArma",
@@ -380,6 +399,24 @@ var items = [
     }
   },
   {
+    itemId:     "490193",
+    itemNome:   "Anel do Viajante [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_SC","Classe_MU","Classe_TR"],
+    itemBonus: ["REQ_DFisico","REQ_Temporal_de_Mil_Flechas","REQ_Precisao"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": 10,
+        "danode--Temporal_de_Mil_Flechas": parseInt(Math.min(getNivelBase(), 150) / 3),
+        "hpp": 10,
+        "precisaoperfeita": 15,
+        "danofisicochefe": 15
+      }
+    }
+  },
+  {
     itemId:     "28561",
     itemNome:   "Anel Dracônico do Veterano [1]",
     itemTipo:   "itemAcessorio",
@@ -534,6 +571,25 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "danodistancia": hasCombo(slot, itemId, [["1756"]]) ? 25 : 0
+      }
+    }
+  },
+  {
+    itemId:     "18123",
+    itemNome:   "Arco das Tempestades [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 160,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SE","Classe_TR","Classe_MU"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danodistancia": 30,
+        "recargade--Temporal_de_Mil_Flechas": -2
       }
     }
   },
@@ -1369,6 +1425,28 @@ var items = [
     }
   },
   {
+    itemId:     "18795",
+    itemNome:   "Boné com Asinhas [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  100,
+    itemClasses: ["Classe_MU"],
+    itemBonus: ["REQ_DFisico","REQ_Temporal_de_Mil_Flechas"],
+    slots: 1,
+    encantamentos: [
+      ["4869","4950","4808","4812","4833","4807","4866","4942","4852"],
+      ["4869","4950","4808","4812","4833","4807","4866","4942","4852"]
+    ],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 1,
+        "atributosorte": 1,
+        "danodistancia": 5,
+        "danode--Temporal_de_Mil_Flechas": getItemRefino(slot) >= 7 ? 15 : 0,
+        "recargade--Temporal_de_Mil_Flechas": getItemRefino(slot) >= 9 ? (-2) : 0,
+      }
+    }
+  },
+  {
     itemId:     "22172",
     itemNome:   "Botas Aladas",
     itemTipo:   "itemSapatos",
@@ -2106,6 +2184,21 @@ var items = [
     }
   },
   {
+    itemId:     "28392",
+    itemNome:   "Brinco Sombrio de Arqueiro",
+    itemTipo:   "itemBrincoSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10) + (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+      }
+    }
+  },
+  {
     itemId:     "28391",
     itemNome:   "Brinco Sombrio de Gatuno",
     itemTipo:   "itemBrincoSombrio",
@@ -2688,6 +2781,21 @@ var items = [
     }
   },
   {
+    itemId:     "5905",
+    itemNome:   "Chapéu de Maestro [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  100,
+    itemClasses: ["Classe_MU","Classe_TR"],
+    itemBonus: ["REQ_DFisico","REQ_Temporal_de_Mil_Flechas"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Temporal_de_Mil_Flechas": 15,
+        "conjuracaofixap": -40
+      }
+    }
+  },
+  {
     itemId:     "28501",
     itemNome:   "Chifres de Kirin [1]",
     itemTipo:   "itemAcessorio",
@@ -2826,6 +2934,21 @@ var items = [
       return {
         "hpf": (getItemRefino(slot) * 10),
         "aspdp": 1 + (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 2 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "24255",
+    itemNome:   "Colar Sombrio de Arqueiro",
+    itemTipo:   "itemColarSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_Chuva_de_Flechas"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Chuva_de_Flechas": 20 + (getItemRefino(slot) * 5)
       }
     }
   },
@@ -3391,6 +3514,54 @@ var items = [
     }
   },
   {
+    itemId:     "24313",
+    itemNome:   "Escudo Sombrio de Musa",
+    itemTipo:   "itemEscudoSombrio",
+    itemNivel:  99,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 5 : 0),
+        "spp": 3 + (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0
+      }
+    }
+  },
+  {
+    itemId:     "24313",
+    itemNome:   "Escudo Sombrio de Trovador",
+    itemTipo:   "itemEscudoSombrio",
+    itemNivel:  99,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 5 : 0),
+        "spp": 3 + (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0
+      }
+    }
+  },
+  {
     itemId:     "24308a",
     itemNome:   "Escudo Sombrio de Renegado",
     itemTipo:   "itemEscudoSombrio",
@@ -3533,6 +3704,36 @@ var items = [
     itemTipo:   "itemGrevaSombria",
     itemNivel:  1,
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_ST"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
+      }
+    }
+  },
+  {
+    itemId:     "24267",
+    itemNome:   "Greva Sombria de Bardo",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MI"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
+      }
+    }
+  },
+  {
+    itemId:     "24268",
+    itemNome:   "Greva Sombria de Odalisca",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
     itemFuncao: function(slot, itemId) {
@@ -4054,6 +4255,42 @@ var items = [
   },
   {
     itemId:     "24295",
+    itemNome:   "Luva Sombria de Musa",
+    itemTipo:   "itemLuvaSombria",
+    itemNivel:  99,
+    itemClasses: ["Classe_MU","Classe_SC_MU"],
+    itemBonus: ["REQ_DFisico","REQ_DDist"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (hasCombo(slot, itemId, [["24313"]]) ? 2 : 0),
+        "spp": (hasCombo(slot, itemId, [["24313"]]) ? 2 : 0),
+        "atq": getItemRefino(slot),
+        "atqm": getItemRefino(slot),
+        "danodistancia": hasCombo(slot, itemId, [["24313"]]) ? 5 : 0
+      }
+    }
+  },
+  {
+    itemId:     "24295",
+    itemNome:   "Luva Sombria de Trovador",
+    itemTipo:   "itemLuvaSombria",
+    itemNivel:  99,
+    itemClasses: ["Classe_TR","Classe_TR_MU"],
+    itemBonus: ["REQ_DFisico","REQ_DDist"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (hasCombo(slot, itemId, [["24312"]]) ? 2 : 0),
+        "spp": (hasCombo(slot, itemId, [["24312"]]) ? 2 : 0),
+        "atq": getItemRefino(slot),
+        "atqm": getItemRefino(slot),
+        "danodistancia": hasCombo(slot, itemId, [["24312"]]) ? 5 : 0
+      }
+    }
+  },
+  {
+    itemId:     "24295",
     itemNome:   "Luva Sombria de Renegado",
     itemTipo:   "itemLuvaSombria",
     itemNivel:  99,
@@ -4110,6 +4347,49 @@ var items = [
         "hpf": (getItemRefino(slot) * 10),
         "danode--Ataque_Surpresa": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0),
         "danofisicotamanho": hasCombo(slot, itemId, [["24263"]]) ? 3 : 0
+      }
+    }
+  },
+  {
+    itemId:     "24280",
+    itemNome:   "Malha Sombria de Bardo",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MI"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10)
+      }
+    }
+  },
+  {
+    itemId:     "24281a",
+    itemNome:   "Malha Sombria de Odalisca",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10)
+      }
+    }
+  },
+  {
+    itemId:     "24281b",
+    itemNome:   "Malha Sombria de Odalisca - Ativo",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
+    itemBonus: ["REQ_HP","REQ_DFisico","REQ_Ataque_Surpresa"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "aspdp": 50
       }
     }
   },
@@ -4649,7 +4929,65 @@ var items = [
         "atq": getItemRefino(slot) * 4,
         "atqm": getItemRefino(slot) * 4,
         "hpp": parseInt(getItemRefino(slot) / 2),
-        "danode--Disparo_Triplo": parseInt(getItemRefino(slot) / 2) * 25,
+        "danode--Disparo_Triplo": parseInt(getItemRefino(slot) / 2) * 25
+      }
+    }
+  },
+  {
+    itemId:     "18981",
+    itemNome:   "Memorável Súplica do Cisne [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  170,
+    itemClasses: ["Classe_MU"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Temporal_de_Mil_Flechas","REQ_Vulcao_de_Flechas"],
+    slots: 1,
+    encantamentos: [
+      ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
+      ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
+      ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754","29061","29062","29063","29064","29065","29066","29067","29068","29069","29070","29071","29072","29073","29074","29075","29076","29077","29078","29079","29080","29081","29082","29083","29084","29085","29086","29087","29088","29089","29090","29091","29092","29093","29094","29095","29096","29097","29098","29099","29100","29101","29102","29103","29104","29105","29106","29107","29108","29109","29110","29111","29112","29113","29114","29115","29116","29117","29118","29119","29120"]
+    ],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 1,
+        "atributoagilidade": 1,
+        "atributovitalidade": 1,
+        "atributointeligencia": 1,
+        "atributodestreza": 1,
+        "atributosorte": 1,
+        "danodistancia": getItemRefino(slot),
+        "hpp": parseInt(getItemRefino(slot) / 2),
+        "spp": parseInt(getItemRefino(slot) / 2),
+        "danode--Vulcao_de_Flechas": parseInt(getItemRefino(slot) / 2) * 20,
+        "danode--Temporal_de_Mil_Flechas": parseInt(getItemRefino(slot) / 2) * 5
+      }
+    }
+  },
+  {
+    itemId:     "18976",
+    itemNome:   "Memorável Inspiração do Artista [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  170,
+    itemClasses: ["Classe_TR"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Temporal_de_Mil_Flechas","REQ_Vulcao_de_Flechas"],
+    slots: 1,
+    encantamentos: [
+      ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
+      ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
+      ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754","29061","29062","29063","29064","29065","29066","29067","29068","29069","29070","29071","29072","29073","29074","29075","29076","29077","29078","29079","29080","29081","29082","29083","29084","29085","29086","29087","29088","29089","29090","29091","29092","29093","29094","29095","29096","29097","29098","29099","29100","29101","29102","29103","29104","29105","29106","29107","29108","29109","29110","29111","29112","29113","29114","29115","29116","29117","29118","29119","29120"]
+    ],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 1,
+        "atributoagilidade": 1,
+        "atributovitalidade": 1,
+        "atributointeligencia": 1,
+        "atributodestreza": 1,
+        "atributosorte": 1,
+        "danodistancia": getItemRefino(slot),
+        "hpp": parseInt(getItemRefino(slot) / 2),
+        "spp": parseInt(getItemRefino(slot) / 2),
+        "danode--Vulcao_de_Flechas": parseInt(getItemRefino(slot) / 2) * 20,
+        "danode--Temporal_de_Mil_Flechas": parseInt(getItemRefino(slot) / 2) * 5
       }
     }
   },
@@ -4741,6 +5079,27 @@ var items = [
       return {
         "esquivaperfeita": 8 + (getNivelBase() >= 130 ? 2 : 0),
         "esquiva": getItemRefino(slot) * 2
+      }
+    }
+  },
+  {
+    itemId:     "18179",
+    itemNome:   "MH-P89-OS [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 170,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_MU"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atqarmap": 3,
+        "danodistancia": getItemRefino(slot) >= 7 ? 7 : 0,
+        "recargade--Temporal_de_Mil_Flechas": getItemRefino(slot) >= 9 ? (-2) : 0,
+        "danode--Temporal_de_Mil_Flechas": getItemRefino(slot) >= 11 ? 15 : 0,
       }
     }
   },
