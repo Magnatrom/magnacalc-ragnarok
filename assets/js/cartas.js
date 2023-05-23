@@ -55,6 +55,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4062",
+    cartaNome:   "Carta Anaconda",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["80","81","82","83"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4596",
     cartaNome:   "Carta Antigo Livro Danificado",
     cartaSlot:   "itemCapa",
@@ -63,6 +75,18 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "atqm": parseInt(getAtributoBase("int") / 10) * 5
+      }
+    }
+  },
+  {
+    cartaID:     "4514",
+    cartaNome:   "Carta Aranha Pom",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["7"]) ? 20 : 0
       }
     }
   },
@@ -153,6 +177,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4519",
+    cartaNome:   "Carta Butoijo",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["1"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4426",
     cartaNome:   "Carta Byorgue",
     cartaSlot:   "itemArmadura",
@@ -162,6 +198,18 @@ var cartas = [
       return {
         "danofisicop": isClasse(["Classe_SC","Classe_ST","Classe_RO","Classe_ST"]) ? 10 : 0,
         "danomagicop": isClasse(["Classe_SC","Classe_ST","Classe_RO","Classe_ST"]) ? 10 : 0
+      }
+    }
+  },
+  {
+    cartaID:     "4063",
+    cartaNome:   "Carta Caramelo",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["6"]) ? 20 : 0
       }
     }
   },
@@ -302,6 +350,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4069",
+    cartaNome:   "Carta Drainliar",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4137",
     cartaNome:   "Carta Drake",
     cartaSlot:   "itemArma",
@@ -352,6 +412,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4068",
+    cartaNome:   "Carta Escorpião",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["9"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4352",
     cartaNome:   "Carta Espadachim Egnigem",
     cartaSlot:   "itemSapatos",
@@ -377,6 +449,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4092",
+    cartaNome:   "Carta Esqueleto Operário",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": 5,
+        "danofisicoraca": isOpponent("tamanhoMonstro", ["1"]) ? 15 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4086",
     cartaNome:   "Carta Esqueleto Soldado",
     cartaSlot:   "itemArma",
@@ -385,6 +470,18 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "crit": 9
+      }
+    }
+  },
+  {
+    cartaID:     "4080",
+    cartaNome:   "Carta Flora",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["8"]) ? 20 : 0
       }
     }
   },
@@ -409,6 +506,18 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "danofisicop": 20
+      }
+    }
+  },
+  {
+    cartaID:     "4060",
+    cartaNome:   "Carta Goblin",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["2","11"]) ? 20 : 0
       }
     }
   },
@@ -451,15 +560,26 @@ var cartas = [
     }
   },
   {
-    cartaID:     "4091",
-    cartaNome:   "Carta Kobold",
-    cartaSlot:   "itemAcessorio",
+    cartaID:     "4035",
+    cartaNome:   "Carta Hidra",
+    cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_TCrit"],
+    itemBonus: ["REQ_DFisico"],
     itemFuncao: function(slot, itemId) {
       return {
-        "atributoforca": 1,
-        "crit": 4
+        "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 20 : 0
+      }
+    }
+  },
+  {
+    cartaID:     "4065",
+    cartaNome:   "Carta Kaho",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["30","31","32","33"]) ? 20 : 0
       }
     }
   },
@@ -488,6 +608,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4091",
+    cartaNome:   "Carta Kobold",
+    cartaSlot:   "itemAcessorio",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_TCrit"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 1,
+        "crit": 4
+      }
+    }
+  },
+  {
     cartaID:     "4419",
     cartaNome:   "Carta Ktullanux",
     cartaSlot:   "itemArmadura",
@@ -512,6 +645,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4082",
+    cartaNome:   "Carta Lobo do Deserto",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": 5,
+        "danofisicoraca": isOpponent("tamanhoMonstro", ["0"]) ? 15 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4357",
     cartaNome:   "Carta Lorde Seyren",
     cartaSlot:   "itemCabeca",
@@ -532,6 +678,30 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "danocritico": 2 + (isClasse(["Classe_SC","Classe_RO","Classe_ST","Classe_GX","Classe_SX","Classe_AS","Classe_GA"]) ? (parseInt(getItemRefino(slot) / 2)) : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "4030",
+    cartaNome:   "Carta Mandrágora",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["20","21","22","23"]) ? 20 : 0
+      }
+    }
+  },
+  {
+    cartaID:     "4202",
+    cartaNome:   "Carta Mao Guai",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["90","91","92","93"]) ? 20 : 0
       }
     }
   },
@@ -587,6 +757,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4126",
+    cartaNome:   "Carta Minorous",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": 5,
+        "danofisicoraca": isOpponent("tamanhoMonstro", ["2"]) ? 15 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4256",
     cartaNome:   "Carta Orc Arqueiro",
     cartaSlot:   "itemAcessorio",
@@ -599,6 +782,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4085",
+    cartaNome:   "Carta Orc Esqueleto",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["50","51","52","53"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4143",
     cartaNome:   "Carta Orc Herói",
     cartaSlot:   "itemCabeca",
@@ -607,6 +802,18 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "atributovitalidade": 3
+      }
+    }
+  },
+  {
+    cartaID:     "4007",
+    cartaNome:   "Carta Ovo de PecoPeco",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["0"]) ? 20 : 0
       }
     }
   },
@@ -651,6 +858,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4118",
+    cartaNome:   "Carta Petite",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["4"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4468",
     cartaNome:   "Carta Pinguicula Sombria",
     cartaSlot:   "itemCabeca",
@@ -671,6 +890,18 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "atq": 25
+      }
+    }
+  },
+  {
+    cartaID:     "4005",
+    cartaNome:   "Carta Poring Noel",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["60","61","62","63"]) ? 20 : 0
       }
     }
   },
@@ -807,19 +1038,6 @@ var cartas = [
     }
   },
   {
-    cartaID:     "4317",
-    cartaNome:   "Carta Yakuza",
-    cartaSlot:   "itemArma",
-    cartaClasses: ["todas"],
-    itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
-      return {
-        "danocritico": 15,
-        "crit": isClasse(["Classe_SC","Classe_RO","Classe_ST","Classe_GX","Classe_SX","Classe_AS","Classe_GA"]) ? 4 : 0
-      }
-    }
-  },
-  {
     cartaID:     "4263",
     cartaNome:   "Carta Samurai Encarnado",
     cartaSlot:   "itemArma",
@@ -832,6 +1050,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4111",
+    cartaNome:   "Carta Strouf",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["3"]) ? 20 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4639",
     cartaNome:   "Carta Tappy",
     cartaSlot:   "itemAcessorio",
@@ -840,6 +1070,18 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "danofisicop": 1
+      }
+    }
+  },
+  {
+    cartaID:     "4049",
+    cartaNome:   "Carta Vadon",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? 20 : 0
       }
     }
   },
@@ -904,6 +1146,19 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "atq": parseInt(getAtributoBase("for") / 10) * 5
+      }
+    }
+  },
+  {
+    cartaID:     "4317",
+    cartaNome:   "Carta Yakuza",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DCrit"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danocritico": 15,
+        "crit": isClasse(["Classe_SC","Classe_RO","Classe_ST","Classe_GX","Classe_SX","Classe_AS","Classe_GA"]) ? 4 : 0
       }
     }
   },
