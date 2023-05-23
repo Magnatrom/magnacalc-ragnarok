@@ -4906,6 +4906,43 @@ var items = [
     }
   },
   {
+    itemId:     "490174",
+    itemNome:   "Memorável Anel Rústico [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  170,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      if(hasCombo(slot, itemId, [["18984"]])) {
+        temInvestigar = true;
+      }
+      return {
+        "atributoforca": 3,
+        "atributoagilidade": 3,
+        "atributovitalidade": 3,
+        "atributointeligencia": 3,
+        "atributodestreza": 3,
+        "atributosorte": 3,
+        "recargade--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-1) : 0,
+        "variavelde--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-100) : 0,
+        "posconjuracao": hasCombo(slot, itemId, [["18983","18978","18972","18973"]]) ? (-20) : 0,
+        "recargade--Disparo_Perfurante": hasCombo(slot, itemId, [["18983"]]) ? (-1) : 0,
+        "recargade--Meteoro_Escarlate": hasCombo(slot, itemId, [["18978"]]) ? (-1) : 0,
+        "atqm": hasCombo(slot, itemId, [["18980"]]) ? 100 : 0,
+        "danomagicoveneno": hasCombo(slot, itemId, [["18980"]]) ? 70 : 0,
+        "conjuracaofixas": (hasCombo(slot, itemId, [["18982","18974"]]) ? (-0.3) : 0) + (hasCombo(slot, itemId, [["18977"]]) ? (-0.5) : 0),
+        "ignoredef": hasCombo(slot, itemId, [["18975","18976","18981"]]) ? 70 : 0,
+        "ignoredefm": hasCombo(slot, itemId, [["18972"]]) ? 70 : 0,
+        "variavelde--Tempestade_Espiritual": hasCombo(slot, itemId, [["18979"]]) ? (-100) : 0,
+        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, [["18973"]]) ? (-1) : 0,
+        "variavelde--Canhao_de_Protons": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
+        "variavelde--Bomba_Napalm": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
+        "recargade--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, [["18976","18981"]]) ? (-1) : 0,
+      }
+    }
+  },
+  {
     itemId:     "18975",
     itemNome:   "Memorável Artifício das Sombras [1]",
     itemTipo:   "itemTopo",
