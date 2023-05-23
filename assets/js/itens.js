@@ -4254,7 +4254,7 @@ var items = [
     }
   },
   {
-    itemId:     "24295",
+    itemId:     "24300",
     itemNome:   "Luva Sombria de Musa",
     itemTipo:   "itemLuvaSombria",
     itemNivel:  99,
