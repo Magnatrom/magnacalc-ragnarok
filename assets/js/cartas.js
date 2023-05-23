@@ -1013,6 +1013,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27184",
+    cartaNome:   "Carta Skurai",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": 20,
+        "danofisicoraca": isOpponent("racaMonstro", ["3","7"]) ? 30 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4634",
     cartaNome:   "Carta Soldado Imortal",
     cartaSlot:   "itemArma",
