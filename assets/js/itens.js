@@ -5050,6 +5050,25 @@ var items = [
     }
   },
   {
+    itemId:     "480114",
+    itemNome:   "Mikoshi Sagrado [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_Pos","REQ_Precisao"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": getItemRefino(slot) * 2,
+        "posconjuracao": getItemRefino(slot) * (-1),
+        "atq": isClasse(["Classe_SE","Classe_SE_NT","Classe_MU","Classe_MU_NT","Classe_TR","Classe_TR_NT"]) ? 50 : 0,
+        "esquiva": isClasse(["Classe_SE","Classe_SE_NT","Classe_MU","Classe_MU_NT","Classe_TR","Classe_TR_NT"]) ? 50 : 0,
+        "precisaoperfeita": getItemRefino(slot) >= 10 ? 25 : 0,
+        "aspdp": getItemRefino(slot) >= 10 ? 10 : 0
+      }
+    }
+  },
+  {
     itemId:     "19029",
     itemNome:   "Miniatura de Alice [1] + mascote Alice leal",
     itemTipo:   "itemTopo",

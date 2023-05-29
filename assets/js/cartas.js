@@ -770,6 +770,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27103",
+    cartaNome:   "Carta Mortos-Vivos",
+    cartaSlot:   "itemArmadura",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": 20,
+        "atqarmap": hasCombo(slot, itemId, [["28510"]]) ? (parseInt(getItemRefino(slot) / 3)) : 0
+      }
+    }
+  },
+  {
     cartaID:     "4256",
     cartaNome:   "Carta Orc Arqueiro",
     cartaSlot:   "itemAcessorio",
