@@ -1,5 +1,16 @@
 var cartas = [
   {
+    cartaID:     "4359",
+    cartaNome:   "Carta Algoz Eremes",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+      }
+    }
+  },
+  {
     cartaID:     "4695",
     cartaNome:   "Carta Alma de Trentini",
     cartaSlot:   "itemArma",
@@ -322,6 +333,18 @@ var cartas = [
         "hpp": -2 + (parseInt(getItemRefino(slot) / 2) * (-1)),
         "danomagicop": 1 + parseInt(getItemRefino(slot) / 2),
         "atqarmap": 1 + parseInt(getItemRefino(slot) / 2)
+      }
+    }
+  },
+  {
+    cartaID:     "4564",
+    cartaNome:   "Carta Desordeira Gertie",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DMagico","REQ_Precisao"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "precisao": 20 + (getAtributoBase("sor") >= 110 ? 20 : 0)
       }
     }
   },

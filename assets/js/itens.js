@@ -4258,7 +4258,7 @@ var items = [
     itemNome:   "Luva Sombria de Musa",
     itemTipo:   "itemLuvaSombria",
     itemNivel:  99,
-    itemClasses: ["Classe_MU","Classe_SC_MU"],
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
     itemFuncao: function(slot, itemId) {
@@ -4272,7 +4272,7 @@ var items = [
     }
   },
   {
-    itemId:     "24295",
+    itemId:     "24299",
     itemNome:   "Luva Sombria de Trovador",
     itemTipo:   "itemLuvaSombria",
     itemNivel:  99,
@@ -4793,6 +4793,27 @@ var items = [
         "posconjuracao": (hasCombo(slot, itemId, [["22007","22116"]]) ? (-5) : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
         "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22007","22116"]])) >= 30 ? 10 : 0)) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "490191",
+    itemNome:   "Manuscrito dos Gatunos [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DMagico","REQ_DDist"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "posconjuracao": -6,
+        "danofisicotamanho": 6,
+        "danomagicotamanho": 6,
+        "danodistancia": (hasCombo(slot, itemId, [["18982"]]) ? 10 : 0) + (hasCombo(slot, itemId, [["18975"]]) ? 15 : 0),
+        "recargade--Destruidor_de_Almas": (hasCombo(slot, itemId, [["18982"]]) ? (-0.15) : 0),
+        "danode--Disparo_Triplo": (hasCombo(slot, itemId, [["18975"]]) ? 30 : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, [["4359"]]) ? 30 : 0),
+        "danomagicopropriedade": (hasCombo(slot, itemId, [["4564"]]) ? 30 : 0)
       }
     }
   },
