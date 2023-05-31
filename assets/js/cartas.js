@@ -1096,7 +1096,7 @@ var cartas = [
     }
   },
   {
-    cartaID:     "27184",
+    cartaID:     "27333",
     cartaNome:   "Carta Skia",
     cartaSlot:   "itemAcessorioE",
     cartaClasses: ["todas"],
