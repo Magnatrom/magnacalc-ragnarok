@@ -205,6 +205,26 @@ var items = [
     }
   },
   {
+    itemId:     "490290",
+    itemNome:   "Anel de Ameretat [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd","REQ_HP","REQ_SP","REQ_Precisao","REQ_Pos"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": 10 + (hasCombo(slot, itemId, [["4853"]]) ? 30 : 0),
+        "danomagicop": 10 + (hasCombo(slot, itemId, [["4856"]]) ? 30 : 0),
+        "aspdp": (hasCombo(slot, itemId, [["4854"]]) ? 15 : 0),
+        "hpp": (hasCombo(slot, itemId, [["4855"]]) ? 25 : 0),
+        "spp": (hasCombo(slot, itemId, [["4855"]]) ? 25 : 0),
+        "precisaoperfeita": (hasCombo(slot, itemId, [["4857"]]) ? 25 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, [["4858"]]) ? (-30) : 0)
+      }
+    }
+  },
+  {
     itemId:     "28596",
     itemNome:   "Anel de Brinquedo [1]",
     itemTipo:   "itemAcessorio",
@@ -3612,6 +3632,22 @@ var items = [
     }
   },
   {
+    itemId:     "490366",
+    itemNome:   "Estatueta Misteriosa [1]",
+    itemTipo:   "itemAcessorioE",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Pos","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "posconjuracao": -10,
+        "danofisicop": 10,
+        "danomagicop": 10
+      }
+    }
+  },
+  {
     itemId:     "19101",
     itemNome:   "Familiar de Combate",
     itemTipo:   "itemBaixo",
@@ -4124,6 +4160,29 @@ var items = [
         "atributointeligencia": 6,
         "atributovitalidade": 6,
         "atributosorte": -6,
+      }
+    }
+  },
+  {
+    itemId:     "610008",
+    itemNome:   "Katar Primordial [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Katar",
+    itemArmaATQ: 255,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 15,
+        "danode--Laminas_Retalhadoras": parseInt(getItemRefino(slot) / 3) * 10,
+        "danocritico": getItemRefino(slot) >= 7 ? 15 : 0,
+        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
+        "danofisicoraca": isOpponent("racaMonstro", ["3","11","10","5"]) ? (getItemRefino(slot) >= 9 ? 25 : 0) : 0,
+        "crit": (getItemRefino(slot) >= 11 ? 15 : 0)
       }
     }
   },
@@ -5322,6 +5381,23 @@ var items = [
         "danofisicop": 2,
         "danomagicop": 2,
         "conjuracaovariavel": -3
+      }
+    }
+  },
+  {
+    itemId:     "18934",
+    itemNome:   "Orelhas de Flor do Luar [1] - Ativado",
+    itemTipo:   "itemTopo",
+    itemNivel:  50,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_TCrit","REQ_DDist"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoagilidade": 2,
+        "aspdp": 10,
+        "crit": 100,
+        "danodistancia": 5 + (getItemRefino(slot) > 6 ? (getItemRefino(slot) - 6) : 0)
       }
     }
   },

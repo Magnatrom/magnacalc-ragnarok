@@ -571,6 +571,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27396",
+    cartaNome:   "Carta Isaac",
+    cartaSlot:   "itemCabeca",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Pos"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "posconjuracao": -5
+      }
+    }
+  },
+  {
     cartaID:     "4324",
     cartaNome:   "Carta Hatii",
     cartaSlot:   "itemArmadura",
@@ -579,6 +591,20 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
 
+      }
+    }
+  },
+  {
+    cartaID:     "300310",
+    cartaNome:   "Carta Helmut",
+    cartaSlot:   "itemArmadura",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atqarmap": hasCombo(slot, itemId, [["27333"]]) ? 3 : 0,
+        "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomelee": parseInt(getItemRefino(slot) / 3) * 4
       }
     }
   },
@@ -776,6 +802,27 @@ var cartas = [
       return {
         "danodistancia": 3,
         "aspdf": isTipoArma(slot, ["Arma_Arco"]) ? ((getItemRefino(slot) >= 10 ? 1 : 0) + (getItemRefino(slot) >= 14 ? 1 : 0)) : 0
+      }
+    }
+  },
+  {
+    cartaID:     "300308",
+    cartaNome:   "Carta Meyer",
+    cartaSlot:   "itemArmadura",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DMagico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danomagicop": hasCombo(slot, itemId, [["27331"]]) ? 3 : 0,
+        "danomagiconeutro": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicofogo": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicovento": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicoterra": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicoagua": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicosagrado": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicosombrio": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicoveneno": parseInt(getItemRefino(slot) / 3) * 4,
+        "danomagicofantasma": parseInt(getItemRefino(slot) / 3) * 4
       }
     }
   },
@@ -1045,6 +1092,19 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "danofisicoalvo": isOpponent("idMonstro",["1023","1273","1213","1153","1189","1152"]) ? 30 : 0
+      }
+    }
+  },
+  {
+    cartaID:     "27184",
+    cartaNome:   "Carta Skia",
+    cartaSlot:   "itemAcessorioE",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Aspd"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdp": 5,
+        "atqarmap": hasCombo(slot, itemId, [["27197"]]) ? 5 : 0
       }
     }
   },
