@@ -3493,6 +3493,26 @@ var items = [
     }
   },
   {
+    itemId:     "28962",
+    itemNome:   "Escudo de Divino",
+    itemTipo:   "itemEscudo",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_Aspd","REQ_HP","REQ_SP","REQ_DDist","REQ_Pos"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": (hasCombo(slot, itemId, [["4853"]]) ? 15 : 0),
+        "danomagicop": (hasCombo(slot, itemId, [["4856"]]) ? 15 : 0),
+        "aspdp": (hasCombo(slot, itemId, [["4854"]]) ? 15 : 0),
+        "hpp": (hasCombo(slot, itemId, [["4855"]]) ? 15 : 0),
+        "spp": (hasCombo(slot, itemId, [["4855"]]) ? 15 : 0),
+        "danodistancia": (hasCombo(slot, itemId, [["4857"]]) ? 15 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, [["4858"]]) ? (-15) : 0)
+      }
+    }
+  },
+  {
     itemId:     "28941",
     itemNome:   "Escudo E.X.C [1]",
     itemTipo:   "itemEscudo",
