@@ -714,7 +714,8 @@ function calcularAspd() {
   // Pendente: Adicionar skills de ASPD
   Skill_P = 0;
   if(hasBuff("359") && (buildAtual.ataque.tipoAtaque == "basico" || buildAtual.ataque.tipoAtaque == "basicocritico")) { Skill_P += 30; } // Frenesi
-  if(hasBuff("2350")) { Skill_P += 25; } // Frenesi
+  if(hasBuff("2350")) { Skill_P += 25; } // Ritmo Contagiante
+  if(hasBuff("258") && isTipoArma("itemMaoDireita", ["Arma_Lanca1"])) { Skill_P += 30; } // Rapidez com Lança
   Base_Aspd = (parseInt((200 - (200 - (Job_ASPD + Shield_Penalty - ASPD_Correction + Math.sqrt((Total_AGI * 9.9987) + (Total_DEX * 0.1922)) * Aspd_Penalty)) * (1 - (Speed_Potion / 100) - (Skill_P / 100))) * 1000) / 1000);
   ASPD_Equipment_P = (parseInt(((195 - Base_Aspd) * (Equips_P / 100)) * 100) / 100);
   Final_ASPD = Math.min(Base_Aspd + ASPD_Equipment_P + Equips_F, 193);
@@ -754,6 +755,12 @@ function calcular() {
     bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.12);
   }
   if(hasBuff("380b") && !hasBuff("380a")) { bonusConsolidados.atributoforca += 5; bonusConsolidados.atributoagilidade += 5; bonusConsolidados.atributovitalidade += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributosorte += 5; }
+
+
+  if(hasBuff("258") && isTipoArma("itemMaoDireita", ["Arma_Lanca1"])) {
+    bonusConsolidados.esquiva = bonusConsolidados.esquiva ? (bonusConsolidados.esquiva + 20) : 0;
+    bonusConsolidados.crit = bonusConsolidados.crit ? (bonusConsolidados.crit + 30) : 0;
+  } // Rapidez com Lança
 
   $("input#bonusFor").val((bonusConsolidados.atributoforca >= 0 ? "+" : "") + bonusConsolidados.atributoforca);
   $("input#bonusAgi").val((bonusConsolidados.atributoagilidade >= 0 ? "+" : "") + bonusConsolidados.atributoagilidade);

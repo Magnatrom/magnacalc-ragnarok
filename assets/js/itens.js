@@ -3040,7 +3040,7 @@ var items = [
     itemTipo:   "itemColarSombrio",
     itemNivel:  1,
     itemClasses: ["todas"],
-    itemBonus: ["REQ_HP","REQ_Chuva_de_Flechas"],
+    itemBonus: ["REQ_HP","REQ_Chuva_de_Flechas","REQ_DFisico"],
     slots: 0,
     itemFuncao: function(slot, itemId) {
       return {
@@ -6908,10 +6908,10 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId) {
       return {
-        "danofisicoraca": isOpponent("racaMonstro",["0","5","10","11"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danomagicoraca": isOpponent("racaMonstro",["0","5","10","11"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danofisicopropriedade": isOpponent("propriedadeMonstro",["10","11","12","13","40","41","42","43"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danomagicopropriedade": isOpponent("propriedadeMonstro",["10","11","12","13","40","41","42","43"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("racaMonstro",["0","5","10","11"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danomagicoraca": isOpponent("racaMonstro",["0","5","10","11"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro",["10","11","12","13","40","41","42","43"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danomagicopropriedade": isOpponent("propriedadeMonstro",["10","11","12","13","40","41","42","43"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
       }
     }
   },
@@ -6925,10 +6925,10 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId) {
       return {
-        "danofisicoraca": isOpponent("racaMonstro",["2","9"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danomagicoraca": isOpponent("racaMonstro",["2","9"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danofisicopropriedade": isOpponent("propriedadeMonstro",["50","51","52","53","80","81","82","83"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danomagicopropriedade": isOpponent("propriedadeMonstro",["50","51","52","53","80","81","82","83"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("racaMonstro",["2","9"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danomagicoraca": isOpponent("racaMonstro",["2","9"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro",["50","51","52","53","80","81","82","83"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danomagicopropriedade": isOpponent("propriedadeMonstro",["50","51","52","53","80","81","82","83"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
       }
     }
   },
@@ -6942,10 +6942,10 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId) {
       return {
-        "danofisicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danomagicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danofisicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
-        "danomagicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danomagicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danomagicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
       }
     }
   },

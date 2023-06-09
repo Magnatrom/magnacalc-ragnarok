@@ -66,7 +66,7 @@ let buffs = [
         skillID: 258,
         skillName: "Rapidez com Lança",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: 23,
