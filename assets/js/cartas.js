@@ -569,6 +569,24 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4682",
+    cartaNome:   "Carta Guardião Real Randel",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isClasse(["Classe_RG","Classe_RG_NT"]) ? 10 : 0,
+        "atributoforca": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0),
+        "atributoagilidade": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0),
+        "atributovitalidade": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0),
+        "atributointeligencia": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0),
+        "atributodestreza": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0),
+        "atributosorte": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4430",
     cartaNome:   "Carta Ifrit",
     cartaSlot:   "itemAcessorio",
