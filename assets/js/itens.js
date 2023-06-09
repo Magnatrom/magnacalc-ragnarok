@@ -3896,6 +3896,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
     itemBonus: ["REQ_DFisico","REQ_HP"],
     slots: 0,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     itemFuncao: function(slot, itemId) {
       return {
         "hpf": 800,
@@ -3916,6 +3917,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
     itemBonus: ["REQ_DFisico","REQ_HP"],
     slots: 3,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     itemFuncao: function(slot, itemId) {
       return {
         "hpf": 800,
@@ -4498,6 +4500,46 @@ var items = [
     }
   },
   {
+    itemId:     "1421",
+    itemNome:   "Lança de Gancho [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 140,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  65,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 20 : 0
+      }
+    }
+  },
+  {
+    itemId:     "1440",
+    itemNome:   "Lança de Gancho [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 140,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  65,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 20 : 0
+      }
+    }
+  },
+  {
     itemId:     "530028",
     itemNome:   "Lança de Glast Heim [1]",
     itemTipo:   "itemArma",
@@ -4514,6 +4556,26 @@ var items = [
       return {
         "posconjuracao": getItemRefino(slot) * (-2),
         "danode--Luz_da_Criacao": parseInt(Math.min(getNivelBase(), 150) / 5),
+      }
+    }
+  },
+  {
+    itemId:     "1447",
+    itemNome:   "Lança Peçonhenta [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 150,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel: 100,
+    itemPropriedade: 5,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "crit": 10
       }
     }
   },
@@ -5931,6 +5993,26 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
 
+      }
+    }
+  },
+  {
+    itemId:     "32013",
+    itemNome:   "Perna de Metal [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 180,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Disparo_Perfurante": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+        "posconjuracao": getItemRefino(slot) >= 12 ? (-15) : 0
       }
     }
   },
