@@ -427,12 +427,28 @@ let itemBonuses = {
     "nome": "Dano de Impacto Meteoro",
     "porcentagem": true
   },
-  "variavelde--Impacto_Meteoro": {
+  "variavelpde--Impacto_Meteoro": {
     "nome": "Conjuração variável de Impacto Meteoro",
     "porcentagem": true
   },
   "danode--Soco_Furacao": {
     "nome": "Dano de Soco Furacão",
     "porcentagem": true
+  },
+  "danode--Aegis_Inferi": {
+    "nome": "Dano de Aegis Inferi",
+    "porcentagem": true
+  },
+  "variavelfde--Aegis_Inferi": {
+    "nome": "Conjuração variável de Aegis Inferi",
+    "porcentagem": false
+  },
+  "pesoEscudo": {
+    "nome": "Peso",
+    "porcentagem": false
+  },
+  "defesaEscudo": {
+    "nome": "Defesa",
+    "porcentagem": false
   },
 }

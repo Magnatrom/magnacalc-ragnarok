@@ -549,7 +549,30 @@ var classes = [
         penalidade: -10
       }
     ],
-    classeBuilds: []
+    classeBuilds: [
+      {
+        id: "Aegis_Inferi",
+        nome: "Aegis Inferi",
+        maoDireita: ["Arma_Lanca1","Arma_Espada1","Arma_Adaga","Arma_Machado1","Arma_Maca"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: 2,
+          conjuracaovariavel: 1,
+          conjuracaofixa: 0,
+          posconjuracao: 1,
+          recarga: 3,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse) {
+          prop.pesoEscudo = prop.pesoEscudo ? prop.pesoEscudo : 0;
+          return ((6 * prop.pesoEscudo) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Aegis_Inferi","REQ_CVar","REQ_Pos"]
+      }
+    ]
   },
   {
     classeID: "Classe_SU",

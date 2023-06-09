@@ -598,6 +598,10 @@ function definirBonusItens() {
         }
       });
 
+      if(slot == "itemMaoEsquerda" && item.itemTipo == "itemEscudo") {
+        todosItensSelecionados[slot]["pesoEscudo"] = item.itemPeso;
+      }
+
     }
   });
 
@@ -627,12 +631,23 @@ function definirBonusItens() {
       $.each(valueTodosItens, function(indexBonus, valueBonus) {
         if(valueBonus) {
           let bonusRuim = "";
-          if(((["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(indexBonus) || indexBonus.indexOf("recargade--") >= 0 || indexBonus.indexOf("variavelde--" || indexBonus.indexOf("fixade--") >= 0) >= 0) && (valueBonus > 0)) || (!(["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(indexBonus) || indexBonus.indexOf("recargade--") >= 0) & (valueBonus < 0))) {
+          if(
+            ((["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(indexBonus) || indexBonus.indexOf("recargade--") >= 0 || indexBonus.indexOf("variavelfde--") >= 0 || indexBonus.indexOf("variavelpde--") >= 0 || indexBonus.indexOf("fixade--") >= 0) && (valueBonus > 0))
+            ||
+            (!(["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(indexBonus) || indexBonus.indexOf("recargade--") >= 0 || indexBonus.indexOf("variavelfde--") >= 0 || indexBonus.indexOf("variavelpde--") >= 0 || indexBonus.indexOf("fixade--") >= 0) & (valueBonus < 0))
+          ) {
             bonusRuim = `style="color:#ea2465"`;
           }
           if(!(indexBonus.indexOf("--") >= 0 && indexBonus.replace(indexBonus.substr(0,indexBonus.indexOf("--")) + "--","") != buildAtual.id.split("--")[0])) {
             elemento.append(
-              `<div class="col-12"><span>${getItemBonusName(indexBonus)}:</span><span ${bonusRuim}>${valueBonus > 0 ? "+" : ""}${valueBonus}${isItemBonusPercentage(indexBonus) ? "%" : ""}</span></div>`
+              `
+                <div class="col-12">
+                  <span>${getItemBonusName(indexBonus)}:</span>
+                  <span ${bonusRuim}>
+                    ${valueBonus > 0 ? "+" : ""}${valueBonus}${isItemBonusPercentage(indexBonus) ? "%" : ""}${indexBonus.indexOf("variavelfde--") >= 0 || indexBonus.indexOf("conjuracaofixas--") >= 0 ? "s" : ""}
+                  </span>
+                </div>
+              `
             )
           }
         }
@@ -774,7 +789,8 @@ function calcular() {
   let refinoArmaAtual = getItemRefino("itemMaoDireita");
 
   let propriedadeAtaque = parseInt($("#municao").val());
-  if($("#propriedadeConversor").val() != "") { propriedadeAtaque = parseInt($("#propriedadeConversor").val()); }
+  if($("#propriedadeConversor").val() != "") { propriedadeAtaque = parseInt($("#propriedadeConversor").val()); } // Lendo conversor
+  if(buildAtual.ataque.propriedade !== false) { propriedadeAtaque = buildAtual.ataque.propriedade; } // Lendo propriedade da skill
   let vantagemElemento = getVantagemElemental(propriedadeAtaque);
 
   let statusAtq = 0;
@@ -919,7 +935,7 @@ function calcular() {
   let intervaloEntreAtaques = 1 / golpesPorSegundo;
 
   if(buildAtual.ataque.conjuracaovariavel > 0 || buildAtual.ataque.conjuracaofixa > 0 || buildAtual.ataque.posconjuracao > 0 || buildAtual.ataque.recarga > 0) {
-    let conjuracaovariavel = (buildAtual.ataque.conjuracaovariavel || 0) * Math.max(1 + getBonusPercentage(bonusConsolidados.conjuracaovariavel), 0) * Math.max(1 - (((bonusConsolidados.atributodestreza || 0) * 2 + (bonusConsolidados.atributointeligencia || 0)) / 530), 0);
+    let conjuracaovariavel = ((buildAtual.ataque.conjuracaovariavel || 0) + (bonusConsolidados["variavelfde--" + (buildAtual.id.split("--")[0])] || 0)) * Math.max(1 + (bonusConsolidados["variavelpde--" + (buildAtual.id.split("--")[0])] || 0), 0) * Math.max(1 + getBonusPercentage(bonusConsolidados.conjuracaovariavel), 0) * Math.max(1 - (((bonusConsolidados.atributodestreza || 0) * 2 + (bonusConsolidados.atributointeligencia || 0)) / 530), 0);
     let conjuracaofixa = (Math.max((buildAtual.ataque.conjuracaofixa || 0) + (bonusConsolidados.conjuracaofixas || 0), 0) * (1 + (menorconjuracaofixaP / 100)));
     let posconjuracao = (buildAtual.ataque.posconjuracao || 0) * (1 + (Math.max((bonusConsolidados.posconjuracao || 0), -100) / 100));
     let recarga = Math.max((buildAtual.ataque.recarga || 0) + (bonusConsolidados["recargade--" + (buildAtual.id.split("--")[0])] || 0), 0);

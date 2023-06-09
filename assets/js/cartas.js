@@ -11,6 +11,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4690",
+    cartaNome:   "Carta Alma de Randel",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Aegis_Inferi"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Aegis_Inferi": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4695",
     cartaNome:   "Carta Alma de Trentini",
     cartaSlot:   "itemArma",
@@ -339,7 +351,7 @@ var cartas = [
   {
     cartaID:     "4564",
     cartaNome:   "Carta Desordeira Gertie",
-    cartaSlot:   "itemCapa",
+    cartaSlot:   "itemArmadura",
     cartaClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DMagico","REQ_Precisao"],
     itemFuncao: function(slot, itemId) {

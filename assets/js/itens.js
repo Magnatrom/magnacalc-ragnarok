@@ -205,6 +205,27 @@ var items = [
     }
   },
   {
+    itemId:     "32263",
+    itemNome:   "Anel da Égide [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Aegis_Inferi","REQ_Pos"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 10,
+        "atributointeligencia": 10,
+        "atributodestreza": 10,
+        "danofisicop": 5,
+        "atq": 100,
+        "posconjuracao": -30,
+        "recargade--Aegis_Inferi": -1.5,
+        "variavelfde--Aegis_Inferi": -0.5
+      }
+    }
+  },
+  {
     itemId:     "490290",
     itemNome:   "Anel de Ameretat [1]",
     itemTipo:   "itemAcessorio",
@@ -1559,7 +1580,7 @@ var items = [
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "danofisicop": 20,
         "danode--Impacto_Meteoro": 300 + (getItemRefino(slot) >= 5 ? getNivelBase() : 0) + (getItemRefino(slot) >= 7 ? getNivelBase() : 0),
-        "variavelde--Impacto_Meteoro": -100,
+        "variavelpde--Impacto_Meteoro": -100,
         "ignoredef": 100
       }
     }
@@ -1626,6 +1647,44 @@ var items = [
         "danodistancia": hasCombo(slot, itemId, [["18122"]]) ? (parseInt(getAtributoBase("for") / 10) * 3) : 0,
         "danode--Tempestade_de_Flechas": hasCombo(slot, itemId, [["18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0,
         "danode--Disparo_Certeiro": hasCombo(slot, itemId, [["18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "22207",
+    itemNome:   "Botas Imperiais",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_Toque_do_Oblivio","REQ_DFisico","REQ_IgnDef"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "danodistancia": (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danode--Toque_do_Oblivio": 50,
+        "danofisicop": 20,
+        "ignoredef": 100
+      }
+    }
+  },
+  {
+    itemId:     "470004",
+    itemNome:   "Botas Imperiais [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_Toque_do_Oblivio","REQ_DFisico","REQ_IgnDef"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "danodistancia": (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danode--Toque_do_Oblivio": 50,
+        "danofisicop": 20,
+        "ignoredef": 100
       }
     }
   },
@@ -2213,8 +2272,25 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId) {
       return {
-        "hpf": (getItemRefino(slot) * 10) + (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
         "danofisicoraca": (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "24246",
+    itemNome:   "Brinco Sombrio de Espadachim",
+    itemTipo:   "itemBrincoSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": (hasCombo(slot, itemId, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
       }
     }
   },
@@ -2228,7 +2304,8 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId) {
       return {
-        "hpf": (getItemRefino(slot) * 10) + (hasCombo(slot, itemId, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": (hasCombo(slot, itemId, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
         "danofisicoraca": (hasCombo(slot, itemId, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
       }
     }
@@ -2973,6 +3050,21 @@ var items = [
     }
   },
   {
+    itemId:     "24250",
+    itemNome:   "Colar Sombrio de Espadachim",
+    itemTipo:   "itemColarSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_Impacto_Explosivo"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Impacto_Explosivo": 20 + (getItemRefino(slot) * 5)
+      }
+    }
+  },
+  {
     itemId:     "24253",
     itemNome:   "Colar Sombrio de Gatuno",
     itemTipo:   "itemColarSombrio",
@@ -3409,6 +3501,8 @@ var items = [
     itemId:     "460000",
     itemNome:   "Égide das Divindades [1]",
     itemTipo:   "itemEscudo",
+    itemDefesa: 150,
+    itemPeso: 120,
     itemNivel:  99,
     itemClasses: ["todas"],
     itemBonus: ["REQ_Cura","REQ_Pos"],
@@ -3463,6 +3557,8 @@ var items = [
     itemId:     "460023",
     itemNome:   "Escudo da Fênix [1]",
     itemTipo:   "itemEscudo",
+    itemDefesa: 170,
+    itemPeso: 400,
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DCorp"],
@@ -3476,9 +3572,33 @@ var items = [
     }
   },
   {
+    itemId:     "28921",
+    itemNome:   "Escudo de Anemos [1]",
+    itemTipo:   "itemEscudo",
+    itemDefesa: 150,
+    itemPeso: 350,
+    itemNivel:  90,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23"]) ? (5 + (getItemRefino(slot) >= 8 ? 10 : 0)) : 0,
+        "danomagicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23"]) ? (5 + (getItemRefino(slot) >= 8 ? 10 : 0)) : 0,
+        "atq": (getItemRefino(slot) >= 10 && getAtributoBase("for") >= 90 ? 50 : 0),
+        "atqm": (getItemRefino(slot) >= 10 && getAtributoBase("int") >= 90 ? 30 : 0),
+        "aspdp": (getItemRefino(slot) >= 10 && getAtributoBase("agi") >= 90 ? 5 : 0),
+        "conjuracaovariavel": (getItemRefino(slot) >= 10 && getAtributoBase("des") >= 90 ? (-5) : 0),
+        "danocritico": (getItemRefino(slot) >= 10 && getAtributoBase("sor") >= 90 ? 5 : 0)
+      }
+    }
+  },
+  {
     itemId:     "460003",
     itemNome:   "Escudo de Penas [1]",
     itemTipo:   "itemEscudo",
+    itemDefesa: 150,
+    itemPeso: 40,
     itemNivel:  90,
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Pos","REQ_DFisico","REQ_DMagico"],
@@ -3494,8 +3614,10 @@ var items = [
   },
   {
     itemId:     "28962",
-    itemNome:   "Escudo de Divino",
+    itemNome:   "Escudo Divino",
     itemTipo:   "itemEscudo",
+    itemDefesa: 100,
+    itemPeso: 60,
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Aspd","REQ_HP","REQ_SP","REQ_DDist","REQ_Pos"],
@@ -3516,6 +3638,8 @@ var items = [
     itemId:     "28941",
     itemNome:   "Escudo E.X.C [1]",
     itemTipo:   "itemEscudo",
+    itemDefesa: 95,
+    itemPeso: 120,
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_DMagico","REQ_EP","REQ_Aspd"],
@@ -3550,6 +3674,31 @@ var items = [
         "esquiva": isClasse(["Classe_CR","Classe_MF","Classe_SN","Classe_MI","Classe_GY","Classe_JU","Classe_BI","Classe_BI_NT","Classe_MC","Classe_MC_NT","classe_SE","Classe_SE_NT","Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT","Classe_IN"]) ? 15 : 0,
         "spf": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? 300 : 0,
         "conjuracaovariavel": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? (-5) : 0
+      }
+    }
+  },
+  {
+    itemId:     "24302",
+    itemNome:   "Escudo Sombrio de Guardião Real",
+    itemTipo:   "itemEscudoSombrio",
+    itemNivel:  99,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aegis_Inferi"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Aegis_Inferi": 20 + (getItemRefino(slot) * 5),
+        "hpp": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0
       }
     }
   },
@@ -3735,6 +3884,72 @@ var items = [
     }
   },
   {
+    itemId:     "1414",
+    itemNome:   "Gelerdria",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 145,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  48,
+    itemPropriedade: 2,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico","REQ_HP"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": 800,
+        "spf": -50
+      }
+    }
+  },
+  {
+    itemId:     "1449",
+    itemNome:   "Gelerdria [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 145,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  48,
+    itemPropriedade: 2,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico","REQ_HP"],
+    slots: 3,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": 800,
+        "spf": -50
+      }
+    }
+  },
+  {
+    itemId:     "13465",
+    itemNome:   "Gládio da Nobreza [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 170,
+    itemArmaATQM: 130,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 9,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId) {
+      temDrake = true;
+      return {
+        "crit": 30,
+        "esquiva": 20,
+        "aspdp": 30,
+        "danode--Golpe_Fulminante": getItemRefino(slot) * 20,
+        "danode--Crux_Magnum": getItemRefino(slot) * 20,
+        "danode--Crux_Divinum": getItemRefino(slot) * 20,
+        "efetividadecura": (getItemRefino(slot) >= 6 ? 40 : 0) + (getItemRefino(slot) >= 8 ? 40 : 0)
+      }
+    }
+  },
+  {
     itemId:     "22178",
     itemNome:   "Grevas do Poder [1]",
     itemTipo:   "itemSapatos",
@@ -3796,6 +4011,20 @@ var items = [
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
+      }
+    }
+  },
+  {
+    itemId:     "24257",
+    itemNome:   "Greva Sombria de Templário",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_PA"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10)
       }
     }
   },
@@ -4246,6 +4475,74 @@ var items = [
     }
   },
   {
+    itemId:     "32018",
+    itemNome:   "Lança Ancestral [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 180,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Precisao"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 10,
+        "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
+        "aspdp": getItemRefino(slot) >= 9 ? 10 : 0,
+        "danode--Disparo_Perfurante": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 20 : 0),
+        "danode--Toque_do_Oblivio": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 20 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "530028",
+    itemNome:   "Lança de Glast Heim [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 110,
+    itemArmaATQM: 180,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "posconjuracao": getItemRefino(slot) * (-2),
+        "danode--Luz_da_Criacao": parseInt(Math.min(getNivelBase(), 150) / 5),
+      }
+    }
+  },
+  {
+    itemId:     "530006",
+    itemNome:   "Lança Primordial [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 195,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Precisao"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 15,
+        "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
+        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
+        "danode--Disparo_Perfurante": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
+        "danode--Toque_do_Oblivio": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
+        "spp": getItemRefino(slot) >= 11 ? 5 : 0,
+        "precisaoperfeita": getItemRefino(slot) >= 11 ? 7 : 0
+      }
+    }
+  },
+  {
     itemId:     "28502",
     itemNome:   "Lenço Infame",
     itemTipo:   "itemBaixo",
@@ -4333,6 +4630,22 @@ var items = [
     }
   },
   {
+    itemId:     "24289",
+    itemNome:   "Luva Sombria de Guardião Real",
+    itemTipo:   "itemLuvaSombria",
+    itemNivel:  99,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Disparo_Perfurante"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": getItemRefino(slot),
+        "atqm": getItemRefino(slot),
+        "danode--Disparo_Perfurante": 20 + (getItemRefino(slot) * 5)
+      }
+    }
+  },
+  {
     itemId:     "24300",
     itemNome:   "Luva Sombria de Musa",
     itemTipo:   "itemLuvaSombria",
@@ -4383,6 +4696,33 @@ var items = [
         "atqarmap": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
         "danomagicop": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
         "danodistancia": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "16051",
+    itemNome:   "Maça da Valquíria Mágica [4]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 50,
+    itemArmaATQM: 50,
+    itemArmaNivel: 4,
+    itemNivel:  70,
+    itemPropriedade: false,
+    itemClasses: ["Classe_SA","Classe_CR","Classe_MF","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_LO","Classe_PA","Classe_RK","Classe_RK","Classe_RG","Classe_RG_NT","Classe_AB","Classe_SH","Classe_AB_NT","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_EP"],
+    slots: 4,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (isClasse(["Classe_SA"]) ? 150 : 0) + (isClasse(["Classe_AB","Classe_AB_NT"]) ? 50 : 0) + (isClasse(["Classe_CR","Classe_MF","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"]) ? 100 : 0),
+        "atqm": (isClasse(["Classe_SA"]) ? 200 : 0) + (isClasse(["Classe_AB","Classe_AB_NT"]) ? 100 : 0),
+        "precisao": (isClasse(["Classe_SA","Classe_CR","Classe_MF","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"]) ? 10 : 0),
+        "hpf": (isClasse(["Classe_SA","Classe_LO","Classe_PA","Classe_RK","Classe_RK","Classe_RG","Classe_RG_NT"]) ? 500 : 0) + (isClasse(["Classe_SA"]) ? (Math.min(getItemRefino(slot), 10) * 200) : 0),
+        "spf": (isClasse(["Classe_SA"]) ? 400 : 0) + (isClasse(["Classe_LO","Classe_PA","Classe_RK","Classe_RK","Classe_RG","Classe_RG_NT"]) ? 100 : 0) + (isClasse(["Classe_SH","Classe_SH_NT"]) ? 200 : 0),
+        "atributovitalidade": (isClasse(["Classe_SA","Classe_LO","Classe_PA","Classe_RK","Classe_RK","Classe_RG","Classe_RG_NT"]) ? Math.min(getItemRefino(slot), 10) : 0),
+        "esquivaperfeita": (isClasse(["Classe_SA","Classe_SH","Classe_SH_NT"]) ? Math.min(getItemRefino(slot), 10) : 0),
+        "aspdp": (isClasse(["Classe_SA","Classe_AB","Classe_AB_NT"]) ? Math.min(getItemRefino(slot), 10) : 0),
+        "conjuracaovariavel": (isClasse(["Classe_SA","Classe_CR","Classe_MF","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"]) ? parseInt(Math.min(getItemRefino(slot), 10) / (-2)) : 0),
       }
     }
   },
@@ -4469,6 +4809,22 @@ var items = [
       return {
         "hpf": (getItemRefino(slot) * 10),
         "aspdp": 50
+      }
+    }
+  },
+  {
+    itemId:     "24276",
+    itemNome:   "Malha Sombria de Templário",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_PA"],
+    itemBonus: ["REQ_HP","REQ_DFisico","REQ_Crux_Magnum","REQ_Crux_Divinum"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Crux_Magnum": 20 + (getItemRefino(slot) * 5),
+        "danode--Crux_Divinum": hasCombo(slot, itemId, [["24257"]]) ? 20 : 0
       }
     }
   },
@@ -5025,7 +5381,7 @@ var items = [
         "atributodestreza": 3,
         "atributosorte": 3,
         "recargade--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-1) : 0,
-        "variavelde--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-100) : 0,
+        "variavelpde--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-100) : 0,
         "posconjuracao": hasCombo(slot, itemId, [["18983","18978","18972","18973"]]) ? (-20) : 0,
         "recargade--Disparo_Perfurante": hasCombo(slot, itemId, [["18983"]]) ? (-1) : 0,
         "recargade--Meteoro_Escarlate": hasCombo(slot, itemId, [["18978"]]) ? (-1) : 0,
@@ -5034,10 +5390,10 @@ var items = [
         "conjuracaofixas": (hasCombo(slot, itemId, [["18982","18974"]]) ? (-0.3) : 0) + (hasCombo(slot, itemId, [["18977"]]) ? (-0.5) : 0),
         "ignoredef": hasCombo(slot, itemId, [["18975","18976","18981"]]) ? 70 : 0,
         "ignoredefm": hasCombo(slot, itemId, [["18972"]]) ? 70 : 0,
-        "variavelde--Tempestade_Espiritual": hasCombo(slot, itemId, [["18979"]]) ? (-100) : 0,
+        "variavelpde--Tempestade_Espiritual": hasCombo(slot, itemId, [["18979"]]) ? (-100) : 0,
         "recargade--Furia_do_Furacao": hasCombo(slot, itemId, [["18973"]]) ? (-1) : 0,
-        "variavelde--Canhao_de_Protons": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
-        "variavelde--Bomba_Napalm": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
+        "variavelpde--Canhao_de_Protons": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
+        "variavelpde--Bomba_Napalm": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
         "recargade--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, [["18976","18981"]]) ? (-1) : 0,
       }
     }
@@ -5503,6 +5859,26 @@ var items = [
         "danomagicofogo": (parseInt(getAtributoBase("int") / 12) * 2),
         "danomagicoterra": (parseInt(getAtributoBase("des") / 12) * 2),
         "danomagicosagrado": (parseInt(getAtributoBase("sor") / 12) * 2)
+      }
+    }
+  },
+  {
+    itemId:     "28506",
+    itemNome:   "Pedra Tempestuosa [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  90,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": hasCombo(slot, itemId, [["15037"]]) && getItemRefino("itemArmadura") >= 7 ? 15 : 0,
+        "spp": 5 + (hasCombo(slot, itemId, [["2884"]]) ? 5 : 0),
+        "atqarmap": 5 + (hasCombo(slot, itemId, [["2884"]]) ? 5 : 0),
+        "aspdp": 5 + (hasCombo(slot, itemId, [["2884"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["2476"]]) && getItemRefino("itemSapatos") >= 7 ? 10 : 0),
+        "danode--Vento_Cortante": hasCombo(slot, itemId, [["1414","1449"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
+        "danofisicochefe": hasCombo(slot, itemId, [["1414","1449"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
+        "danofisicopropriedade": hasCombo(slot, itemId, [["1414","1449"]]) && isOpponent("racaMonstro", ["6","8"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
       }
     }
   },
@@ -6006,6 +6382,24 @@ var items = [
     }
   },
   {
+    itemId:     "28922",
+    itemNome:   "Sancti Ilusional [1]",
+    itemTipo:   "itemEscudo",
+    itemDefesa: 190,
+    itemPeso: 160,
+    itemNivel:  120,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_Aegis_Inferi"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributointeligencia": 2,
+        "atributovitalidade": 3,
+        "danode--Aegis_Inferi": getItemRefino(slot) * 7
+      }
+    }
+  },
+  {
     itemId:     "22214",
     itemNome:   "Sapatos de Salto Dourado",
     itemTipo:   "itemSapatos",
@@ -6371,6 +6765,27 @@ var items = [
     }
   },
   {
+    itemId:     "700069",
+    itemNome:   "Triangularco [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 160,
+    itemArmaATQM: 170,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    slots: 1,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_Disparo_Triplo"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Disparo_Triplo": getNivelBase(),
+        "atributoagilidade": getItemRefino(slot) * 3,
+        "atributodestreza": getItemRefino(slot) * 3,
+      }
+    }
+  },
+  {
     itemId:     "2295",
     itemNome:   "Venda",
     itemTipo:   "itemMeio",
@@ -6449,6 +6864,28 @@ var items = [
         "danomagicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
         "danomagicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "500003",
+    itemNome:   "Vingadora Ancestral [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 130,
+    itemArmaATQM: 170,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: false,
+    itemClasses: ["Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 10,
+        "danode--Luz_da_Criacao": parseInt(getItemRefino(slot) / 3) * 5,
+        "conjuracaovariavel": getItemRefino(slot) >= 9 ? (-10) : 0,
+        "danomagicosagrado": getItemRefino(slot) >= 11 ? 15 : 0,
       }
     }
   },
