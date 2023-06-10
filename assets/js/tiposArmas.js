@@ -66,8 +66,8 @@ var tiposArmas = [
     maos: 2
   },
   {
-    armaId: "Livro",
-    armaNome: "Arma_Livro",
+    armaId: "Arma_Livro",
+    armaNome: "Livro",
     armaPenalidades: [1, 1, 0.5],
     maos: 1
   },
@@ -84,8 +84,8 @@ var tiposArmas = [
     maos: 2
   },
   {
-    armaId: "Maça",
-    armaNome: "Arma_Maca",
+    armaId: "Arma_Maca",
+    armaNome: "Maça",
     armaPenalidades: [0.75, 1, 1],
     maos: 1
   },
