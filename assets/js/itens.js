@@ -957,8 +957,8 @@ var items = [
       return {
         "danode--Disparo_Triplo": parseInt(Math.min(getNivelBase(), 150) / 10) * 5,
         "aspdp": parseInt(getItemRefino(slot) / 2) * 2,
-        "atributoagilidade": getItemRefino(slot) * 3,
-        "atributodestreza": getItemRefino(slot) * 3,
+        "atributoagilidade": parseInt(getItemRefino(slot) / 2) * 3,
+        "atributodestreza": parseInt(getItemRefino(slot) / 2) * 3,
       }
     }
   },
@@ -4797,7 +4797,7 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "atq": (getItemRefino(slot)),
-        "danode--Disparo_Triplo": 10 + (getItemRefino(slot) * 5) + (hasCombo(slot, itemId, [["24308"]]) ? 20 : 0),
+        "danode--Disparo_Triplo": 20 + (getItemRefino(slot) * 5) + (hasCombo(slot, itemId, [["24308"]]) ? 20 : 0),
         "atqarmap": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
         "danomagicop": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
         "danodistancia": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
