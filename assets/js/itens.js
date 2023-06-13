@@ -941,6 +941,49 @@ var items = [
     }
   },
   {
+    itemId:     "700069a",
+    itemNome:   "Arco Moderno [1] (bRO)",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 160,
+    itemArmaATQM: 170,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    slots: 1,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_Disparo_Triplo"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Disparo_Triplo": parseInt(Math.min(getNivelBase(), 150) / 10) * 5,
+        "aspdp": parseInt(getItemRefino(slot) / 2) * 2,
+        "atributoagilidade": getItemRefino(slot) * 3,
+        "atributodestreza": getItemRefino(slot) * 3,
+      }
+    }
+  },
+  {
+    itemId:     "700069b",
+    itemNome:   "Arco Moderno [1] (jRO)",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 160,
+    itemArmaATQM: 170,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    slots: 1,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_Disparo_Triplo"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Disparo_Triplo": getNivelBase(),
+        "atributoagilidade": getItemRefino(slot) * 3,
+        "atributodestreza": getItemRefino(slot) * 3,
+      }
+    }
+  },
+  {
     itemId:     "18130",
     itemNome:   "Arco Rubi [2]",
     itemTipo:   "itemArma",
@@ -6843,27 +6886,6 @@ var items = [
       return {
         "danodistancia": 2 + (getItemRefino(slot) >= 8 ? 2 : 0) + (getItemRefino(slot) >= 9 ? 3 : 0) + ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? 20 : 0),
         "aspdf": ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? (getItemRefino("itemMaoDireita") >= 10 ? 1 : 0) : 0)
-      }
-    }
-  },
-  {
-    itemId:     "700069",
-    itemNome:   "Triangularco [1]",
-    itemTipo:   "itemArma",
-    itemSubtipo: "Arma_Arco",
-    itemArmaATQ: 160,
-    itemArmaATQM: 170,
-    itemArmaNivel: 4,
-    itemNivel:  100,
-    itemPropriedade: 0,
-    slots: 1,
-    itemClasses: ["Classe_SC","Classe_SC_NT"],
-    itemBonus: ["REQ_Disparo_Triplo"],
-    itemFuncao: function(slot, itemId) {
-      return {
-        "danode--Disparo_Triplo": getNivelBase(),
-        "atributoagilidade": getItemRefino(slot) * 3,
-        "atributodestreza": getItemRefino(slot) * 3,
       }
     }
   },
