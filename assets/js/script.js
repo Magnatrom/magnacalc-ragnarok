@@ -715,6 +715,7 @@ function calcularAspd() {
   Skill_P = 0;
   if(hasBuff("359") && (buildAtual.ataque.tipoAtaque == "basico" || buildAtual.ataque.tipoAtaque == "basicocritico")) { Skill_P += 30; } // Frenesi
   if(hasBuff("2350")) { Skill_P += 25; } // Ritmo Contagiante
+  if(hasBuff("111")) { Skill_P += 30; } // Adrenalina Pura
   if(hasBuff("258") && isTipoArma("itemMaoDireita", ["Arma_Lanca1"])) { Skill_P += 30; } // Rapidez com Lança
   Base_Aspd = (parseInt((200 - (200 - (Job_ASPD + Shield_Penalty - ASPD_Correction + Math.sqrt((Total_AGI * 9.9987) + (Total_DEX * 0.1922)) * Aspd_Penalty)) * (1 - (Speed_Potion / 100) - (Skill_P / 100))) * 1000) / 1000);
   ASPD_Equipment_P = (parseInt(((195 - Base_Aspd) * (Equips_P / 100)) * 100) / 100);

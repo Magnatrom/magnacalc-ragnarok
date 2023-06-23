@@ -477,7 +477,7 @@ let buffs = [
         skillID: 111,
         skillName: "Adrenalina Pura",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: 114,

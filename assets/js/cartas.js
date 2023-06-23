@@ -509,6 +509,17 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4250",
+    cartaNome:   "Carta Executor",
+    cartaSlot:   "itemEscudo",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+      }
+    }
+  },
+  {
     cartaID:     "4080",
     cartaNome:   "Carta Flora",
     cartaSlot:   "itemArma",
@@ -883,6 +894,17 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4207",
+    cartaNome:   "Carta Mysteltainn",
+    cartaSlot:   "itemEscudo",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+      }
+    }
+  },
+  {
     cartaID:     "4256",
     cartaNome:   "Carta Orc Arqueiro",
     cartaSlot:   "itemAcessorio",
@@ -1209,6 +1231,17 @@ var cartas = [
     itemFuncao: function(slot, itemId) {
       return {
         "danofisicop": 1
+      }
+    }
+  },
+  {
+    cartaID:     "4254",
+    cartaNome:   "Carta Tirfing",
+    cartaSlot:   "itemEscudo",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    itemFuncao: function(slot, itemId) {
+      return {
       }
     }
   },

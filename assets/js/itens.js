@@ -964,6 +964,29 @@ var items = [
   },
   {
     itemId:     "700069b",
+    itemNome:   "Arco Moderno [1] (bRO caso coloquem encantamentos de Malangdo)",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 160,
+    itemArmaATQM: 170,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    slots: 1,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_Disparo_Triplo"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Disparo_Triplo": parseInt(Math.min(getNivelBase(), 150) / 10) * 5,
+        "aspdp": parseInt(getItemRefino(slot) / 2) * 2,
+        "atributoagilidade": parseInt(getItemRefino(slot) / 2) * 3,
+        "atributodestreza": parseInt(getItemRefino(slot) / 2) * 3,
+      }
+    }
+  },
+  {
+    itemId:     "700069c",
     itemNome:   "Arco Moderno [1] (jRO)",
     itemTipo:   "itemArma",
     itemSubtipo: "Arma_Arco",
@@ -1596,6 +1619,50 @@ var items = [
     }
   },
   {
+    itemId:     "470036",
+    itemNome:   "Botas Camufladas",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_Furia_do_Furacao","REQ_Arremesso_de_Machado"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "atq": (getItemRefino(slot) >= 5 ? 50 : 0) + (getItemRefino(slot) >= 7 ? 50 : 0),
+        "aspdp": isClasse(["Classe_ME"]) ? 10 : 0,
+        "hpf": isClasse(["Classe_ME"]) ? (getNivelBase() * 100) : 0,
+        "danode--Furia_do_Furacao": 150,
+        "danode--Arremesso_de_Machado": 100,
+        "ignoredef": isClasse(["Classe_ME"]) ? 100 : 0,
+        "danofisicochefe": hasCombo(slot, itemId, [["1326"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 25 : 0) + (getItemRefino("itemMaoDireita") >= 14 ? 25 : 0)) : 0
+      }
+    }
+  },
+  {
+    itemId:     "470037",
+    itemNome:   "Botas Camufladas [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_Furia_do_Furacao","REQ_Arremesso_de_Machado"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "atq": (getItemRefino(slot) >= 5 ? 50 : 0) + (getItemRefino(slot) >= 7 ? 50 : 0),
+        "aspdp": isClasse(["Classe_ME"]) ? 10 : 0,
+        "hpf": isClasse(["Classe_ME"]) ? (getNivelBase() * 100) : 0,
+        "danode--Furia_do_Furacao": 150,
+        "danode--Arremesso_de_Machado": 100,
+        "ignoredef": isClasse(["Classe_ME"]) ? 100 : 0,
+        "danofisicochefe": hasCombo(slot, itemId, [["1326"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 25 : 0) + (getItemRefino("itemMaoDireita") >= 14 ? 25 : 0)) : 0
+      }
+    }
+  },
+  {
     itemId:     "2433",
     itemNome:   "Botas de Diabolus [1]",
     itemTipo:   "itemSapatos",
@@ -1606,6 +1673,48 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "hpf": getNivelBase() * 10
+      }
+    }
+  },
+  {
+    itemId:     "470060",
+    itemNome:   "Botas de Teste",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Canhao_de_Protons","REQ_Tornado_do_Carrinho"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "variavelde--Canhao_de_Protons": (getItemRefino(slot) >= 5 ? (-50) : 0) + (getItemRefino(slot) >= 9 ? (-50) : 0),
+        "precisao": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0,
+        "aspdp": isClasse(["Classe_BI","Classe_BI_NT"]) ? 20 : 0,
+        "danode--Tornado_do_Carrinho": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0,
+        "danofisicop": isClasse(["Classe_BI","Classe_BI_NT"]) ? 20 : 0,
+        "ignoredefm": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0
+      }
+    }
+  },
+  {
+    itemId:     "470061",
+    itemNome:   "Botas de Teste [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Canhao_de_Protons","REQ_Tornado_do_Carrinho"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "variavelde--Canhao_de_Protons": (getItemRefino(slot) >= 5 ? (-50) : 0) + (getItemRefino(slot) >= 9 ? (-50) : 0),
+        "precisao": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0,
+        "aspdp": isClasse(["Classe_BI","Classe_BI_NT"]) ? 20 : 0,
+        "danode--Tornado_do_Carrinho": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0,
+        "danofisicop": isClasse(["Classe_BI","Classe_BI_NT"]) ? 20 : 0,
+        "ignoredef": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0
       }
     }
   },
@@ -2284,6 +2393,44 @@ var items = [
     }
   },
   {
+    itemId:     "22129",
+    itemNome:   "Botas Veteranas",
+    itemTipo:   "itemSapatos",
+    itemNivel:  85,
+    itemClasses: ["Classe_RK","Classe_ME","Classe_AB"],
+    itemBonus: ["REQ_Impacto_de_Tyr","REQ_Golpe_Fulminante","REQ_Furia_do_Furacao","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Impacto_de_Tyr": hasCombo(slot, itemId, [["1188","21024"]]) ? 100 : 0,
+        "danode--Golpe_Fulminante": hasCombo(slot, itemId, [["1188","21024"]]) ? 100 : 0,
+        "atq": hasCombo(slot, itemId, [["1384","28114"]]) ? 100 : 0,
+        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, [["1384","28114"]]) ? (-1) : 0,
+        "aspdp": hasCombo(slot, itemId, [["1548","16056"]]) ? 10 : 0,
+        "ignoredef": hasCombo(slot, itemId, [["1548","16056"]]) && isOpponent("racaMonstro", ["3","5","7","10"]) ? 100 : 0,
+        "crit": hasCombo(slot, itemId, [["1548","16056"]]) && isOpponent("racaMonstro", ["3","5","7","10"]) ? 50 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "28410",
+    itemNome:   "Bracelete Safira [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  50,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DMagico","REQ_Esporo_Explosivo"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributodestreza": 10,
+        "atributosorte": 10,
+        "atributointeligencia": 10,
+        "atqm": 100,
+        "danode--Esporo_Explosivo": parseInt(getNivelBase() / 20) * 5
+      }
+    }
+  },
+  {
     itemId:     "28411",
     itemNome:   "Brincos de Esmeralda [1]",
     itemTipo:   "itemAcessorio",
@@ -2334,6 +2481,23 @@ var items = [
         "hpf": (getItemRefino(slot) * 10),
         "hpp": (hasCombo(slot, itemId, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
         "danofisicoraca": (hasCombo(slot, itemId, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "24247",
+    itemNome:   "Brinco Sombrio de Mercador",
+    itemTipo:   "itemBrincoSombrio",
+    itemNivel:  1,
+    itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": (hasCombo(slot, itemId, [["24251"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danode--Mammonita": 20 + (getItemRefino(slot) * 5),
+        "danofisicoraca": (hasCombo(slot, itemId, [["24251"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
       }
     }
   },
@@ -2560,6 +2724,26 @@ var items = [
         "danomagicoraca": getItemRefino(slot) >= 10 ? 30 : 0,
         "hpp": getItemRefino(slot) >= 12 ? 30 : 0,
         "spp": getItemRefino(slot) >= 12 ? 30 : 0
+      }
+    }
+  },
+  {
+    itemId:     "480077",
+    itemNome:   "Capa de Magma [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["Classe_ME"],
+    itemBonus: ["REQ_Precisao","REQ_DFisico","REQ_Brandir_Machado","REQ_Furia_do_Furacao"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicotamanho": 5,
+        "hpp": 2 + (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 2 : 0),
+        "spp": 2 + (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 2 : 0),
+        "aspdp": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "precisaoperfeita": 50,
+        "danode--Furia_do_Furacao": 100,
+        "danode--Brandir_Machado": 100
       }
     }
   },
@@ -3063,6 +3247,22 @@ var items = [
     }
   },
   {
+    itemId:     "28537",
+    itemNome:   "Colar de Juperos [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  20,
+    itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
+    itemBonus: ["REQ_Cavalo_de_Pau","REQ_Furia_do_Furacao","REQ_Brandir_Machado"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Cavalo_de_Pau": parseInt(getNivelBase() / 3),
+        "danode--Furia_do_Furacao": parseInt(getNivelBase() / 5),
+        "danode--Brandir_Machado": parseInt(getNivelBase() / 7),
+      }
+    }
+  },
+  {
     itemId:     "24047",
     itemNome:   "Colar Sombrio da Velocidade",
     itemTipo:   "itemColarSombrio",
@@ -3119,6 +3319,21 @@ var items = [
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Envenenar": 20 + (getItemRefino(slot) * 5)
+      }
+    }
+  },
+  {
+    itemId:     "24251",
+    itemNome:   "Colar Sombrio de Mercador",
+    itemTipo:   "itemColarSombrio",
+    itemNivel:  1,
+    itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Cavalo_de_Pau": 20 + (getItemRefino(slot) * 5)
       }
     }
   },
@@ -3721,6 +3936,31 @@ var items = [
     }
   },
   {
+    itemId:     "24304",
+    itemNome:   "Escudo Sombrio de Bioquímico",
+    itemTipo:   "itemEscudoSombrio",
+    itemNivel:  99,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aegis_Inferi"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Aegis_Inferi": 20 + (getItemRefino(slot) * 5),
+        "hpp": 3 + (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0
+      }
+    }
+  },
+  {
     itemId:     "24302",
     itemNome:   "Escudo Sombrio de Guardião Real",
     itemTipo:   "itemEscudoSombrio",
@@ -3878,6 +4118,33 @@ var items = [
     }
   },
   {
+    itemId:     "520003",
+    itemNome:   "Foice de Fogo Vivo [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 360,
+    itemArmaATQM: 290,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: false,
+    itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Mammonita"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      if(getItemRefino(slot) >= 10) {
+        temDrake = true;
+      }
+      return {
+        "atributoforca": 3,
+        "atributointeligencia": 5,
+        "danode--Mammonita": getNivelBase() * 10,
+        "hpp": getItemRefino(slot) * 2,
+        "danofisicop": getItemRefino(slot) * 2,
+        "precisaoperfeita": getItemRefino(slot) * 2
+      }
+    }
+  },
+  {
     itemId:     "19274",
     itemNome:   "Fone Descolado",
     itemTipo:   "itemBaixo",
@@ -3905,6 +4172,27 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "danofisicop": parseInt(Math.min(getNivelBase(), 150) / 10)
+      }
+    }
+  },
+  {
+    itemId:     "28598",
+    itemNome:   "Fragmento de Chip [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_ME"],
+    itemBonus: ["REQ_Pos","REQ_DFisico","REQ_Canhao","REQ_Gas_Criogenico","REQ_Lanca_Chamas"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 10,
+        "atributovitalidade": 10,
+        "atributodestreza": 10,
+        "atq": 50,
+        "variavelde--Canhao": -50,
+        "variavelde--Gas_Criogenico": -50,
+        "variavelde--Lanca_Chamas": -50,
+        "posconjuracao": -30,
       }
     }
   },
@@ -4011,6 +4299,21 @@ var items = [
         "spp": getItemRefino(slot) >= 6 ? ((Math.min(getItemRefino(slot), 15) - 5) * 2) : 0,
         "atributoforca": hasCombo(slot, itemId, [["4352"]]) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 10) : (getItemRefino(slot) * 10)) : 0,
         "esquiva": hasCombo(slot, itemId, [["4352"]]) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 2) : (getItemRefino(slot) * 2)) : 0
+      }
+    }
+  },
+  {
+    itemId:     "24259",
+    itemNome:   "Greva Sombria de Alquimista",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "efetividadecura": 30 + (getItemRefino(slot) * 7)
       }
     }
   },
@@ -4252,6 +4555,25 @@ var items = [
         "danomagicoveneno": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
         "danomagicofantasma": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
         "posconjuracao": hasCombo(slot, itemId, [["400002"]]) ? (-15) : 0
+      }
+    }
+  },
+  {
+    itemId:     "450176",
+    itemNome:   "Jetpack Robusta",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_HP","REQ_SP","REQ_Canhao","REQ_Lanca_Chamas","REQ_Gas_Criogenico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
+        "danofisicochefe": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "danode--Canhao": 75,
+        "danode--Lanca_Chamas": 75,
+        "danode--Gas_Criogenico": 75
       }
     }
   },
@@ -4702,6 +5024,46 @@ var items = [
     }
   },
   {
+    itemId:     "28533",
+    itemNome:   "Luvas da Precisão [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  20,
+    itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Tornado_do_Carrinho"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "precisao": 20,
+        "aspdp": 5 + (isClasse(["Classe_BI","Classe_BI_NT"]) ? 5 : 0),
+        "atq": isClasse(["Classe_BI","Classe_BI_NT"]) ? 75 : 0,
+        "hpp": isClasse(["Classe_BI","Classe_BI_NT"]) ? 10 : 0,
+        "danode--Cavalo_de_Pau": getNivelBase(),
+        "danode--Canhao_de_Protons": parseInt(getNivelBase() / 20) * 2,
+        "danode--Tornado_do_Carrinho": parseInt(getNivelBase() / 30) * 2
+      }
+    }
+  },
+  {
+    itemId:     "490146",
+    itemNome:   "Luvas de Proteção [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Tornado_do_Carrinho"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributosorte": 7,
+        "danofisicop": 10,
+        "danode--Tornado_do_Carrinho": parseInt(getNivelBase() / 3) * 2,
+        "aspdp": 10,
+        "precisaoperfeita": 15,
+        "danofisicotamanho": 10,
+        "hpf": hasCombo(slot, itemId, [["4875"]]) ? (getNivelBase() * 50) : 0
+      }
+    }
+  },
+  {
     itemId:     "28434",
     itemNome:   "Luvas do Pugilista [1]",
     itemTipo:   "itemAcessorio",
@@ -4731,6 +5093,45 @@ var items = [
         "posconjuracao": -10,
         "danofisicochefe": 5,
         "ignoredef": 20
+      }
+    }
+  },
+  {
+    itemId:     "490183",
+    itemNome:   "Luvas Militares [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Furia_do_Furacao","REQ_Brandir_Machado","REQ_Arremesso_de_Machado"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributovitalidade": 7,
+        "danofisicotamanho": 10,
+        "danode--Furia_do_Furacao": parseInt(getNivelBase() / 2),
+        "danode--Brandir_Machado": parseInt(getNivelBase() / 2),
+        "danode--Arremesso_de_Machado": parseInt(getNivelBase() / 2),
+        "danofisicopropriedade": isClasse(["Classe_ME"]) ? 10 : 0,
+        "aspdp": isClasse(["Classe_ME"]) ? 10 : 0,
+        "posconjuracao": isClasse(["Classe_ME"]) ? (-30) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "24291",
+    itemNome:   "Luva Sombria de Bioquímico",
+    itemTipo:   "itemLuvaSombria",
+    itemNivel:  99,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": getItemRefino(slot),
+        "atqm": getItemRefino(slot),
+        "danode--Tornado_do_Carrinho": 20 + (getItemRefino(slot) * 5),
+        "recargade--Tornado_do_Carrinho": hasCombo(slot, itemId, [["24304"]]) ? (-1) : 0,
+        "hpp": hasCombo(slot, itemId, [["24304"]]) ? 2 : 0,
       }
     }
   },
@@ -4832,6 +5233,33 @@ var items = [
     }
   },
   {
+    itemId:     "1326",
+    itemNome:   "Machado Ilusional [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Machado1",
+    itemArmaATQ: 180,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: false,
+    itemClasses: ["Classe_ME","Classe_BI"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 4,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 2,
+        "atributodestreza": 2,
+        "atributosorte": 2,
+        "danode--Tornado_do_Carrinho": 75 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
+        "danode--Furia_do_Furacao": 100 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
+        "danode--Arremesso_de_Machado": 100 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0) + (hasCombo(slot, itemId, [["22133"]]) && getItemRefino(slot) >= 7 && getItemRefino("itemSapatos") >= 7 ? 15 : 0),
+        "atq": hasCombo(slot, itemId, [["22133"]]) ? 40 : 0,
+        "atqarmap": (hasCombo(slot, itemId, [["22133"]]) && getItemRefino(slot) + getItemRefino("itemSapatos") >= 18 ? 10 : 0),
+        "danodistancia": (hasCombo(slot, itemId, [["22133"]]) && getItemRefino(slot) + getItemRefino("itemSapatos") >= 22 ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "24326",
     itemNome:   "Malha Sombria da Deusa",
     itemTipo:   "itemMalhaSombria",
@@ -4855,6 +5283,21 @@ var items = [
         "aspdp": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? (5 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 5 : 0)) : 0,
         "spf": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 300 : 0)) : 0,
         "conjuracaovariavel": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? (-5) : 0)) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "24272",
+    itemNome:   "Malha Sombria de Alquimista",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_BI","Classe_BI_NT"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
       }
     }
   },
@@ -4930,6 +5373,25 @@ var items = [
         "hpf": (getItemRefino(slot) * 10),
         "danode--Crux_Magnum": 20 + (getItemRefino(slot) * 5),
         "danode--Crux_Divinum": hasCombo(slot, itemId, [["24257"]]) ? 20 : 0
+      }
+    }
+  },
+  {
+    itemId:     "20986",
+    itemNome:   "Manto Abstrato [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_EP","REQ_Precisao","REQ_Esporo_Explosivo"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "esquivaperfeita": 5 + (getItemRefino(slot) >= 7 ? 8 : 0) + (getItemRefino(slot) >= 9 ? 12 : 0),
+        "danodistancia": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "hpf": isClasse(["Classe_BI","Classe_BI_NT"]) ? 15000 : 0,
+        "danode--Esporo_Explosivo": isClasse(["Classe_BI","Classe_BI_NT"]) ? 100 : 0,
+        "precisaoperfeita": isClasse(["Classe_BI","Classe_BI_NT"]) ? 50 : 0,
+        "variavelde--Esporo_Explosivo": isClasse(["Classe_BI","Classe_BI_NT"]) ? (-100) : 0
       }
     }
   },
@@ -5014,6 +5476,42 @@ var items = [
         "posconjuracao": -10,
         "danofisicop": hasCombo(slot, itemId, [["2729"]]) ? 3 : 0,
         "danomagicop": hasCombo(slot, itemId, [["2729"]]) ? 3 : 0
+      }
+    }
+  },
+  {
+    itemId:     "480025a",
+    itemNome:   "Manto do Barão [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributointeligencia": 2,
+        "aspdp": 10,
+        "atq": getItemRefino(slot) * 6,
+        "atqm": getItemRefino(slot) * 6,
+        "danofisicotamanho": (hasCombo(slot, itemId, [["4250"]]) && isOpponent("tamanhoMonstro", ["2"])) || (hasCombo(slot, itemId, [["4254"]]) && isOpponent("tamanhoMonstro", ["1"])) || (hasCombo(slot, itemId, [["4207"]]) && isOpponent("tamanhoMonstro", ["0"])) ? 25 : 0
+      }
+    }
+  },
+  {
+    itemId:     "480025b",
+    itemNome:   "Manto do Barão [1] - Ativo",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributointeligencia": 2,
+        "aspdp": 10,
+        "atq": getItemRefino(slot) * 6,
+        "atqm": getItemRefino(slot) * 6,
+        "danofisicotamanho": (hasCombo(slot, itemId, [["4250"]]) && isOpponent("tamanhoMonstro", ["2"])) || (hasCombo(slot, itemId, [["4254"]]) && isOpponent("tamanhoMonstro", ["1"])) || (hasCombo(slot, itemId, [["4207"]]) && isOpponent("tamanhoMonstro", ["0"])) ? 25 : 0
       }
     }
   },
@@ -5354,6 +5852,27 @@ var items = [
         "danode--Disparo_Triplo": (hasCombo(slot, itemId, [["18975"]]) ? 30 : 0),
         "danofisicochefe": (hasCombo(slot, itemId, [["4359"]]) ? 30 : 0),
         "danomagicopropriedade": (hasCombo(slot, itemId, [["4564"]]) ? 30 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "490175",
+    itemNome:   "Manuscrito dos Mercadores [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "posconjuracao": (-5) + (hasCombo(slot, itemId, [["18973"]]) ? (-5) : 0),
+        "danofisicotamanho": 5,
+        "danomelee": (hasCombo(slot, itemId, [["18973"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["18977"]]) ? 15 : 0),
+        "danodistancia": (hasCombo(slot, itemId, [["18974"]]) ? 15 : 0),
+        "danode--Gas_Criogenico": (hasCombo(slot, itemId, [["18974"]]) ? 40 : 0),
+        "danode--Planta_Infernal": (hasCombo(slot, itemId, [["18977"]]) ? 20 : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, [["4361"]]) ? 40 : 0),
+        "danofisicopropriedade": (hasCombo(slot, itemId, [["4563"]]) ? 20 : 0)
       }
     }
   },
@@ -6578,8 +7097,8 @@ var items = [
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
-        "danofisicopropriedade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
-        "danomagicopropriedade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0)
+        "danofisicopropriedade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "danomagicopropriedade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0)
       }
     }
   },

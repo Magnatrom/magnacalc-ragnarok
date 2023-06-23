@@ -435,6 +435,10 @@ let itemBonuses = {
     "nome": "Dano de Soco Furacão",
     "porcentagem": true
   },
+  "danode--Mammonita": {
+    "nome": "Dano de Mammonita",
+    "porcentagem": true
+  },
   "danode--Aegis_Inferi": {
     "nome": "Dano de Aegis Inferi",
     "porcentagem": true
