@@ -16,7 +16,7 @@ let itemBonuses = {
     "porcentagem": false
   },
   "atqarmap": {
-    "nome": "Ataque da arma %",
+    "nome": "Ataque da arma (%)",
     "porcentagem": true
   },
   "atqmunicao": {
@@ -40,11 +40,11 @@ let itemBonuses = {
     "porcentagem": false
   },
   "aspdp": {
-    "nome": "Velocidade de Ataque %",
+    "nome": "Velocidade de ataque",
     "porcentagem": true
   },
   "aspdf": {
-    "nome": "Velocidade de Ataque fixa",
+    "nome": "Velocidade de ataque",
     "porcentagem": false
   },
   "ignoredef": {
@@ -56,11 +56,11 @@ let itemBonuses = {
     "porcentagem": true
   },
   "danofisicop": {
-    "nome": "Dano físico %",
+    "nome": "Dano físico (%)",
     "porcentagem": true
   },
   "danomagicop": {
-    "nome": "Dano mágico %",
+    "nome": "Dano mágico (%)",
     "porcentagem": true
   },
   "danofisicochefe": {

@@ -587,6 +587,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1007,6 +1011,31 @@ var items = [
     }
   },
   {
+    itemId:     "700013",
+    itemNome:   "Arco Primordial [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 210,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 15,
+        "danodistancia": (parseInt(getItemRefino("itemMaoDireita") / 3) * 4) + (getItemRefino("itemMaoDireita") >= 11 ? 15 : 0),
+        "danode--Temporal_de_Mil_Flechas": (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0),
+        "recargade--Temporal_de_Mil_Flechas": getItemRefino("itemMaoDireita") >= 7 ? -2 : 0,
+      }
+    }
+  },
+  {
     itemId:     "18130",
     itemNome:   "Arco Rubi [2]",
     itemTipo:   "itemArma",
@@ -1101,6 +1130,10 @@ var items = [
     itemNivel:  1,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit","REQ_DCorp","REQ_TCrit","REQ_Aspd","REQ_IgnDef"],
+    bonusaleatorios: [
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"],
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1118,6 +1151,10 @@ var items = [
     itemNivel:  1,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCrit","REQ_IgnDef","REQ_Aspd"],
+    bonusaleatorios: [
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"],
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1136,6 +1173,10 @@ var items = [
     itemNivel:  1,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_DCrit","REQ_IgnDef"],
+    bonusaleatorios: [
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"],
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1153,6 +1194,10 @@ var items = [
     itemNivel:  1,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCorp"],
+    bonusaleatorios: [
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"],
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1170,6 +1215,10 @@ var items = [
     itemNivel:  1,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_Pos","REQ_IgnDefm"],
+    bonusaleatorios: [
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"],
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1187,6 +1236,10 @@ var items = [
     itemNivel:  1,
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_SP","REQ_Pos","REQ_IgnDef"],
+    bonusaleatorios: [
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"],
+      ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1431,6 +1484,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Tempestade_de_Flechas"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1452,6 +1509,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Tempestade_de_Flechas","REQ_Pos"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -4680,6 +4741,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -4701,6 +4766,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -4725,6 +4794,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -4790,6 +4863,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -4853,6 +4930,10 @@ var items = [
     itemPropriedade: false,
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_Precisao"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -4956,6 +5037,10 @@ var items = [
     itemPropriedade: false,
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_Precisao"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
@@ -5727,6 +5812,10 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCrit","REQ_IgnDef","REQ_Aspd"],
+    bonusaleatorios: [
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -5746,6 +5835,10 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_DCrit","REQ_IgnDef"],
+    bonusaleatorios: [
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -5765,6 +5858,10 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCorp"],
+    bonusaleatorios: [
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -5783,6 +5880,10 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_Pos","REQ_IgnDefm"],
+    bonusaleatorios: [
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -5801,6 +5902,10 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit","REQ_DCorp","REQ_TCrit","REQ_Aspd","REQ_IgnDef"],
+    bonusaleatorios: [
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -5821,6 +5926,10 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_SP","REQ_Pos","REQ_IgnDef"],
+    bonusaleatorios: [
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
+      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -7502,6 +7611,10 @@ var items = [
     itemPropriedade: false,
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
