@@ -122,7 +122,7 @@ var items = [
   },
   {
     itemId:     "28706",
-    itemNome:   "Adaga Sobrenatural [2]",
+    itemNome:   "Adaga Sobrenatural [1]",
     itemTipo:   "itemArma",
     itemSubtipo: "Arma_Adaga",
     itemArmaATQ: 105,
@@ -131,6 +131,11 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_SA","Classe_LO","Classe_RK","Classe_RK_NT","Classe_PA","Classe_RG","Classe_RG_NT","Classe_CR","Classe_BI","Classe_BI_NT","Classe_MF","Classe_MC","Classe_MC_NT","Classe_SX","Classe_GX","Classe_GX_NT","Classe_ST","Classe_SC","Classe_SC_NT","Classe_SN","Classe_SE","Classe_SE_NT","Classe_MI","Classe_TR","Classe_TR_NT","Classe_GY","Classe_MU","Classe_MU_NT","Classe_AQ","Classe_AR","Classe_AR_NT","Classe_PR","Classe_FE","Classe_FE_NT","Classe_ES","Classe_NI","Classe_OB","Classe_KA"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["atqarmap_1-10","drake","danofisicopropriedade_1-20"],
+      ["danofisicochefe_1-20","danofisicoraca_1-20","ignoredef_1-30"],
+      ["atributoforca_1-10","atributoagilidade_1-10","atributointeligencia_1-10","atq_1-50","atqm_1-50","posconjuracao_1-20","aspdf_1-5","aspdp_1-5","conjuracaovariavel_1-20"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -1064,6 +1069,11 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["atqarmap_1-10","drake","danofisicopropriedade_1-20"],
+      ["danofisicochefe_1-20","danofisicoraca_1-20","ignoredef_1-30"],
+      ["atributoagilidade_1-10","atributodestreza_1-10","atributosorte_1-10","atq_1-50","crit_1-20","danocritico_1-20","aspdf_1-5","aspdp_1-5","danodistancia_1-20"]
+    ],
     slots: 1,
     itemFuncao: function(slot, itemId) {
       return {
@@ -7017,6 +7027,25 @@ var items = [
       return {
         "crit": 7,
         "aspdp": 3
+      }
+    }
+  },
+  {
+    itemId:     "450010",
+    itemNome:   "Robe Chique [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Pos","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributovitalidade": 5,
+        "atributosorte": 5,
+        "atq": getItemRefino(slot) >= 8 ? (parseInt((getAtributoBase("vit") + getAtributoBase("sor")) / 10) * 10) : 0,
+        "atqm": getItemRefino(slot) >= 8 ? (parseInt((getAtributoBase("vit") + getAtributoBase("sor")) / 10) * 10) : 0,
+        "danofisicoraca": isOpponent("racaMonstro", ["1","4"]) && hasCombo(slot, itemId, [["4635"]]) ? 40 : 0,
+        "danomagicoraca": isOpponent("racaMonstro", ["1","4"]) && hasCombo(slot, itemId, [["4635"]]) ? 40 : 0
       }
     }
   },

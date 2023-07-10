@@ -381,17 +381,21 @@ function exibirBonusAleatorios(posicao) {
           htmlcode += `<div class="${tamanhoDiv} bonus-${indexSuperLista}"><select><option value="">Bônus aleatório</option>`;
           listaBonusAleatorios.forEach((bonusAleatorio, indexLista) => {
             let nomebonus = bonusAleatorio.split("_")[0];
-            let alcancebonus = bonusAleatorio.split("_")[1];
-            let quantidadebonus = alcancebonus.split("-")[1] - alcancebonus.split("-")[0] + 1;
-            if(quantidadebonus > 10) {
-              for(let i = parseInt(alcancebonus.split("-")[0]); i < parseInt(alcancebonus.split("-")[1]); i += (quantidadebonus / 9)) {
-                  htmlcode += `<option value="${nomebonus}_${Math.floor(i)}">${getItemBonusName(nomebonus)} +${Math.floor(i)}${isItemBonusPercentage(nomebonus) ? "%" : ""}</option>`;
+            if(bonusAleatorio.split("_").length == 2) {
+              let alcancebonus = bonusAleatorio.split("_")[1];
+              let quantidadebonus = alcancebonus.split("-")[1] - alcancebonus.split("-")[0] + 1;
+              if(quantidadebonus > 10) {
+                for(let i = parseInt(alcancebonus.split("-")[0]); i < parseInt(alcancebonus.split("-")[1]); i += (quantidadebonus / 9)) {
+                    htmlcode += `<option value="${nomebonus}_${Math.floor(i)}">${getItemBonusName(nomebonus)} +${Math.floor(i)}${isItemBonusPercentage(nomebonus) ? "%" : ""}</option>`;
+                }
+                htmlcode += `<option value="${nomebonus}_${alcancebonus.split("-")[1]}">${getItemBonusName(nomebonus)} +${alcancebonus.split("-")[1]}${isItemBonusPercentage(nomebonus) ? "%" : ""}</option>`;
+              } else {
+                for(let i = parseInt(alcancebonus.split("-")[0]); i <= parseInt(alcancebonus.split("-")[1]); i++) {
+                    htmlcode += `<option value="${nomebonus}_${Math.floor(i)}">${getItemBonusName(nomebonus)} +${Math.floor(i)}${isItemBonusPercentage(nomebonus) ? "%" : ""}</option>`;
+                }
               }
-              htmlcode += `<option value="${nomebonus}_${alcancebonus.split("-")[1]}">${getItemBonusName(nomebonus)} +${alcancebonus.split("-")[1]}${isItemBonusPercentage(nomebonus) ? "%" : ""}</option>`;
             } else {
-              for(let i = parseInt(alcancebonus.split("-")[0]); i <= parseInt(alcancebonus.split("-")[1]); i++) {
-                  htmlcode += `<option value="${nomebonus}_${Math.floor(i)}">${getItemBonusName(nomebonus)} +${Math.floor(i)}${isItemBonusPercentage(nomebonus) ? "%" : ""}</option>`;
-              }
+              htmlcode += `<option value="${nomebonus}">${getItemBonusName(nomebonus)}</option>`;
             }
           });
           htmlcode += `</select></div>`;
@@ -667,10 +671,24 @@ function definirBonusItens() {
     let bonusId = $(this).val();
     let slot = $(this).closest(".itemSlot").attr("id");
     if(bonusId != "") {
-      let nomebonus = bonusId.split("_")[0];
-      let valorbonus = parseInt(bonusId.split("_")[1]);
-      if(["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(nomebonus)) { valorbonus *= -1; }
-      todosItensSelecionados[slot][nomebonus] = (todosItensSelecionados[slot][nomebonus] ? todosItensSelecionados[slot][nomebonus] : 0) + valorbonus;
+      let bonus = bonusId.split("_");
+      let nomebonus = bonus[0];
+      if(bonus.length == 2) {
+        let valorbonus = parseInt(bonus[1]);
+        if(["posconjuracao","conjuracaovariavel","conjuracaofixap","conjuracaofixas"].includes(nomebonus)) { valorbonus *= -1; }
+        todosItensSelecionados[slot][nomebonus] = (todosItensSelecionados[slot][nomebonus] ? todosItensSelecionados[slot][nomebonus] : 0) + valorbonus;
+      } else {
+        switch (nomebonus) {
+          case "drake":
+            temDrake = true;
+            break;
+          case "investigar":
+            temInvestigar = true;
+            break;
+          default:
+            // nada
+        }
+      }
     }
   });
 

@@ -48,6 +48,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4635",
+    cartaNome:   "Carta Amdarais Imortal",
+    cartaSlot:   "itemArmadura",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_HP"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "esquiva": getItemRefino(slot) * (-2),
+        "hpf": getNivelBase() >= 100 ? 500 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4602",
     cartaNome:   "Carta Amdarais Sombrio",
     cartaSlot:   "itemArmadura",

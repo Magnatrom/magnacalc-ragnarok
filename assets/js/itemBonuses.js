@@ -455,4 +455,8 @@ let itemBonuses = {
     "nome": "Defesa",
     "porcentagem": false
   },
+  "drake": {
+    "nome": "Anula a penalidade de tamanho da arma",
+    "porcentagem": false
+  },
 }
