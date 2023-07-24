@@ -7226,6 +7226,26 @@ var items = [
     }
   },
   {
+    itemId:     "22195",
+    itemNome:   "Sapatos Inteligentes [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 10 + (getAtributoBase("vit") >= 125 ? ((getItemRefino(slot) >= 8 ? 5 : 0) + (getItemRefino(slot) >= 12 ? 5 : 0)) : 0),
+        "spp": 10,
+        "atq": getAtributoBase("for") >= 125 ? ((getItemRefino(slot) >= 8 ? 90 : 0) + (getItemRefino(slot) >= 12 ? 90 : 0)) : 0,
+        "aspdf": getAtributoBase("agi") >= 125 ? ((getItemRefino(slot) >= 8 ? 2 : 0) + (getItemRefino(slot) >= 12 ? 2 : 0)) : 0,
+        "atqm": getAtributoBase("int") >= 125 ? ((getItemRefino(slot) >= 8 ? 120 : 0) + (getItemRefino(slot) >= 12 ? 120 : 0)) : 0,
+        "danodistancia": getAtributoBase("des") >= 125 ? ((getItemRefino(slot) >= 8 ? 10 : 0) + (getItemRefino(slot) >= 12 ? 10 : 0)) : 0,
+        "danocritico": getAtributoBase("sor") >= 125 ? ((getItemRefino(slot) >= 8 ? 20 : 0) + (getItemRefino(slot) >= 12 ? 20 : 0)) : 0
+      }
+    }
+  },
+  {
     itemId:     "22244",
     itemNome:   "Sapatos Grã-fino [1]",
     itemTipo:   "itemSapatos",
