@@ -5823,7 +5823,6 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCrit","REQ_IgnDef","REQ_Aspd"],
     bonusaleatorios: [
-      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
@@ -5846,7 +5845,6 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_DCrit","REQ_IgnDef"],
     bonusaleatorios: [
-      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
@@ -5869,7 +5867,6 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCorp"],
     bonusaleatorios: [
-      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
@@ -5891,7 +5888,6 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_Pos","REQ_IgnDefm"],
     bonusaleatorios: [
-      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
@@ -5913,7 +5909,6 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit","REQ_DCorp","REQ_TCrit","REQ_Aspd","REQ_IgnDef"],
     bonusaleatorios: [
-      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
@@ -5937,7 +5932,6 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_SP","REQ_Pos","REQ_IgnDef"],
     bonusaleatorios: [
-      ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"],
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
