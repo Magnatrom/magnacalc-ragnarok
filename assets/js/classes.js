@@ -49,7 +49,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_TCrit","REQ_TCritD","REQ_DCrit","REQ_IgnDef","REQ_ATQDuplo"]
@@ -70,7 +70,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_TCrit","REQ_DCrit","REQ_IgnDef","REQ_ATQDuplo"]
@@ -91,8 +91,29 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((300 + (prop.atributoagilidade * 5)) * (nivelBase / 120))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Disparo_Triplo","REQ_IgnDef","REQ_Pos","REQ_Precisao","REQ_CVar","REQ_AGI"]
+      },
+      {
+        id: "Disparo_Triplo--2",
+        nome: "Disparo Triplo (nv. 200)",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.35,
+          recarga: 0.2,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return ((2300 + (prop.atributoagilidade * 3)) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Disparo_Triplo","REQ_IgnDef","REQ_Pos","REQ_Precisao","REQ_CVar","REQ_AGI"]
       },
@@ -112,7 +133,7 @@ var classes = [
           recarga: 0,
           golpes: 2
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 190
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Rajada_de_Flechas","REQ_Precisao"]
@@ -133,7 +154,7 @@ var classes = [
           recarga: 0,
           golpes: 2
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 500
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Impacto_de_Tyr","REQ_CVar","REQ_CFix","REQ_Precisao"]
@@ -154,7 +175,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 700
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Apunhalar","REQ_Pos"]
@@ -175,10 +196,52 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((400 + prop.atributoagilidade) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Soco_Furacao","REQ_Pos"]
+      },
+      {
+        id: "Acerto_de_Contas--1",
+        nome: "Acerto de Contas (nv. 185)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1100) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos"]
+      },
+      {
+        id: "Acerto_de_Contas--2",
+        nome: "Acerto de Contas (nv. 200)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1200 + (prop.atributoagilidade * 2)) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos"]
       }
     ]
   },
@@ -232,13 +295,13 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_TCrit","REQ_TCritD","REQ_DCrit","REQ_IgnDef","REQ_ATQDuplo"]
       },
       {
-        id: "Disparo_Triplo",
+        id: "Disparo_Triplo--1",
         nome: "Disparo Triplo",
         maoDireita: ["Arma_Arco"],
         maoEsquerda: [],
@@ -253,8 +316,29 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((300 + (prop.atributoagilidade * 5)) * (nivelBase / 120))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Disparo_Triplo","REQ_IgnDef","REQ_Pos","REQ_Precisao","REQ_CVar","REQ_AGI"]
+      },
+      {
+        id: "Disparo_Triplo--2",
+        nome: "Disparo Triplo (nv. 200)",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.35,
+          recarga: 0.2,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return ((2300 + (prop.atributoagilidade * 3)) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Disparo_Triplo","REQ_IgnDef","REQ_Pos","REQ_Precisao","REQ_CVar","REQ_AGI"]
       },
@@ -274,7 +358,7 @@ var classes = [
           recarga: 0,
           golpes: 2
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 190
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Rajada_de_Flechas","REQ_Precisao"]
@@ -295,7 +379,7 @@ var classes = [
           recarga: 0,
           golpes: 2
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 500
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Impacto_de_Tyr","REQ_CVar","REQ_CFix","REQ_Precisao"]
@@ -316,7 +400,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 700
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Apunhalar","REQ_Pos"]
@@ -387,7 +471,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_TCrit","REQ_DCrit","REQ_IgnDef","REQ_ATQDuplo"]
@@ -408,7 +492,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_TCrit","REQ_DCrit","REQ_IgnDef","REQ_ATQDuplo"]
@@ -429,7 +513,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 440
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Impacto_Meteoro","REQ_Pos","REQ_Precisao"]
@@ -450,7 +534,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt(300 * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_Laminas_de_Loki","REQ_IgnDef"]
@@ -566,7 +650,7 @@ var classes = [
           recarga: 3,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           prop.pesoEscudo = prop.pesoEscudo ? prop.pesoEscudo : 0;
           return ((6 * prop.pesoEscudo) * (nivelBase / 100))
         },
@@ -686,7 +770,7 @@ var classes = [
           recarga: 0,
           golpes: 1
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 600
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Mammonita"]
@@ -797,7 +881,7 @@ var classes = [
           recarga: 5,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -818,7 +902,7 @@ var classes = [
           recarga: 5.5,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -839,7 +923,7 @@ var classes = [
           recarga: 6,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -860,7 +944,7 @@ var classes = [
           recarga: 6.5,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -881,7 +965,7 @@ var classes = [
           recarga: 7,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -934,7 +1018,7 @@ var classes = [
           recarga: 5,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -955,7 +1039,7 @@ var classes = [
           recarga: 5.5,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -976,7 +1060,7 @@ var classes = [
           recarga: 6,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -997,7 +1081,7 @@ var classes = [
           recarga: 6.5,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
@@ -1018,7 +1102,7 @@ var classes = [
           recarga: 7,
           golpes: 12
         },
-        formula: function(prop, nivelBase, nivelClasse) {
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]

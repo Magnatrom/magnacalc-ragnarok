@@ -102,6 +102,75 @@ var items = [
     }
   },
   {
+    itemId:     "510006",
+    itemNome:   "Adaga Ancestral [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 165,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 10,
+        "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
+        "danode--Acerto_de_Contas": getItemRefino("itemMaoDireita") >= 9 ? 20 : 0,
+        "posconjuracao": getItemRefino("itemMaoDireita") >= 11 ? (-7) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "13061",
+    itemNome:   "Adaga Negra [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 142,
+    itemArmaNivel: 3,
+    itemNivel:  102,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_Acerto_de_Contas"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Acerto_de_Contas": 30 + (Math.max(getItemRefino(slot) - 5, 0) * 2)
+      }
+    }
+  },
+  {
+    itemId:     "510020",
+    itemNome:   "Adaga Primordial [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 205,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 15,
+        "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
+        "danode--Acerto_de_Contas": getItemRefino("itemMaoDireita") >= 7 ? 25 : 0,
+        "posconjuracao": (getItemRefino("itemMaoDireita") >= 9 ? (-7) : 0) + (getItemRefino("itemMaoDireita") >= 11 ? (-7) : 0),
+        "danomelee": (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "28705",
     itemNome:   "Adaga Rubi [2]",
     itemTipo:   "itemArma",
@@ -4666,6 +4735,25 @@ var items = [
         "danode--Laminas_de_Loki": (hasCombo(slot, itemId, [["28038"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
         "crit": (hasCombo(slot, itemId, [["21047"]]) ? 10 : 0),
         "danode--Explosao_Solar": (hasCombo(slot, itemId, [["28629"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "490096",
+    itemNome:   "Joia do Renegado [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_SC","Classe_SC_NT","Classe_SA"],
+    itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas","REQ_Pos"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoforca": 7,
+        "atributoagilidade": hasCombo(slot, itemId, [["4877"]]) ? 40 : 0,
+        "danofisicop": 10,
+        "danofisicotamanho": hasCombo(slot, itemId, [["4877"]]) ? 10 : 0,
+        "danode--Acerto_de_Contas": parseInt(getNivelBase() / 3),
+        "posconjuracao": isClasse(["Classe_SC","Classe_SC_NT"]) ? (-30) : 0
       }
     }
   },

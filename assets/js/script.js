@@ -1,6 +1,6 @@
 var classeAtual = "";
 var buildAtual = "";
-var pontosAtributoPorNivel = [48,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,8,8,8,8,8,9,9,9,9,9,10,10,10,10,10,11,11,11,11,11,12,12,12,12,12,13,13,13,13,13,14,14,14,14,14,15,15,15,15,15,16,16,16,16,16,17,17,17,17,17,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,21,21,21,21,21,22,22,22,22,22,23,23,23,23,23,23,23,23,23,23,24,24,24,24,24,24,24,24,24,24,25,25,25,25,25,25,25,25,25,25,26,26,26,26,26,26,26,26,26,26,27,27,27,27,27,27,27,27,27,27,28,28,28,28,28,28,28,29,29,29,29,29,29,29,30,30,30,30,30,30,30,31,31,31,31];
+var pontosAtributoPorNivel = [48,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,8,8,8,8,8,9,9,9,9,9,10,10,10,10,10,11,11,11,11,11,12,12,12,12,12,13,13,13,13,13,14,14,14,14,14,15,15,15,15,15,16,16,16,16,16,17,17,17,17,17,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,21,21,21,21,21,22,22,22,22,22,23,23,23,23,23,23,23,23,23,23,24,24,24,24,24,24,24,24,24,24,25,25,25,25,25,25,25,25,25,25,26,26,26,26,26,26,26,26,26,26,27,27,27,27,27,27,27,27,27,27,28,28,28,28,28,28,28,29,29,29,29,29,29,29,30,30,30,30,30,30,30,31,31,31,31,31,31,31,32,32,32,32,32,32,32,33,33,33,33,33,33,33,34,34,34,34,34,34,34,35];
 var pontosGastosPorAtributo = [0,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,16,16,16,16,16,20,20,20,20,20,24,24,24,24,24,28,28,28,28,28,32,32,32,32,32,36,36,36,36,36];
 var maxAtributos = 99;
 var minNivelBase = 1;
@@ -333,7 +333,7 @@ function calcularPontosAtributo() {
 
 function listarNivelBase() {
   if(getClasseTipo() == "Classe1" || getClasseTipo() == "ClasseT1" || getClasseTipo() == "Classe2" || getClasseTipo() == "ClasseT2" || getClasseTipo() == "ClasseExp1") { maxNivelBase = 99; }
-  if(getClasseTipo() == "Classe3" || getClasseTipo() == "ClasseT3" || getClasseTipo() == "ClasseExp2" || getClasseTipo() == "Doram") { maxNivelBase = 175; }
+  if(getClasseTipo() == "Classe3" || getClasseTipo() == "ClasseT3" || getClasseTipo() == "ClasseExp2" || getClasseTipo() == "Doram") { maxNivelBase = 200; }
   if(getClasseTipo() == "Classe3" || getClasseTipo() == "ClasseT3" || getClasseTipo() == "ClasseExp2") { minNivelBase = 99; } else { minNivelBase = 1; }
   let tempNivelBase = $("#nivelPersonagem").val();
   $("#nivelPersonagem").html("");
@@ -726,8 +726,8 @@ function definirBonusItens() {
 
 }
 
-function getSkillFormula(prop, base, classe) {
-  let formula = buildAtual.formula(prop, base, classe);
+function getSkillFormula(prop, base, classe, tipoArma) {
+  let formula = buildAtual.formula(prop, base, classe, tipoArma);
   return formula
 }
 
@@ -848,9 +848,10 @@ function calcular() {
 
   bonusConsolidados.danofisicop = (bonusConsolidados.danofisicop ? parseInt(bonusConsolidados.danofisicop) : 0) + (isOpponentChefe() ? (bonusConsolidados.danofisicochefe || 0) : 0);
 
-  let skillFormula = getSkillFormula(bonusConsolidados, getNivelBase(), getNivelClasse());
-  console.log("Formula: ", skillFormula);
   let itemArmaAtual = filterItemById($("#itemMaoDireita select.equipamento").val());
+
+  let skillFormula = getSkillFormula(bonusConsolidados, getNivelBase(), getNivelClasse(), itemArmaAtual ? itemArmaAtual.itemSubtipo : "");
+  console.log("Formula: ", skillFormula);
 
   let nivelMonstro = parseInt($("#nivelMonstro").val()) || 1;
   let defesaFisicaInicialMonstro = parseInt($("#hardDEF").val()) || 0;
