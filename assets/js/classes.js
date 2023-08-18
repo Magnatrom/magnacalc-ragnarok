@@ -181,7 +181,7 @@ var classes = [
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Apunhalar","REQ_Pos"]
       },
       {
-        id: "Soco_Furacao",
+        id: "Soco_Furacao--1",
         nome: "Soco Furacão",
         maoDireita: ["Arma_Espada1","Arma_Adaga"],
         maoEsquerda: ["itemEscudo"],
@@ -198,6 +198,27 @@ var classes = [
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((400 + prop.atributoagilidade) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Soco_Furacao","REQ_Pos"]
+      },
+      {
+        id: "Soco_Furacao--2",
+        nome: "Soco Furacão (nv. 200)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1000 + prop.atributoagilidade) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Soco_Furacao","REQ_Pos"]
       },
