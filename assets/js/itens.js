@@ -156,8 +156,8 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas"],
     bonusaleatorios: [
-      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
-      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
     itemFuncao: function(slot, itemId) {
