@@ -997,6 +997,10 @@ function calcular() {
   let finalMin = (parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(atqTotalMin * reducaoDefesaFisicaPesadaMonstro) * skillModifier) - reducaoDefesaFisicaLeveMonstro) * skillBonus) * distanceModifier) * damageModifier) * modificadorCritBonus) * modificadorCritBase) * multiplicadorFinal1) * multiplicadorFinal2) * buildAtual.ataque.golpes);
   let finalMax = (parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(atqTotalMax * reducaoDefesaFisicaPesadaMonstro) * skillModifier) - reducaoDefesaFisicaLeveMonstro) * skillBonus) * distanceModifier) * damageModifier) * modificadorCritBonus) * modificadorCritBase) * multiplicadorFinal1) * multiplicadorFinal2) * buildAtual.ataque.golpes);
 
+  if($("#auraverde").prop("checked")) {
+    finalMin = parseInt(finalMin / 10);
+    finalMax = parseInt(finalMax / 10);
+  }
   resetResultado();
   adicionarResultado("Dano mínimo",finalMin);
   adicionarResultado("Dano máximo",finalMax);

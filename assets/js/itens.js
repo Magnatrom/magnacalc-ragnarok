@@ -3387,6 +3387,21 @@ var items = [
     }
   },
   {
+    itemId:     "32295",
+    itemNome:   "Colar de Cristal - Ativo",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": 10,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro", ["00","01","02","03","10","11","12","13","40","41","42","43","50","51","52","53","90","91","92","93"]) ? 30 : 0
+      }
+    }
+  },
+  {
     itemId:     "28537",
     itemNome:   "Colar de Juperos [1]",
     itemTipo:   "itemAcessorio",
