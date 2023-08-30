@@ -684,6 +684,14 @@ var classes = [
     classeNome: "Shura",
     classeTipo: "ClasseT3",
     transclasse: true,
+    bonusClasse: {
+      for: [0,0,0,0,1,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8],
+      agi: [0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,3,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8],
+      vit: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6],
+      int: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,6],
+      des: [0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,5,5,5,5,5,5,5,5,5,5,5,5,6,7,7,7,7,7,7,7,7,8,8,8],
+      sor: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
+    },
     classeAspdBase: 158,
     classePenEscudo: -5,
     classeArmas: [
@@ -704,7 +712,50 @@ var classes = [
         penalidade: -1
       }
     ],
-    classeBuilds: []
+    classeBuilds: [
+      {
+        id: "Soco_Furacao--1",
+        nome: "Soco Furacão",
+        maoDireita: ["Arma_Maca","Arma_Cajado1","Arma_Soqueira"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((400 + prop.atributoagilidade) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Soco_Furacao","REQ_Pos"]
+      },
+      {
+        id: "Soco_Furacao--2",
+        nome: "Soco Furacão (nv. 200)",
+        maoDireita: ["Arma_Maca","Arma_Cajado1","Arma_Soqueira"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1000 + prop.atributoagilidade) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Soco_Furacao","REQ_Pos"]
+      }
+    ]
   },
   {
     classeID: "Classe_AB",
@@ -905,7 +956,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--2",
@@ -926,7 +977,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--3",
@@ -947,7 +998,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--4",
@@ -968,7 +1019,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--5",
@@ -989,7 +1040,28 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Vulcao_de_Flechas",
+        nome: "Vulcão de Flechas",
+        maoDireita: ["Arma_Chicote","Arma_Instrumento"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3.04,
+          conjuracaofixa: 0.76,
+          posconjuracao: 2,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return 1200
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Vulcao_de_Flechas","REQ_Pos","REQ_CVar","REQ_CFix"]
       },
     ]
   },
@@ -1042,7 +1114,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--2",
@@ -1063,7 +1135,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--3",
@@ -1084,7 +1156,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--4",
@@ -1105,7 +1177,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
       },
       {
         id: "Temporal_de_Mil_Flechas--5",
@@ -1126,7 +1198,28 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_ATQDuplo","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Temporal_de_Mil_Flechas","REQ_Pos","REQ_CVar"]
+      },
+      {
+        id: "Vulcao_de_Flechas",
+        nome: "Vulcão de Flechas",
+        maoDireita: ["Arma_Chicote","Arma_Instrumento"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3.04,
+          conjuracaofixa: 0.76,
+          posconjuracao: 2,
+          recarga: 0,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return 1200
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Vulcao_de_Flechas","REQ_Pos","REQ_CVar","REQ_CFix"]
       },
     ]
   },

@@ -229,6 +229,25 @@ var items = [
     }
   },
   {
+    itemId:     "1918",
+    itemNome:   "Alaúde Oriental",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 150,
+    itemArmaNivel: 4,
+    itemNivel:  65,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Vulcao_de_Flechas": 10,
+        "danode--Flecha_Melodica": 10
+      }
+    }
+  },
+  {
     itemId:     "2913",
     itemNome:   "Algemas de Presidiário [1]",
     itemTipo:   "itemAcessorio",
@@ -477,6 +496,20 @@ var items = [
         "conjuracaofixas": (hasCombo(slot, itemId, [["19393"]]) ? (-0.2) : 0),
         "danofisicochefe": (hasCombo(slot, itemId, [["19393"]]) ? 20 : 0),
         "danomagicochefe": (hasCombo(slot, itemId, [["19393"]]) ? 20 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "2988",
+    itemNome:   "Anel do Novo Oz [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  130,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "conjuracaovariavel": -25
       }
     }
   },
@@ -1504,6 +1537,23 @@ var items = [
     }
   },
   {
+    itemId:     "400000",
+    itemNome:   "Assobios Musicais",
+    itemTipo:   "itemBaixo",
+    itemNivel:  120,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_CVar","REQ_DCrit"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atqarmap": 1,
+        "danomagicop": 1,
+        "conjuracaovariavel": (hasCombo(slot, itemId, [["2990"]]) ? (-10) : 0) + (hasCombo(slot, itemId, [["2992"]]) ? (-10) : 0),
+        "danocritico": (hasCombo(slot, itemId, [["2991"]]) ? (10) : 0) + (hasCombo(slot, itemId, [["2992"]]) ? (10) : 0),
+      }
+    }
+  },
+  {
     itemId:     "410000",
     itemNome:   "Aura de Shen",
     itemTipo:   "itemMeio",
@@ -1621,6 +1671,34 @@ var items = [
       return {
         "crit": getItemRefino(slot),
         "danocritico": (hasCombo(slot, itemId, [["4317"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["4521"]]) ? 5 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "400476",
+    itemNome:   "Boina Sustenida [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_CVar","REQ_CFix","REQ_Tempestade_de_Flechas","REQ_Vulcao_de_Flechas","REQ_Ruido_Estridente"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (parseInt(getItemRefino(slot) / 2) * 15),
+        "atqm": (parseInt(getItemRefino(slot) / 2) * 15),
+        "danomagiconeutro": (getItemRefino(slot) >= 7 ? 15 : 0),
+        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0),
+        "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
+        "danofisicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
+        "danomagicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + (hasCombo(slot, itemId, [["400000"]]) ? 4 : 0),
+        "atqarmap": (hasCombo(slot, itemId, [["400000"]]) ? 4 : 0),
+        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, [["18123"]]) ? (parseInt(getItemRefino(slot) / 2) * 5) : 0),
+        "recargade--Tempestade_de_Flechas": (hasCombo(slot, itemId, [["18122"]]) ? (-1.5) : 0),
+        "aspdp": (hasCombo(slot, itemId, [["18122"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "conjuracaovariavel": (hasCombo(slot, itemId, [["1935","1990"]]) ? (-25) : 0),
+        "danode--Vulcao_de_Flechas": (hasCombo(slot, itemId, [["1935","1990"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "recargade--Ruido_Estridente": (hasCombo(slot, itemId, [["1989","1934"]]) ? (-2) : 0),
+        "danode--Ruido_Estridente": (hasCombo(slot, itemId, [["1989","1934"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
       }
     }
   },
@@ -2553,6 +2631,20 @@ var items = [
     }
   },
   {
+    itemId:     "2989",
+    itemNome:   "Bracelete Floral de Igu [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  130,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "conjuracaovariavel": -25
+      }
+    }
+  },
+  {
     itemId:     "28410",
     itemNome:   "Bracelete Safira [1]",
     itemTipo:   "itemAcessorio",
@@ -3260,6 +3352,63 @@ var items = [
     }
   },
   {
+    itemId:     "1970",
+    itemNome:   "Chicote da Rainha",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 150,
+    itemArmaNivel: 4,
+    itemNivel:  65,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Vulcao_de_Flechas": 10,
+        "danode--Flecha_Melodica": 10
+      }
+    }
+  },
+  {
+    itemId:     "1980",
+    itemNome:   "Chicote do Desequilíbrio [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 110,
+    itemArmaNivel: 3,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoagilidade": 2,
+        "atributodestreza": 3
+      }
+    }
+  },
+  {
+    itemId:     "1981",
+    itemNome:   "Chicote Glorioso",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 50,
+    itemArmaNivel: 4,
+    itemNivel:  80,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? (95 + (Math.pow(Math.max(Math.min(getItemRefino(slot), 14) - 4, 0), 2))) : 0,
+        "ignoredef": isOpponent("racaMonstro",["5","10"]) ? (20 + (getItemRefino(slot) >= 6 ? 5 : 0)) : 0,
+      }
+    }
+  },
+  {
     itemId:     "28501",
     itemNome:   "Chifres de Kirin [1]",
     itemTipo:   "itemAcessorio",
@@ -3302,6 +3451,86 @@ var items = [
       return {
         "atq": 5,
         "crit": 3
+      }
+    }
+  },
+  {
+    itemId:     "16049",
+    itemNome:   "Clava de Iansã [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 130,
+    itemArmaNivel: 3,
+    itemNivel:  50,
+    itemPropriedade: 4,
+    itemClasses: ["Classe_SA","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [encantamentosArmasBrasilis],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["8"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
+      }
+    }
+  },
+  {
+    itemId:     "16055",
+    itemNome:   "Clava de Oxóssi [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 130,
+    itemArmaNivel: 3,
+    itemNivel:  50,
+    itemPropriedade: 2,
+    itemClasses: ["Classe_SA","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [encantamentosArmasBrasilis],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["2","9"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
+      }
+    }
+  },
+  {
+    itemId:     "16057",
+    itemNome:   "Clava de Oxum [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 130,
+    itemArmaNivel: 3,
+    itemNivel:  50,
+    itemPropriedade: 1,
+    itemClasses: ["Classe_SA","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [encantamentosArmasBrasilis],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["0","3"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
+      }
+    }
+  },
+  {
+    itemId:     "16066",
+    itemNome:   "Clava de Xangô [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 130,
+    itemArmaNivel: 3,
+    itemNivel:  50,
+    itemPropriedade: 3,
+    itemClasses: ["Classe_SA","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [encantamentosArmasBrasilis],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro", ["5","6"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
+        "danofisicoraca": isOpponent("propriedadeMonstro", ["30","31","32","33","40","41","42","43"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
       }
     }
   },
@@ -3531,6 +3760,45 @@ var items = [
         "hpp": parseInt(getItemRefino(slot) / 3) * 4,
         "posconjuracao": (hasCombo(slot, itemId, [["20773"]]) ? (-10 + (getNivelBase() >= 130 ? -10 : 0)) : 0),
         "esquivaperfeita": (hasCombo(slot, itemId, [["20773"]]) ? (getNivelBase >= 130 ? 6 : 0) : 0),
+      }
+    }
+  },
+  {
+    itemId:     "1846",
+    itemNome:   "Combo Ilusional [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 250,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Punho_do_Dragao": 10 + (parseInt(getItemRefino(slot) / 2) * 5),
+        "danode--Soco_Furacao": 10 + (parseInt(getItemRefino(slot) / 2) * 5),
+        "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 5) + (hasCombo(slot, itemId, [["20838"]]) ? ((getItemRefino(slot) >= 7 && getItemRefino("itemCapa") >= 7 ? 20 : 0) + (getItemRefino(slot) + getItemRefino("itemCapa") >= 22 ? 15 : 0)) : 0),
+        "atq": hasCombo(slot, itemId, [["20838"]]) ? 40 : 0,
+        "recargade--Combo_Rapido": (hasCombo(slot, itemId, [["20838"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 18) ? (-1) : 0),
+      }
+    }
+  },
+  {
+    itemId:     "1934",
+    itemNome:   "Contrabaixo [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 180,
+    itemArmaNivel: 3,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
       }
     }
   },
@@ -3967,6 +4235,25 @@ var items = [
     }
   },
   {
+    itemId:     "1972",
+    itemNome:   "Enguia Elétrica [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 100,
+    itemArmaNivel: 4,
+    itemNivel:  70,
+    itemPropriedade: 4,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoagilidade": 2,
+        "atributointeligencia": 2
+      }
+    }
+  },
+  {
     itemId:     "460023",
     itemNome:   "Escudo da Fênix [1]",
     itemTipo:   "itemEscudo",
@@ -4273,6 +4560,25 @@ var items = [
     }
   },
   {
+    itemId:     "1989",
+    itemNome:   "Fita Rítmica [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 150,
+    itemArmaATQM: 120,
+    itemArmaNivel: 3,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdp": 20
+      }
+    }
+  },
+  {
     itemId:     "520003",
     itemNome:   "Foice de Fogo Vivo [1]",
     itemTipo:   "itemArma",
@@ -4366,6 +4672,90 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
 
+      }
+    }
+  },
+  {
+    itemId:     "1847",
+    itemNome:   "Garra Ancestral [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 180,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (parseInt(getItemRefino(slot) / 2) * 10),
+        "danodistancia": (parseInt(getItemRefino(slot) / 3) * 4),
+        "danode--Explosao_Espiritual": (getItemRefino(slot) >= 9 ? 10 : 0),
+        "recargade--Explosao_Espiritual": (getItemRefino(slot) >= 11 ? (-1) : 0),
+      }
+    }
+  },
+  {
+    itemId:     "1837",
+    itemNome:   "Garra de Ferro [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 100,
+    itemArmaNivel: 3,
+    itemNivel:  40,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "ignoredef": 100,
+        "aspdp": (-5) + (parseInt(getItemRefino(slot) / 2)),
+        "atq": 100
+      }
+    }
+  },
+  {
+    itemId:     "1841",
+    itemNome:   "Garra Prismática [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 140,
+    itemArmaNivel: 4,
+    itemNivel:  105,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdf": 1,
+        "aspdp": getItemRefino(slot),
+        "danofisicotamanho": isOpponent("tamanhoMonstro", ["1"]) ? getItemRefino(slot) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "1839",
+    itemNome:   "Garra Rubi [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 100,
+    itemArmaNivel: 3,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (parseInt((getNivelBase() - 70) / 10) * 5) + Math.pow(Math.min(getItemRefino(slot), 15), 2),
+        "atqm": parseInt(Math.pow(Math.min(getItemRefino(slot), 15), 2) / 2)
       }
     }
   },
@@ -4593,6 +4983,45 @@ var items = [
     }
   },
   {
+    itemId:     "1924",
+    itemNome:   "Guitarra de Batalha B",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 50,
+    itemArmaNivel: 3,
+    itemNivel:  80,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributointeligencia": 2,
+        "danode--Vulcao_de_Flechas": 20,
+        "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? 95 : 0
+      }
+    }
+  },
+  {
+    itemId:     "1927",
+    itemNome:   "Guitarra Gloriosa",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 50,
+    itemArmaNivel: 4,
+    itemNivel:  80,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? (95 + (Math.pow(Math.max(Math.min(getItemRefino(slot), 14) - 4, 0), 2))) : 0,
+        "ignoredef": isOpponent("racaMonstro",["5","10"]) ? (20 + (getItemRefino(slot) >= 6 ? 5 : 0)) : 0,
+      }
+    }
+  },
+  {
     itemId:     "19268",
     itemNome:   "Hálito de Verme com Rosto",
     itemTipo:   "itemBaixo",
@@ -4639,6 +5068,27 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "atq": getNivelBase()
+      }
+    }
+  },
+  {
+    itemId:     "1862",
+    itemNome:   "Incendiária-OS [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 175,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atqarmap": 3,
+        "aspdp": getItemRefino(slot) >= 7 ? 7 : 0,
+        "danode--Explosao_Espiritual": getItemRefino(slot) >= 9 ? 15 : 0,
+        "danofisicotamanho": getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro",["0","1"]) ? 20 : 0,
       }
     }
   },
@@ -5222,6 +5672,26 @@ var items = [
     }
   },
   {
+    itemId:     "1822",
+    itemNome:   "Luva de Combo [4]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 30,
+    itemArmaNivel: 3,
+    itemNivel:  60,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 4,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--O_Ultimo_Dragao": 20,
+        "danode--Combo_Triplo": 15,
+        "danode--Combo_Quadruplo": 15
+      }
+    }
+  },
+  {
     itemId:     "28533",
     itemNome:   "Luvas da Precisão [1]",
     itemTipo:   "itemAcessorio",
@@ -5372,7 +5842,7 @@ var items = [
     itemNome:   "Luva Sombria de Trovador",
     itemTipo:   "itemLuvaSombria",
     itemNivel:  99,
-    itemClasses: ["Classe_TR","Classe_TR_MU"],
+    itemClasses: ["Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
     itemFuncao: function(slot, itemId) {
@@ -5404,6 +5874,24 @@ var items = [
     }
   },
   {
+    itemId:     "16003",
+    itemNome:   "Maça Carga [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 175,
+    itemArmaNivel: 3,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+      }
+    }
+  },
+  {
     itemId:     "16051",
     itemNome:   "Maça da Valquíria Mágica [4]",
     itemTipo:   "itemArma",
@@ -5431,6 +5919,30 @@ var items = [
     }
   },
   {
+    itemId:     "16063",
+    itemNome:   "Maça Longa Ilusional [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 185,
+    itemArmaNivel: 4,
+    itemNivel:  99,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["atq_5-60","atqarmap_1_7","hpf_100-5000","danofisicopropriedade_1-20"],
+      ["esquiva_5-60","danocritico_1-10","posconjuracao_1-10","aspdp_1-15","danodistancia_1-10","danofisicoraca_1-10","danofisicotamanho_1-10"],
+      ["ignoredef_5-20"],
+      ["ignoredef_3-15","danofisicochefe_3-15"],
+    ],
+    slots: 2,
+    encantamentos: [encantamentosArmasBrasilis],
+    itemFuncao: function(slot, itemId) {
+      return {
+      }
+    }
+  },
+  {
     itemId:     "1326",
     itemNome:   "Machado Ilusional [2]",
     itemTipo:   "itemArma",
@@ -5442,6 +5954,12 @@ var items = [
     itemPropriedade: false,
     itemClasses: ["Classe_ME","Classe_BI"],
     itemBonus: ["REQ_DFisico"],
+    bonusaleatorios: [
+      ["atq_5-60","atqarmap_1_7","hpf_100-5000","danofisicopropriedade_1-20"],
+      ["esquiva_5-60","danocritico_1-10","posconjuracao_1-10","aspdp_1-15","danodistancia_1-10","danofisicoraca_1-10","danofisicotamanho_1-10"],
+      ["ignoredef_5-20"],
+      ["ignoredef_3-15","danofisicochefe_3-15"],
+    ],
     slots: 4,
     itemFuncao: function(slot, itemId) {
       return {
@@ -6346,6 +6864,24 @@ var items = [
     }
   },
   {
+    itemId:     "1990",
+    itemNome:   "Microfone Floral de Igu [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 160,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, [["2989"]]) ? 200 : 0,
+      }
+    }
+  },
+  {
     itemId:     "480114",
     itemNome:   "Mikoshi Sagrado [1]",
     itemTipo:   "itemCapa",
@@ -6839,6 +7375,47 @@ var items = [
     }
   },
   {
+    itemId:     "2990",
+    itemNome:   "Pingente da Harmonia",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DMagico","REQ_CVar"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danomagicop": 6,
+        "atributoforca": (-5) + (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
+        "atributoagilidade": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
+        "atributovitalidade": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
+        "atributointeligencia": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
+        "atributodestreza": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
+        "atributosorte": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "2992",
+    itemNome:   "Pingente da Voragem",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DFisico","REQ_DCrit","REQ_CVar"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": 6,
+        "danomagicop": 6,
+        "atributoforca": 1,
+        "atributoagilidade": 1,
+        "atributovitalidade": 1,
+        "atributointeligencia": 1,
+        "atributodestreza": 1,
+        "atributosorte": 1
+      }
+    }
+  },
+  {
     itemId:     "2651",
     itemNome:   "Pingente de Morrigane",
     itemTipo:   "itemAcessorio",
@@ -6850,6 +7427,21 @@ var items = [
       return {
         "atributoforca": 2,
         "crit": 3
+      }
+    }
+  },
+  {
+    itemId:     "2991",
+    itemNome:   "Pingente do Caos",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DCrit"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicop": 6,
+        "atributointeligencia": (-5)
       }
     }
   },
@@ -7051,6 +7643,46 @@ var items = [
     }
   },
   {
+    itemId:     "1836",
+    itemNome:   "Punho de Cinzas [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 160,
+    itemArmaATQM: 100,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributointeligencia": 6,
+        "atributovitalidade": 6,
+        "atributosorte": -6
+      }
+    }
+  },
+  {
+    itemId:     "1830",
+    itemNome:   "Punho Violento [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 142,
+    itemArmaNivel: 3,
+    itemNivel:  102,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Impacto_Sismico": 20,
+        "danode--Soco_Furacao": 20
+      }
+    }
+  },
+  {
     itemId:     "19300",
     itemNome:   "Quepe do Cão-mandante [1]",
     itemTipo:   "itemTopo",
@@ -7124,6 +7756,31 @@ var items = [
       return {
         "crit": 7,
         "aspdp": 3
+      }
+    }
+  },
+  {
+    itemId:     "420227",
+    itemNome:   "Raposa Ilusional",
+    itemTipo:   "itemBaixo",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (hasCombo(slot, itemId, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 10) : 0) + (hasCombo(slot, itemId, [["20838"]]) ? 50 : 0),
+        "atqm": hasCombo(slot, itemId, [["20838"]]) ? 50 : 0,
+        "atributodestreza": hasCombo(slot, itemId, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 3) : 0,
+        "danofisicotamanho": hasCombo(slot, itemId, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 2) : 0,
+        "hpp": hasCombo(slot, itemId, [["22133"]]) ? 10 : 0,
+        "spp": hasCombo(slot, itemId, [["22133"]]) ? 10 : 0,
+        "spf": hasCombo(slot, itemId, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 200) : 0,
+        "aspdp": hasCombo(slot, itemId, [["22133"]]) ? (getItemRefino("itemSapatos") >= 9 ? 10 : 0) : 0,
+        "conjuracaofixas": hasCombo(slot, itemId, [["22133"]]) ? (getItemRefino("itemSapatos") >= 9 ? (-0.5) : 0) : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, [["20838"]]) ? (-15) : 0,
+        "danofisicochefe": hasCombo(slot, itemId, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) : 0,
+        "danode--Punho_Supremo_de_Asura": hasCombo(slot, itemId, [["16063"]]) && getItemRefino("itemMaoDireita") >= 11 ? 35 : 0,
       }
     }
   },
@@ -7393,6 +8050,26 @@ var items = [
     }
   },
   {
+    itemId:     "1978",
+    itemNome:   "Serpente de Batalha B",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 50,
+    itemArmaNivel: 3,
+    itemNivel:  80,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributointeligencia": 2,
+        "danode--Vulcao_de_Flechas": 20,
+        "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? 95 : 0
+      }
+    }
+  },
+  {
     itemId:     "480023",
     itemNome:   "Sobretudo do Mestre [1]",
     itemTipo:   "itemCapa",
@@ -7423,6 +8100,69 @@ var items = [
         "atq": 50,
         "atqm": 50,
         "posconjuracao": (-10) + (hasCombo(slot, itemId, [["20939"]]) ? (-10) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "560002",
+    itemNome:   "Soqueira Ancestral [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 185,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (parseInt(getItemRefino(slot) / 2) * 10),
+        "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 4) + (getItemRefino(slot) >= 9 ? 15 : 0),
+        "recargade--Garra_de_Tigre": (getItemRefino(slot) >= 11 ? (-1) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "1835",
+    itemNome:   "Soqueira de Spartacus [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 100,
+    itemArmaNivel: 4,
+    itemNivel:  50,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      if(getItemRefino(slot) >= 10) {
+        temDrake = true;
+      }
+      return {
+        "danofisicop": getItemRefino(slot)
+      }
+    }
+  },
+  {
+    itemId:     "1935",
+    itemNome:   "Ukulele do Novo Oz [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 160,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, [["2988"]]) ? 200 : 0,
       }
     }
   },
@@ -7768,6 +8508,25 @@ var items = [
         "danode--Luz_da_Criacao": parseInt(getItemRefino(slot) / 3) * 5,
         "conjuracaovariavel": getItemRefino(slot) >= 9 ? (-10) : 0,
         "danomagicosagrado": getItemRefino(slot) >= 11 ? 15 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "1925",
+    itemNome:   "Violoncelo [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 110,
+    itemArmaNivel: 3,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributoagilidade": 2,
+        "atributodestreza": 3
       }
     }
   },
