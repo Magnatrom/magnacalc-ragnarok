@@ -2910,6 +2910,25 @@ var items = [
     }
   },
   {
+    itemId:     "20931",
+    itemNome:   "Cachecol Arco-íris",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_HP"],
+    slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
+        "spp": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danodistancia": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0) + (isClasse(["classe_SE","Classe_SE_NT"]) ? 20 : 0),
+        "posconjuracao": isClasse(["classe_SE","Classe_SE_NT"]) ? (-10) : 0,
+        "recargade--Tempestade_de_Flechas": isClasse(["classe_SE","Classe_SE_NT"]) ? (-0.2) : 0,
+        "danode--Tempestade_de_Flechas": isClasse(["classe_SE","Classe_SE_NT"]) ? 10 : 0,
+      }
+    }
+  },
+  {
     itemId:     "420110",
     itemNome:   "Cachecol Camuflado",
     itemTipo:   "itemBaixo",
@@ -6284,6 +6303,25 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
         "hpp": 15
+      }
+    }
+  },
+  {
+    itemId:     "480094",
+    itemNome:   "Manto de Javali [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_DES"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atributodestreza": 6 + (getItemRefino(slot) >= 7 ? 12 : 0) + (getItemRefino(slot) >= 9 ? 12 : 0),
+        "aspdp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
+        "danodistancia": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "hpf": isClasse(["classe_SE","Classe_SE_NT"]) ? 10000 : 0,
+        "danofisicotamanho": isClasse(["classe_SE","Classe_SE_NT"]) ? 20 : 0,
+        "recargade--Tempestade_de_Flechas": isClasse(["classe_SE","Classe_SE_NT"]) ? (-0.3) : 0
       }
     }
   },
