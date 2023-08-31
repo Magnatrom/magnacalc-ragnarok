@@ -3381,7 +3381,28 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     slots: 0,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Vulcao_de_Flechas": 10,
+        "danode--Flecha_Melodica": 10
+      }
+    }
+  },
+  {
+    itemId:     "1976",
+    itemNome:   "Chicote da Rainha [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 150,
+    itemArmaNivel: 4,
+    itemNivel:  65,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    slots: 2,
     itemFuncao: function(slot, itemId) {
       return {
         "danode--Vulcao_de_Flechas": 10,
