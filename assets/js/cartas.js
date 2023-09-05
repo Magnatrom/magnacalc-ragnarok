@@ -163,6 +163,20 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27296",
+    cartaNome:   "Carta Arqueiro Wootan",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DDist"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdp": parseInt(getAtributoBase("des") / 10),
+        "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? parseInt(getAtributoBase("des") / 10) : 0,
+        "atq": getAtributoBase("des") >= 120 ? 40 : 0,
+      }
+    }
+  },
+  {
     cartaID:     "4464",
     cartaNome:   "Carta Aunoe",
     cartaSlot:   "itemArma",
