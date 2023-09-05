@@ -8546,7 +8546,8 @@ var items = [
         "precisaoperfeita": (getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0),
         "danofisicoraca": isClasse(["Classe_SC","Classe_SC_NT"]) ? 20 : 0,
         "atq": isClasse(["Classe_SC","Classe_SC_NT"]) ? 150 : 0,
-        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0
+        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0,
+        "atributodestreza": (getItemRefino(slot) >= 10 ? 30 : 0)
       }
     }
   },
@@ -8564,7 +8565,8 @@ var items = [
         "spp": 10,
         "precisaoperfeita": (getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0),
         "atq": isClasse(["Classe_SC","Classe_SC_NT"]) ? 150 : 0,
-        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0
+        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0,
+        "atributodestreza": (getItemRefino(slot) >= 10 ? 30 : 0)
       }
     }
   },
