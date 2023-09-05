@@ -263,6 +263,48 @@ var classes = [
           return parseInt((1200 + (prop.atributoagilidade * 2)) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos"]
+      },
+      {
+        id: "Copia_Explosiva--1",
+        nome: "Cópia Explosiva",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 1,
+          conjuracaofixa: 0,
+          posconjuracao: 0,
+          recarga: 5,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return ((prop.atributodestreza * 2) * parseInt(nivelClasse / 10) * parseInt(nivelBase / 120))
+        },
+        requisitos: ["REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Copia_Explosiva"]
+      },
+      {
+        id: "Copia_Explosiva--2",
+        nome: "Cópia Explosiva (nv. 185)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 1,
+          conjuracaofixa: 0,
+          posconjuracao: 0,
+          recarga: 5,
+          golpes: 1
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (11 * parseInt(prop.atributodestreza / 2) * parseInt(nivelClasse / 10) * parseInt(nivelBase / 120))
+        },
+        requisitos: ["REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Copia_Explosiva"]
       }
     ]
   },

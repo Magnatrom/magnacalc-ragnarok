@@ -11,6 +11,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4694",
+    cartaNome:   "Carta Alma de Gertie",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Copia_Explosiva"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danode--Copia_Explosiva": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4690",
     cartaNome:   "Carta Alma de Randel",
     cartaSlot:   "itemArma",
