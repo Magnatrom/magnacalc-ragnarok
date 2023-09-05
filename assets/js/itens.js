@@ -31,6 +31,28 @@ var items = [
     }
   },
   {
+    itemId:     "450286",
+    itemNome:   "[MEGA] Vestes de Cardeal [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_Precisao"],
+    slots: 1,
+    encantamentos: [
+      ["4706","4736","4726","4756","4948","29135","4832","4811"],
+      ["4706","4736","4726","4756","4948","29135","4832","4811","4746","4819","4766","4767","4863","4864","4818","4817","4949","29136","4833","4810"],
+      ["4706","4736","4726","4756","4948","29135","4832","4811","4746","4819","4766","4767","4863","4864","4818","4817","4949","29136","4833","4810","4853","4854","4855","4856","4857","4858","4865","4950","4869","4872","4834","4809"]
+    ],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdp": 10,
+        "danofisicotamanho": 40,
+        "danomagicotamanho": 40,
+        "precisaoperfeita": getItemRefino(slot) >= 7 ? 25 : 0,
+      }
+    }
+  },
+  {
     itemId:     "480064",
     itemNome:   "Abafador de Tempestades",
     itemTipo:   "itemCapa",
@@ -8208,6 +8230,32 @@ var items = [
     }
   },
   {
+    itemId:     "560009",
+    itemNome:   "Soqueira Primordial [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Soqueira",
+    itemArmaATQ: 205,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
+      ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
+    ],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "atq": (parseInt(getItemRefino(slot) / 2) * 15),
+        "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 4) + (getItemRefino(slot) >= 7 ? 15 : 0),
+        "danode--Portoes_do_Inferno": (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0),
+        "recargade--Garra_de_Tigre": (getItemRefino(slot) >= 9 ? (-1) : 0),
+        "hpp": (getItemRefino(slot) >= 11 ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "1935",
     itemNome:   "Ukulele do Novo Oz [2]",
     itemTipo:   "itemArma",
@@ -8463,6 +8511,64 @@ var items = [
     }
   },
   {
+    itemId:     "450258",
+    itemNome:   "Tremor Sonoro [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DMagico","REQ_Ruido_Estridente"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 10,
+        "spp": 10,
+        "danode--Ruido_Estridente": (getItemRefino(slot) >= 9 ? 50 : 0) + (getItemRefino(slot) >= 13 ? 50 : 0),
+        "danomagiconeutro": (getItemRefino(slot) >= 11 ? 15 : 0),
+        "danomagicoraca": isClasse(["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"]) ? 20 : 0,
+        "atqm": isClasse(["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"]) ? 150 : 0,
+        "atributointeligencia": isClasse(["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"]) ? 30 : 0,
+        "posconjuracao": isClasse(["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"]) ? 10 : 0
+      }
+    }
+  },
+  {
+    itemId:     "450214a",
+    itemNome:   "Tríade Sombria [1] - com dano físico",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 10,
+        "spp": 10,
+        "precisaoperfeita": (getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0),
+        "danofisicoraca": isClasse(["Classe_SC","Classe_SC_NT"]) ? 20 : 0,
+        "atq": isClasse(["Classe_SC","Classe_SC_NT"]) ? 150 : 0,
+        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0
+      }
+    }
+  },
+  {
+    itemId:     "450214b",
+    itemNome:   "Tríade Sombria [1] - sem dano físico",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "hpp": 10,
+        "spp": 10,
+        "precisaoperfeita": (getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0),
+        "atq": isClasse(["Classe_SC","Classe_SC_NT"]) ? 150 : 0,
+        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0
+      }
+    }
+  },
+  {
     itemId:     "2295",
     itemNome:   "Venda",
     itemTipo:   "itemMeio",
@@ -8473,6 +8579,38 @@ var items = [
     itemFuncao: function(slot, itemId) {
       return {
 
+      }
+    }
+  },
+  {
+    itemId:     "450287",
+    itemNome:   "Vestes de Bispo [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdp": 5,
+        "danofisicop": parseInt(getItemRefino(slot) / 3) * 10,
+        "danomagicop": parseInt(getItemRefino(slot) / 3) * 10
+      }
+    }
+  },
+  {
+    itemId:     "450288",
+    itemNome:   "Vestes de Diácono [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId) {
+      return {
+        "aspdp": 5,
+        "danofisicop": parseInt(getItemRefino(slot) / 3) * 5,
+        "danomagicop": parseInt(getItemRefino(slot) / 3) * 5
       }
     }
   },
