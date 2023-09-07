@@ -83,14 +83,16 @@ function getNivelArma(slot) {
 
 
 
-function hasCombo(slotOriginal, itemOriginal, opcoesItens) {
+function hasCombo(slotOriginal, itemOriginal, tipoItem, opcoesItens) {
   let temTodosItens = true;
   opcoesItens.forEach(function(itemCombo, index) {
     let elementosComCombo = $(`select.equipamento, .carta select, #municoes select`).filter(function(item, index) { return itemCombo.includes(($(this).val()).replace(/\D+/g, '')) }).length;
     if(elementosComCombo <= 0) temTodosItens = false;
   });
-  let primeiroElementoItemOriginal = $(`select.equipamento, .carta select, #municoes select`).filter(function(item, index) { return $(this).val() == itemOriginal }).eq(0).closest(".itemSlot").attr("id");
-  return (temTodosItens && slotOriginal == primeiroElementoItemOriginal);
+  let primeiroElementoItemOriginal = $(`select.equipamento, .carta select, #municoes select`).filter(function(item, index) { return $(this).val() == itemOriginal }).eq(0);
+  let primeiroElementoItemOriginalSlot = primeiroElementoItemOriginal.closest(".itemSlot").attr("id");
+  let tipoPrimeiroItem = primeiroElementoItemOriginal.is(".equipamento") ? "equipamento" : primeiroElementoItemOriginal.closest("[class*='carta']").attr("class").split(" ").find((e) => e.indexOf("carta-") >= 0);
+  return (temTodosItens && slotOriginal == primeiroElementoItemOriginalSlot && tipoItem == tipoPrimeiroItem);
 }
 
 function isEquipped(itemId) {
@@ -449,7 +451,7 @@ function exibirCartas(posicao) {
           }
           let encantamentos = filterEncantamentoByItem(listaEncantamentos);
           let tamanhoDiv = ((slots + qtdEncantamentos) % 2 == 1 && (slots + index + 1 == slots + qtdEncantamentos)) ? "col-12" : "col-6";
-          htmlcode += `<div class="${tamanhoDiv} carta-${slots + index}"><select><option value="">Encantamento</option>`;
+          htmlcode += `<div class="${tamanhoDiv} carta-${slots + index + 1}"><select><option value="">Encantamento</option>`;
           encantamentos.forEach(function(carta, index) {
             htmlcode += `<option value="${carta.cartaID}">${carta.cartaNome}</option>`;
           });
@@ -633,8 +635,8 @@ function definirBonusItens() {
         }
       }
 
-      // Contabilizando bônus dos itens
-      let bonusItem = item.itemFuncao(slot, itemId);
+      // Contabilizando bônus dos equipamentos
+      let bonusItem = item.itemFuncao(slot, itemId, "equipamento");
       $.each(bonusItem, function(index, value) {
         todosItensSelecionados[slot][index] = (todosItensSelecionados[slot][index] ? todosItensSelecionados[slot][index] : 0) + value;
         if(index == "conjuracaofixap" && value < menorconjuracaofixaP) {
@@ -653,11 +655,13 @@ function definirBonusItens() {
   $(".carta select").each(function() {
     let cartaId = $(this).val();
     let slot = $(this).closest(".itemSlot").attr("id");
+    let tipoItem = $(this).closest("[class*='carta']").attr("class").split(" ").find((e) => e.indexOf("carta-") >= 0);
+
     if(cartaId != "") {
       let carta = filterCartaById(cartaId);
 
-      // Contabilizando bônus dos itens
-      let bonusCarta = carta.itemFuncao(slot, cartaId);
+      // Contabilizando bônus das cartas
+      let bonusCarta = carta.itemFuncao(slot, cartaId, tipoItem);
       $.each(bonusCarta, function(index, value) {
         todosItensSelecionados[slot][index] = (todosItensSelecionados[slot][index] ? todosItensSelecionados[slot][index] : 0) + value;
         if(index == "conjuracaofixap" && value < menorconjuracaofixaP) {

@@ -20,13 +20,13 @@ var items = [
       ["4706","4736","4726","4756","4948","29135","4832","4811","4746","4819","4766","4767","4863","4864","4818","4817","4949","29136","4833","4810"],
       ["4706","4736","4726","4756","4948","29135","4832","4811","4746","4819","4766","4767","4863","4864","4818","4817","4949","29136","4833","4810","4853","4854","4855","4856","4857","4858","4865","4950","4869","4872","4834","4809"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 15,
         "spp": 15,
         "aspdp": 10,
         "danofisicotamanho": (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
-        "danofisicopropriedade": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((hasCombo(slot, itemId, [["4419"]]) ? (getItemRefino(slot) * 8) : 0) + (hasCombo(slot, itemId, [["4481"]]) ? (getItemRefino(slot) * 5) : 0)) : 0
+        "danofisicopropriedade": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((hasCombo(slot, itemId, tipoItem, [["4419"]]) ? (getItemRefino(slot) * 8) : 0) + (hasCombo(slot, itemId, tipoItem, [["4481"]]) ? (getItemRefino(slot) * 5) : 0)) : 0
       }
     }
   },
@@ -43,7 +43,7 @@ var items = [
       ["4706","4736","4726","4756","4948","29135","4832","4811","4746","4819","4766","4767","4863","4864","4818","4817","4949","29136","4833","4810"],
       ["4706","4736","4726","4756","4948","29135","4832","4811","4746","4819","4766","4767","4863","4864","4818","4817","4949","29136","4833","4810","4853","4854","4855","4856","4857","4858","4865","4950","4869","4872","4834","4809"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "danofisicotamanho": 40,
@@ -60,13 +60,13 @@ var items = [
     itemClasses: ["Classe_MU","Classe_TR"],
     itemBonus: ["REQ_Temporal_de_Mil_Flechas","REQ_Precisao"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
         "danodistancia": 22 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
         "precisaoperfeita": 20,
         "posconjuracao": -10,
-        "recargade--Temporal_de_Mil_Flechas": -2 + (hasCombo(slot, itemId, [["1746"],["15368"]]) ? 2 : 0),
+        "recargade--Temporal_de_Mil_Flechas": -2 + (hasCombo(slot, itemId, tipoItem, [["1746"],["15368"]]) ? 2 : 0),
         "danode--Temporal_de_Mil_Flechas": 10
       }
     }
@@ -83,7 +83,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Disparo_Triplo"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 135,
         "danodistancia": 5 + (getItemRefino(slot) >= 11 ? 10 : 0),
@@ -100,26 +100,26 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_CFix","REQ_Petalas_Flamejantes","REQ_Lanca_Congelante","REQ_Lamina_de_Vento","REQ_Chamas_de_Hela","REQ_Cometa"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqm": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, [["13493","26151"]]) ? 30 : 0),
+        "atqm": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, tipoItem, [["13493","26151"]]) ? 30 : 0),
         "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0),
         "danomagiconeutro": (getItemRefino(slot) >= 9 ? 15 : 0),
-        "danomagicofogo": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["28755"]]) ? 5 : 0),
-        "danomagicovento": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["28755"]]) ? 5 : 0),
+        "danomagicofogo": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["28755"]]) ? 5 : 0),
+        "danomagicovento": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["28755"]]) ? 5 : 0),
         "danomagicoterra": (getItemRefino(slot) >= 9 ? 15 : 0),
-        "danomagicoagua": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["28755"]]) ? 5 : 0),
+        "danomagicoagua": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["28755"]]) ? 5 : 0),
         "danomagicosagrado": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicosombrio": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoveneno": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicofantasma": (getItemRefino(slot) >= 9 ? 15 : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danomagicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "danode--Petalas_Flamejantes": (hasCombo(slot, itemId, [["28755"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
-        "danode--Lanca_Congelante": (hasCombo(slot, itemId, [["28755"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
-        "danode--Lamina_de_Vento": (hasCombo(slot, itemId, [["28755"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
-        "danode--Chamas_de_Hela": (hasCombo(slot, itemId, [["13493"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "danode--Cometa": (hasCombo(slot, itemId, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 5) : 0)
+        "danode--Petalas_Flamejantes": (hasCombo(slot, itemId, tipoItem, [["28755"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "danode--Lanca_Congelante": (hasCombo(slot, itemId, tipoItem, [["28755"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "danode--Lamina_de_Vento": (hasCombo(slot, itemId, tipoItem, [["28755"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "danode--Chamas_de_Hela": (hasCombo(slot, itemId, tipoItem, [["13493"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "danode--Cometa": (hasCombo(slot, itemId, tipoItem, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 5) : 0)
       }
     }
   },
@@ -139,7 +139,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 10,
         "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
@@ -160,7 +160,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_Acerto_de_Contas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Acerto_de_Contas": 30 + (Math.max(getItemRefino(slot) - 5, 0) * 2)
       }
@@ -182,7 +182,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 15,
         "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
@@ -204,7 +204,7 @@ var items = [
     itemClasses: ["Classe_SA","Classe_LO","Classe_RK","Classe_RK_NT","Classe_PA","Classe_RG","Classe_RG_NT","Classe_CR","Classe_BI","Classe_BI_NT","Classe_MF","Classe_MC","Classe_MC_NT","Classe_SX","Classe_GX","Classe_GX_NT","Classe_ST","Classe_SC","Classe_SC_NT","Classe_SN","Classe_SE","Classe_SE_NT","Classe_MI","Classe_TR","Classe_TR_NT","Classe_GY","Classe_MU","Classe_MU_NT","Classe_AQ","Classe_AR","Classe_AR_NT","Classe_PR","Classe_FE","Classe_FE_NT","Classe_ES","Classe_NI","Classe_OB","Classe_KA"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt((getNivelBase() - 70) / 10) * 5) + Math.pow(Math.min(getItemRefino(slot), 15), 2),
         "atqm": parseInt(Math.pow(Math.min(getItemRefino(slot), 15), 2) / 2)
@@ -228,7 +228,7 @@ var items = [
       ["atributoforca_1-10","atributoagilidade_1-10","atributointeligencia_1-10","atq_1-50","atqm_1-50","posconjuracao_1-20","aspdf_1-5","aspdp_1-5","conjuracaovariavel_1-20"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": Math.pow(Math.min(getItemRefino(slot), 15), 2),
         "atqm": parseInt(Math.pow(Math.min(getItemRefino(slot), 15), 2) / 2)
@@ -243,7 +243,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 40 + (getAtributoBase("sor") >= 90 ? 60 : 0) + (getAtributoBase("sor") >= 125 ? 80 : 0),
         "danocritico": 5 + (getAtributoBase("sor") >= 90 ? 10 : 0) + (getAtributoBase("sor") >= 125 ? 20 : 0)
@@ -262,7 +262,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Vulcao_de_Flechas": 10,
         "danode--Flecha_Melodica": 10
@@ -277,9 +277,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": 5 + (hasCombo(slot, itemId, [["2295"]]) ? 10 : 0) + (hasCombo(slot, itemId, [["2655","28388"]]) ? 10 : 0)
+        "atq": 5 + (hasCombo(slot, itemId, tipoItem, [["2295"]]) ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["2655","28388"]]) ? 10 : 0)
       }
     }
   },
@@ -291,7 +291,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_CVar","REQ_Aspd","REQ_Pos","REQ_CFix"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqarmap": 3,
         "danomagicop": 3,
@@ -308,14 +308,14 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_DDist","REQ_DMagico","REQ_Pos","REQ_CFix"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 3,
         "danodistancia": 3,
         "danomagicopropriedade": 3,
         "aspdp": 5,
-        "posconjuracao": (hasCombo(slot, itemId, [["28534"]])) ? -3 : 0,
-        "conjuracaofixas": (hasCombo(slot, itemId, [["28534"]])) ? -0.1 : 0,
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["28534"]])) ? -3 : 0,
+        "conjuracaofixas": (hasCombo(slot, itemId, tipoItem, [["28534"]])) ? -0.1 : 0,
       }
     }
   },
@@ -327,7 +327,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_Aegis_Inferi","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
         "atributointeligencia": 10,
@@ -348,15 +348,15 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd","REQ_HP","REQ_SP","REQ_Precisao","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicop": 10 + (hasCombo(slot, itemId, [["4853"]]) ? 30 : 0),
-        "danomagicop": 10 + (hasCombo(slot, itemId, [["4856"]]) ? 30 : 0),
-        "aspdp": (hasCombo(slot, itemId, [["4854"]]) ? 15 : 0),
-        "hpp": (hasCombo(slot, itemId, [["4855"]]) ? 25 : 0),
-        "spp": (hasCombo(slot, itemId, [["4855"]]) ? 25 : 0),
-        "precisaoperfeita": (hasCombo(slot, itemId, [["4857"]]) ? 25 : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["4858"]]) ? (-30) : 0)
+        "danofisicop": 10 + (hasCombo(slot, itemId, tipoItem, [["4853"]]) ? 30 : 0),
+        "danomagicop": 10 + (hasCombo(slot, itemId, tipoItem, [["4856"]]) ? 30 : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["4854"]]) ? 15 : 0),
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["4855"]]) ? 25 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["4855"]]) ? 25 : 0),
+        "precisaoperfeita": (hasCombo(slot, itemId, tipoItem, [["4857"]]) ? 25 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["4858"]]) ? (-30) : 0)
       }
     }
   },
@@ -368,13 +368,13 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SA","Classe_RK"],
     itemBonus: ["REQ_DFisico","REQ_FOR","REQ_AGI","REQ_VIT","REQ_Impacto_de_Tyr","REQ_Golpe_Fulminante"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": 50 + (hasCombo(slot, itemId, [["16074"]]) ? 100 : 0),
+        "atq": 50 + (hasCombo(slot, itemId, tipoItem, [["16074"]]) ? 100 : 0),
         "atributoforca": 10,
         "atributoagilidade": 10,
         "atributovitalidade": 10,
-        "danode--Impacto_de_Tyr": (parseInt(getNivelBase() / 5) * 3) + (hasCombo(slot, itemId, [["16074"]]) ? 50 : 0),
+        "danode--Impacto_de_Tyr": (parseInt(getNivelBase() / 5) * 3) + (hasCombo(slot, itemId, tipoItem, [["16074"]]) ? 50 : 0),
         "danode--Golpe_Fulminante": parseInt(getNivelBase() / 2)
       }
     }
@@ -387,7 +387,7 @@ var items = [
     itemClasses: ["Classe_RK","Classe_RG","Classe_BI","Classe_ME","Classe_SC","Classe_GX"],
     itemBonus: ["REQ_HP","REQ_Cura","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 100,
         "spf": 100,
@@ -403,7 +403,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_AGI","REQ_DES","REQ_VIT","REQ_Rajada_de_Flechas","REQ_Chuva_de_Flechas","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
         "atributoagilidade": 5,
@@ -423,7 +423,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": (slot == "itemAcessorioE") ? (parseInt(getAtributoBase("vit") / 10) * 2) : 0,
         "spp": (slot == "itemAcessorioE") ? (parseInt(getAtributoBase("vit") / 10) * 2) : 0,
@@ -441,11 +441,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 5,
-        "posconjuracao": (hasCombo(slot, itemId, [["15074"]])) ? -5 : 0,
-        "aspdp": (hasCombo(slot, itemId, [["15073"]])) ? 5 : 0
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["15074"]])) ? -5 : 0,
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["15073"]])) ? 5 : 0
       }
     }
   },
@@ -457,7 +457,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_CFix","REQ_DFisico","REQ_DMagico","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": (slot == "itemAcessorioD") ? (parseInt(getAtributoBase("des") / 10) * 1) : 0,
         "conjuracaofixap": (slot == "itemAcessorioD" && getAtributoBase("des") >= 125) ? (-70) : 0,
@@ -475,7 +475,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10,
         "danomagicop": 10
@@ -490,14 +490,14 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico","REQ_Aspd","REQ_HP","REQ_CVar","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqarmap": 5 + (hasCombo(slot, itemId, [["4908"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4909"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4910"]])) ? 5 : 0,
-        "danomagicop": 5 + (hasCombo(slot, itemId, [["4911"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4912"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4913"]])) ? 5 : 0,
-        "aspdp": (hasCombo(slot, itemId, [["4914"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4915"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4910"]])) ? 5 : 0,
-        "hpp": (hasCombo(slot, itemId, [["4917"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4918"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4919"]])) ? 5 : 0,
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["4920"]])) ? -5 : 0 + (hasCombo(slot, itemId, [["4921"]])) ? -5 : 0 + (hasCombo(slot, itemId, [["4922"]])) ? -5 : 0,
-        "danocritico": (hasCombo(slot, itemId, [["4923"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4924"]])) ? 5 : 0 + (hasCombo(slot, itemId, [["4925"]])) ? 5 : 0
+        "atqarmap": 5 + (hasCombo(slot, itemId, tipoItem, [["4908"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4909"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4910"]])) ? 5 : 0,
+        "danomagicop": 5 + (hasCombo(slot, itemId, tipoItem, [["4911"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4912"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4913"]])) ? 5 : 0,
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["4914"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4915"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4910"]])) ? 5 : 0,
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["4917"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4918"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4919"]])) ? 5 : 0,
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["4920"]])) ? -5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4921"]])) ? -5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4922"]])) ? -5 : 0,
+        "danocritico": (hasCombo(slot, itemId, tipoItem, [["4923"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4924"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4925"]])) ? 5 : 0
       }
     }
   },
@@ -509,15 +509,15 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_CVar","REQ_DMagico","REQ_CFix"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": 1,
-        "conjuracaovariavel": (-20) + (hasCombo(slot, itemId, [["19393"]]) ? -5 : 0),
-        "atq": (hasCombo(slot, itemId, [["19393"]]) ? 30 : 0),
-        "atqm": (hasCombo(slot, itemId, [["19393"]]) ? 30 : 0),
-        "conjuracaofixas": (hasCombo(slot, itemId, [["19393"]]) ? (-0.2) : 0),
-        "danofisicochefe": (hasCombo(slot, itemId, [["19393"]]) ? 20 : 0),
-        "danomagicochefe": (hasCombo(slot, itemId, [["19393"]]) ? 20 : 0)
+        "conjuracaovariavel": (-20) + (hasCombo(slot, itemId, tipoItem, [["19393"]]) ? -5 : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["19393"]]) ? 30 : 0),
+        "atqm": (hasCombo(slot, itemId, tipoItem, [["19393"]]) ? 30 : 0),
+        "conjuracaofixas": (hasCombo(slot, itemId, tipoItem, [["19393"]]) ? (-0.2) : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, tipoItem, [["19393"]]) ? 20 : 0),
+        "danomagicochefe": (hasCombo(slot, itemId, tipoItem, [["19393"]]) ? 20 : 0)
       }
     }
   },
@@ -529,7 +529,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": -25
       }
@@ -543,7 +543,7 @@ var items = [
     itemClasses: ["Classe_GX"],
     itemBonus: ["REQ_Laminas_de_Loki","REQ_Castigo_de_Loki"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "atributoagilidade": 1,
@@ -560,11 +560,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_CVar","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "conjuracaovariavel": (-10) + ((hasCombo(slot, itemId, [["15383"],["20939"],["22204"]])) ? -10 : 0),
+        "conjuracaovariavel": (-10) + ((hasCombo(slot, itemId, tipoItem, [["15383"],["20939"],["22204"]])) ? -10 : 0),
         "aspdp": 10,
-        "aspdf": (hasCombo(slot, itemId, [["15383"],["20939"],["22204"]])) ? 2 : 0
+        "aspdf": (hasCombo(slot, itemId, tipoItem, [["15383"],["20939"],["22204"]])) ? 2 : 0
       }
     }
   },
@@ -576,7 +576,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_MU","Classe_TR"],
     itemBonus: ["REQ_DFisico","REQ_Temporal_de_Mil_Flechas","REQ_Precisao"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10,
         "danode--Temporal_de_Mil_Flechas": parseInt(Math.min(getNivelBase(), 150) / 3),
@@ -594,17 +594,17 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_HP","REQ_SP","REQ_Impacto_de_Tyr","REQ_Golpe_Fulminante","REQ_Furia_do_Furacao"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "atq": getAtributoBase("for") >= 120 ? 50 : 0,
         "hpp": getAtributoBase("for") >= 120 ? 5 : 0,
         "spp": getAtributoBase("for") >= 120 ? 5 : 0,
-        "danode--Impacto_de_Tyr": hasCombo(slot, itemId, [["22129"],["1188","21024"]]) ? ((getItemRefino("itemMaoDireita") >= 9) ? 100 : 0 + (getItemRefino("itemMaoDireita") >= 11) ? 100 : 0) : 0,
-        "danode--Golpe_Fulminante": hasCombo(slot, itemId, [["22129"],["1188","21024"]]) ? ((getItemRefino("itemMaoDireita") >= 9) ? 100 : 0 + (getItemRefino("itemMaoDireita") >= 11) ? 100 : 0) : 0,
-        "danode--Furia_do_Furacao": hasCombo(slot, itemId, [["22129"],["1384","28114"]]) ? ((getItemRefino("itemMaoDireita") >= 9) ? 20 : 0 + (getItemRefino("itemMaoDireita") >= 11) ? 20 : 0) : 0,
-        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, [["22129"],["1384","28114"]]) ? -0.5 : 0,
-        "crit": (hasCombo(slot, itemId, [["22129"],["1548","16056"]]) && (isOpponent("racaMonstro", ["3","5","7"]))) ? 50 : 0
+        "danode--Impacto_de_Tyr": hasCombo(slot, itemId, tipoItem, [["22129"],["1188","21024"]]) ? ((getItemRefino("itemMaoDireita") >= 9) ? 100 : 0 + (getItemRefino("itemMaoDireita") >= 11) ? 100 : 0) : 0,
+        "danode--Golpe_Fulminante": hasCombo(slot, itemId, tipoItem, [["22129"],["1188","21024"]]) ? ((getItemRefino("itemMaoDireita") >= 9) ? 100 : 0 + (getItemRefino("itemMaoDireita") >= 11) ? 100 : 0) : 0,
+        "danode--Furia_do_Furacao": hasCombo(slot, itemId, tipoItem, [["22129"],["1384","28114"]]) ? ((getItemRefino("itemMaoDireita") >= 9) ? 20 : 0 + (getItemRefino("itemMaoDireita") >= 11) ? 20 : 0) : 0,
+        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, tipoItem, [["22129"],["1384","28114"]]) ? -0.5 : 0,
+        "crit": (hasCombo(slot, itemId, tipoItem, [["22129"],["1548","16056"]]) && (isOpponent("racaMonstro", ["3","5","7"]))) ? 50 : 0
       }
     }
   },
@@ -616,7 +616,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
         "atributoagilidade": 10,
@@ -636,10 +636,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Disparo_Triplo","REQ_Apunhalar"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Apunhalar": getNivelBase() * 2,
-        "danode--Disparo_Triplo": hasCombo(slot, itemId, [["28379"]]) ? parseInt(getNivelBase() / 3) : 0
+        "danode--Disparo_Triplo": hasCombo(slot, itemId, tipoItem, [["28379"]]) ? parseInt(getNivelBase() / 3) : 0
       }
     }
   },
@@ -655,21 +655,21 @@ var items = [
       ["4818","4817","4815","4814","4832","4833","4869","4872","4811","4810","4803","4804","4805","4850","4897","4767"],
       ["4818","4817","4815","4814","4832","4833","4869","4872","4811","4810","4803","4804","4805","4850","4897","4767"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "hpp": 10 + (hasCombo(slot, itemId, [["4875"]]) ? 10 : 0),
-        "spp": 10 + (hasCombo(slot, itemId, [["4876"]]) ? 10 : 0),
+        "hpp": 10 + (hasCombo(slot, itemId, tipoItem, [["4875"]]) ? 10 : 0),
+        "spp": 10 + (hasCombo(slot, itemId, tipoItem, [["4876"]]) ? 10 : 0),
         "atq": 50,
         "atqm": 50,
-        "atributoforca": hasCombo(slot, itemId, [["4875"]]) ? 40 : 0,
-        "posconjuracao": hasCombo(slot, itemId, [["4877"]]) ? -30 : 0,
-        "esquiva": hasCombo(slot, itemId, [["4877"]]) ? 40 : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["4878"]]) ? -20 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["4876"]]) ? 40 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["4879"]]) ? 40 : 0,
-        "precisao": hasCombo(slot, itemId, [["4879"]]) ? 50 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["4880"]]) ? 40 : 0,
-        "danocritico": hasCombo(slot, itemId, [["4880"]]) ? 30 : 0
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["4875"]]) ? 40 : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["4877"]]) ? -30 : 0,
+        "esquiva": hasCombo(slot, itemId, tipoItem, [["4877"]]) ? 40 : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["4878"]]) ? -20 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["4876"]]) ? 40 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["4879"]]) ? 40 : 0,
+        "precisao": hasCombo(slot, itemId, tipoItem, [["4879"]]) ? 50 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["4880"]]) ? 40 : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["4880"]]) ? 30 : 0
       }
     }
   },
@@ -685,7 +685,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {}
     }
   },
@@ -701,7 +701,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 4,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {}
     }
   },
@@ -721,7 +721,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 10,
         "danodistancia": parseInt(getItemRefino("itemMaoDireita") / 3) * 4,
@@ -742,9 +742,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1756"]]) ? 25 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1756"]]) ? 25 : 0
       }
     }
   },
@@ -760,7 +760,7 @@ var items = [
     itemClasses: ["Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 30,
         "recargade--Temporal_de_Mil_Flechas": -2
@@ -779,9 +779,9 @@ var items = [
     itemClasses: ["Classe_SE"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1774"]]) ? 25 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1774"]]) ? 25 : 0
       }
     }
   },
@@ -797,9 +797,9 @@ var items = [
     itemClasses: ["Classe_SE"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1774"]]) ? 25 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1774"]]) ? 25 : 0
       }
     }
   },
@@ -815,7 +815,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "ignoredef": isOpponent("racaMonstro", ["10","5"]) ? 20 : 0 + (isOpponent("racaMonstro", ["10","5"]) && getItemRefino("itemMaoDireita") >= 6) ? 5 : 0,
         "danofisicoraca": isOpponent("racaMonstro", ["10","5"]) ? 55 : 0 + (getItemRefino("itemMaoDireita") >= 6 ? Math.pow(getItemRefino("itemMaoDireita") - 4, 2) : 0),
@@ -836,7 +836,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_MU","Classe_TR"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6,
         "atributovitalidade": 6,
@@ -857,10 +857,10 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicoraca": (isOpponent("racaMonstro", ["8"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0),
-        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0)
+        "danofisicoraca": (isOpponent("racaMonstro", ["8"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0),
+        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0)
       }
     }
   },
@@ -876,9 +876,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1753"]]) ? 50 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1753"]]) ? 50 : 0
       }
     }
   },
@@ -894,9 +894,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1753"]]) ? 50 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1753"]]) ? 50 : 0
       }
     }
   },
@@ -913,10 +913,10 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicoraca": (isOpponent("racaMonstro", ["2","9"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0),
-        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0)
+        "danofisicoraca": (isOpponent("racaMonstro", ["2","9"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0),
+        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0)
       }
     }
   },
@@ -933,10 +933,10 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicoraca": (isOpponent("racaMonstro", ["0","3"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0),
-        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0)
+        "danofisicoraca": (isOpponent("racaMonstro", ["0","3"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0),
+        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0)
       }
     }
   },
@@ -953,10 +953,10 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicoraca": (isOpponent("racaMonstro", ["5","6"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0),
-        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["30","31","32","33","40","41","42","43"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, [["1750"]]) ? 15 : 0)
+        "danofisicoraca": (isOpponent("racaMonstro", ["5","6"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0),
+        "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["30","31","32","33","40","41","42","43"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1750"]]) ? 15 : 0)
       }
     }
   },
@@ -973,10 +973,10 @@ var items = [
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 2,
     encantamentos: [encantamentosMalangdoDistancia, encantamentosMalangdoDistancia],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": getItemRefino(slot) >= 9 ? 1 : 0,
-        "danodistancia": hasCombo(slot, itemId, [["1767"]]) ? 50 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1767"]]) ? 50 : 0
       }
     }
   },
@@ -992,9 +992,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1755"]]) ? 25 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1755"]]) ? 25 : 0
       }
     }
   },
@@ -1010,10 +1010,10 @@ var items = [
     itemClasses: ["Classe_SE","Classe_MU","Classe_TR"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
-        "danodistancia": hasCombo(slot, itemId, [["1755"]]) ? 50 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1755"]]) ? 50 : 0
       }
     }
   },
@@ -1029,7 +1029,7 @@ var items = [
     itemClasses: ["Classe_SE"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": -50,
         "danodistancia": 40,
@@ -1049,9 +1049,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1754"]]) ? 25 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1754"]]) ? 25 : 0
       }
     }
   },
@@ -1067,9 +1067,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": hasCombo(slot, itemId, [["1752"]]) ? 25 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["1752"]]) ? 25 : 0
       }
     }
   },
@@ -1086,7 +1086,7 @@ var items = [
     slots: 1,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_Disparo_Triplo"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Disparo_Triplo": parseInt(Math.min(getNivelBase(), 150) / 10) * 5,
         "aspdp": parseInt(getItemRefino(slot) / 2) * 2,
@@ -1109,7 +1109,7 @@ var items = [
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_Disparo_Triplo"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Disparo_Triplo": parseInt(Math.min(getNivelBase(), 150) / 10) * 5,
         "aspdp": parseInt(getItemRefino(slot) / 2) * 2,
@@ -1131,7 +1131,7 @@ var items = [
     slots: 1,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_Disparo_Triplo"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Disparo_Triplo": getNivelBase(),
         "atributoagilidade": getItemRefino(slot) * 3,
@@ -1155,7 +1155,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 15,
         "danodistancia": (parseInt(getItemRefino("itemMaoDireita") / 3) * 4) + (getItemRefino("itemMaoDireita") >= 11 ? 15 : 0),
@@ -1176,7 +1176,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt((getNivelBase() - 70) / 10) * 5) + Math.pow(Math.min(getItemRefino(slot), 15), 2)
       }
@@ -1199,7 +1199,7 @@ var items = [
       ["atributoagilidade_1-10","atributodestreza_1-10","atributosorte_1-10","atq_1-50","crit_1-20","danocritico_1-20","aspdf_1-5","aspdp_1-5","danodistancia_1-20"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": Math.pow(Math.min(getItemRefino(slot), 15), 2)
       }
@@ -1213,7 +1213,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": parseInt(Math.min(getItemRefino(slot), 15) / 3) * 6
       }
@@ -1227,12 +1227,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "atributodestreza": 1,
-        "danofisicop": hasCombo(slot, itemId, [["2729"]]) ? 3 : 0,
-        "danomagicop": hasCombo(slot, itemId, [["2729"]]) ? 3 : 0
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 3 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 3 : 0
       }
     }
   },
@@ -1244,7 +1244,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Precisao","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 10 + (getItemRefino(slot) >= 6 ? 10 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0),
         "atributoforca": 1,
@@ -1269,11 +1269,11 @@ var items = [
       ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
-        "danocritico": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, [["22118","22011"]]) ? 10 : 0),
-        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, [["22118","22011"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
+        "danocritico": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, tipoItem, [["22118","22011"]]) ? 10 : 0),
+        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["22118","22011"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? (getItemRefino(slot) >= 11 ? 10 : 0) : 0
       }
     }
@@ -1290,12 +1290,12 @@ var items = [
       ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 2,
-        "aspdf": hasCombo(slot, itemId, [["22115","22010"]]) ? 1 : 0,
-        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, [["22115","22010"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
+        "aspdf": hasCombo(slot, itemId, tipoItem, [["22115","22010"]]) ? 1 : 0,
+        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["22115","22010"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? (getItemRefino(slot) >= 11 ? 10 : 0) : 0
       }
     }
@@ -1312,11 +1312,11 @@ var items = [
       ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
-        "danodistancia": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, [["22117","22008"]]) ? 5 : 0),
-        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, [["22117","22008"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
+        "danodistancia": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, tipoItem, [["22117","22008"]]) ? 5 : 0),
+        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["22117","22008"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? (getItemRefino(slot) >= 11 ? 10 : 0) : 0
       }
     }
@@ -1333,11 +1333,11 @@ var items = [
       ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
-        "atqarmap": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, [["22113","22006"]]) ? 10 : 0),
-        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, [["22113","22006"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
+        "atqarmap": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, tipoItem, [["22113","22006"]]) ? 10 : 0),
+        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["22113","22006"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? (getItemRefino(slot) >= 11 ? 10 : 0) : 0
       }
     }
@@ -1354,11 +1354,11 @@ var items = [
       ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 50,
-        "danomagicop": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, [["22113","22006"]]) ? 10 : 0),
-        "ignoredefm": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, [["22113","22006"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
+        "danomagicop": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, tipoItem, [["22113","22006"]]) ? 10 : 0),
+        "ignoredefm": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["22113","22006"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
         "danomagicopropriedade": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? (getItemRefino(slot) >= 11 ? 10 : 0) : 0
       }
     }
@@ -1375,11 +1375,11 @@ var items = [
       ["hpp_1-5","spp_1-5","hpf_500-1000","spf_50-500","aspdp_1-5","precisao_1-5","esquiva_5-30","atqarmap_1-3","danomagicop_1-3","atq_3-20","atqm_3-20","danocritico_1-5","danodistancia_1-5","efetividadecura_1-5","conjuracaovariavel_1-5","crit_1-5","posconjuracao_1-5"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
-        "hpp": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, [["22113","22006"]]) ? 10 : 0),
-        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, [["22113","22006"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
+        "hpp": parseInt(getItemRefino(slot) / 3) * 2 + (hasCombo(slot, itemId, tipoItem, [["22113","22006"]]) ? 10 : 0),
+        "ignoredef": isOpponent("racaMonstro", ["2","3"]) ? ((getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["22113","22006"]]) ? ((getItemRefino(slot) + getItemRefino("itemSapatos") >= 21) ? 20 : 0) : 0)) : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? (getItemRefino(slot) >= 11 ? 10 : 0) : 0
       }
     }
@@ -1392,13 +1392,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_DMagico","REQ_CVar","REQ_DDist","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["2","6"]) ? 7 : 0,
         "danomagicoraca": isOpponent("racaMonstro", ["2","6"]) ? 7 : 0,
         "hpf": 500 + (parseInt(getItemRefino(slot) / 3) * 50),
         "spf": 100 + (parseInt(getItemRefino(slot) / 3) * 20),
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["22206"],["20945"]]) ? ((-7) + ((getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9 && getItemRefino("itemCapa") >= 9) ? (-5) : 0)) : 0)
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["22206"],["20945"]]) ? ((-7) + ((getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9 && getItemRefino("itemCapa") >= 9) ? (-5) : 0)) : 0)
       }
     }
   },
@@ -1410,9 +1410,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": 10 + (hasCombo(slot, itemId, [["20748","20749"]]) ? (getItemRefino("itemCapa") + (getItemRefino("itemCapa") >= 9 ? (parseInt(getAtributoBase("for") / 10) * 5) : 0) + (getItemRefino("itemCapa") >= 11 ? (parseInt(getAtributoBase("for") / 10) * 7) : 0)) : 0)
+        "atq": 10 + (hasCombo(slot, itemId, tipoItem, [["20748","20749"]]) ? (getItemRefino("itemCapa") + (getItemRefino("itemCapa") >= 9 ? (parseInt(getAtributoBase("for") / 10) * 5) : 0) + (getItemRefino("itemCapa") >= 11 ? (parseInt(getAtributoBase("for") / 10) * 7) : 0)) : 0)
       }
     }
   },
@@ -1424,13 +1424,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_CFix","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 15,
         "spp": 15,
         "posconjuracao": getItemRefino(slot) * (-1),
         "conjuracaofixap": ((getItemRefino(slot) >= 10) ? (-50) : 0) + ((getItemRefino(slot) >= 13) ? (-20) : 0),
-        "danofisicopropriedade": hasCombo(slot, itemId, [["4324"]]) && isOpponent("propriedadeMonstro",["40","41","42","43"]) ? (getItemRefino(slot) * 5) : 0
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["4324"]]) && isOpponent("propriedadeMonstro",["40","41","42","43"]) ? (getItemRefino(slot) * 5) : 0
       }
     }
   },
@@ -1442,7 +1442,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_CFix"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5,
         "spp": 5,
@@ -1459,7 +1459,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_DMagico","REQ_Pos","REQ_DDist","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["2","6"]) ? 10 : 0,
         "danomagicoraca": isOpponent("racaMonstro", ["2","6"]) ? 10 : 0,
@@ -1467,7 +1467,7 @@ var items = [
         "spf": 200 + (parseInt(getItemRefino(slot) / 3) * 20),
         "hpp": parseInt(getItemRefino(slot) / 3),
         "spp": parseInt(getItemRefino(slot) / 3),
-        "posconjuracao": (hasCombo(slot, itemId, [["20902"],["22168"]]) ? ((-7) + ((getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9 && getItemRefino("itemCapa") >= 9) ? (-8) : 0)) : 0)
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["20902"],["22168"]]) ? ((-7) + ((getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9 && getItemRefino("itemCapa") >= 9) ? (-8) : 0)) : 0)
       }
     }
   },
@@ -1484,7 +1484,7 @@ var items = [
       ["4809","4808","4820","4812","4826","4827","4832","4833","4834","4863","4864","4865","4861","4862","4867","4870","4800","4871","4869","4872","4873","4702","4703","4704","4731","4732","4733","4742","4743","4744","4712","4713","4714","4722","4723","4724","4752","4753","4754"],
       ["4809","4808","4820","4821","4812","4826","4827","4828","4832","4833","4834","4835","4863","4864","4865","4866","4861","4862","4867","4868","4870","4800","4871","4801","4869","4872","4873","4807","4702","4703","4704","4853","4731","4732","4733","4854","4742","4743","4744","4855","4712","4713","4714","4856","4722","4723","4724","4857","4752","4753","4754","4858"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributoagilidade": 1,
@@ -1508,7 +1508,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": 10 + (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
         "danomagicotamanho": 10 + (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
@@ -1524,7 +1524,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DCrit","REQ_DMagico","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5,
         "atqm": 5,
@@ -1540,21 +1540,21 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Precisao","REQ_CVar","REQ_DFisico","REQ_DMagico","REQ_HP","REQ_SP","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atributoforca": 10 + (hasCombo(slot, itemId, [["2375"]]) ? 8 : 0),
+        "atributoforca": 10 + (hasCombo(slot, itemId, tipoItem, [["2375"]]) ? 8 : 0),
         "atributoagilidade": 10,
         "atributovitalidade": 10,
         "atributointeligencia": 10,
-        "atributodestreza": 10 + (hasCombo(slot, itemId, [["2375"]]) ? 4 : 0),
+        "atributodestreza": 10 + (hasCombo(slot, itemId, tipoItem, [["2375"]]) ? 4 : 0),
         "atributosorte": 10,
-        "danofisicoalvo": (isOpponent("idMonstro", ["3091","3092","3098","3099","3096","3097"]) ? (30 + (hasCombo(slot, itemId, [["2375"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2374"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2537"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2433"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2729"]]) ? 20 : 0)) : 0),
-        "danomagicoalvo": (isOpponent("idMonstro", ["3091","3092","3098","3099","3096","3097"]) ? (30 + (hasCombo(slot, itemId, [["2375"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2374"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2537"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2433"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["2729"]]) ? 20 : 0)) : 0),
-        "hpf": (hasCombo(slot, itemId, [["2375"]]) ? 1350 : 0) + (hasCombo(slot, itemId, [["2537"]]) ? 900 : 0) + (hasCombo(slot, itemId, [["2433"]]) ? (getNivelBase() * 100) : 0) + (hasCombo(slot, itemId, [["2729"]]) ? 2000 : 0),
-        "spf": (hasCombo(slot, itemId, [["2374"]]) ? 350 : 0) + (hasCombo(slot, itemId, [["2729"]]) ? 200 : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["2374"]]) ? (-10) : 0),
-        "atq": (hasCombo(slot, itemId, [["2375"]]) ? (getItemRefino("itemArmadura") * 15) : 0) + (hasCombo(slot, itemId, [["2433"]]) ? (getItemRefino("itemSapatos") * 20) : 0),
-        "atqm": (hasCombo(slot, itemId, [["2374"]]) ? (getItemRefino("itemArmadura") * 15) : 0) + (hasCombo(slot, itemId, [["2433"]]) ? (getItemRefino("itemSapatos") * 20) : 0)
+        "danofisicoalvo": (isOpponent("idMonstro", ["3091","3092","3098","3099","3096","3097"]) ? (30 + (hasCombo(slot, itemId, tipoItem, [["2375"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2374"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2537"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2433"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 20 : 0)) : 0),
+        "danomagicoalvo": (isOpponent("idMonstro", ["3091","3092","3098","3099","3096","3097"]) ? (30 + (hasCombo(slot, itemId, tipoItem, [["2375"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2374"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2537"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2433"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 20 : 0)) : 0),
+        "hpf": (hasCombo(slot, itemId, tipoItem, [["2375"]]) ? 1350 : 0) + (hasCombo(slot, itemId, tipoItem, [["2537"]]) ? 900 : 0) + (hasCombo(slot, itemId, tipoItem, [["2433"]]) ? (getNivelBase() * 100) : 0) + (hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 2000 : 0),
+        "spf": (hasCombo(slot, itemId, tipoItem, [["2374"]]) ? 350 : 0) + (hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 200 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["2374"]]) ? (-10) : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["2375"]]) ? (getItemRefino("itemArmadura") * 15) : 0) + (hasCombo(slot, itemId, tipoItem, [["2433"]]) ? (getItemRefino("itemSapatos") * 20) : 0),
+        "atqm": (hasCombo(slot, itemId, tipoItem, [["2374"]]) ? (getItemRefino("itemArmadura") * 15) : 0) + (hasCombo(slot, itemId, tipoItem, [["2433"]]) ? (getItemRefino("itemSapatos") * 20) : 0)
       }
     }
   },
@@ -1566,12 +1566,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqarmap": 1,
         "danomagicop": 1,
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["2990"]]) ? (-10) : 0) + (hasCombo(slot, itemId, [["2992"]]) ? (-10) : 0),
-        "danocritico": (hasCombo(slot, itemId, [["2991"]]) ? (10) : 0) + (hasCombo(slot, itemId, [["2992"]]) ? (10) : 0),
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["2990"]]) ? (-10) : 0) + (hasCombo(slot, itemId, tipoItem, [["2992"]]) ? (-10) : 0),
+        "danocritico": (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? (10) : 0) + (hasCombo(slot, itemId, tipoItem, [["2992"]]) ? (10) : 0),
       }
     }
   },
@@ -1583,7 +1583,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_IgnDef","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": isOpponentChefe() ? (4 + (getAtributoBase("for") >= 90 ? 2: 0) + (getAtributoBase("for") >= 125 ? 4: 0)) : (2 + (getAtributoBase("for") >= 90 ? 1: 0) + (getAtributoBase("for") >= 125 ? 2: 0))
       }
@@ -1597,7 +1597,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 200,
         "aspdf": 1
@@ -1612,7 +1612,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_EP","REQ_CVar","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "atributoagilidade": 2,
@@ -1640,7 +1640,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 10),
         "danode--Tempestade_de_Flechas": (parseInt(getItemRefino(slot) / 3) * 12),
@@ -1665,7 +1665,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 15),
         "danode--Tempestade_de_Flechas": (parseInt(getItemRefino(slot) / 3) * 12),
@@ -1689,10 +1689,10 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": getItemRefino(slot),
-        "danocritico": (hasCombo(slot, itemId, [["4317"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["4521"]]) ? 5 : 0)
+        "danocritico": (hasCombo(slot, itemId, tipoItem, [["4317"]]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["4521"]]) ? 5 : 0)
       }
     }
   },
@@ -1704,7 +1704,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CVar","REQ_CFix","REQ_Tempestade_de_Flechas","REQ_Vulcao_de_Flechas","REQ_Ruido_Estridente"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 15),
         "atqm": (parseInt(getItemRefino(slot) / 2) * 15),
@@ -1712,15 +1712,15 @@ var items = [
         "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danofisicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "danomagicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + (hasCombo(slot, itemId, [["400000"]]) ? 4 : 0),
-        "atqarmap": (hasCombo(slot, itemId, [["400000"]]) ? 4 : 0),
-        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, [["18123"]]) ? (parseInt(getItemRefino(slot) / 2) * 5) : 0),
-        "recargade--Tempestade_de_Flechas": (hasCombo(slot, itemId, [["18122"]]) ? (-1.5) : 0),
-        "aspdp": (hasCombo(slot, itemId, [["18122"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["1935","1990"]]) ? (-25) : 0),
-        "danode--Vulcao_de_Flechas": (hasCombo(slot, itemId, [["1935","1990"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
-        "recargade--Ruido_Estridente": (hasCombo(slot, itemId, [["1989","1934"]]) ? (-2) : 0),
-        "danode--Ruido_Estridente": (hasCombo(slot, itemId, [["1989","1934"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "danomagicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["400000"]]) ? 4 : 0),
+        "atqarmap": (hasCombo(slot, itemId, tipoItem, [["400000"]]) ? 4 : 0),
+        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, tipoItem, [["18123"]]) ? (parseInt(getItemRefino(slot) / 2) * 5) : 0),
+        "recargade--Tempestade_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (-1.5) : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["1935","1990"]]) ? (-25) : 0),
+        "danode--Vulcao_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["1935","1990"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "recargade--Ruido_Estridente": (hasCombo(slot, itemId, tipoItem, [["1989","1934"]]) ? (-2) : 0),
+        "danode--Ruido_Estridente": (hasCombo(slot, itemId, tipoItem, [["1989","1934"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
       }
     }
   },
@@ -1732,9 +1732,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (hasCombo(slot, itemId, [["2408","22105"]]) ? 50 : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["2408","22105"]]) ? 50 : 0)
       }
     }
   },
@@ -1750,9 +1750,9 @@ var items = [
       ["4818","4817","4815","4814","4832","4833","4869","4872","4811","4810","4803","4804","4805","4850","4897","4767"],
       ["4818","4817","4815","4814","4832","4833","4869","4872","4811","4810","4803","4804","4805","4850","4897","4767"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (hasCombo(slot, itemId, [["2408","22105"]]) ? 50 : 0) + (hasCombo(slot, itemId, [["2408","22105"],["2655"]]) ? -50 : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["2408","22105"]]) ? 50 : 0) + (hasCombo(slot, itemId, tipoItem, [["2408","22105"],["2655"]]) ? -50 : 0)
       }
     }
   },
@@ -1764,7 +1764,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
         "atq": 50
@@ -1783,7 +1783,7 @@ var items = [
       ["4869","4950","4808","4812","4833","4807","4866","4942","4852"],
       ["4869","4950","4808","4812","4833","4807","4866","4942","4852"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributosorte": 1,
@@ -1801,18 +1801,18 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_DCrit","REQ_Tiro_Preciso","REQ_Ataque_Aereo","REQ_Bomba_Relogio","REQ_Disparo_Certeiro"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
-        "danocritico": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0) + (hasCombo(slot, itemId, [["15042"]]) ? (parseInt(getAtributoBase("sor") / 20) * 4) : 0),
+        "danocritico": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? (parseInt(getAtributoBase("sor") / 20) * 4) : 0),
         "danodistancia": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
-        "aspdp": (hasCombo(slot, itemId, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 8 : 0) + (getItemRefino("itemArmadura") >= 9 ? 4 : 0)) : 0),
-        "danode--Tiro_Preciso": (hasCombo(slot, itemId, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 50 : 0) + (getItemRefino("itemArmadura") >= 9 ? 25 : 0)) : 0),
-        "danode--Ataque_Aereo": (hasCombo(slot, itemId, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 40 : 0) + (getItemRefino("itemArmadura") >= 9 ? 20 : 0)) : 0),
-        "danode--Bomba_Relogio": (hasCombo(slot, itemId, [["15043"]]) ? ((parseInt(getAtributoBase("int") / 20) + (getItemRefino("itemArmadura") >= 7 ? 340 : 0) + (getItemRefino("itemArmadura") >= 9 ? 200 : 0)) * 30) : 0),
-        "esquivaperfeita": (hasCombo(slot, itemId, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 6 : 0) + (getItemRefino("itemArmadura") >= 9 ? 3 : 0)) : 0),
-        "danode--Disparo_Certeiro": hasCombo(slot, itemId, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 20 : 0) + (getItemRefino("itemArmadura") >= 9 ? 10 : 0)) : 0
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 8 : 0) + (getItemRefino("itemArmadura") >= 9 ? 4 : 0)) : 0),
+        "danode--Tiro_Preciso": (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 50 : 0) + (getItemRefino("itemArmadura") >= 9 ? 25 : 0)) : 0),
+        "danode--Ataque_Aereo": (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 40 : 0) + (getItemRefino("itemArmadura") >= 9 ? 20 : 0)) : 0),
+        "danode--Bomba_Relogio": (hasCombo(slot, itemId, tipoItem, [["15043"]]) ? ((parseInt(getAtributoBase("int") / 20) + (getItemRefino("itemArmadura") >= 7 ? 340 : 0) + (getItemRefino("itemArmadura") >= 9 ? 200 : 0)) * 30) : 0),
+        "esquivaperfeita": (hasCombo(slot, itemId, tipoItem, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 6 : 0) + (getItemRefino("itemArmadura") >= 9 ? 3 : 0)) : 0),
+        "danode--Disparo_Certeiro": hasCombo(slot, itemId, tipoItem, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 20 : 0) + (getItemRefino("itemArmadura") >= 9 ? 10 : 0)) : 0
       }
     }
   },
@@ -1824,18 +1824,18 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_DCrit","REQ_Tiro_Preciso","REQ_Ataque_Aereo","REQ_Bomba_Relogio","REQ_Disparo_Certeiro"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
-        "danocritico": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0) + (hasCombo(slot, itemId, [["15042"]]) ? (parseInt(getAtributoBase("sor") / 20) * 4) : 0),
+        "danocritico": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? (parseInt(getAtributoBase("sor") / 20) * 4) : 0),
         "danodistancia": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
-        "aspdp": (hasCombo(slot, itemId, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 8 : 0) + (getItemRefino("itemArmadura") >= 9 ? 4 : 0)) : 0),
-        "danode--Tiro_Preciso": (hasCombo(slot, itemId, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 50 : 0) + (getItemRefino("itemArmadura") >= 9 ? 25 : 0)) : 0),
-        "danode--Ataque_Aereo": (hasCombo(slot, itemId, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 40 : 0) + (getItemRefino("itemArmadura") >= 9 ? 20 : 0)) : 0),
-        "danode--Bomba_Relogio": (hasCombo(slot, itemId, [["15043"]]) ? ((parseInt(getAtributoBase("int") / 20) + (getItemRefino("itemArmadura") >= 7 ? 340 : 0) + (getItemRefino("itemArmadura") >= 9 ? 200 : 0)) * 30) : 0),
-        "esquivaperfeita": (hasCombo(slot, itemId, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 6 : 0) + (getItemRefino("itemArmadura") >= 9 ? 3 : 0)) : 0),
-        "danode--Disparo_Certeiro": hasCombo(slot, itemId, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 20 : 0) + (getItemRefino("itemArmadura") >= 9 ? 10 : 0)) : 0
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 8 : 0) + (getItemRefino("itemArmadura") >= 9 ? 4 : 0)) : 0),
+        "danode--Tiro_Preciso": (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 50 : 0) + (getItemRefino("itemArmadura") >= 9 ? 25 : 0)) : 0),
+        "danode--Ataque_Aereo": (hasCombo(slot, itemId, tipoItem, [["15042"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 40 : 0) + (getItemRefino("itemArmadura") >= 9 ? 20 : 0)) : 0),
+        "danode--Bomba_Relogio": (hasCombo(slot, itemId, tipoItem, [["15043"]]) ? ((parseInt(getAtributoBase("int") / 20) + (getItemRefino("itemArmadura") >= 7 ? 340 : 0) + (getItemRefino("itemArmadura") >= 9 ? 200 : 0)) * 30) : 0),
+        "esquivaperfeita": (hasCombo(slot, itemId, tipoItem, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 6 : 0) + (getItemRefino("itemArmadura") >= 9 ? 3 : 0)) : 0),
+        "danode--Disparo_Certeiro": hasCombo(slot, itemId, tipoItem, [["15043"]]) ? ((getItemRefino("itemArmadura") >= 7 ? 20 : 0) + (getItemRefino("itemArmadura") >= 9 ? 10 : 0)) : 0
       }
     }
   },
@@ -1847,7 +1847,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_CFix","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 500,
         "spf": 50,
@@ -1866,7 +1866,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_Furia_do_Furacao","REQ_Arremesso_de_Machado"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
@@ -1876,7 +1876,7 @@ var items = [
         "danode--Furia_do_Furacao": 150,
         "danode--Arremesso_de_Machado": 100,
         "ignoredef": isClasse(["Classe_ME"]) ? 100 : 0,
-        "danofisicochefe": hasCombo(slot, itemId, [["1326"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 25 : 0) + (getItemRefino("itemMaoDireita") >= 14 ? 25 : 0)) : 0
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["1326"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 25 : 0) + (getItemRefino("itemMaoDireita") >= 14 ? 25 : 0)) : 0
       }
     }
   },
@@ -1888,7 +1888,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_Furia_do_Furacao","REQ_Arremesso_de_Machado"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
@@ -1898,7 +1898,7 @@ var items = [
         "danode--Furia_do_Furacao": 150,
         "danode--Arremesso_de_Machado": 100,
         "ignoredef": isClasse(["Classe_ME"]) ? 100 : 0,
-        "danofisicochefe": hasCombo(slot, itemId, [["1326"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 25 : 0) + (getItemRefino("itemMaoDireita") >= 14 ? 25 : 0)) : 0
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["1326"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 25 : 0) + (getItemRefino("itemMaoDireita") >= 14 ? 25 : 0)) : 0
       }
     }
   },
@@ -1910,7 +1910,7 @@ var items = [
     itemClasses: ["transclasse"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": getNivelBase() * 10
       }
@@ -1924,7 +1924,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Canhao_de_Protons","REQ_Tornado_do_Carrinho"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
@@ -1945,7 +1945,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_Canhao_de_Protons","REQ_Tornado_do_Carrinho"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
@@ -1966,7 +1966,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX","Classe_SX"],
     itemBonus: ["REQ_DFisico","REQ_IgnDef","REQ_Impacto_Meteoro"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
@@ -1985,12 +1985,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DDist","REQ_DCrit","REQ_CVar","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 5,
         "precisao": parseInt(getItemRefino(slot) / 3) * 2,
-        "danodistancia": hasCombo(slot, itemId, [["15390"]]) ? 7 : 0,
-        "danocritico": hasCombo(slot, itemId, [["15390"]]) && getItemRefino(slot) >= 9 && getItemRefino("itemArmadura") >= 9 ? 7 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["15390"]]) ? 7 : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["15390"]]) && getItemRefino(slot) >= 9 && getItemRefino("itemArmadura") >= 9 ? 7 : 0
       }
     }
   },
@@ -2002,12 +2002,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit","REQ_DMagico","REQ_DFisico","REQ_CVar","REQ_Aspd","REQ_CFix"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 10,
         "danocritico": 10,
-        "danomagicop": hasCombo(slot, itemId, [["15383"]]) ? 5 : 0,
-        "atqarmap": hasCombo(slot, itemId, [["15383"]]) ? 5 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["15383"]]) ? 5 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["15383"]]) ? 5 : 0,
         "danomagiconeutro": 10,
         "danomagicofogo": 10,
         "danomagicovento": 10,
@@ -2028,17 +2028,17 @@ var items = [
     itemClasses: ["Classe_SE","Classe_ME","Classe_RK"],
     itemBonus: ["REQ_DFisico","REQ_Choque_do_Carrinho","REQ_Onda_de_Choque","REQ_Perfurar_em_Espiral","REQ_Tempestade_de_Flechas","REQ_Disparo_Certeiro"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 2 + (getItemRefino(slot) >= 5 ? 4 : 0) + (getItemRefino(slot) >= 7 ? 4 : 0),
         "spp": 2 + (getItemRefino(slot) >= 5 ? 4 : 0) + (getItemRefino(slot) >= 7 ? 4 : 0),
-        "danode--Choque_do_Carrinho": hasCombo(slot, itemId, [["1387"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 8 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 12 : 0)) : 0,
-        "danofisicochefe": (hasCombo(slot, itemId, [["1387","18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0),
-        "danode--Perfurar_em_Espiral": hasCombo(slot, itemId, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 30 : 0)) : 0,
-        "danode--Onda_de_Choque": hasCombo(slot, itemId, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 30 : 0)) : 0,
-        "danodistancia": hasCombo(slot, itemId, [["18122"]]) ? (parseInt(getAtributoBase("for") / 10) * 3) : 0,
-        "danode--Tempestade_de_Flechas": hasCombo(slot, itemId, [["18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0,
-        "danode--Disparo_Certeiro": hasCombo(slot, itemId, [["18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0,
+        "danode--Choque_do_Carrinho": hasCombo(slot, itemId, tipoItem, [["1387"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 8 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 12 : 0)) : 0,
+        "danofisicochefe": (hasCombo(slot, itemId, tipoItem, [["1387","18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0),
+        "danode--Perfurar_em_Espiral": hasCombo(slot, itemId, tipoItem, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 30 : 0)) : 0,
+        "danode--Onda_de_Choque": hasCombo(slot, itemId, tipoItem, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 30 : 0)) : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (parseInt(getAtributoBase("for") / 10) * 3) : 0,
+        "danode--Tempestade_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0,
+        "danode--Disparo_Certeiro": hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 7) ? 20 : 0) + ((getItemRefino(slot) >= 7 && getItemRefino("itemMaoDireita") >= 9) ? 30 : 0)) : 0,
       }
     }
   },
@@ -2050,7 +2050,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_Toque_do_Oblivio","REQ_DFisico","REQ_IgnDef"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
@@ -2069,7 +2069,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_Toque_do_Oblivio","REQ_DFisico","REQ_IgnDef"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
@@ -2088,11 +2088,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DDist","REQ_DCrit","REQ_CVar","REQ_DMagico","REQ_CFix","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 8 + (parseInt(getItemRefino(slot) / 3) * 2),
-        "danodistancia": hasCombo(slot, itemId, [["15246"]]) ? 7 : 0,
-        "danocritico": hasCombo(slot, itemId, [["15246"]]) && getItemRefino(slot) >= 9 && getItemRefino("itemArmadura") >= 9 ? 10 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["15246"]]) ? 7 : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["15246"]]) && getItemRefino(slot) >= 9 && getItemRefino("itemArmadura") >= 9 ? 10 : 0
       }
     }
   },
@@ -2108,12 +2108,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 3,
         "aspdf": getAtributoBase("agi") >= 120 ? 1 : 0
       }
@@ -2131,12 +2131,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 3,
         "aspdf": getAtributoBase("agi") >= 120 ? 1 : 0
       }
@@ -2154,12 +2154,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 3,
         "aspdf": getAtributoBase("agi") >= 120 ? 1 : 0
       }
@@ -2177,12 +2177,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 3,
         "aspdf": getAtributoBase("agi") >= 120 ? 1 : 0
       }
@@ -2200,12 +2200,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atributodestreza": parseInt(getItemRefino(slot) / 3) * 3,
         "danodistancia": getAtributoBase("des") >= 120 ? 5 : 0,
         "conjuracaofixas": getAtributoBase("des") >= 120 ? -0.5 : 0
@@ -2224,12 +2224,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atributodestreza": parseInt(getItemRefino(slot) / 3) * 3,
         "danodistancia": getAtributoBase("des") >= 120 ? 5 : 0,
         "conjuracaofixas": getAtributoBase("des") >= 120 ? -0.5 : 0
@@ -2248,12 +2248,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atributodestreza": parseInt(getItemRefino(slot) / 3) * 3,
         "danodistancia": getAtributoBase("des") >= 120 ? 5 : 0,
         "conjuracaofixas": getAtributoBase("des") >= 120 ? -0.5 : 0
@@ -2272,12 +2272,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atributodestreza": parseInt(getItemRefino(slot) / 3) * 3,
         "danodistancia": getAtributoBase("des") >= 120 ? 5 : 0,
         "conjuracaofixas": getAtributoBase("des") >= 120 ? -0.5 : 0
@@ -2296,12 +2296,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atq": (parseInt(getItemRefino(slot) / 3) * 7) + (getAtributoBase("for") >= 120 ? 50 : 0)
       }
     }
@@ -2318,12 +2318,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atq": (parseInt(getItemRefino(slot) / 3) * 7) + (getAtributoBase("for") >= 120 ? 50 : 0)
       }
     }
@@ -2340,12 +2340,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atq": (parseInt(getItemRefino(slot) / 3) * 7) + (getAtributoBase("for") >= 120 ? 50 : 0)
       }
     }
@@ -2362,12 +2362,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atq": (parseInt(getItemRefino(slot) / 3) * 7) + (getAtributoBase("for") >= 120 ? 50 : 0)
       }
     }
@@ -2384,12 +2384,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atqm": (parseInt(getItemRefino(slot) / 3) * 10) + (getAtributoBase("int") >= 120 ? 60 : 0)
       }
     }
@@ -2406,12 +2406,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atqm": (parseInt(getItemRefino(slot) / 3) * 10) + (getAtributoBase("int") >= 120 ? 60 : 0)
       }
     }
@@ -2428,12 +2428,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atqm": (parseInt(getItemRefino(slot) / 3) * 10) + (getAtributoBase("int") >= 120 ? 60 : 0)
       }
     }
@@ -2450,12 +2450,12 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "atqm": (parseInt(getItemRefino(slot) / 3) * 10) + (getAtributoBase("int") >= 120 ? 60 : 0)
       }
     }
@@ -2472,12 +2472,12 @@ var items = [
     itemClasses: ["Classe_IN","Classe_KA","Classe_OB","Classe_ME","Classe_CE"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "danocritico": (parseInt(getItemRefino(slot) / 3) * 2) + (getAtributoBase("sor") >= 120 ? 30 : 0)
       }
     }
@@ -2494,12 +2494,12 @@ var items = [
     itemClasses: ["Classe_IN","Classe_KA","Classe_OB","Classe_ME","Classe_CE"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "danocritico": (parseInt(getItemRefino(slot) / 3) * 2) + (getAtributoBase("sor") >= 120 ? 30 : 0)
       }
     }
@@ -2516,12 +2516,12 @@ var items = [
     itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "danocritico": (parseInt(getItemRefino(slot) / 3) * 2) + (getAtributoBase("sor") >= 120 ? 30 : 0)
       }
     }
@@ -2538,12 +2538,12 @@ var items = [
     itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0,
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0,
         "danocritico": (parseInt(getItemRefino(slot) / 3) * 2) + (getAtributoBase("sor") >= 120 ? 30 : 0)
       }
     }
@@ -2560,12 +2560,12 @@ var items = [
     itemClasses: ["Classe_IN","Classe_KA","Classe_OB","Classe_ME","Classe_CE"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": (hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0
       }
     }
   },
@@ -2581,12 +2581,12 @@ var items = [
     itemClasses: ["Classe_IN","Classe_KA","Classe_OB","Classe_ME","Classe_CE"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_HP"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": (hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0
       }
     }
   },
@@ -2602,12 +2602,12 @@ var items = [
     itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": (hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0
       }
     }
   },
@@ -2623,12 +2623,12 @@ var items = [
     itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_HP"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 3) * 100),
         "spf": 30 + (parseInt(getItemRefino(slot) / 3) * 10),
-        "hpp": (hasCombo(slot, itemId, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
-        "spp": hasCombo(slot, itemId, [["20717","20718"]]) ? 5 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 15 : 0) + (getAtributoBase("sor") >= 120 ? 8 : 0),
+        "spp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? 5 : 0
       }
     }
   },
@@ -2640,15 +2640,15 @@ var items = [
     itemClasses: ["Classe_RK","Classe_ME","Classe_AB"],
     itemBonus: ["REQ_Impacto_de_Tyr","REQ_Golpe_Fulminante","REQ_Furia_do_Furacao","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danode--Impacto_de_Tyr": hasCombo(slot, itemId, [["1188","21024"]]) ? 100 : 0,
-        "danode--Golpe_Fulminante": hasCombo(slot, itemId, [["1188","21024"]]) ? 100 : 0,
-        "atq": hasCombo(slot, itemId, [["1384","28114"]]) ? 100 : 0,
-        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, [["1384","28114"]]) ? (-1) : 0,
-        "aspdp": hasCombo(slot, itemId, [["1548","16056"]]) ? 10 : 0,
-        "ignoredef": hasCombo(slot, itemId, [["1548","16056"]]) && isOpponent("racaMonstro", ["3","5","7","10"]) ? 100 : 0,
-        "crit": hasCombo(slot, itemId, [["1548","16056"]]) && isOpponent("racaMonstro", ["3","5","7","10"]) ? 50 : 0,
+        "danode--Impacto_de_Tyr": hasCombo(slot, itemId, tipoItem, [["1188","21024"]]) ? 100 : 0,
+        "danode--Golpe_Fulminante": hasCombo(slot, itemId, tipoItem, [["1188","21024"]]) ? 100 : 0,
+        "atq": hasCombo(slot, itemId, tipoItem, [["1384","28114"]]) ? 100 : 0,
+        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, tipoItem, [["1384","28114"]]) ? (-1) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["1548","16056"]]) ? 10 : 0,
+        "ignoredef": hasCombo(slot, itemId, tipoItem, [["1548","16056"]]) && isOpponent("racaMonstro", ["3","5","7","10"]) ? 100 : 0,
+        "crit": hasCombo(slot, itemId, tipoItem, [["1548","16056"]]) && isOpponent("racaMonstro", ["3","5","7","10"]) ? 50 : 0,
       }
     }
   },
@@ -2660,7 +2660,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": -25
       }
@@ -2674,7 +2674,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DMagico","REQ_Esporo_Explosivo"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 10,
         "atributosorte": 10,
@@ -2692,7 +2692,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Vulcao_de_Flechas","REQ_Estilingue","REQ_Flecha_Melodica","REQ_Ruido_Estridente"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 5 + (isClasse(["Classe_SE","Classe_TR"]) ? 5 : 0),
         "atributoagilidade": 5 + (isClasse(["Classe_SE","Classe_TR"]) ? 5 : 0),
@@ -2714,11 +2714,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
-        "danofisicoraca": (hasCombo(slot, itemId, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["24255"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
       }
     }
   },
@@ -2730,11 +2730,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
-        "danofisicoraca": (hasCombo(slot, itemId, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["24250"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
       }
     }
   },
@@ -2746,12 +2746,12 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["24251"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24251"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
         "danode--Mammonita": 20 + (getItemRefino(slot) * 5),
-        "danofisicoraca": (hasCombo(slot, itemId, [["24251"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["24251"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
       }
     }
   },
@@ -2763,11 +2763,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
-        "danofisicoraca": (hasCombo(slot, itemId, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
       }
     }
   },
@@ -2779,7 +2779,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar","REQ_Precisao","REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": getItemRefino(slot) * 10,
         "atributoforca": getItemRefino(slot),
@@ -2799,12 +2799,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCrit","REQ_IgnDef","REQ_Aspd"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicoraca": (hasCombo(slot, itemId, [["20964"],["15353"]]) ? (7 + ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 7 : 0)) : 0),
-        "atq": (hasCombo(slot, itemId, [["20964"],["15353"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
-        "aspdf": (hasCombo(slot, itemId, [["20964"],["15353"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 1 : 0) : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["20964"],["15353"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? -10 : 0) : 0)
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["20964"],["15353"]]) ? (7 + ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 7 : 0)) : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["20964"],["15353"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
+        "aspdf": (hasCombo(slot, itemId, tipoItem, [["20964"],["15353"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 1 : 0) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["20964"],["15353"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? -10 : 0) : 0)
       }
     }
   },
@@ -2816,12 +2816,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_DCrit","REQ_IgnDef"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicotamanho": (hasCombo(slot, itemId, [["15354"],["20967"]]) ? (7 + ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 7 : 0)) : 0),
-        "atq": (hasCombo(slot, itemId, [["15354"],["20967"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
-        "atqarmap": (hasCombo(slot, itemId, [["15354"],["20967"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 5 : 0) : 0),
-        "danodistancia": (hasCombo(slot, itemId, [["15354"],["20967"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
+        "danofisicotamanho": (hasCombo(slot, itemId, tipoItem, [["15354"],["20967"]]) ? (7 + ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 7 : 0)) : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["15354"],["20967"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
+        "atqarmap": (hasCombo(slot, itemId, tipoItem, [["15354"],["20967"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 5 : 0) : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["15354"],["20967"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
       }
     }
   },
@@ -2833,12 +2833,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DCorp"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqarmap": (hasCombo(slot, itemId, [["15278"],["20963"]]) ? 5 : 0),
-        "atq": (hasCombo(slot, itemId, [["15278"],["20963"]]) ? (((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) + ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 30 : 0)) : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["15278"],["20963"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? -7 : 0) : 0),
-        "danomelee": (hasCombo(slot, itemId, [["15278"],["20963"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
+        "atqarmap": (hasCombo(slot, itemId, tipoItem, [["15278"],["20963"]]) ? 5 : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["15278"],["20963"]]) ? (((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) + ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 30 : 0)) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["15278"],["20963"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? -7 : 0) : 0),
+        "danomelee": (hasCombo(slot, itemId, tipoItem, [["15278"],["20963"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
       }
     }
   },
@@ -2850,21 +2850,21 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_Pos","REQ_IgnDefm"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? -10 : 0),
-        "atqm": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? -7 : 0) : 0),
-        "danomagiconeutro": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicofogo": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicoagua": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicoterra": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicovento": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicosagrado": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicosombrio": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicoveneno": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicofantasma": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomagicotamanho": (hasCombo(slot, itemId, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? -10 : 0),
+        "atqm": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? -7 : 0) : 0),
+        "danomagiconeutro": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicofogo": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicoagua": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicoterra": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicovento": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicosagrado": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicosombrio": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicoveneno": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicofantasma": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomagicotamanho": (hasCombo(slot, itemId, tipoItem, [["15279"],["20966"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
       }
     }
   },
@@ -2876,14 +2876,14 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit","REQ_DCorp","REQ_TCrit","REQ_Aspd","REQ_IgnDef"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicoraca": (hasCombo(slot, itemId, [["15346"],["20968"]]) ? 5 : 0),
-        "atq": (hasCombo(slot, itemId, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
-        "danocritico": (hasCombo(slot, itemId, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 12 : 0) : 0),
-        "danofisicotamanho": (hasCombo(slot, itemId, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "danomelee": (hasCombo(slot, itemId, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0),
-        "danodistancia": (hasCombo(slot, itemId, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["15346"],["20968"]]) ? 5 : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
+        "danocritico": (hasCombo(slot, itemId, tipoItem, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 12 : 0) : 0),
+        "danofisicotamanho": (hasCombo(slot, itemId, tipoItem, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "danomelee": (hasCombo(slot, itemId, tipoItem, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["15346"],["20968"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? 10 : 0) : 0)
       }
     }
   },
@@ -2895,13 +2895,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_SP","REQ_Pos","REQ_IgnDef"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "hpp": (hasCombo(slot, itemId, [["15347"],["20965"]]) ? 10 : 0),
-        "spp": (hasCombo(slot, itemId, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 7 : 0) : 0),
-        "atq": (hasCombo(slot, itemId, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
-        "atqarmap": (hasCombo(slot, itemId, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? -10 : 0) : 0)
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["15347"],["20965"]]) ? 10 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 7 : 0) : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 14 ? 80 : 0) : 0),
+        "atqarmap": (hasCombo(slot, itemId, tipoItem, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 18 ? 10 : 0) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["15347"],["20965"]]) ? ((getItemRefino("itemArmadura") + getItemRefino("itemCapa")) >= 22 ? -10 : 0) : 0)
       }
     }
   },
@@ -2918,7 +2918,7 @@ var items = [
     itemBonus: ["REQ_TCrit","REQ_DMagico","REQ_DFisico","REQ_DDist","REQ_Aspd"],
     slots: 2,
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": 50,
         "atributoforca": 2,
@@ -2939,7 +2939,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
         "spp": 2 + (getItemRefino(slot) >= 5 ? 3 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0),
@@ -2958,7 +2958,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": parseInt(getNivelBase() / 10)
       }
@@ -2972,13 +2972,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 300 + (parseInt(getItemRefino(slot) / 2) * 100),
         "hpp": (parseInt(getItemRefino(slot) / 3) * 2) + (getItemRefino(slot) >= 9 ? 10 : 0),
         "atqarmap": (getItemRefino(slot) >= 7 ? 7 : 0),
-        "atq": (hasCombo(slot, itemId, [["15073"]]) ? (30 + (getItemRefino("itemArmadura") >= 11 ? 40 : 0)) : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["15073"]]) ? (getItemRefino("itemArmadura") >= 11 ? -10 : 0) : 0) + (hasCombo(slot, itemId, [["2963"]]) ? -5 : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["15073"]]) ? (30 + (getItemRefino("itemArmadura") >= 11 ? 40 : 0)) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["15073"]]) ? (getItemRefino("itemArmadura") >= 11 ? -10 : 0) : 0) + (hasCombo(slot, itemId, tipoItem, [["2963"]]) ? -5 : 0)
       }
     }
   },
@@ -2990,7 +2990,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Pos","REQ_DMagico","REQ_SP"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -20,
         "danofisicoraca": getItemRefino(slot) >= 10 ? 30 : 0,
@@ -3008,7 +3008,7 @@ var items = [
     itemClasses: ["Classe_ME"],
     itemBonus: ["REQ_Precisao","REQ_DFisico","REQ_Brandir_Machado","REQ_Furia_do_Furacao"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": 5,
         "hpp": 2 + (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 2 : 0),
@@ -3028,7 +3028,7 @@ var items = [
     itemClasses: ["Classe_GX"],
     itemBonus: ["REQ_Pos","REQ_Tocaia","REQ_Destruidor_de_Almas","REQ_Laminas_Retalhadoras"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": (-5) + (getItemRefino(slot) >= 7 ? (-3) : 0) + (getItemRefino(slot) >= 9 ? (-3) : 0),
         "danode--Tocaia": 50 + (getItemRefino(slot) >= 9 ? (getItemRefino(slot)) : 0),
@@ -3052,20 +3052,20 @@ var items = [
       ["4949","4818","4854","4856","4872","4855","4857","4858","4853","4817","4812","4826","4827","4869","4950","4834"],
       ["4949","4818","4854","4856","4872","4855","4857","4858","4853","4817","4812","4826","4827","4869","4950","4834"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "atq": 10 + (getItemRefino(slot) >= 5 ? 20 : 0) + (getItemRefino(slot) >= 7 ? 30 : 0),
         "atqm": 10 + (getItemRefino(slot) >= 5 ? 20 : 0) + (getItemRefino(slot) >= 7 ? 30 : 0),
-        "atributovitalidade": hasCombo(slot, itemId, [["22037"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["22037"]]) ? 10 : 0,
-        "atributoforca": hasCombo(slot, itemId, [["22036"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["22036"]]) ? 10 : 0,
-        "posconjuracao": hasCombo(slot, itemId, [["22036"]]) ? -20 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["22035"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["22035"]]) ? 10 : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["22035"]]) ? -10 : 0
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["22037"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["22037"]]) ? 10 : 0,
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["22036"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["22036"]]) ? 10 : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["22036"]]) ? -20 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["22035"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["22035"]]) ? 10 : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["22035"]]) ? -10 : 0
       }
     }
   },
@@ -3077,7 +3077,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCritD","REQ_DCrit","REQ_IgnDef"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "critd": 5 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 20 : 0),
         "danocritico": 10 + (getItemRefino(slot) >= 7 ? 2 : 0) + (getItemRefino(slot) >= 9 ? 6 : 0) + (getItemRefino(slot) >= 11 ? 12 : 0),
@@ -3094,7 +3094,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCritD","REQ_DCrit","REQ_IgnDef"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       if(getItemRefino(slot) < 11) {
         $("#itemTopo select.refino").val("11");
       }
@@ -3114,10 +3114,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit","REQ_Aspd"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danocritico": 5 + (hasCombo(slot, itemId, [["5918","410004"]]) ? (2 + (parseInt(getAtributoBase("sor") / 10) * 2) + (getAtributoBase("sor") >= 108 ? 2 : 0) + (getAtributoBase("sor") >= 120 ? 4 : 0)) : 0),
-        "aspdf": (hasCombo(slot, itemId, [["5918","410004"]]) ? (1 + (getAtributoBase("sor") >= 108 ? 1 : 0) + (getAtributoBase("sor") >= 120 ? 2 : 0)) : 0),
+        "danocritico": 5 + (hasCombo(slot, itemId, tipoItem, [["5918","410004"]]) ? (2 + (parseInt(getAtributoBase("sor") / 10) * 2) + (getAtributoBase("sor") >= 108 ? 2 : 0) + (getAtributoBase("sor") >= 120 ? 4 : 0)) : 0),
+        "aspdf": (hasCombo(slot, itemId, tipoItem, [["5918","410004"]]) ? (1 + (getAtributoBase("sor") >= 108 ? 1 : 0) + (getAtributoBase("sor") >= 120 ? 2 : 0)) : 0),
       }
     }
   },
@@ -3129,25 +3129,25 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_CFix","REQ_Petalas_Flamejantes","REQ_Lanca_Congelante","REQ_Lamina_de_Vento","REQ_Chamas_de_Hela","REQ_Cometa"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqm": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, [["26151"]]) ? 30 : 0),
-        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0) + (hasCombo(slot, itemId, [["16089"]]) ? (parseInt(getItemRefino(slot) / 2) * (-3)) : 0),
+        "atqm": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, tipoItem, [["26151"]]) ? 30 : 0),
+        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0) + (hasCombo(slot, itemId, tipoItem, [["16089"]]) ? (parseInt(getItemRefino(slot) / 2) * (-3)) : 0),
         "danomagiconeutro": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicofogo": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicovento": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoterra": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoagua": (getItemRefino(slot) >= 9 ? 15 : 0),
-        "danomagicosagrado": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["16089"]]) ? 5 : 0),
+        "danomagicosagrado": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["16089"]]) ? 5 : 0),
         "danomagicosombrio": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoveneno": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicofantasma": (getItemRefino(slot) >= 9 ? 15 : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danomagicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "danode--Meteoros_de_Nepeta": (hasCombo(slot, itemId, [["26164"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "recargade--Meteoros_de_Nepeta": (hasCombo(slot, itemId, [["26164"]]) ? (-1) : 0),
-        "danode--Espa": (hasCombo(slot, itemId, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "danode--Eswhoo": (hasCombo(slot, itemId, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0)
+        "danode--Meteoros_de_Nepeta": (hasCombo(slot, itemId, tipoItem, [["26164"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "recargade--Meteoros_de_Nepeta": (hasCombo(slot, itemId, tipoItem, [["26164"]]) ? (-1) : 0),
+        "danode--Espa": (hasCombo(slot, itemId, tipoItem, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "danode--Eswhoo": (hasCombo(slot, itemId, tipoItem, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0)
       }
     }
   },
@@ -3167,7 +3167,7 @@ var items = [
       ["4807","4811","4810","4809","4815","4814","4813","4818","4817","4816","4832","4833","4834","4700","4701","4702","4730","4731","4732","4740","4741","4742","4710","4711","4712","4720","4721","4722","4750","4751","4752"],
       ["4807","4811","4810","4809","4815","4814","4813","4818","4817","4816","4832","4833","4834","4700","4701","4702","4730","4731","4732","4740","4741","4742","4710","4711","4712","4720","4721","4722","4750","4751","4752"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Disparo_Triplo": getItemRefino(slot) * 2
       }
@@ -3181,12 +3181,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCritD","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danocritico": 5 + (hasCombo(slot, itemId, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0),
-        "critd": 5 + (hasCombo(slot, itemId, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0),
-        "aspdf": 1 + (hasCombo(slot, itemId, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 1 : 0) + (getItemRefino("itemTopo") >= 8 ? 1 : 0)) : 0),
-        "danofisicochefe": 5 + (hasCombo(slot, itemId, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0)
+        "danocritico": 5 + (hasCombo(slot, itemId, tipoItem, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0),
+        "critd": 5 + (hasCombo(slot, itemId, tipoItem, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0),
+        "aspdf": 1 + (hasCombo(slot, itemId, tipoItem, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 1 : 0) + (getItemRefino("itemTopo") >= 8 ? 1 : 0)) : 0),
+        "danofisicochefe": 5 + (hasCombo(slot, itemId, tipoItem, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0)
       }
     }
   },
@@ -3198,7 +3198,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": 10,
         "atq": 200,
@@ -3220,7 +3220,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": 20,
         "danomagicotamanho": 10,
@@ -3237,7 +3237,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": 10,
         "atq": 200,
@@ -3253,7 +3253,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "atq": 200,
@@ -3275,7 +3275,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "danofisicotamanho": 10,
@@ -3292,7 +3292,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "atq": 200,
@@ -3313,7 +3313,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 10,
         "danode--Impacto_Meteoro": 20
@@ -3328,16 +3328,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_CFix","REQ_Disparo_Triplo","REQ_Tempestade_de_Flechas","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 15,
         "danodistancia": (getItemRefino(slot) >= 7 ? 7 : 0) + (getItemRefino(slot) >= 11 ? 5 : 0),
         "atqarmap": (getItemRefino(slot) >= 9 ? 5 : 0),
         "aspdf": (getItemRefino(slot) >= 9 ? 1 : 0),
         "conjuracaofixas": ((getItemRefino(slot) >= 11 ? ((Math.min(getItemRefino(slot), 15) - 10) / (-10)) : 0)),
-        "danode--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, [["2544"]]) ? (parseInt(getItemRefino("itemCapa") / 2) * 7) : 0,
-        "danode--Tempestade_de_Flechas": hasCombo(slot, itemId, [["2554"]]) ? (parseInt(getItemRefino("itemCapa") / 2) * 12) : 0,
-        "danode--Disparo_Triplo": hasCombo(slot, itemId, [["2507","2525"]]) ? (parseInt(getItemRefino("itemCapa") / 2) * 15) : 0
+        "danode--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, tipoItem, [["2544"]]) ? (parseInt(getItemRefino("itemCapa") / 2) * 7) : 0,
+        "danode--Tempestade_de_Flechas": hasCombo(slot, itemId, tipoItem, [["2554"]]) ? (parseInt(getItemRefino("itemCapa") / 2) * 12) : 0,
+        "danode--Disparo_Triplo": hasCombo(slot, itemId, tipoItem, [["2507","2525"]]) ? (parseInt(getItemRefino("itemCapa") / 2) * 15) : 0
       }
     }
   },
@@ -3349,10 +3349,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
-        "danocritico": 10 + (hasCombo(slot, itemId, [["1764"]]) ? (5 + (getItemRefino(slot) >= 7 ? 5 : 0)) : 0)
+        "danocritico": 10 + (hasCombo(slot, itemId, tipoItem, [["1764"]]) ? (5 + (getItemRefino(slot) >= 7 ? 5 : 0)) : 0)
       }
     }
   },
@@ -3364,16 +3364,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CVar","REQ_CFix","REQ_Canhao_de_Protons","REQ_Tempestade_de_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, [["16088"]]) ? 30 : 0),
+        "atq": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, tipoItem, [["16088"]]) ? 30 : 0),
         "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0),
-        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["18178"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["18178"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "hpp": (hasCombo(slot, itemId, [["28136"]]) ? 5 : 0),
-        "danode--Canhao_de_Protons": (hasCombo(slot, itemId, [["16088"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "recargade--Tempestade_de_Flechas": (hasCombo(slot, itemId, [["18178"]]) ? (-2.5) : 0)
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["28136"]]) ? 5 : 0),
+        "danode--Canhao_de_Protons": (hasCombo(slot, itemId, tipoItem, [["16088"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "recargade--Tempestade_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["18178"]]) ? (-2.5) : 0)
       }
     }
   },
@@ -3385,7 +3385,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_TR"],
     itemBonus: ["REQ_DFisico","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Temporal_de_Mil_Flechas": 15,
         "conjuracaofixap": -40
@@ -3405,7 +3405,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Vulcao_de_Flechas": 10,
         "danode--Flecha_Melodica": 10
@@ -3425,7 +3425,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Vulcao_de_Flechas": 10,
         "danode--Flecha_Melodica": 10
@@ -3444,7 +3444,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
         "atributodestreza": 3
@@ -3463,7 +3463,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? (95 + (Math.pow(Math.max(Math.min(getItemRefino(slot), 14) - 4, 0), 2))) : 0,
         "ignoredef": isOpponent("racaMonstro",["5","10"]) ? (20 + (getItemRefino(slot) >= 6 ? 5 : 0)) : 0,
@@ -3478,11 +3478,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
         "aspdp": 2 + (getAtributoBase("agi") >= 100 ? 5 : 0),
-        "aspdf": (hasCombo(slot, itemId, [["4869"]]) ? 1 : 0) + (hasCombo(slot, itemId, [["4872"]]) ? 1 : 0)
+        "aspdf": (hasCombo(slot, itemId, tipoItem, [["4869"]]) ? 1 : 0) + (hasCombo(slot, itemId, tipoItem, [["4872"]]) ? 1 : 0)
       }
     }
   },
@@ -3494,7 +3494,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_DCrit","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 10,
         "atqm": 10
@@ -3509,7 +3509,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCrit","REQ_EP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5,
         "crit": 3
@@ -3529,7 +3529,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: [encantamentosArmasBrasilis],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["8"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danofisicoraca": isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
@@ -3549,7 +3549,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: [encantamentosArmasBrasilis],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["2","9"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danofisicoraca": isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
@@ -3569,7 +3569,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: [encantamentosArmasBrasilis],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["0","3"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danofisicoraca": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
@@ -3589,7 +3589,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: [encantamentosArmasBrasilis],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["5","6"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danofisicoraca": isOpponent("propriedadeMonstro", ["30","31","32","33","40","41","42","43"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0
@@ -3604,8 +3604,8 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
-      if(hasCombo(slot, itemId, [["4066","4256","4143","4135","4255"]])) {
+    itemFuncao: function(slot, itemId, tipoItem) {
+      if(hasCombo(slot, itemId, tipoItem, [["4066","4256","4143","4135","4255"]])) {
         temInvestigar = true;
       }
       return {
@@ -3615,10 +3615,10 @@ var items = [
         "atributointeligencia": 1,
         "atributodestreza": 1,
         "atributosorte": 1,
-        "hpp": (parseInt(getItemRefino(slot) / 4) * 3) + (hasCombo(slot, itemId, [["4135"]]) ? 50 : 0) + (hasCombo(slot, itemId, [["4143"]]) ? 20 : 0),
-        "danofisicoraca": (hasCombo(slot, itemId, [["4255"]]) ? (isOpponent("racaMonstro", ["2","5","10","11"]) ? 10 : 0) : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["4256"]]) ? -3 : 0),
-        "aspdp": (hasCombo(slot, itemId, [["4256"]]) ? 3 : 0)
+        "hpp": (parseInt(getItemRefino(slot) / 4) * 3) + (hasCombo(slot, itemId, tipoItem, [["4135"]]) ? 50 : 0) + (hasCombo(slot, itemId, tipoItem, [["4143"]]) ? 20 : 0),
+        "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["4255"]]) ? (isOpponent("racaMonstro", ["2","5","10","11"]) ? 10 : 0) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["4256"]]) ? -3 : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["4256"]]) ? 3 : 0)
       }
     }
   },
@@ -3635,7 +3635,7 @@ var items = [
       ["4832","4811","4869","4815","29135","4805"],
       ["4833","4810","4872","4814","29136","4850"],
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5 + (getItemRefino(slot) > 5 ? (getItemRefino(slot) - 5) : 0),
         "atqm": 5 + (getItemRefino(slot) > 5 ? (getItemRefino(slot) - 5) : 0)
@@ -3653,7 +3653,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 50) * 4,
         "precisaoperfeita": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 50) * 5
@@ -3671,7 +3671,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -5
       }
@@ -3685,7 +3685,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10,
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["00","01","02","03","10","11","12","13","40","41","42","43","50","51","52","53","90","91","92","93"]) ? 30 : 0
@@ -3700,7 +3700,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_Cavalo_de_Pau","REQ_Furia_do_Furacao","REQ_Brandir_Machado"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Cavalo_de_Pau": parseInt(getNivelBase() / 3),
         "danode--Furia_do_Furacao": parseInt(getNivelBase() / 5),
@@ -3716,7 +3716,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Aspd"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "aspdp": 1 + (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 2 : 0)
@@ -3731,7 +3731,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Chuva_de_Flechas","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Chuva_de_Flechas": 20 + (getItemRefino(slot) * 5)
@@ -3746,7 +3746,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Impacto_Explosivo"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Impacto_Explosivo": 20 + (getItemRefino(slot) * 5)
@@ -3761,7 +3761,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Envenenar","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Envenenar": 20 + (getItemRefino(slot) * 5)
@@ -3776,7 +3776,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Cavalo_de_Pau": 20 + (getItemRefino(slot) * 5)
@@ -3791,7 +3791,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar","REQ_Precisao","REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": getItemRefino(slot) * 10,
         "atributoforca": getItemRefino(slot),
@@ -3816,12 +3816,12 @@ var items = [
       ["4983","4986","4987","4988","4989"],
       ["4991","4985","4986","4987","4988","4989"],
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 6 + (getNivelBase >= 130 ? 4 : 0),
         "hpp": parseInt(getItemRefino(slot) / 3) * 4,
-        "posconjuracao": (hasCombo(slot, itemId, [["20773"]]) ? (-10 + (getNivelBase() >= 130 ? -10 : 0)) : 0),
-        "esquivaperfeita": (hasCombo(slot, itemId, [["20773"]]) ? (getNivelBase >= 130 ? 6 : 0) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["20773"]]) ? (-10 + (getNivelBase() >= 130 ? -10 : 0)) : 0),
+        "esquivaperfeita": (hasCombo(slot, itemId, tipoItem, [["20773"]]) ? (getNivelBase >= 130 ? 6 : 0) : 0),
       }
     }
   },
@@ -3837,13 +3837,13 @@ var items = [
     itemClasses: ["Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Punho_do_Dragao": 10 + (parseInt(getItemRefino(slot) / 2) * 5),
         "danode--Soco_Furacao": 10 + (parseInt(getItemRefino(slot) / 2) * 5),
-        "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 5) + (hasCombo(slot, itemId, [["20838"]]) ? ((getItemRefino(slot) >= 7 && getItemRefino("itemCapa") >= 7 ? 20 : 0) + (getItemRefino(slot) + getItemRefino("itemCapa") >= 22 ? 15 : 0)) : 0),
-        "atq": hasCombo(slot, itemId, [["20838"]]) ? 40 : 0,
-        "recargade--Combo_Rapido": (hasCombo(slot, itemId, [["20838"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 18) ? (-1) : 0),
+        "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 5) + (hasCombo(slot, itemId, tipoItem, [["20838"]]) ? ((getItemRefino(slot) >= 7 && getItemRefino("itemCapa") >= 7 ? 20 : 0) + (getItemRefino(slot) + getItemRefino("itemCapa") >= 22 ? 15 : 0)) : 0),
+        "atq": hasCombo(slot, itemId, tipoItem, [["20838"]]) ? 40 : 0,
+        "recargade--Combo_Rapido": (hasCombo(slot, itemId, tipoItem, [["20838"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 18) ? (-1) : 0),
       }
     }
   },
@@ -3859,7 +3859,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -3876,7 +3876,7 @@ var items = [
       ["4700","4701","4702","4703","4730","4731","4732","4733","4740","4741","4742","4723","4710","4711","4712","4743","4720","4721","4722","4713"],
       ["4700","4701","4702","4703","4730","4731","4732","4733","4740","4741","4742","4723","4710","4711","4712","4743","4720","4721","4722","4713"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 500
       }
@@ -3894,7 +3894,7 @@ var items = [
       ["4700","4701","4702","4703","4730","4731","4732","4733","4740","4741","4742","4723","4710","4711","4712","4743","4720","4721","4722","4713"],
       ["4700","4701","4702","4703","4730","4731","4732","4733","4740","4741","4742","4723","4710","4711","4712","4743","4720","4721","4722","4713"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 200
       }
@@ -3908,7 +3908,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_INT"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2
       }
@@ -3922,7 +3922,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_INT"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 1
       }
@@ -3936,10 +3936,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 3 + (getNivelBase() >= 130 ? (getItemRefino(slot)) : (parseInt(getItemRefino(slot) / 2))),
-        "danodistancia": 4 + (hasCombo(slot, itemId, [["1730","1731","1732","1733"]]) ? 45 : 0)
+        "danodistancia": 4 + (hasCombo(slot, itemId, tipoItem, [["1730","1731","1732","1733"]]) ? 45 : 0)
       }
     }
   },
@@ -3954,9 +3954,9 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "ignoredef": hasCombo(slot, itemId, [["410000"]]) ? 50 : 0
+        "ignoredef": hasCombo(slot, itemId, tipoItem, [["410000"]]) ? 50 : 0
       }
     }
   },
@@ -3968,7 +3968,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_IgnDef"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 10 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 8 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 30 : 0),
         "ignoredef": 10 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 8 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0)
@@ -3983,11 +3983,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -10,
         "danofisicop": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
-        "danofisicoraca": (isOpponent("propriedadeMonstro", ["60","61","62","63"]) && hasCombo(slot, itemId, [["4135"]])) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 10) : (getItemRefino(slot) * 3)) : 0
+        "danofisicoraca": (isOpponent("propriedadeMonstro", ["60","61","62","63"]) && hasCombo(slot, itemId, tipoItem, [["4135"]])) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 10) : (getItemRefino(slot) * 3)) : 0
       }
     }
   },
@@ -3999,7 +3999,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_AGI","REQ_Aspd","REQ_HP","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 10,
         "hpp": 15,
@@ -4018,7 +4018,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 10,
         "hpp": 15,
@@ -4037,7 +4037,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       $(".itemSlot#itemMeio .carta select").eq(0).val("4357");
       return {
         "atributoagilidade": 10,
@@ -4055,10 +4055,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 5 + (getAtributoBase("sor") >= 100 ? 10 : 0),
-        "danocritico": 2 + (getAtributoBase("sor") >= 100 ? 10 : 0) + (hasCombo(slot, itemId, [["4818"]]) ? 10 : 0) + (hasCombo(slot, itemId, [["4817"]]) ? 10 : 0),
+        "danocritico": 2 + (getAtributoBase("sor") >= 100 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["4818"]]) ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["4817"]]) ? 10 : 0),
         "aspdp": 5,
       }
     }
@@ -4071,7 +4071,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_INT"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2
       }
@@ -4085,7 +4085,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_INT"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 1
       }
@@ -4099,13 +4099,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_Disparo_Perfurante","REQ_Escudo_Compressor","REQ_Toque_do_Oblivio"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 1 + (getAtributoBase("agi") >= 108 ? 1 : 0),
         "aspdf": (getAtributoBase("agi") >= 108 ? 1 : 0),
-        "danode--Disparo_Perfurante": hasCombo(slot, itemId, [["1433","2153"]]) ? 20 : 0,
-        "danode--Escudo_Compressor": hasCombo(slot, itemId, [["1433","2153"]]) ? 20 : 0,
-        "danode--Toque_do_Oblivio": hasCombo(slot, itemId, [["1433","2153"]]) ? 20 : 0
+        "danode--Disparo_Perfurante": hasCombo(slot, itemId, tipoItem, [["1433","2153"]]) ? 20 : 0,
+        "danode--Escudo_Compressor": hasCombo(slot, itemId, tipoItem, [["1433","2153"]]) ? 20 : 0,
+        "danode--Toque_do_Oblivio": hasCombo(slot, itemId, tipoItem, [["1433","2153"]]) ? 20 : 0
       }
     }
   },
@@ -4117,10 +4117,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "aspdp": (-5) + (getAtributoBase("vit") >= 108 ? (-5) : 0) + (hasCombo(slot, itemId, [["5170","18755"]]) ? (5 + (getItemRefino("itemTopo") >= 7 ? 5 : 0)) : 0),
-        "hpp": (getAtributoBase("vit") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, [["5170","18755"]]) ? (getItemRefino("itemTopo") >= 9 ? 5 : 0) : 0)
+        "aspdp": (-5) + (getAtributoBase("vit") >= 108 ? (-5) : 0) + (hasCombo(slot, itemId, tipoItem, [["5170","18755"]]) ? (5 + (getItemRefino("itemTopo") >= 7 ? 5 : 0)) : 0),
+        "hpp": (getAtributoBase("vit") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, tipoItem, [["5170","18755"]]) ? (getItemRefino("itemTopo") >= 9 ? 5 : 0) : 0)
       }
     }
   },
@@ -4135,10 +4135,10 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "aspdp": (-5) + (getAtributoBase("vit") >= 108 ? (-5) : 0) + (hasCombo(slot, itemId, [["5170"]]) ? (5 + (getItemRefino("itemTopo") >= 7 ? 5 : 0)) : 0),
-        "hpp": (getAtributoBase("vit") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, [["5170"]]) ? (getItemRefino("itemTopo") >= 9 ? 5 : 0) : 0)
+        "aspdp": (-5) + (getAtributoBase("vit") >= 108 ? (-5) : 0) + (hasCombo(slot, itemId, tipoItem, [["5170"]]) ? (5 + (getItemRefino("itemTopo") >= 7 ? 5 : 0)) : 0),
+        "hpp": (getAtributoBase("vit") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, tipoItem, [["5170"]]) ? (getItemRefino("itemTopo") >= 9 ? 5 : 0) : 0)
       }
     }
   },
@@ -4150,7 +4150,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CVar","REQ_Cura"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "atq": (parseInt(getAtributoBase("int") / 8) * 5) + (getAtributoBase("int") >= 108 ? 50 : 0) + (getAtributoBase("int") >= 120 ? 125 : 0),
@@ -4166,7 +4166,7 @@ var items = [
     itemClasses: ["Classe_SC"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_AGI","REQ_FOR","REQ_INT"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 5 + (isClasse(["Classe_SC"]) ? 5 : 0),
         "atributoagilidade": 5 + (isClasse(["Classe_SC"]) ? 5 : 0),
@@ -4182,7 +4182,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 30,
         "atqm": 30
@@ -4202,7 +4202,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 1,
     encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -4215,10 +4215,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atributovitalidade": hasCombo(slot, itemId, [["19024","19455"]]) ? (5 + (getAtributoBase("vit") >= 108 ? 5 : 0) + (getAtributoBase("vit") >= 120 ? 10 : 0)) : 0,
-        "aspdp": hasCombo(slot, itemId, [["19024","19455"]]) ? (5 + (getAtributoBase("vit") >= 108 ? 5 : 0)) : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["19024","19455"]]) ? (5 + (getAtributoBase("vit") >= 108 ? 5 : 0) + (getAtributoBase("vit") >= 120 ? 10 : 0)) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["19024","19455"]]) ? (5 + (getAtributoBase("vit") >= 108 ? 5 : 0)) : 0,
       }
     }
   },
@@ -4233,7 +4233,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": parseInt((getAtributoBase("int") + getAtributoBase("des")) / 50) * 4,
         "aspdp": parseInt((getAtributoBase("int") + getAtributoBase("des")) / 50) * 2
@@ -4250,7 +4250,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Cura","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 15 + (getItemRefino(slot) * 2),
         "posconjuracao": (getItemRefino(slot) >= 8 ? (-10) : 0) + (getItemRefino(slot) >= 10 ? (-10) : 0)
@@ -4265,13 +4265,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCrit","REQ_EP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atributosorte": 2 + (hasCombo(slot, itemId, [["2519"],["2650"],["2651"]]) ? 9 : 0),
-        "atq": 3 + (hasCombo(slot, itemId, [["2519"],["2650"],["2651"]]) ? 18 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["2519"],["2650"],["2651"]]) ? 2 : 0,
-        "crit": hasCombo(slot, itemId, [["2519"],["2650"],["2651"]]) ? 15 : 0,
-        "esquivaperfeita": hasCombo(slot, itemId, [["2519"],["2650"],["2651"]]) ? 13 : 0
+        "atributosorte": 2 + (hasCombo(slot, itemId, tipoItem, [["2519"],["2650"],["2651"]]) ? 9 : 0),
+        "atq": 3 + (hasCombo(slot, itemId, tipoItem, [["2519"],["2650"],["2651"]]) ? 18 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["2519"],["2650"],["2651"]]) ? 2 : 0,
+        "crit": hasCombo(slot, itemId, tipoItem, [["2519"],["2650"],["2651"]]) ? 15 : 0,
+        "esquivaperfeita": hasCombo(slot, itemId, tipoItem, [["2519"],["2650"],["2651"]]) ? 13 : 0
       }
     }
   },
@@ -4283,16 +4283,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit","REQ_CFix","REQ_Toque_do_Oblivio","REQ_Garra_de_Tigre"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (parseInt(getItemRefino(slot) / 2) * 15) + (hasCombo(slot, itemId, [["1168","1171"]]) ? (parseInt(getItemRefino(slot) / 2) * 20) : 0),
+        "atq": (parseInt(getItemRefino(slot) / 2) * 15) + (hasCombo(slot, itemId, tipoItem, [["1168","1171"]]) ? (parseInt(getItemRefino(slot) / 2) * 20) : 0),
         "aspdp": (getItemRefino(slot) >= 7 ? 10 : 0),
         "atqarmap": (getItemRefino(slot) >= 9 ? 5 : 0),
         "aspdf": (getItemRefino(slot) >= 9 ? 1 : 0),
         "danocritico": (getItemRefino(slot) >= 11 ? 15 : 0),
         "conjuracaofixas": ((getItemRefino(slot) >= 11 ? ((Math.min(getItemRefino("itemMaoDireita"), 15) - 10) / (-10)) : 0)),
-        "danode--Toque_do_Oblivio": hasCombo(slot, itemId, [["1413","1418"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 7) : 0,
-        "danode--Garra_de_Tigre": hasCombo(slot, itemId, [["1527","16024"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 7) : 0
+        "danode--Toque_do_Oblivio": hasCombo(slot, itemId, tipoItem, [["1413","1418"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 7) : 0,
+        "danode--Garra_de_Tigre": hasCombo(slot, itemId, tipoItem, [["1527","16024"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 7) : 0
       }
     }
   },
@@ -4308,7 +4308,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
         "atributointeligencia": 2
@@ -4325,7 +4325,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DCorp"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": Math.min(getItemRefino(slot) * 3, 30),
         "spp": Math.min(getItemRefino(slot) * 3, 30),
@@ -4343,7 +4343,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23"]) ? (5 + (getItemRefino(slot) >= 8 ? 10 : 0)) : 0,
         "danomagicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23"]) ? (5 + (getItemRefino(slot) >= 8 ? 10 : 0)) : 0,
@@ -4365,7 +4365,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Pos","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": (-4) + (getItemRefino(slot) >= 7 ? (-4) : 0) + (getItemRefino(slot) >= 9 ? (-4) : 0),
         "aspdp": (4) + (getItemRefino(slot) >= 7 ? (4) : 0) + (getItemRefino(slot) >= 9 ? (4) : 0),
@@ -4384,15 +4384,15 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Aspd","REQ_HP","REQ_SP","REQ_DDist","REQ_Pos"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danofisicop": (hasCombo(slot, itemId, [["4853"]]) ? 15 : 0),
-        "danomagicop": (hasCombo(slot, itemId, [["4856"]]) ? 15 : 0),
-        "aspdp": (hasCombo(slot, itemId, [["4854"]]) ? 15 : 0),
-        "hpp": (hasCombo(slot, itemId, [["4855"]]) ? 15 : 0),
-        "spp": (hasCombo(slot, itemId, [["4855"]]) ? 15 : 0),
-        "danodistancia": (hasCombo(slot, itemId, [["4857"]]) ? 15 : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["4858"]]) ? (-15) : 0)
+        "danofisicop": (hasCombo(slot, itemId, tipoItem, [["4853"]]) ? 15 : 0),
+        "danomagicop": (hasCombo(slot, itemId, tipoItem, [["4856"]]) ? 15 : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["4854"]]) ? 15 : 0),
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["4855"]]) ? 15 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["4855"]]) ? 15 : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["4857"]]) ? 15 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["4858"]]) ? (-15) : 0)
       }
     }
   },
@@ -4411,7 +4411,7 @@ var items = [
       ["4983","4991","4986","4987","4988","4989"],
       ["4985","4991","4986","4987","4988","4989"],
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 1 + (parseInt(getItemRefino(slot) / 3)) + (getNivelBase() >= 130 ? 1 : 0),
         "spp": 1 + (parseInt(getItemRefino(slot) / 3)) + (getNivelBase() >= 130 ? 1 : 0)
@@ -4426,7 +4426,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_SP","REQ_CVar"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atributovitalidade": 1,
@@ -4447,20 +4447,20 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aegis_Inferi"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Aegis_Inferi": 20 + (getItemRefino(slot) * 5),
-        "hpp": 3 + (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0
+        "hpp": 3 + (hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["24247"],["24251"],["24259"],["24272"],["24291"]]) ? 10 : 0
       }
     }
   },
@@ -4472,20 +4472,20 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aegis_Inferi"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Aegis_Inferi": 20 + (getItemRefino(slot) * 5),
-        "hpp": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0
       }
     }
   },
@@ -4497,19 +4497,19 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 5 : 0),
-        "spp": 3 + (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 5 : 0),
+        "spp": 3 + (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24268"],["24300"],["24281"]]) ? 10 : 0
       }
     }
   },
@@ -4521,19 +4521,19 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 5 : 0),
-        "spp": 3 + (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 5 : 0),
+        "spp": 3 + (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24267"],["24299"],["24280"]]) ? 10 : 0
       }
     }
   },
@@ -4545,19 +4545,19 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "hpp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
       }
     }
   },
@@ -4569,21 +4569,21 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "aspdp": getItemRefino(slot),
         "aspdf": (getItemRefino(slot) >= 7 ? 1 : 0) + (getItemRefino(slot) >= 9 ? 1 : 0),
-        "hpp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
       }
     }
   },
@@ -4595,7 +4595,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -10,
         "danofisicop": 10,
@@ -4614,7 +4614,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -5,
         "danofisicoraca": 2
@@ -4634,7 +4634,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 20
       }
@@ -4653,7 +4653,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Mammonita"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       if(getItemRefino(slot) >= 10) {
         temDrake = true;
       }
@@ -4678,7 +4678,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -5
       }
@@ -4692,7 +4692,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": parseInt(Math.min(getNivelBase(), 150) / 10)
       }
@@ -4706,7 +4706,7 @@ var items = [
     itemClasses: ["Classe_ME"],
     itemBonus: ["REQ_Pos","REQ_DFisico","REQ_Canhao","REQ_Gas_Criogenico","REQ_Lanca_Chamas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
         "atributovitalidade": 10,
@@ -4731,7 +4731,7 @@ var items = [
     itemClasses: ["Classe_SC"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -4753,7 +4753,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 10),
         "danodistancia": (parseInt(getItemRefino(slot) / 3) * 4),
@@ -4774,7 +4774,7 @@ var items = [
     itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "ignoredef": 100,
         "aspdp": (-5) + (parseInt(getItemRefino(slot) / 2)),
@@ -4794,7 +4794,7 @@ var items = [
     itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": 1,
         "aspdp": getItemRefino(slot),
@@ -4814,7 +4814,7 @@ var items = [
     itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt((getNivelBase() - 70) / 10) * 5) + Math.pow(Math.min(getItemRefino(slot), 15), 2),
         "atqm": parseInt(Math.pow(Math.min(getItemRefino(slot), 15), 2) / 2)
@@ -4835,7 +4835,7 @@ var items = [
     itemBonus: ["REQ_DFisico","REQ_HP"],
     slots: 0,
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 800,
         "spf": -50
@@ -4856,7 +4856,7 @@ var items = [
     itemBonus: ["REQ_DFisico","REQ_HP"],
     slots: 3,
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 800,
         "spf": -50
@@ -4876,7 +4876,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       temDrake = true;
       return {
         "crit": 30,
@@ -4897,15 +4897,15 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": 15,
         "atq": getItemRefino(slot) >= 6 ? ((Math.min(getItemRefino(slot), 15) - 5) * 5) : 0,
         "aspdp": getItemRefino(slot) >= 6 ? ((Math.min(getItemRefino(slot), 15) - 5) * 1) : 0,
         "hpp": getItemRefino(slot) >= 6 ? ((Math.min(getItemRefino(slot), 15) - 5) * 2) : 0,
         "spp": getItemRefino(slot) >= 6 ? ((Math.min(getItemRefino(slot), 15) - 5) * 2) : 0,
-        "atributoforca": hasCombo(slot, itemId, [["4352"]]) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 10) : (getItemRefino(slot) * 10)) : 0,
-        "esquiva": hasCombo(slot, itemId, [["4352"]]) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 2) : (getItemRefino(slot) * 2)) : 0
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["4352"]]) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 10) : (getItemRefino(slot) * 10)) : 0,
+        "esquiva": hasCombo(slot, itemId, tipoItem, [["4352"]]) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 2) : (getItemRefino(slot) * 2)) : 0
       }
     }
   },
@@ -4917,7 +4917,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "efetividadecura": 30 + (getItemRefino(slot) * 7)
@@ -4932,7 +4932,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_ST"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
@@ -4947,7 +4947,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MI"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
@@ -4962,7 +4962,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
@@ -4977,7 +4977,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_PA"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
       }
@@ -4991,9 +4991,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (hasCombo(slot, itemId, [["2913"]]) ? (Math.min(getItemRefino(slot), 10)) : 0) + (hasCombo(slot, itemId, [["15040"]]) ? (5 + Math.min(getItemRefino(slot), 10)) : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["2913"]]) ? (Math.min(getItemRefino(slot), 10)) : 0) + (hasCombo(slot, itemId, tipoItem, [["15040"]]) ? (5 + Math.min(getItemRefino(slot), 10)) : 0)
       }
     }
   },
@@ -5010,9 +5010,9 @@ var items = [
       ["4900","4802","29135","29136","4815","4814","4832","4833","4869","4872","4948","4888"],
       ["4900","4802","29135","29136","4815","4814","4832","4833","4869","4872","4948","4888"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (hasCombo(slot, itemId, [["2913"]]) ? getItemRefino(slot) : 0) + (hasCombo(slot, itemId, [["15040"]]) ? (5 + getItemRefino(slot)) : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["2913"]]) ? getItemRefino(slot) : 0) + (hasCombo(slot, itemId, tipoItem, [["15040"]]) ? (5 + getItemRefino(slot)) : 0)
       }
     }
   },
@@ -5029,18 +5029,18 @@ var items = [
       ["4949","4818","4854","4856","4872","4855","4857","4858","4853","4817","4812","4826","4827","4869","4950","4834"],
       ["4949","4818","4854","4856","4872","4855","4857","4858","4853","4817","4812","4826","4827","4869","4950","4834"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqarmap": parseInt(getItemRefino(slot) / 2) + (hasCombo(slot, itemId, [["2977"],["2978"]]) ? 10 : 0),
-        "danomagicop": parseInt(getItemRefino(slot) / 2) + (hasCombo(slot, itemId, [["2976"],["2980"]]) ? 10 : 0),
-        "atq": (getItemRefino(slot) >= 9 ? 30 : 0) + (hasCombo(slot, itemId, [["16029"],["2978"]]) ? 30 : 0),
-        "atqm": (getItemRefino(slot) >= 9 ? 30 : 0) + (hasCombo(slot, itemId, [["16029"],["2977"]]) ? 30 : 0) + (hasCombo(slot, itemId, [["13442"],["2980"]]) ? 80 : 0),
-        "danode--Gemini_Lumen": (hasCombo(slot, itemId, [["16029"],["2977"]]) ? (40 + (getItemRefino("itemMaoDireita") >= 10 ? 20 : 0)) : 0),
-        "danode--Investida_de_Shura": (hasCombo(slot, itemId, [["16029"],["2978"]]) ? (40 + (getItemRefino("itemMaoDireita") >= 10 ? 20 : 0)) : 0),
-        "precisao": (hasCombo(slot, itemId, [["2976"],["2980"]]) ? 10 : 0) + ((hasCombo(slot, itemId, [["2977"],["2978"]]) && getItemRefino(slot) >= 10) ? 15 : 0),
-        "aspdp": (hasCombo(slot, itemId, [["2976"],["2980"]]) ? 10 : 0) + (hasCombo(slot, itemId, [["2977"],["2978"]]) ? 10 : 0),
-        "danodistancia": (hasCombo(slot, itemId, [["2977"],["2978"]]) ? 10 : 0),
-        "danocritico": ((hasCombo(slot, itemId, [["2977"],["2978"]]) && getItemRefino(slot) >= 10) ? 15 : 0)
+        "atqarmap": parseInt(getItemRefino(slot) / 2) + (hasCombo(slot, itemId, tipoItem, [["2977"],["2978"]]) ? 10 : 0),
+        "danomagicop": parseInt(getItemRefino(slot) / 2) + (hasCombo(slot, itemId, tipoItem, [["2976"],["2980"]]) ? 10 : 0),
+        "atq": (getItemRefino(slot) >= 9 ? 30 : 0) + (hasCombo(slot, itemId, tipoItem, [["16029"],["2978"]]) ? 30 : 0),
+        "atqm": (getItemRefino(slot) >= 9 ? 30 : 0) + (hasCombo(slot, itemId, tipoItem, [["16029"],["2977"]]) ? 30 : 0) + (hasCombo(slot, itemId, tipoItem, [["13442"],["2980"]]) ? 80 : 0),
+        "danode--Gemini_Lumen": (hasCombo(slot, itemId, tipoItem, [["16029"],["2977"]]) ? (40 + (getItemRefino("itemMaoDireita") >= 10 ? 20 : 0)) : 0),
+        "danode--Investida_de_Shura": (hasCombo(slot, itemId, tipoItem, [["16029"],["2978"]]) ? (40 + (getItemRefino("itemMaoDireita") >= 10 ? 20 : 0)) : 0),
+        "precisao": (hasCombo(slot, itemId, tipoItem, [["2976"],["2980"]]) ? 10 : 0) + ((hasCombo(slot, itemId, tipoItem, [["2977"],["2978"]]) && getItemRefino(slot) >= 10) ? 15 : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["2976"],["2980"]]) ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["2977"],["2978"]]) ? 10 : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["2977"],["2978"]]) ? 10 : 0),
+        "danocritico": ((hasCombo(slot, itemId, tipoItem, [["2977"],["2978"]]) && getItemRefino(slot) >= 10) ? 15 : 0)
       }
     }
   },
@@ -5056,7 +5056,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2,
         "danode--Vulcao_de_Flechas": 20,
@@ -5076,7 +5076,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? (95 + (Math.pow(Math.max(Math.min(getItemRefino(slot), 14) - 4, 0), 2))) : 0,
         "ignoredef": isOpponent("racaMonstro",["5","10"]) ? (20 + (getItemRefino(slot) >= 6 ? 5 : 0)) : 0,
@@ -5091,14 +5091,14 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Aspd","REQ_CVar","REQ_DDist","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicofogo": 1,
-        "atq": hasCombo(slot, itemId, [["20717","20718"]]) ? (parseInt(getAtributoBase("for") / 20) * 5) : 0,
-        "aspdp": hasCombo(slot, itemId, [["20717","20718"]]) ? (parseInt(getAtributoBase("agi") / 20) * 3) : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["20717","20718"]]) ? (parseInt(getAtributoBase("int") / 20) * (-4)) : 0,
-        "danodistancia": hasCombo(slot, itemId, [["20717","20718"]]) ? (parseInt(getAtributoBase("des") / 20)) : 0,
-        "danocritico": hasCombo(slot, itemId, [["20717","20718"]]) ? (parseInt(getAtributoBase("sor") / 20) * 3) : 0,
+        "atq": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? (parseInt(getAtributoBase("for") / 20) * 5) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? (parseInt(getAtributoBase("agi") / 20) * 3) : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? (parseInt(getAtributoBase("int") / 20) * (-4)) : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? (parseInt(getAtributoBase("des") / 20)) : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["20717","20718"]]) ? (parseInt(getAtributoBase("sor") / 20) * 3) : 0,
       }
     }
   },
@@ -5110,7 +5110,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getNivelBase()
       }
@@ -5127,7 +5127,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getNivelBase()
       }
@@ -5145,7 +5145,7 @@ var items = [
     itemClasses: ["Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqarmap": 3,
         "aspdp": getItemRefino(slot) >= 7 ? 7 : 0,
@@ -5162,17 +5162,17 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCrit","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 5,
         "crit": parseInt(getItemRefino(slot) / 2) * 2,
         "danofisicotamanho": parseInt(getItemRefino(slot) / 3) * 3,
         "aspdp": getItemRefino(slot) >= 7 ? 7 : 0,
-        "danodistancia": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomelee": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danocritico": hasCombo(slot, itemId, [["410080","400002","410017"]]) ? 7 : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["410080"]]) ? (-15) : 0,
-        "posconjuracao": hasCombo(slot, itemId, [["400002"]]) ? (-15) : 0
+        "danodistancia": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomelee": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["410080","400002","410017"]]) ? 7 : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["410080"]]) ? (-15) : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["400002"]]) ? (-15) : 0
       }
     }
   },
@@ -5184,17 +5184,17 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 5,
         "atqarmap": parseInt(getItemRefino(slot) / 2),
         "danofisicotamanho": parseInt(getItemRefino(slot) / 3) * 3,
         "aspdp": getItemRefino(slot) >= 7 ? 7 : 0,
-        "danodistancia": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomelee": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danocritico": hasCombo(slot, itemId, [["410080","400002","410017"]]) ? 7 : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["410080"]]) ? (-15) : 0,
-        "posconjuracao": hasCombo(slot, itemId, [["400002"]]) ? (-15) : 0
+        "danodistancia": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomelee": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["410080","400002","410017"]]) ? 7 : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["410080"]]) ? (-15) : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["400002"]]) ? (-15) : 0
       }
     }
   },
@@ -5206,22 +5206,22 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": parseInt(getItemRefino(slot) / 2) * 5,
-        "danomagicop": parseInt(getItemRefino(slot) / 2) + (hasCombo(slot, itemId, [["410080","400002","410017"]]) ? 7 : 0),
+        "danomagicop": parseInt(getItemRefino(slot) / 2) + (hasCombo(slot, itemId, tipoItem, [["410080","400002","410017"]]) ? 7 : 0),
         "danomagicotamanho": parseInt(getItemRefino(slot) / 3) * 3,
-        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-7) : 0) + (hasCombo(slot, itemId, [["410080"]]) ? (-15) : 0),
-        "danomagiconeutro": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicofogo": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicovento": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicoterra": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicoagua": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicosagrado": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicosombrio": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicoveneno": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "danomagicofantasma": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, [["410017"]]) ? 5 : 0),
-        "posconjuracao": hasCombo(slot, itemId, [["400002"]]) ? (-15) : 0
+        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-7) : 0) + (hasCombo(slot, itemId, tipoItem, [["410080"]]) ? (-15) : 0),
+        "danomagiconeutro": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicofogo": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicovento": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicoterra": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicoagua": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicosagrado": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicosombrio": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicoveneno": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "danomagicofantasma": (getItemRefino(slot) >= 11 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["410017"]]) ? 5 : 0),
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["400002"]]) ? (-15) : 0
       }
     }
   },
@@ -5233,7 +5233,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_HP","REQ_SP","REQ_Canhao","REQ_Lanca_Chamas","REQ_Gas_Criogenico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
         "spp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
@@ -5252,16 +5252,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CVar","REQ_CFix","REQ_Laminas_de_Loki","REQ_Explosao_Solar"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, [["28629"]]) ? 30 : 0),
+        "atq": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, tipoItem, [["28629"]]) ? 30 : 0),
         "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0),
-        "danomelee": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["18178"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "danomelee": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["18178"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + isOpponent("tamanhoMonstro", ["2"]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0,
-        "danode--Laminas_de_Loki": (hasCombo(slot, itemId, [["28038"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "crit": (hasCombo(slot, itemId, [["21047"]]) ? 10 : 0),
-        "danode--Explosao_Solar": (hasCombo(slot, itemId, [["28629"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0)
+        "danode--Laminas_de_Loki": (hasCombo(slot, itemId, tipoItem, [["28038"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "crit": (hasCombo(slot, itemId, tipoItem, [["21047"]]) ? 10 : 0),
+        "danode--Explosao_Solar": (hasCombo(slot, itemId, tipoItem, [["28629"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0)
       }
     }
   },
@@ -5273,12 +5273,12 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_SA"],
     itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 7,
-        "atributoagilidade": hasCombo(slot, itemId, [["4877"]]) ? 40 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["4877"]]) ? 40 : 0,
         "danofisicop": 10,
-        "danofisicotamanho": hasCombo(slot, itemId, [["4877"]]) ? 10 : 0,
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["4877"]]) ? 10 : 0,
         "danode--Acerto_de_Contas": parseInt(getNivelBase() / 3),
         "posconjuracao": isClasse(["Classe_SC","Classe_SC_NT"]) ? (-30) : 0
       }
@@ -5297,7 +5297,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": getItemRefino(slot),
         "danofisicop": parseInt(getItemRefino(slot) / 2)
@@ -5316,7 +5316,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT","Classe_SX"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -5333,7 +5333,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT","Classe_SX"],
     itemBonus: ["REQ_DFisico"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -5350,7 +5350,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT","Classe_SX"],
     itemBonus: ["REQ_DFisico"],
     slots: 4,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -5371,7 +5371,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 10,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 2,
@@ -5396,7 +5396,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 15,
         "aspdp": parseInt(getItemRefino(slot) / 3) * 2,
@@ -5424,7 +5424,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 10,
         "danocritico": parseInt(getItemRefino(slot) / 3) * 4,
@@ -5445,7 +5445,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       if(getItemRefino(slot) >= 12) {
         temInvestigar = true;
       }
@@ -5469,7 +5469,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6,
         "atributovitalidade": 6,
@@ -5493,7 +5493,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 15,
         "danode--Laminas_Retalhadoras": parseInt(getItemRefino(slot) / 3) * 10,
@@ -5516,12 +5516,12 @@ var items = [
     itemClasses: ["Classe_SA","Classe_ES","Classe_GA","Classe_MC","Classe_LO","Classe_PA","Classe_GC","Classe_ST","Classe_MF","Classe_CR","Classe_RK","Classe_RG","Classe_GX","Classe_SC","Classe_MH","Classe_BI"],
     itemBonus: ["REQ_TCrit","REQ_DMagico","REQ_DFisico","REQ_DDist","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
         "atributointeligencia": 10,
         "danofisicop": getItemRefino(slot) * 10,
-        "danomagicosagrado": hasCombo(slot, itemId, [["4407"]]) ? (getNivelBase() >= 100 ? 100 : 30) : 0
+        "danomagicosagrado": hasCombo(slot, itemId, tipoItem, [["4407"]]) ? (getNivelBase() >= 100 ? 100 : 30) : 0
       }
     }
   },
@@ -5537,7 +5537,7 @@ var items = [
       ["4862","4896","29135","4766","4720","4807","4740","4710"],
       ["4805","4815","29136","4810","4832","4949",""]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -5560,7 +5560,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 10,
         "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
@@ -5584,7 +5584,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 1,
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 20 : 0
       }
@@ -5604,7 +5604,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 20 : 0
       }
@@ -5623,7 +5623,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": getItemRefino(slot) * (-2),
         "danode--Luz_da_Criacao": parseInt(Math.min(getNivelBase(), 150) / 5),
@@ -5644,7 +5644,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 10
       }
@@ -5667,7 +5667,7 @@ var items = [
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 15,
         "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
@@ -5687,15 +5687,15 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DFisico","REQ_DCrit","REQ_DMagico","REQ_CVar","REQ_Cura","REQ_HP","REQ_Aspd"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "crit": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 80) * 5) : 0,
-        "danofisicop": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 80) * 6) : 0,
-        "danocritico": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 80) * 10) : 0,
-        "atqm": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("int") + getAtributoBase("des")) / 80) * 120) : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("int") + getAtributoBase("des")) / 80) * (-3)) : 0,
-        "hpp": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 80) * 5) : 0,
-        "aspdp": hasCombo(slot, itemId, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 80) * 5) : 0
+        "crit": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 80) * 5) : 0,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 80) * 6) : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 80) * 10) : 0,
+        "atqm": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("int") + getAtributoBase("des")) / 80) * 120) : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("int") + getAtributoBase("des")) / 80) * (-3)) : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 80) * 5) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["2203","2204","2201","2202"]]) ? (parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 80) * 5) : 0
       }
     }
   },
@@ -5707,7 +5707,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 100,
         "spf": 20,
@@ -5724,7 +5724,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 100,
         "spf": 20,
@@ -5745,7 +5745,7 @@ var items = [
     itemClasses: ["Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 4,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--O_Ultimo_Dragao": 20,
         "danode--Combo_Triplo": 15,
@@ -5761,7 +5761,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Tornado_do_Carrinho"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 20,
         "aspdp": 5 + (isClasse(["Classe_BI","Classe_BI_NT"]) ? 5 : 0),
@@ -5781,7 +5781,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Tornado_do_Carrinho"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 7,
         "danofisicop": 10,
@@ -5789,7 +5789,7 @@ var items = [
         "aspdp": 10,
         "precisaoperfeita": 15,
         "danofisicotamanho": 10,
-        "hpf": hasCombo(slot, itemId, [["4875"]]) ? (getNivelBase() * 50) : 0
+        "hpf": hasCombo(slot, itemId, tipoItem, [["4875"]]) ? (getNivelBase() * 50) : 0
       }
     }
   },
@@ -5801,12 +5801,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_SP"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
-        "spf": 100 + (hasCombo(slot, itemId, [["4811"]]) ? 100 : 0) + (hasCombo(slot, itemId, [["4810"]]) ? 100 : 0),
-        "danofisicoraca": 2 + (getAtributoBase("for") >= 100 ? 5 : 0) + (hasCombo(slot, itemId, [["4811"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["4810"]]) ? 5 : 0),
-        "danomagicoraca": (hasCombo(slot, itemId, [["4811"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["4810"]]) ? 5 : 0)
+        "spf": 100 + (hasCombo(slot, itemId, tipoItem, [["4811"]]) ? 100 : 0) + (hasCombo(slot, itemId, tipoItem, [["4810"]]) ? 100 : 0),
+        "danofisicoraca": 2 + (getAtributoBase("for") >= 100 ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["4811"]]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["4810"]]) ? 5 : 0),
+        "danomagicoraca": (hasCombo(slot, itemId, tipoItem, [["4811"]]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["4810"]]) ? 5 : 0)
       }
     }
   },
@@ -5818,7 +5818,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DFisico","REQ_IgnDef"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -10,
         "danofisicochefe": 5,
@@ -5834,7 +5834,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Furia_do_Furacao","REQ_Brandir_Machado","REQ_Arremesso_de_Machado"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 7,
         "danofisicotamanho": 10,
@@ -5855,13 +5855,13 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getItemRefino(slot),
         "atqm": getItemRefino(slot),
         "danode--Tornado_do_Carrinho": 20 + (getItemRefino(slot) * 5),
-        "recargade--Tornado_do_Carrinho": hasCombo(slot, itemId, [["24304"]]) ? (-1) : 0,
-        "hpp": hasCombo(slot, itemId, [["24304"]]) ? 2 : 0,
+        "recargade--Tornado_do_Carrinho": hasCombo(slot, itemId, tipoItem, [["24304"]]) ? (-1) : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["24304"]]) ? 2 : 0,
       }
     }
   },
@@ -5873,7 +5873,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Disparo_Perfurante"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getItemRefino(slot),
         "atqm": getItemRefino(slot),
@@ -5889,13 +5889,13 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "hpp": 3 + (hasCombo(slot, itemId, [["24313"]]) ? 2 : 0),
-        "spp": (hasCombo(slot, itemId, [["24313"]]) ? 2 : 0),
+        "hpp": 3 + (hasCombo(slot, itemId, tipoItem, [["24313"]]) ? 2 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["24313"]]) ? 2 : 0),
         "atq": getItemRefino(slot),
         "atqm": getItemRefino(slot),
-        "danodistancia": hasCombo(slot, itemId, [["24313"]]) ? 5 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["24313"]]) ? 5 : 0
       }
     }
   },
@@ -5907,13 +5907,13 @@ var items = [
     itemClasses: ["Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "hpp": 3 + (hasCombo(slot, itemId, [["24312"]]) ? 2 : 0),
-        "spp": (hasCombo(slot, itemId, [["24312"]]) ? 2 : 0),
+        "hpp": 3 + (hasCombo(slot, itemId, tipoItem, [["24312"]]) ? 2 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["24312"]]) ? 2 : 0),
         "atq": getItemRefino(slot),
         "atqm": getItemRefino(slot),
-        "danodistancia": hasCombo(slot, itemId, [["24312"]]) ? 5 : 0
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["24312"]]) ? 5 : 0
       }
     }
   },
@@ -5925,13 +5925,13 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_Disparo_Triplo"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (getItemRefino(slot)),
-        "danode--Disparo_Triplo": 20 + (getItemRefino(slot) * 5) + (hasCombo(slot, itemId, [["24308"]]) ? 20 : 0),
-        "atqarmap": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
-        "danomagicop": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
-        "danodistancia": hasCombo(slot, itemId, [["24308"]]) ? 2 : 0,
+        "danode--Disparo_Triplo": 20 + (getItemRefino(slot) * 5) + (hasCombo(slot, itemId, tipoItem, [["24308"]]) ? 20 : 0),
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["24308"]]) ? 2 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["24308"]]) ? 2 : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["24308"]]) ? 2 : 0,
       }
     }
   },
@@ -5948,7 +5948,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -5966,7 +5966,7 @@ var items = [
     itemClasses: ["Classe_SA","Classe_CR","Classe_MF","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_LO","Classe_PA","Classe_RK","Classe_RK","Classe_RG","Classe_RG_NT","Classe_AB","Classe_SH","Classe_AB_NT","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_EP"],
     slots: 4,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (isClasse(["Classe_SA"]) ? 150 : 0) + (isClasse(["Classe_AB","Classe_AB_NT"]) ? 50 : 0) + (isClasse(["Classe_CR","Classe_MF","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"]) ? 100 : 0),
         "atqm": (isClasse(["Classe_SA"]) ? 200 : 0) + (isClasse(["Classe_AB","Classe_AB_NT"]) ? 100 : 0),
@@ -5999,7 +5999,7 @@ var items = [
     ],
     slots: 2,
     encantamentos: [encantamentosArmasBrasilis],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -6023,17 +6023,17 @@ var items = [
       ["ignoredef_3-15","danofisicochefe_3-15"],
     ],
     slots: 4,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "atributodestreza": 2,
         "atributosorte": 2,
         "danode--Tornado_do_Carrinho": 75 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
         "danode--Furia_do_Furacao": 100 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
-        "danode--Arremesso_de_Machado": 100 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0) + (hasCombo(slot, itemId, [["22133"]]) && getItemRefino(slot) >= 7 && getItemRefino("itemSapatos") >= 7 ? 15 : 0),
-        "atq": hasCombo(slot, itemId, [["22133"]]) ? 40 : 0,
-        "atqarmap": (hasCombo(slot, itemId, [["22133"]]) && getItemRefino(slot) + getItemRefino("itemSapatos") >= 18 ? 10 : 0),
-        "danodistancia": (hasCombo(slot, itemId, [["22133"]]) && getItemRefino(slot) + getItemRefino("itemSapatos") >= 22 ? 10 : 0)
+        "danode--Arremesso_de_Machado": 100 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["22133"]]) && getItemRefino(slot) >= 7 && getItemRefino("itemSapatos") >= 7 ? 15 : 0),
+        "atq": hasCombo(slot, itemId, tipoItem, [["22133"]]) ? 40 : 0,
+        "atqarmap": (hasCombo(slot, itemId, tipoItem, [["22133"]]) && getItemRefino(slot) + getItemRefino("itemSapatos") >= 18 ? 10 : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["22133"]]) && getItemRefino(slot) + getItemRefino("itemSapatos") >= 22 ? 10 : 0)
       }
     }
   },
@@ -6045,7 +6045,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_DDist","REQ_Aspd","REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 1,
         "hpf": (getItemRefino(slot) * 10),
@@ -6072,7 +6072,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
@@ -6087,11 +6087,11 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_ST"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Ataque_Surpresa"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Ataque_Surpresa": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0),
-        "danofisicotamanho": hasCombo(slot, itemId, [["24263"]]) ? 3 : 0
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["24263"]]) ? 3 : 0
       }
     }
   },
@@ -6103,7 +6103,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MI"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
       }
@@ -6117,7 +6117,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
       }
@@ -6131,7 +6131,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Ataque_Surpresa"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "aspdp": 50
@@ -6146,11 +6146,11 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_PA"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Crux_Magnum","REQ_Crux_Divinum"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Crux_Magnum": 20 + (getItemRefino(slot) * 5),
-        "danode--Crux_Divinum": hasCombo(slot, itemId, [["24257"]]) ? 20 : 0
+        "danode--Crux_Divinum": hasCombo(slot, itemId, tipoItem, [["24257"]]) ? 20 : 0
       }
     }
   },
@@ -6162,7 +6162,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_EP","REQ_Precisao","REQ_Esporo_Explosivo"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 5 + (getItemRefino(slot) >= 7 ? 8 : 0) + (getItemRefino(slot) >= 9 ? 12 : 0),
         "danodistancia": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
@@ -6181,12 +6181,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["30","31","32","33"])) ? (15 + (getItemRefino(slot))) : 0,
         "danomagicopropriedade": (isOpponent("propriedadeMonstro", ["30","31","32","33"])) ? (15 + (getItemRefino(slot))) : 0,
         "aspdp": getItemRefino(slot),
-        "esquiva": hasCombo(slot, itemId, [["4211"]]) ? 20 : 0
+        "esquiva": hasCombo(slot, itemId, tipoItem, [["4211"]]) ? 20 : 0
       }
     }
   },
@@ -6198,7 +6198,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCrit","REQ_EP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 2,
         "esquivaperfeita": 8
@@ -6217,7 +6217,7 @@ var items = [
       ["4862","4867","4868","4900","4929","4945","4946","4947","4886","4887","4888","4889","4807","4948","4949","4950","4869","4872","4873","4881","4859","4942","4943","4944"],
       ["4831","29447","4876","4876a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -6234,7 +6234,7 @@ var items = [
       ["4862","4867","4868","4900","4929","4945","4946","4947","4886","4887","4888","4889","4807","4948","4949","4950","4869","4872","4873","4881","4859","4942","4943","4944"],
       ["4831","29447","4876","4876a"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": getItemRefino(slot) * 8
       }
@@ -6248,12 +6248,12 @@ var items = [
     itemClasses: ["Classe_SE","Classe_TR","Classe_MU","Classe_WL","Classe_SO","Classe_AB","Classe_SC"],
     itemBonus: ["REQ_SP","REQ_Pos","REC_Cura","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 150,
         "posconjuracao": -10,
-        "danofisicop": hasCombo(slot, itemId, [["2729"]]) ? 3 : 0,
-        "danomagicop": hasCombo(slot, itemId, [["2729"]]) ? 3 : 0
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 3 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["2729"]]) ? 3 : 0
       }
     }
   },
@@ -6265,13 +6265,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2,
         "aspdp": 10,
         "atq": getItemRefino(slot) * 6,
         "atqm": getItemRefino(slot) * 6,
-        "danofisicotamanho": (hasCombo(slot, itemId, [["4250"]]) && isOpponent("tamanhoMonstro", ["2"])) || (hasCombo(slot, itemId, [["4254"]]) && isOpponent("tamanhoMonstro", ["1"])) || (hasCombo(slot, itemId, [["4207"]]) && isOpponent("tamanhoMonstro", ["0"])) ? 25 : 0
+        "danofisicotamanho": (hasCombo(slot, itemId, tipoItem, [["4250"]]) && isOpponent("tamanhoMonstro", ["2"])) || (hasCombo(slot, itemId, tipoItem, [["4254"]]) && isOpponent("tamanhoMonstro", ["1"])) || (hasCombo(slot, itemId, tipoItem, [["4207"]]) && isOpponent("tamanhoMonstro", ["0"])) ? 25 : 0
       }
     }
   },
@@ -6283,13 +6283,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2,
         "aspdp": 10,
         "atq": getItemRefino(slot) * 6,
         "atqm": getItemRefino(slot) * 6,
-        "danofisicotamanho": (hasCombo(slot, itemId, [["4250"]]) && isOpponent("tamanhoMonstro", ["2"])) || (hasCombo(slot, itemId, [["4254"]]) && isOpponent("tamanhoMonstro", ["1"])) || (hasCombo(slot, itemId, [["4207"]]) && isOpponent("tamanhoMonstro", ["0"])) ? 25 : 0
+        "danofisicotamanho": (hasCombo(slot, itemId, tipoItem, [["4250"]]) && isOpponent("tamanhoMonstro", ["2"])) || (hasCombo(slot, itemId, tipoItem, [["4254"]]) && isOpponent("tamanhoMonstro", ["1"])) || (hasCombo(slot, itemId, tipoItem, [["4207"]]) && isOpponent("tamanhoMonstro", ["0"])) ? 25 : 0
       }
     }
   },
@@ -6301,7 +6301,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Disparo_Triplo","REQ_Copia_Explosiva","REQ_Precisao","REQ_CVar"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
         "atributoagilidade": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
@@ -6321,7 +6321,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd","REQ_Pos","REQ_HP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt((getAtributoBase("for") + getAtributoBase("sor")) / 18) * 15,
         "atqm": parseInt((getAtributoBase("int") + getAtributoBase("des")) / 18) * 15,
@@ -6343,7 +6343,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 15
       }
@@ -6357,7 +6357,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_DES"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 6 + (getItemRefino(slot) >= 7 ? 12 : 0) + (getItemRefino(slot) >= 9 ? 12 : 0),
         "aspdp": 3 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 7 : 0),
@@ -6376,13 +6376,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_CVar","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquiva": 15,
-        "aspdp": 5 + (hasCombo(slot, itemId, [["22206"]]) ? ((getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9) ? (5) : 0) : 0),
+        "aspdp": 5 + (hasCombo(slot, itemId, tipoItem, [["22206"]]) ? ((getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9) ? (5) : 0) : 0),
         "conjuracaovariavel": parseInt(getItemRefino(slot) / 3) * (-2),
-        "atq": (hasCombo(slot, itemId, [["22206"]]) ? 20 : 0),
-        "atqm": (hasCombo(slot, itemId, [["22206"]]) ? 20 : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["22206"]]) ? 20 : 0),
+        "atqm": (hasCombo(slot, itemId, tipoItem, [["22206"]]) ? 20 : 0)
       }
     }
   },
@@ -6394,20 +6394,20 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_CVar","REQ_DMagico","REQ_CFix","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquiva": 15,
         "conjuracaovariavel": (-10) + (parseInt(getItemRefino(slot) / 3) * (-5)),
-        "conjuracaofixas": hasCombo(slot, itemId, [["22168"]]) && getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9 ? (-0.5) : 0,
-        "danomagiconeutro": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicofogo": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicovento": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicoterra": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicoagua": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicosagrado": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicosombrio": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicoveneno": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0,
-        "danomagicofantasma": hasCombo(slot, itemId, [["22168"]]) ? 7 : 0
+        "conjuracaofixas": hasCombo(slot, itemId, tipoItem, [["22168"]]) && getItemRefino(slot) >= 9 && getItemRefino("itemSapatos") >= 9 ? (-0.5) : 0,
+        "danomagiconeutro": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicofogo": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicovento": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicoterra": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicoagua": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicosagrado": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicosombrio": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicoveneno": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0,
+        "danomagicofantasma": hasCombo(slot, itemId, tipoItem, [["22168"]]) ? 7 : 0
       }
     }
   },
@@ -6419,13 +6419,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Precisao","REQ_CVar","REQ_Aspd","REQ_CFix"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquiva": 30,
         "precisao": 10,
-        "conjuracaovariavel": (-10) + (hasCombo(slot, itemId, [["22204"]]) ? (-10) : 0),
+        "conjuracaovariavel": (-10) + (hasCombo(slot, itemId, tipoItem, [["22204"]]) ? (-10) : 0),
         "aspdp": 10,
-        "conjuracaofixas": hasCombo(slot, itemId, [["22204"]]) ? -0.5 : 0
+        "conjuracaofixas": hasCombo(slot, itemId, tipoItem, [["22204"]]) ? -0.5 : 0
       }
     }
   },
@@ -6437,7 +6437,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Aspd","REQ_DMagico","REQ_DDist","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (getAtributoBase("for") >= 90 ? (10 + (getItemRefino(slot) * 2)) : 0),
         "aspdp": (getAtributoBase("agi") >= 90 ? (3 + (parseInt(getItemRefino(slot) / 2))) : 0),
@@ -6456,7 +6456,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_Aspd","REQ_DMagico","REQ_DDist","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": parseInt(getItemRefino(slot) / 2),
         "spp": parseInt(getItemRefino(slot) / 2),
@@ -6477,12 +6477,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["10","11","12","13"])) ? (15 + (getItemRefino(slot))) : 0,
         "danomagicopropriedade": (isOpponent("propriedadeMonstro", ["10","11","12","13"])) ? (15 + (getItemRefino(slot))) : 0,
         "aspdp": getItemRefino(slot),
-        "esquiva": hasCombo(slot, itemId, [["4197"]]) ? 20 : 0
+        "esquiva": hasCombo(slot, itemId, tipoItem, [["4197"]]) ? 20 : 0
       }
     }
   },
@@ -6494,12 +6494,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["40","41","42","43"])) ? (15 + (getItemRefino(slot))) : 0,
         "danomagicopropriedade": (isOpponent("propriedadeMonstro", ["40","41","42","43"])) ? (15 + (getItemRefino(slot))) : 0,
         "aspdp": getItemRefino(slot),
-        "esquiva": hasCombo(slot, itemId, [["4306"]]) ? 20 : 0
+        "esquiva": hasCombo(slot, itemId, tipoItem, [["4306"]]) ? 20 : 0
       }
     }
   },
@@ -6511,7 +6511,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_CVar","REQ_CFix"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": 15 + (getItemRefino(slot) >= 9 ? (-5) : 0),
       }
@@ -6528,14 +6528,14 @@ var items = [
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 10),
-        "danocritico": (parseInt(getItemRefino(slot) / 2) * 3) + (hasCombo(slot, itemId, [["22010","22115"]]) ? 7 : 0),
+        "danocritico": (parseInt(getItemRefino(slot) / 2) * 3) + (hasCombo(slot, itemId, tipoItem, [["22010","22115"]]) ? 7 : 0),
         "danofisicotamanho": (parseInt(getItemRefino(slot) / 4) * 5),
         "atqarmap": (getItemRefino(slot) >= 7 ? 7 : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
-        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22010","22115"]])) >= 30 ? 10 : 0)) : 0)
+        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, tipoItem, [["22010","22115"]])) >= 30 ? 10 : 0)) : 0)
       }
     }
   },
@@ -6550,14 +6550,14 @@ var items = [
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 10),
-        "danodistancia": (parseInt(getItemRefino(slot) / 2) * 3) + (hasCombo(slot, itemId, [["22008","22117"]]) ? 7 : 0),
+        "danodistancia": (parseInt(getItemRefino(slot) / 2) * 3) + (hasCombo(slot, itemId, tipoItem, [["22008","22117"]]) ? 7 : 0),
         "danocritico": (parseInt(getItemRefino(slot) / 4) * 3),
         "atqarmap": (getItemRefino(slot) >= 7 ? 7 : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
-        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22008","22117"]])) >= 30 ? 10 : 0)) : 0)
+        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, tipoItem, [["22008","22117"]])) >= 30 ? 10 : 0)) : 0)
       }
     }
   },
@@ -6572,13 +6572,13 @@ var items = [
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (parseInt(getItemRefino(slot) / 2) * 10) + (hasCombo(slot, itemId, [["22006","22113"]]) ? 50 : 0),
+        "atq": (parseInt(getItemRefino(slot) / 2) * 10) + (hasCombo(slot, itemId, tipoItem, [["22006","22113"]]) ? 50 : 0),
         "danofisicotamanho": (parseInt(getItemRefino(slot) / 4) * 5),
         "atqarmap": (parseInt(getItemRefino(slot) / 2)) + (getItemRefino(slot) >= 7 ? 7 : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
-        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22006","22113"]])) >= 30 ? 10 : 0)) : 0)
+        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, tipoItem, [["22006","22113"]])) >= 30 ? 10 : 0)) : 0)
       }
     }
   },
@@ -6593,13 +6593,13 @@ var items = [
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqm": (parseInt(getItemRefino(slot) / 2) * 10) + (hasCombo(slot, itemId, [["22009","22114"]]) ? 50 : 0),
+        "atqm": (parseInt(getItemRefino(slot) / 2) * 10) + (hasCombo(slot, itemId, tipoItem, [["22009","22114"]]) ? 50 : 0),
         "danomagicopropriedade": (parseInt(getItemRefino(slot) / 4) * 3),
         "danomagicop": (parseInt(getItemRefino(slot) / 2)) + (getItemRefino(slot) >= 7 ? 7 : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
-        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22009","22114"]])) >= 30 ? 10 : 0)) : 0)
+        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, tipoItem, [["22009","22114"]])) >= 30 ? 10 : 0)) : 0)
       }
     }
   },
@@ -6614,15 +6614,15 @@ var items = [
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": (parseInt(getItemRefino(slot) / 2) * 3),
         "danocritico": (parseInt(getItemRefino(slot) / 2) * 3),
         "aspdp": (parseInt(getItemRefino(slot) / 4) * 5),
         "atqarmap": (getItemRefino(slot) >= 7 ? 7 : 0),
-        "aspdf": (hasCombo(slot, itemId, [["22011","22118"]]) ? 1 : 0),
+        "aspdf": (hasCombo(slot, itemId, tipoItem, [["22011","22118"]]) ? 1 : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
-        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22011","22118"]])) >= 30 ? 10 : 0)) : 0)
+        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, tipoItem, [["22011","22118"]])) >= 30 ? 10 : 0)) : 0)
       }
     }
   },
@@ -6637,15 +6637,15 @@ var items = [
       ["hpp_3-10","spp_3-10","hpf_500-2000","spf_50-1000","atq_5-40","atqm_5-40","atqarmap_1-6","danomagicop_1-6","aspdp_3-10","precisao_3-10","esquiva_10-50","danocritico_3-10","danodistancia_3-10","efetividadecura_3-10","conjuracaovariavel_3-10","crit_3-10","posconjuracao_3-15"]
     ],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 10),
         "hpf": (parseInt(getItemRefino(slot) / 2) * 400),
         "hpp": (parseInt(getItemRefino(slot) / 4) * 3),
         "atqarmap": (getItemRefino(slot) >= 7 ? 7 : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["22007","22116"]]) ? (-5) : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["22007","22116"]]) ? (-5) : 0),
         "ignoredef": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0)) : 0),
-        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, [["22007","22116"]])) >= 30 ? 10 : 0)) : 0)
+        "ignoredefm": (isOpponent("racaMonstro",["2","3"]) ? ((getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 10 : 0) +  + ((getItemRefino("itemSapatos") && hasCombo(slot, itemId, tipoItem, [["22007","22116"]])) >= 30 ? 10 : 0)) : 0)
       }
     }
   },
@@ -6657,16 +6657,16 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_DMagico","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -6,
         "danofisicotamanho": 6,
         "danomagicotamanho": 6,
-        "danodistancia": (hasCombo(slot, itemId, [["18982"]]) ? 10 : 0) + (hasCombo(slot, itemId, [["18975"]]) ? 15 : 0),
-        "recargade--Destruidor_de_Almas": (hasCombo(slot, itemId, [["18982"]]) ? (-0.15) : 0),
-        "danode--Disparo_Triplo": (hasCombo(slot, itemId, [["18975"]]) ? 30 : 0),
-        "danofisicochefe": (hasCombo(slot, itemId, [["4359"]]) ? 30 : 0),
-        "danomagicopropriedade": (hasCombo(slot, itemId, [["4564"]]) ? 30 : 0)
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["18982"]]) ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["18975"]]) ? 15 : 0),
+        "recargade--Destruidor_de_Almas": (hasCombo(slot, itemId, tipoItem, [["18982"]]) ? (-0.15) : 0),
+        "danode--Disparo_Triplo": (hasCombo(slot, itemId, tipoItem, [["18975"]]) ? 30 : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, tipoItem, [["4359"]]) ? 30 : 0),
+        "danomagicopropriedade": (hasCombo(slot, itemId, tipoItem, [["4564"]]) ? 30 : 0)
       }
     }
   },
@@ -6678,16 +6678,16 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "posconjuracao": (-5) + (hasCombo(slot, itemId, [["18973"]]) ? (-5) : 0),
+        "posconjuracao": (-5) + (hasCombo(slot, itemId, tipoItem, [["18973"]]) ? (-5) : 0),
         "danofisicotamanho": 5,
-        "danomelee": (hasCombo(slot, itemId, [["18973"]]) ? 20 : 0) + (hasCombo(slot, itemId, [["18977"]]) ? 15 : 0),
-        "danodistancia": (hasCombo(slot, itemId, [["18974"]]) ? 15 : 0),
-        "danode--Gas_Criogenico": (hasCombo(slot, itemId, [["18974"]]) ? 40 : 0),
-        "danode--Planta_Infernal": (hasCombo(slot, itemId, [["18977"]]) ? 20 : 0),
-        "danofisicochefe": (hasCombo(slot, itemId, [["4361"]]) ? 40 : 0),
-        "danofisicopropriedade": (hasCombo(slot, itemId, [["4563"]]) ? 20 : 0)
+        "danomelee": (hasCombo(slot, itemId, tipoItem, [["18973"]]) ? 20 : 0) + (hasCombo(slot, itemId, tipoItem, [["18977"]]) ? 15 : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["18974"]]) ? 15 : 0),
+        "danode--Gas_Criogenico": (hasCombo(slot, itemId, tipoItem, [["18974"]]) ? 40 : 0),
+        "danode--Planta_Infernal": (hasCombo(slot, itemId, tipoItem, [["18977"]]) ? 20 : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, tipoItem, [["4361"]]) ? 40 : 0),
+        "danofisicopropriedade": (hasCombo(slot, itemId, tipoItem, [["4563"]]) ? 20 : 0)
       }
     }
   },
@@ -6699,7 +6699,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit","REQ_Aspd"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 3 + (parseInt(getAtributoBase("sor") / 10)) + (getAtributoBase("sor") >= 108 ? 5 : 0) + (getAtributoBase("sor") >= 120 ? 10 : 0),
         "danocritico": 3 + (parseInt(getAtributoBase("des") / 10) * (-2)) + (getAtributoBase("sor") >= 108 ? 10 : 0) + (getAtributoBase("sor") >= 120 ? 17 : 0),
@@ -6719,7 +6719,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 3 + (parseInt(getAtributoBase("sor") / 10)) + (getAtributoBase("sor") >= 108 ? 5 : 0) + (getAtributoBase("sor") >= 120 ? 10 : 0),
         "danocritico": 3 + (parseInt(getAtributoBase("des") / 10) * (-2)) + (getAtributoBase("sor") >= 108 ? 10 : 0) + (getAtributoBase("sor") >= 120 ? 17 : 0),
@@ -6736,7 +6736,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5
       }
@@ -6750,7 +6750,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_IgnDefm","REQ_IgnDef","REQ_EP","REQ_CVar","REQ_Pos","REQ_HP","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": parseInt(getAtributoBase("for") / 18) * 3,
         "ignoredefm": parseInt(getAtributoBase("for") / 18) * 15,
@@ -6775,10 +6775,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": 2 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 1 : 0)) : 0),
-        "danofisicotamanho": 1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 2 : 0) + (hasCombo(slot, itemId, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0)) : 0)
+        "danodistancia": 2 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, tipoItem, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 1 : 0)) : 0),
+        "danofisicotamanho": 1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 2 : 0) + (hasCombo(slot, itemId, tipoItem, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0)) : 0)
       }
     }
   },
@@ -6793,10 +6793,10 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": 2 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 1 : 0)) : 0),
-        "danofisicop": 1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 2 : 0) + (hasCombo(slot, itemId, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0)) : 0)
+        "danodistancia": 2 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0) + (hasCombo(slot, itemId, tipoItem, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 1 : 0)) : 0),
+        "danofisicop": 1 + (getAtributoBase("for") >= 108 ? 1 : 0) + (getAtributoBase("for") >= 120 ? 2 : 0) + (hasCombo(slot, itemId, tipoItem, [["19112"]]) ? (1 + (getAtributoBase("for") >= 108 ? 2 : 0) + (getAtributoBase("for") >= 120 ? 3 : 0)) : 0)
       }
     }
   },
@@ -6808,8 +6808,8 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
-      if(hasCombo(slot, itemId, [["18984"]])) {
+    itemFuncao: function(slot, itemId, tipoItem) {
+      if(hasCombo(slot, itemId, tipoItem, [["18984"]])) {
         temInvestigar = true;
       }
       return {
@@ -6819,21 +6819,21 @@ var items = [
         "atributointeligencia": 3,
         "atributodestreza": 3,
         "atributosorte": 3,
-        "recargade--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-1) : 0,
-        "variavelpde--Impacto_Flamejante": hasCombo(slot, itemId, [["18971"]]) ? (-100) : 0,
-        "posconjuracao": hasCombo(slot, itemId, [["18983","18978","18972","18973"]]) ? (-20) : 0,
-        "recargade--Disparo_Perfurante": hasCombo(slot, itemId, [["18983"]]) ? (-1) : 0,
-        "recargade--Meteoro_Escarlate": hasCombo(slot, itemId, [["18978"]]) ? (-1) : 0,
-        "atqm": hasCombo(slot, itemId, [["18980"]]) ? 100 : 0,
-        "danomagicoveneno": hasCombo(slot, itemId, [["18980"]]) ? 70 : 0,
-        "conjuracaofixas": (hasCombo(slot, itemId, [["18982","18974"]]) ? (-0.3) : 0) + (hasCombo(slot, itemId, [["18977"]]) ? (-0.5) : 0),
-        "ignoredef": hasCombo(slot, itemId, [["18975","18976","18981"]]) ? 70 : 0,
-        "ignoredefm": hasCombo(slot, itemId, [["18972"]]) ? 70 : 0,
-        "variavelpde--Tempestade_Espiritual": hasCombo(slot, itemId, [["18979"]]) ? (-100) : 0,
-        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, [["18973"]]) ? (-1) : 0,
-        "variavelpde--Canhao_de_Protons": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
-        "variavelpde--Bomba_Napalm": hasCombo(slot, itemId, [["18977"]]) ? (-100) : 0,
-        "recargade--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, [["18976","18981"]]) ? (-1) : 0,
+        "recargade--Impacto_Flamejante": hasCombo(slot, itemId, tipoItem, [["18971"]]) ? (-1) : 0,
+        "variavelpde--Impacto_Flamejante": hasCombo(slot, itemId, tipoItem, [["18971"]]) ? (-100) : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["18983","18978","18972","18973"]]) ? (-20) : 0,
+        "recargade--Disparo_Perfurante": hasCombo(slot, itemId, tipoItem, [["18983"]]) ? (-1) : 0,
+        "recargade--Meteoro_Escarlate": hasCombo(slot, itemId, tipoItem, [["18978"]]) ? (-1) : 0,
+        "atqm": hasCombo(slot, itemId, tipoItem, [["18980"]]) ? 100 : 0,
+        "danomagicoveneno": hasCombo(slot, itemId, tipoItem, [["18980"]]) ? 70 : 0,
+        "conjuracaofixas": (hasCombo(slot, itemId, tipoItem, [["18982","18974"]]) ? (-0.3) : 0) + (hasCombo(slot, itemId, tipoItem, [["18977"]]) ? (-0.5) : 0),
+        "ignoredef": hasCombo(slot, itemId, tipoItem, [["18975","18976","18981"]]) ? 70 : 0,
+        "ignoredefm": hasCombo(slot, itemId, tipoItem, [["18972"]]) ? 70 : 0,
+        "variavelpde--Tempestade_Espiritual": hasCombo(slot, itemId, tipoItem, [["18979"]]) ? (-100) : 0,
+        "recargade--Furia_do_Furacao": hasCombo(slot, itemId, tipoItem, [["18973"]]) ? (-1) : 0,
+        "variavelpde--Canhao_de_Protons": hasCombo(slot, itemId, tipoItem, [["18977"]]) ? (-100) : 0,
+        "variavelpde--Bomba_Napalm": hasCombo(slot, itemId, tipoItem, [["18977"]]) ? (-100) : 0,
+        "recargade--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, tipoItem, [["18976","18981"]]) ? (-1) : 0,
       }
     }
   },
@@ -6850,7 +6850,7 @@ var items = [
       ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
       ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754","29061","29062","29063","29064","29065","29066","29067","29068","29069","29070","29071","29072","29073","29074","29075","29076","29077","29078","29079","29080","29081","29082","29083","29084","29085","29086","29087","29088","29089","29090","29091","29092","29093","29094","29095","29096","29097","29098","29099","29100","29101","29102","29103","29104","29105","29106","29107","29108","29109","29110","29111","29112","29113","29114","29115","29116","29117","29118","29119","29120"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributoagilidade": 1,
@@ -6878,7 +6878,7 @@ var items = [
       ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
       ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754","29061","29062","29063","29064","29065","29066","29067","29068","29069","29070","29071","29072","29073","29074","29075","29076","29077","29078","29079","29080","29081","29082","29083","29084","29085","29086","29087","29088","29089","29090","29091","29092","29093","29094","29095","29096","29097","29098","29099","29100","29101","29102","29103","29104","29105","29106","29107","29108","29109","29110","29111","29112","29113","29114","29115","29116","29117","29118","29119","29120"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributoagilidade": 1,
@@ -6907,7 +6907,7 @@ var items = [
       ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754"],
       ["4700","4701","4702","4703","4704","4730","4731","4732","4733","4734","4740","4741","4742","4743","4744","4710","4711","4712","4713","4714","4720","4721","4722","4723","4724","4750","4751","4752","4753","4754","29061","29062","29063","29064","29065","29066","29067","29068","29069","29070","29071","29072","29073","29074","29075","29076","29077","29078","29079","29080","29081","29082","29083","29084","29085","29086","29087","29088","29089","29090","29091","29092","29093","29094","29095","29096","29097","29098","29099","29100","29101","29102","29103","29104","29105","29106","29107","29108","29109","29110","29111","29112","29113","29114","29115","29116","29117","29118","29119","29120"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributoagilidade": 1,
@@ -6935,7 +6935,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT","Classe_SX"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqarmap": 3,
         "aspdp": getItemRefino(slot) >= 7 ? 7 : 0,
@@ -6956,9 +6956,9 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, [["2989"]]) ? 200 : 0,
+        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["2989"]]) ? 200 : 0,
       }
     }
   },
@@ -6970,7 +6970,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Pos","REQ_Precisao"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": getItemRefino(slot) * 2,
         "posconjuracao": getItemRefino(slot) * (-1),
@@ -6989,7 +6989,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": 30
       }
@@ -7003,7 +7003,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_Aspd","REQ_DMagico","REQ_DDist","REQ_DCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (getAtributoBase("for") >= 90 ? ((getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0)) : 0),
         "aspdp": (getAtributoBase("agi") >= 90 ? (getItemRefino(slot) >= 7 ? 8 : 0) : 0),
@@ -7025,7 +7025,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getNivelBase() >= 100) ? 2000 : 200
       }
@@ -7044,7 +7044,7 @@ var items = [
       ["4985","4986","4987","4988","4989"],
       ["4986","4987","4988","4989"],
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 8 + (getNivelBase() >= 130 ? 2 : 0),
         "esquiva": getItemRefino(slot) * 2
@@ -7063,7 +7063,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqarmap": 3,
         "danodistancia": getItemRefino(slot) >= 7 ? 7 : 0,
@@ -7083,7 +7083,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -7097,7 +7097,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_CVar","REQ_DCrit","REQ_DMagico","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": -5
       }
@@ -7111,7 +7111,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -10
       }
@@ -7128,7 +7128,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -5
       }
@@ -7142,7 +7142,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
         "danodistancia": 10
@@ -7157,7 +7157,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
         "danodistancia": 10,
@@ -7173,7 +7173,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 1,
         "danofisicop": 3,
@@ -7192,7 +7192,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": parseInt((getAtributoBase("agi") + getAtributoBase("vit")) / 50) * (-3)
       }
@@ -7209,7 +7209,7 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 2,
         "danomagicop": 2,
@@ -7225,7 +7225,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_TCrit","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
         "aspdp": 10,
@@ -7242,11 +7242,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "crit": 3 + (hasCombo(slot, itemId, [["2855"]]) ? 5 : 0),
+        "crit": 3 + (hasCombo(slot, itemId, tipoItem, [["2855"]]) ? 5 : 0),
         "esquiva": 10,
-        "danocritico": 10 + (hasCombo(slot, itemId, [["2855"]]) ? 10 : 0)
+        "danocritico": 10 + (hasCombo(slot, itemId, tipoItem, [["2855"]]) ? 10 : 0)
       }
     }
   },
@@ -7258,7 +7258,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Precisao","REQ_HP","REQ_Pos","REQ_CVar","REQ_SP","REQ_TCrit","REQ_Aspd","REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": (parseInt(getAtributoBase("for") / 18) * 2),
         "hpp": (parseInt(getAtributoBase("for") / 18) * 2),
@@ -7284,7 +7284,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": (parseInt(getAtributoBase("for") / 18) * 2),
         "hpp": (parseInt(getAtributoBase("for") / 18) * 2),
@@ -7307,7 +7307,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_CFix"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": -5,
         "danomagiconeutro": (parseInt(getAtributoBase("for") / 12) * 2),
@@ -7327,15 +7327,15 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "hpp": hasCombo(slot, itemId, [["15037"]]) && getItemRefino("itemArmadura") >= 7 ? 15 : 0,
-        "spp": 5 + (hasCombo(slot, itemId, [["2884"]]) ? 5 : 0),
-        "atqarmap": 5 + (hasCombo(slot, itemId, [["2884"]]) ? 5 : 0),
-        "aspdp": 5 + (hasCombo(slot, itemId, [["2884"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["2476"]]) && getItemRefino("itemSapatos") >= 7 ? 10 : 0),
-        "danode--Vento_Cortante": hasCombo(slot, itemId, [["1414","1449"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
-        "danofisicochefe": hasCombo(slot, itemId, [["1414","1449"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
-        "danofisicopropriedade": hasCombo(slot, itemId, [["1414","1449"]]) && isOpponent("racaMonstro", ["6","8"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["15037"]]) && getItemRefino("itemArmadura") >= 7 ? 15 : 0,
+        "spp": 5 + (hasCombo(slot, itemId, tipoItem, [["2884"]]) ? 5 : 0),
+        "atqarmap": 5 + (hasCombo(slot, itemId, tipoItem, [["2884"]]) ? 5 : 0),
+        "aspdp": 5 + (hasCombo(slot, itemId, tipoItem, [["2884"]]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["2476"]]) && getItemRefino("itemSapatos") >= 7 ? 10 : 0),
+        "danode--Vento_Cortante": hasCombo(slot, itemId, tipoItem, [["1414","1449"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["1414","1449"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["1414","1449"]]) && isOpponent("racaMonstro", ["6","8"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 30 : 0) + getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) : 0,
       }
     }
   },
@@ -7352,7 +7352,7 @@ var items = [
       ["4700","4701","4702","4703","4704","4705","4706","4730","4731","4732","4733","4734","4735","4736","4740","4741","4742","4743","4744","4745","4746","4710","4711","4712","4713","4714","4715","4716","4720","4721","4722","4723","4724","4725","4726","4750","4751","4752","4753","4754","4755","4756"],
       ["4853","4854","4855","4856","4857","4858"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -7371,7 +7371,7 @@ var items = [
       ["4700","4701","4702","4703","4704","4705","4706","4730","4731","4732","4733","4734","4735","4736","4740","4741","4742","4743","4744","4745","4746","4710","4711","4712","4713","4714","4715","4716","4720","4721","4722","4723","4724","4725","4726","4750","4751","4752","4753","4754","4755","4756"],
       ["4853","4854","4855","4856","4857","4858"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -7385,7 +7385,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_CHP","REQ_DDist","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -7404,7 +7404,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Disparo_Perfurante": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
         "posconjuracao": getItemRefino(slot) >= 12 ? (-15) : 0
@@ -7424,7 +7424,7 @@ var items = [
       ["4983","4986","4987","4988","4989"],
       ["4991","4985","4986","4987","4988","4989"],
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5 + (parseInt(getItemRefino(slot) / 3) * 3) + (getNivelBase() >= 130 ? 4 : 0),
         "spp": 5 + (parseInt(getItemRefino(slot) / 3) * 3) + (getNivelBase() >= 130 ? 4 : 0)
@@ -7439,19 +7439,19 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_HP","REQ_SP","REQ_Choque_do_Carrinho","REQ_Onda_de_Choque","REQ_Perfurar_em_Espiral","REQ_Disparo_Certeiro","REQ_Tempestade_de_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 5,
         "atq": (getAtributoBase("for") >= 120 ? 50 : 0),
         "hpp": (getAtributoBase("for") >= 120 ? 5 : 0),
         "spp": (getAtributoBase("for") >= 120 ? 5 : 0),
-        "danode--Tempestade_de_Flechas": (hasCombo(slot, itemId, [["18122"]]) ? (parseInt(getAtributoBase("for") / 10) * 2) : 0),
-        "danofisicochefe": (hasCombo(slot, itemId, [["1387","1490","18122"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
-        "danode--Choque_do_Carrinho": (hasCombo(slot, itemId, [["1387"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
-        "danode--Onda_de_Choque": (hasCombo(slot, itemId, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
-        "danode--Perfurar_em_Espiral": (hasCombo(slot, itemId, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
-        "danode--Disparo_Certeiro": (hasCombo(slot, itemId, [["18122"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
-        "danode--Tempestade_de_Flechas": (hasCombo(slot, itemId, [["18122"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0)
+        "danode--Tempestade_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (parseInt(getAtributoBase("for") / 10) * 2) : 0),
+        "danofisicochefe": (hasCombo(slot, itemId, tipoItem, [["1387","1490","18122"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
+        "danode--Choque_do_Carrinho": (hasCombo(slot, itemId, tipoItem, [["1387"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
+        "danode--Onda_de_Choque": (hasCombo(slot, itemId, tipoItem, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
+        "danode--Perfurar_em_Espiral": (hasCombo(slot, itemId, tipoItem, [["1490"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
+        "danode--Disparo_Certeiro": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0),
+        "danode--Tempestade_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 5 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 10 : 0)) : 0)
       }
     }
   },
@@ -7463,15 +7463,15 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 6,
-        "atributoforca": (-5) + (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
-        "atributoagilidade": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
-        "atributovitalidade": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
-        "atributointeligencia": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
-        "atributodestreza": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0),
-        "atributosorte": (hasCombo(slot, itemId, [["2991"]]) ? 5 : 0)
+        "atributoforca": (-5) + (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? 5 : 0),
+        "atributoagilidade": (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? 5 : 0),
+        "atributovitalidade": (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? 5 : 0),
+        "atributointeligencia": (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? 5 : 0),
+        "atributodestreza": (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? 5 : 0),
+        "atributosorte": (hasCombo(slot, itemId, tipoItem, [["2991"]]) ? 5 : 0)
       }
     }
   },
@@ -7483,7 +7483,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DFisico","REQ_DCrit","REQ_CVar"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 6,
         "danomagicop": 6,
@@ -7504,7 +7504,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCrit","REQ_EP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "crit": 3
@@ -7519,7 +7519,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 6,
         "atributointeligencia": (-5)
@@ -7534,9 +7534,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Cura","REQ_CVar"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["19138"]]) ? ((parseInt(getAtributoBase("int") / 8) * (-1)) + (getAtributoBase("int") >= 108 ? (-4) : 0) + (getAtributoBase("int") >= 120 ? (-6) : 0)) : 0)
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["19138"]]) ? ((parseInt(getAtributoBase("int") / 8) * (-1)) + (getAtributoBase("int") >= 108 ? (-4) : 0) + (getAtributoBase("int") >= 120 ? (-6) : 0)) : 0)
       }
     }
   },
@@ -7548,7 +7548,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_IgnDef","REQ_Copia_Explosiva"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": isClasse(["Classe_SC"]) ? 50 : 0,
         "danode--Copia_Explosiva": 10 + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 25 : 0),
@@ -7565,11 +7565,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
-        "posconjuracao": (-5) + (hasCombo(slot, itemId, [["4832"]]) ? (-5) : 0) + (hasCombo(slot, itemId, [["4833"]]) ? (-5) : 0),
-        "danodistancia": 2 + (getAtributoBase("des") >= 100 ? 5 : 0) + (hasCombo(slot, itemId, [["4832"]]) ? 5 : 0) + (hasCombo(slot, itemId, [["4833"]]) ? 5 : 0)
+        "posconjuracao": (-5) + (hasCombo(slot, itemId, tipoItem, [["4832"]]) ? (-5) : 0) + (hasCombo(slot, itemId, tipoItem, [["4833"]]) ? (-5) : 0),
+        "danodistancia": 2 + (getAtributoBase("des") >= 100 ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["4832"]]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["4833"]]) ? 5 : 0)
       }
     }
   },
@@ -7584,12 +7584,12 @@ var items = [
     encantamentos: [
       ["4700","4710","4720","4740","4730","4750","4859","4859","4929","4861","4939","4883","4882","4850","4807"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "crit": 5 + (hasCombo(slot, itemId, [["19109","19110"]]) ? (parseInt(getAtributoBase("sor") / 20) * 5) : 0),
+        "crit": 5 + (hasCombo(slot, itemId, tipoItem, [["19109","19110"]]) ? (parseInt(getAtributoBase("sor") / 20) * 5) : 0),
         "aspdp": 5,
-        "atq": (hasCombo(slot, itemId, [["19109","19110"]]) ? (parseInt(getAtributoBase("sor") / 20) * 20) : 0),
-        "atqm": (hasCombo(slot, itemId, [["19109","19110"]]) ? (parseInt(getAtributoBase("sor") / 20) * 20) : 0)
+        "atq": (hasCombo(slot, itemId, tipoItem, [["19109","19110"]]) ? (parseInt(getAtributoBase("sor") / 20) * 20) : 0),
+        "atqm": (hasCombo(slot, itemId, tipoItem, [["19109","19110"]]) ? (parseInt(getAtributoBase("sor") / 20) * 20) : 0)
       }
     }
   },
@@ -7601,7 +7601,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_CHP"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -7615,7 +7615,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico","REQ_Soco_Furacao"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 7 + (isClasse(["Classe_SH","Classe_SH_NT"]) ? 20 : 0),
         "danofisicop": 10,
@@ -7640,7 +7640,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": (isOpponent("racaMonstro", ["8"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0),
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0)
@@ -7655,11 +7655,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCritD"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 2,
-        "precisao": 10 + (getAtributoBase("sor") >= 100 ? 5 : 0) + (hasCombo(slot, itemId, [["29135"]]) ? 15 : 0) + (hasCombo(slot, itemId, [["29136"]]) ? 15 : 0),
-        "critd": 5 + (getAtributoBase("sor") >= 100 ? 10 : 0) + (hasCombo(slot, itemId, [["29135"]]) ? 10 : 0) + (hasCombo(slot, itemId, [["29136"]]) ? 10 : 0)
+        "precisao": 10 + (getAtributoBase("sor") >= 100 ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["29135"]]) ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["29136"]]) ? 15 : 0),
+        "critd": 5 + (getAtributoBase("sor") >= 100 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["29135"]]) ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["29136"]]) ? 10 : 0)
       }
     }
   },
@@ -7676,7 +7676,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": (isOpponent("racaMonstro", ["2","9"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0),
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["20","21","22","23","30","31","32","33"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0)
@@ -7696,7 +7696,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": (isOpponent("racaMonstro", ["0","3"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0),
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0)
@@ -7716,7 +7716,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 3,
     encantamentos: encantamentosArmasBrasilis,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": (isOpponent("racaMonstro", ["5","6"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0),
         "danofisicopropriedade": (isOpponent("propriedadeMonstro", ["30","31","32","33","40","41","42","43"]) ? ((getItemRefino("itemMaoDireita") >= 7 ? 10 : 0) + (getItemRefino("itemMaoDireita") >= 9 ? 15 : 0)) : 0)
@@ -7736,7 +7736,7 @@ var items = [
     itemClasses: ["Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6,
         "atributovitalidade": 6,
@@ -7756,7 +7756,7 @@ var items = [
     itemClasses: ["Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Impacto_Sismico": 20,
         "danode--Soco_Furacao": 20
@@ -7771,16 +7771,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CFix","REQ_Furia_do_Furacao","REQ_Descarregar_Tambor"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (parseInt(getItemRefino(slot) / 2) * 15) + (getItemRefino(slot) >= 7 ? 30 : 0) + (hasCombo(slot, itemId, [["28000"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 20) : 0),
+        "atq": (parseInt(getItemRefino(slot) / 2) * 15) + (getItemRefino(slot) >= 7 ? 30 : 0) + (hasCombo(slot, itemId, tipoItem, [["28000"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 20) : 0),
         "atqarmap": (getItemRefino(slot) >= 9 ? 5 : 0),
         "aspdf": (getItemRefino(slot) >= 9 ? 1 : 0),
         "danocritico": (getItemRefino(slot) >= 11 ? 3 : 0),
         "danodistancia": (getItemRefino(slot) >= 11 ? 3 : 0),
         "conjuracaofixas": ((getItemRefino(slot) >= 11 ? ((Math.min(getItemRefino(slot), 15) - 10) / (-10)) : 0)),
-        "danode--Furia_do_Furacao": hasCombo(slot, itemId, [["28101"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 15) : 0,
-        "danode--Descarregar_Tambor": hasCombo(slot, itemId, [["13138"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 6) : 0
+        "danode--Furia_do_Furacao": hasCombo(slot, itemId, tipoItem, [["28101"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 15) : 0,
+        "danode--Descarregar_Tambor": hasCombo(slot, itemId, tipoItem, [["13138"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 6) : 0
       }
     }
   },
@@ -7792,7 +7792,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Precisao","REQ_Pos","REQ_DDist"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 5,
         "atributodestreza": 5,
@@ -7812,16 +7812,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CVar","REQ_CFix","REQ_Disparo_Perfurante","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, [["32019"]]) ? 30 : 0),
+        "atq": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, tipoItem, [["32019"]]) ? 30 : 0),
         "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0),
-        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["18179","18180"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["18179","18180"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "danode--Disparo_Perfurante": (hasCombo(slot, itemId, [["32019"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, [["18179"]]) ? 10 : 0),
-        "posconjuracao": (hasCombo(slot, itemId, [["18180"]]) ? (-10) : 0)
+        "danode--Disparo_Perfurante": (hasCombo(slot, itemId, tipoItem, [["32019"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, tipoItem, [["18179"]]) ? 10 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["18180"]]) ? (-10) : 0)
       }
     }
   },
@@ -7833,7 +7833,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 7,
         "aspdp": 3
@@ -7848,20 +7848,20 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": (hasCombo(slot, itemId, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 10) : 0) + (hasCombo(slot, itemId, [["20838"]]) ? 50 : 0),
-        "atqm": hasCombo(slot, itemId, [["20838"]]) ? 50 : 0,
-        "atributodestreza": hasCombo(slot, itemId, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 3) : 0,
-        "danofisicotamanho": hasCombo(slot, itemId, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 2) : 0,
-        "hpp": hasCombo(slot, itemId, [["22133"]]) ? 10 : 0,
-        "spp": hasCombo(slot, itemId, [["22133"]]) ? 10 : 0,
-        "spf": hasCombo(slot, itemId, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 200) : 0,
-        "aspdp": hasCombo(slot, itemId, [["22133"]]) ? (getItemRefino("itemSapatos") >= 9 ? 10 : 0) : 0,
-        "conjuracaofixas": hasCombo(slot, itemId, [["22133"]]) ? (getItemRefino("itemSapatos") >= 9 ? (-0.5) : 0) : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["20838"]]) ? (-15) : 0,
-        "danofisicochefe": hasCombo(slot, itemId, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) : 0,
-        "danode--Punho_Supremo_de_Asura": hasCombo(slot, itemId, [["16063"]]) && getItemRefino("itemMaoDireita") >= 11 ? 35 : 0,
+        "atq": (hasCombo(slot, itemId, tipoItem, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 10) : 0) + (hasCombo(slot, itemId, tipoItem, [["20838"]]) ? 50 : 0),
+        "atqm": hasCombo(slot, itemId, tipoItem, [["20838"]]) ? 50 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 3) : 0,
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["19210"]]) ? (parseInt(getItemRefino("itemTopo") / 2) * 2) : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["22133"]]) ? 10 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["22133"]]) ? 10 : 0,
+        "spf": hasCombo(slot, itemId, tipoItem, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 200) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["22133"]]) ? (getItemRefino("itemSapatos") >= 9 ? 10 : 0) : 0,
+        "conjuracaofixas": hasCombo(slot, itemId, tipoItem, [["22133"]]) ? (getItemRefino("itemSapatos") >= 9 ? (-0.5) : 0) : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["20838"]]) ? (-15) : 0,
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) : 0,
+        "danode--Punho_Supremo_de_Asura": hasCombo(slot, itemId, tipoItem, [["16063"]]) && getItemRefino("itemMaoDireita") >= 11 ? 35 : 0,
       }
     }
   },
@@ -7873,14 +7873,14 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 5,
         "atributosorte": 5,
         "atq": getItemRefino(slot) >= 8 ? (parseInt((getAtributoBase("vit") + getAtributoBase("sor")) / 10) * 10) : 0,
         "atqm": getItemRefino(slot) >= 8 ? (parseInt((getAtributoBase("vit") + getAtributoBase("sor")) / 10) * 10) : 0,
-        "danofisicoraca": isOpponent("racaMonstro", ["1","4"]) && hasCombo(slot, itemId, [["4635"]]) ? 40 : 0,
-        "danomagicoraca": isOpponent("racaMonstro", ["1","4"]) && hasCombo(slot, itemId, [["4635"]]) ? 40 : 0
+        "danofisicoraca": isOpponent("racaMonstro", ["1","4"]) && hasCombo(slot, itemId, tipoItem, [["4635"]]) ? 40 : 0,
+        "danomagicoraca": isOpponent("racaMonstro", ["1","4"]) && hasCombo(slot, itemId, tipoItem, [["4635"]]) ? 40 : 0
       }
     }
   },
@@ -7892,13 +7892,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 15,
         "spp": 15,
         "aspdp": getItemRefino(slot),
         "danofisicop": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
-        "danofisicoraca": (isOpponent("propriedadeMonstro", ["10","11","12","13"]) && hasCombo(slot, itemId, [["4419"]])) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 5) : 0) : 0
+        "danofisicoraca": (isOpponent("propriedadeMonstro", ["10","11","12","13"]) && hasCombo(slot, itemId, tipoItem, [["4419"]])) ? (getNivelBase() >= 100 ? (getItemRefino(slot) * 5) : 0) : 0
       }
     }
   },
@@ -7910,7 +7910,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 5,
         "danofisicop": parseInt(getItemRefino(slot) / 3) * 10,
@@ -7926,11 +7926,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": 1,
-        "aspdp": (hasCombo(slot, itemId, [["18823"]]) ? (3 + (getAtributoBase("agi") >= 108 ? 5 : 0) + (getAtributoBase("agi") >= 120 ? 7 : 0)) : 0),
-        "atq": (hasCombo(slot, itemId, [["18823"]]) ? (10 + (getAtributoBase("agi") >= 108 ? 20 : 0) + (getAtributoBase("agi") >= 120 ? 40 : 0)) : 0)
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["18823"]]) ? (3 + (getAtributoBase("agi") >= 108 ? 5 : 0) + (getAtributoBase("agi") >= 120 ? 7 : 0)) : 0),
+        "atq": (hasCombo(slot, itemId, tipoItem, [["18823"]]) ? (10 + (getAtributoBase("agi") >= 108 ? 20 : 0) + (getAtributoBase("agi") >= 120 ? 40 : 0)) : 0)
       }
     }
   },
@@ -7946,7 +7946,7 @@ var items = [
     itemClasses: ["Classe_ES","Classe_GA","Classe_MC","Classe_LO","Classe_PA","Classe_GC","Classe_ST","Classe_MF","Classe_CR","Classe_RK","Classe_RG","Classe_GX","Classe_SC","Classe_MH","Classe_BI"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -7959,18 +7959,18 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_CVar","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_Aspd","REQ_TCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": getItemRefino(slot) * (-2),
-        "conjuracaovariavel": (hasCombo(slot, itemId, [["2235","5165","2234","5164"]]) ? (10 + (parseInt((getItemRefino(slot) + getItemRefino("itemTopo")) / 2) * (-1))) : 0) + (hasCombo(slot, itemId, [["4236"]]) ? (-10) : 0),
-        "danofisicop": (hasCombo(slot, itemId, [["2235","5165"]]) ? (parseInt((getItemRefino(slot) + getItemRefino("itemTopo")) / 2)) : 0),
-        "danomagicop": (hasCombo(slot, itemId, [["2234","5164"]]) ? (parseInt((getItemRefino(slot) + getItemRefino("itemTopo")) / 2)) : 0),
-        "atributoforca": (hasCombo(slot, itemId, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
-        "atributoagilidade": (hasCombo(slot, itemId, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
-        "atributovitalidade": (hasCombo(slot, itemId, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
-        "atributointeligencia": (hasCombo(slot, itemId, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
-        "atributodestreza": (hasCombo(slot, itemId, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
-        "atributosorte": (hasCombo(slot, itemId, [["4236"]]) ? (getItemRefino(slot) * 3) : 0)
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["2235","5165","2234","5164"]]) ? (10 + (parseInt((getItemRefino(slot) + getItemRefino("itemTopo")) / 2) * (-1))) : 0) + (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (-10) : 0),
+        "danofisicop": (hasCombo(slot, itemId, tipoItem, [["2235","5165"]]) ? (parseInt((getItemRefino(slot) + getItemRefino("itemTopo")) / 2)) : 0),
+        "danomagicop": (hasCombo(slot, itemId, tipoItem, [["2234","5164"]]) ? (parseInt((getItemRefino(slot) + getItemRefino("itemTopo")) / 2)) : 0),
+        "atributoforca": (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
+        "atributoagilidade": (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
+        "atributovitalidade": (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
+        "atributointeligencia": (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
+        "atributodestreza": (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (getItemRefino(slot) * 3) : 0),
+        "atributosorte": (hasCombo(slot, itemId, tipoItem, [["4236"]]) ? (getItemRefino(slot) * 3) : 0)
       }
     }
   },
@@ -7982,19 +7982,19 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_BI","Classe_BI_NT","Classe_MC","Classe_MC_NT"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 2 + (getItemRefino(slot) >= 5 ? 4 : 0) + (getItemRefino(slot) >= 7 ? 4 : 0),
         "spp": 2 + (getItemRefino(slot) >= 5 ? 4 : 0) + (getItemRefino(slot) >= 7 ? 4 : 0),
-        "spf": hasCombo(slot, itemId, [["16003"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 400 : 0) + (getItemRefino("itemMaoDireita") >= 12 ? 200 : 0)) : 0,
-        "danofisicochefe": (hasCombo(slot, itemId, [["16003","1287"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 12 ? 10 : 0)) : 0) + (hasCombo(slot, itemId, [["1746"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)) : 0),
-        "ignoredef": hasCombo(slot, itemId, [["1287"]]) ? 100 : 0,
-        "danode--Laminas_de_Loki": hasCombo(slot, itemId, [["1287"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 8 : 0) + (getItemRefino("itemMaoDireita") >= 12 ? 4 : 0)) : 0,
-        "conjuracaovariavel": hasCombo(slot, itemId, [["1649","1679"]]) ? (getItemRefino(slot) >= 8 ? (-20) : 0) : 0,
-        "ignoredefm": hasCombo(slot, itemId, [["1649","1679"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)) : 0,
-        "danomagicochefe": hasCombo(slot, itemId, [["1649","1679"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)) : 0,
-        "recargade--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, [["1746"]]) ? (getItemRefino(slot) >= 8 ? (-2) : 0) : 0,
-        "danode--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, [["1746"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 8 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 4 : 0)) : 0,
+        "spf": hasCombo(slot, itemId, tipoItem, [["16003"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 400 : 0) + (getItemRefino("itemMaoDireita") >= 12 ? 200 : 0)) : 0,
+        "danofisicochefe": (hasCombo(slot, itemId, tipoItem, [["16003","1287"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 12 ? 10 : 0)) : 0) + (hasCombo(slot, itemId, tipoItem, [["1746"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)) : 0),
+        "ignoredef": hasCombo(slot, itemId, tipoItem, [["1287"]]) ? 100 : 0,
+        "danode--Laminas_de_Loki": hasCombo(slot, itemId, tipoItem, [["1287"]]) ? ((getItemRefino("itemMaoDireita") >= 10 ? 8 : 0) + (getItemRefino("itemMaoDireita") >= 12 ? 4 : 0)) : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["1649","1679"]]) ? (getItemRefino(slot) >= 8 ? (-20) : 0) : 0,
+        "ignoredefm": hasCombo(slot, itemId, tipoItem, [["1649","1679"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)) : 0,
+        "danomagicochefe": hasCombo(slot, itemId, tipoItem, [["1649","1679"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 20 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)) : 0,
+        "recargade--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, tipoItem, [["1746"]]) ? (getItemRefino(slot) >= 8 ? (-2) : 0) : 0,
+        "danode--Temporal_de_Mil_Flechas": hasCombo(slot, itemId, tipoItem, [["1746"]]) ? ((getItemRefino("itemMaoDireita") >= 9 ? 8 : 0) + (getItemRefino("itemMaoDireita") >= 11 ? 4 : 0)) : 0,
       }
     }
   },
@@ -8008,7 +8008,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_Aegis_Inferi"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2,
         "atributovitalidade": 3,
@@ -8024,7 +8024,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_IgnDef","REQ_IgnDefm","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "ignoredef": 50,
         "ignoredefm": 50,
@@ -8045,7 +8045,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_IgnDef","REQ_DFisico","REQ_Acerto_de_Contas"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       if(isClasse("Classe_SC")) {
         temDrake = true;
       }
@@ -8068,7 +8068,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10 + (getAtributoBase("vit") >= 125 ? ((getItemRefino(slot) >= 8 ? 5 : 0) + (getItemRefino(slot) >= 12 ? 5 : 0)) : 0),
         "spp": 10,
@@ -8088,7 +8088,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
         "danomagicopropriedade": 10 + (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0)
@@ -8107,7 +8107,7 @@ var items = [
       ["4866","4881","4824","4830","4836"],
       ["4702","4742","4712","4722","4752"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["00","01","02","03","10","11","12","13","20","21","22","23","30","31","32","33","40","41","42","43"]) ? (5 + (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0)) : 0,
         "danomagicopropriedade": isOpponent("propriedadeMonstro", ["00","01","02","03","10","11","12","13","20","21","22","23","30","31","32","33","40","41","42","43"]) ? (5 + (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0)) : 0
@@ -8122,7 +8122,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_CVar"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 3,
         "conjuracaovariavel": -3,
@@ -8142,7 +8142,7 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2,
         "danode--Vulcao_de_Flechas": 20,
@@ -8158,7 +8158,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DCrit","REQ_TCrit"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10,
         "danocritico": 5 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 8 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 30 : 0) + (getItemRefino(slot) >= 10 ? 50 : 0),
@@ -8174,13 +8174,13 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_DMagico","REQ_Pos","REQ_CVar","REQ_Aspd"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": 500,
         "spf": 100,
         "atq": 50,
         "atqm": 50,
-        "posconjuracao": (-10) + (hasCombo(slot, itemId, [["20939"]]) ? (-10) : 0)
+        "posconjuracao": (-10) + (hasCombo(slot, itemId, tipoItem, [["20939"]]) ? (-10) : 0)
       }
     }
   },
@@ -8200,7 +8200,7 @@ var items = [
       ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 10),
         "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 4) + (getItemRefino(slot) >= 9 ? 15 : 0),
@@ -8220,7 +8220,7 @@ var items = [
     itemClasses: ["Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       if(getItemRefino(slot) >= 10) {
         temDrake = true;
       }
@@ -8245,7 +8245,7 @@ var items = [
       ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 15),
         "danode--Garra_de_Tigre": (parseInt(getItemRefino(slot) / 3) * 4) + (getItemRefino(slot) >= 7 ? 15 : 0),
@@ -8267,9 +8267,9 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, [["2988"]]) ? 200 : 0,
+        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["2988"]]) ? 200 : 0,
       }
     }
   },
@@ -8281,11 +8281,11 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquiva": Math.min(getItemRefino(slot), 10),
         "precisao": Math.min(getItemRefino(slot), 10),
-        "esquiva": ((hasCombo(slot, itemId, [["2913"]])) ? (Math.min(getItemRefino(slot), 10) * 2) : 0),
+        "esquiva": ((hasCombo(slot, itemId, tipoItem, [["2913"]])) ? (Math.min(getItemRefino(slot), 10) * 2) : 0),
       }
     }
   },
@@ -8297,12 +8297,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_VIT","REQ_DFisico","REQ_DMagico","REQ_SOR","REQ_HP","REQ_TCrit"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
-        "atqm": hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
-        "atributovitalidade": 3 + (hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0),
-        "atributosorte": (hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0)
+        "atq": hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
+        "atqm": hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
+        "atributovitalidade": 3 + (hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0),
+        "atributosorte": (hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0)
       }
     }
   },
@@ -8317,12 +8317,12 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
-        "atqm": hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
-        "atributovitalidade": 3 + (hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0),
-        "atributosorte": (hasCombo(slot, itemId, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0)
+        "atq": hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
+        "atqm": hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("vit") / 10) * 30) : (parseInt(getAtributoBase("vit") / 10) * 10)) : 0,
+        "atributovitalidade": 3 + (hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0),
+        "atributosorte": (hasCombo(slot, itemId, tipoItem, [["4143"]]) ? (getNivelBase() >= 100 ? (parseInt(getAtributoBase("sor") / 10) * 3) : (parseInt(getAtributoBase("sor") / 10) * 1)) : 0)
       }
     }
   },
@@ -8334,7 +8334,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 7,
         "aspdp": 10
@@ -8349,24 +8349,24 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_CFix","REQ_Luz_da_Criacao","REQ_Onda_Psiquica","REQ_Judex"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqm": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, [["26151"]]) ? 30 : 0),
+        "atqm": (parseInt(getItemRefino(slot) / 2) * 20) + (hasCombo(slot, itemId, tipoItem, [["26151"]]) ? 30 : 0),
         "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0),
         "danomagiconeutro": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicofogo": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicovento": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoterra": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoagua": (getItemRefino(slot) >= 9 ? 15 : 0),
-        "danomagicosagrado": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["13493","16089"]]) ? 5 : 0),
+        "danomagicosagrado": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["13493","16089"]]) ? 5 : 0),
         "danomagicosombrio": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicoveneno": (getItemRefino(slot) >= 9 ? 15 : 0),
         "danomagicofantasma": (getItemRefino(slot) >= 9 ? 15 : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danomagicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "danode--Luz_da_Criacao": (hasCombo(slot, itemId, [["13493"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
-        "danode--Onda_Psiquica": (hasCombo(slot, itemId, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
-        "danode--Judex": (hasCombo(slot, itemId, [["16089"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0)
+        "danode--Luz_da_Criacao": (hasCombo(slot, itemId, tipoItem, [["13493"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "danode--Onda_Psiquica": (hasCombo(slot, itemId, tipoItem, [["26151"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "danode--Judex": (hasCombo(slot, itemId, tipoItem, [["16089"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0)
       }
     }
   },
@@ -8378,7 +8378,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_SP","REQ_TCrit","REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 50
       }
@@ -8395,7 +8395,7 @@ var items = [
     encantamentos: [
       ["4700","4730","4740","4710","4720","4750"]
     ],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 50
       }
@@ -8409,16 +8409,16 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_CVar","REQ_CFix","REQ_DDist","REQ_Explosao_Espiritual","REQ_Execucao","REQ_Bomba_Acida"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 2) * 20),
-        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0) + (hasCombo(slot, itemId, [["16088"]]) ? (-10) : 0),
-        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, [["1862"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0) + (hasCombo(slot, itemId, [["28253"]]) ? 5 : 0),
+        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0) + (hasCombo(slot, itemId, tipoItem, [["16088"]]) ? (-10) : 0),
+        "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["1862"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0) + (hasCombo(slot, itemId, tipoItem, [["28253"]]) ? 5 : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
         "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "recargade--Explosao_Espiritual": (hasCombo(slot, itemId, [["1862"]]) ? (-1) : 0),
-        "danode--Execucao": (hasCombo(slot, itemId, [["28253"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
-        "danode--Bomba_Acida": (hasCombo(slot, itemId, [["16088"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0)
+        "recargade--Explosao_Espiritual": (hasCombo(slot, itemId, tipoItem, [["1862"]]) ? (-1) : 0),
+        "danode--Execucao": (hasCombo(slot, itemId, tipoItem, [["28253"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "danode--Bomba_Acida": (hasCombo(slot, itemId, tipoItem, [["16088"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0)
       }
     }
   },
@@ -8430,12 +8430,12 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 2 + (getItemRefino(slot) >= 7 ? 2 : 0) + (getItemRefino(slot) >= 9 ? 3 : 0),
-        "danode--Tempestade_de_Flechas": ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? (getItemRefino(slot) * 5) : 0),
-        "danode--Temporal_de_Mil_Flechas": ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? (getItemRefino(slot) * 5) : 0),
-        "aspdf": ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? (getItemRefino("itemMaoDireita") >= 10 ? 1 : 0) : 0),
+        "danode--Tempestade_de_Flechas": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino(slot) * 5) : 0),
+        "danode--Temporal_de_Mil_Flechas": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino(slot) * 5) : 0),
+        "aspdf": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino("itemMaoDireita") >= 10 ? 1 : 0) : 0),
       }
     }
   },
@@ -8447,7 +8447,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Pos"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5 + (getItemRefino(slot) >= 7 ? 2 : 0)
       }
@@ -8461,7 +8461,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_GX"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_Disparo_Triplo","REQ_Acerto_de_Contas","REQ_Laminas_Retalhadoras","REQ_Castigo_de_Loki"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5,
         "spp": 5,
@@ -8480,7 +8480,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_GX"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_Disparo_Triplo","REQ_Acerto_de_Contas","REQ_Laminas_Retalhadoras","REQ_Castigo_de_Loki","REQ_TCrit","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5,
         "spp": 5,
@@ -8503,10 +8503,10 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Tempestade_de_Flechas","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danodistancia": 2 + (getItemRefino(slot) >= 8 ? 2 : 0) + (getItemRefino(slot) >= 9 ? 3 : 0) + ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? 20 : 0),
-        "aspdf": ((hasCombo(slot, itemId, [["1730"],["1752"]]) || hasCombo(slot, itemId, [["1731"],["1754"]]) || hasCombo(slot, itemId, [["1732"],["1756"]]) || hasCombo(slot, itemId, [["1733"],["1755"]])) ? (getItemRefino("itemMaoDireita") >= 10 ? 1 : 0) : 0)
+        "danodistancia": 2 + (getItemRefino(slot) >= 8 ? 2 : 0) + (getItemRefino(slot) >= 9 ? 3 : 0) + ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? 20 : 0),
+        "aspdf": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino("itemMaoDireita") >= 10 ? 1 : 0) : 0)
       }
     }
   },
@@ -8518,7 +8518,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DMagico","REQ_Ruido_Estridente"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10,
         "spp": 10,
@@ -8539,7 +8539,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10,
         "spp": 10,
@@ -8559,7 +8559,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10,
         "spp": 10,
@@ -8578,7 +8578,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -8592,7 +8592,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 5,
         "danofisicop": parseInt(getItemRefino(slot) / 3) * 10,
@@ -8608,7 +8608,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 5,
         "danofisicop": parseInt(getItemRefino(slot) / 3) * 5,
@@ -8624,7 +8624,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 1,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["3","7"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
         "danomagicoraca": isOpponent("racaMonstro",["3","7"]) ? ((getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)) : 0,
@@ -8641,7 +8641,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["0","5","10","11"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danomagicoraca": isOpponent("racaMonstro",["0","5","10","11"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
@@ -8658,7 +8658,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["2","9"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danomagicoraca": isOpponent("racaMonstro",["2","9"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
@@ -8675,7 +8675,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
         "danomagicoraca": isOpponent("racaMonstro",["2","5","10"]) ? ((getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0)) : 0,
@@ -8701,7 +8701,7 @@ var items = [
       ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
     ],
     slots: 2,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getItemRefino(slot) / 2) * 10,
         "danode--Luz_da_Criacao": parseInt(getItemRefino(slot) / 3) * 5,
@@ -8722,7 +8722,7 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 3,
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
         "atributodestreza": 3

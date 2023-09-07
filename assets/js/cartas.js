@@ -5,7 +5,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -16,7 +16,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Copia_Explosiva"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Copia_Explosiva": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
       }
@@ -28,7 +28,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aegis_Inferi"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Aegis_Inferi": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
       }
@@ -40,7 +40,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Temporal_de_Mil_Flechas"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Temporal_de_Mil_Flechas": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
       }
@@ -52,7 +52,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 15,
         "danomagicop": 15
@@ -65,7 +65,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquiva": getItemRefino(slot) * (-2),
         "hpf": getNivelBase() >= 100 ? 500 : 0
@@ -78,7 +78,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 20,
         "danomagicop": 20
@@ -91,7 +91,7 @@ var cartas = [
     cartaSlot:   "itemSapatos",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar","REQ_Pos","REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributoagilidade": 1,
@@ -108,7 +108,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["80","81","82","83"]) ? 20 : 0
       }
@@ -120,7 +120,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": parseInt(getAtributoBase("int") / 10) * 5
       }
@@ -132,7 +132,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["7"]) ? 20 : 0
       }
@@ -144,7 +144,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": (getItemRefino(slot) >= 10 && isTipoArma(slot, ["Arma_Arco"])) ? 20 : 0
       }
@@ -156,7 +156,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 10 + (getNivelBase() >= 100 ? 2 : 0)
       }
@@ -168,7 +168,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": parseInt(getAtributoBase("des") / 10),
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? parseInt(getAtributoBase("des") / 10) : 0,
@@ -182,7 +182,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 20
       }
@@ -194,7 +194,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": -30
       }
@@ -206,7 +206,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "conjuracaovariavel": -15
       }
@@ -218,7 +218,7 @@ var cartas = [
     cartaSlot:   "itemEscudo",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10,
         "danomagicop": 10,
@@ -231,7 +231,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["2","11"]) ? 40 : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro",["20","21","22","23","30","31","32","33"]) ? 40 : 0
@@ -244,7 +244,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["1"]) ? 20 : 0
       }
@@ -256,7 +256,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": isClasse(["Classe_SC","Classe_ST","Classe_RO","Classe_ST"]) ? 10 : 0,
         "danomagicop": isClasse(["Classe_SC","Classe_ST","Classe_RO","Classe_ST"]) ? 10 : 0
@@ -269,7 +269,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["6"]) ? 20 : 0
       }
@@ -281,7 +281,7 @@ var cartas = [
     cartaSlot:   "itemEscudo",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -292,10 +292,10 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 15,
-        "danofisicotamanho": isOpponent("tamanhoMonstro",["1","2"]) ? (20 + (hasCombo(slot, itemId, [["4609"]]) ? 15 : 0)) : 0
+        "danofisicotamanho": isOpponent("tamanhoMonstro",["1","2"]) ? (20 + (hasCombo(slot, itemId, tipoItem, [["4609"]]) ? 15 : 0)) : 0
       }
     }
   },
@@ -305,7 +305,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": 25
       }
@@ -317,7 +317,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP","REQ_DEFM"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spp": 5
       }
@@ -329,7 +329,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 2 + (parseInt(getItemRefino(slot) / 2)),
         "hpp": (parseInt(getItemRefino(slot) / 2) * (-1))
@@ -342,7 +342,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DEF"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10
       }
@@ -354,7 +354,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 2 + (parseInt(getItemRefino(slot) / 2)),
         "spp": (parseInt(getItemRefino(slot) / 2) * (-1))
@@ -367,7 +367,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": parseInt(getAtributoBase("agi") / 10) * 2
       }
@@ -379,7 +379,7 @@ var cartas = [
     cartaSlot:   "itemSapatos",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": -2 + (parseInt(getItemRefino(slot) / 2) * (-1)),
         "danomagicop": 1 + parseInt(getItemRefino(slot) / 2),
@@ -393,7 +393,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DMagico","REQ_Precisao"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 20 + (getAtributoBase("sor") >= 110 ? 20 : 0)
       }
@@ -405,7 +405,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2 + (isClasse("Classe_SE","Classe_SN","Classe_HU","Classe_TR","Classe_BA","Classe_MI","Classe_MU","Classe_GY","Classe_DA","Classe_AR")) ? (parseInt(getItemRefino(slot) / 3)) : 0
       }
@@ -417,7 +417,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10
       }
@@ -429,7 +429,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["40","41","42","43"]) ? 20 : 0
       }
@@ -441,7 +441,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       temDrake = true;
       return {
 
@@ -454,7 +454,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCritD"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "critd": 15
       }
@@ -466,7 +466,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 10
       }
@@ -478,7 +478,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "ignoredef": isOpponent("racaMonstro",["9"]) ? 30 : 0,
         "danofisicop": isOpponent("propriedadeMonstro",["80","81","82","83"]) ? 30 : 0,
@@ -491,7 +491,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["9"]) ? 20 : 0
       }
@@ -503,7 +503,7 @@ var cartas = [
     cartaSlot:   "itemSapatos",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_HP","REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10,
         "spp": 10
@@ -516,7 +516,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 10
       }
@@ -528,7 +528,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5,
         "danofisicoraca": isOpponent("tamanhoMonstro", ["1"]) ? 15 : 0
@@ -541,7 +541,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 9
       }
@@ -553,7 +553,7 @@ var cartas = [
     cartaSlot:   "itemEscudo",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -564,7 +564,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["8"]) ? 20 : 0
       }
@@ -576,7 +576,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 1 + (getNivelBase() >= 90 ? 1 : 0) + (getNivelBase() >= 120 ? 1 : 0)
       }
@@ -588,7 +588,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 20
       }
@@ -600,7 +600,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["2","11"]) ? 20 : 0
       }
@@ -612,7 +612,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5
       }
@@ -624,7 +624,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isClasse(["Classe_RG","Classe_RG_NT"]) ? 10 : 0,
         "atributoforca": (getNivelBase() >= 175 ? 10 : 0) + (getItemRefino(slot) >= 10 ? 10 : 0),
@@ -642,7 +642,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getNivelClasse() / 10),
         "crit": parseInt(getNivelClasse() / 10),
@@ -656,7 +656,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -5
       }
@@ -668,7 +668,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -680,9 +680,9 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCorp","REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqarmap": hasCombo(slot, itemId, [["27333"]]) ? 3 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["27333"]]) ? 3 : 0,
         "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
         "danomelee": parseInt(getItemRefino(slot) / 3) * 4
       }
@@ -694,7 +694,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 20 : 0
       }
@@ -706,7 +706,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["30","31","32","33"]) ? 20 : 0
       }
@@ -718,7 +718,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": (-15) + (getItemRefino(slot) >= 15 ? (-15) : 0)
       }
@@ -730,7 +730,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -30
       }
@@ -742,7 +742,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "crit": 4
@@ -755,7 +755,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? 50 : 0
       }
@@ -767,7 +767,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? (25 + (getItemRefino(slot) >= 15 ? 10 : 0)) : 0
       }
@@ -779,7 +779,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5,
         "danofisicoraca": isOpponent("tamanhoMonstro", ["0"]) ? 15 : 0
@@ -792,7 +792,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": -50
       }
@@ -804,7 +804,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 2 + (isClasse(["Classe_SC","Classe_RO","Classe_ST","Classe_GX","Classe_SX","Classe_AS","Classe_GA"]) ? (parseInt(getItemRefino(slot) / 2)) : 0)
       }
@@ -816,7 +816,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["20","21","22","23"]) ? 20 : 0
       }
@@ -828,7 +828,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["90","91","92","93"]) ? 20 : 0
       }
@@ -840,7 +840,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "atqarmap": -3
@@ -853,7 +853,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_IgnDef"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       temInvestigar = true;
       return {
         "esquiva": -30
@@ -866,7 +866,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": parseInt(getAtributoBase("des") / 10)
       }
@@ -878,7 +878,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 3,
         "aspdf": isTipoArma(slot, ["Arma_Arco"]) ? ((getItemRefino(slot) >= 10 ? 1 : 0) + (getItemRefino(slot) >= 14 ? 1 : 0)) : 0
@@ -891,9 +891,9 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danomagicop": hasCombo(slot, itemId, [["27331"]]) ? 3 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["27331"]]) ? 3 : 0,
         "danomagiconeutro": parseInt(getItemRefino(slot) / 3) * 4,
         "danomagicofogo": parseInt(getItemRefino(slot) / 3) * 4,
         "danomagicovento": parseInt(getItemRefino(slot) / 3) * 4,
@@ -912,7 +912,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5,
         "danofisicoraca": isOpponent("tamanhoMonstro", ["2"]) ? 15 : 0
@@ -925,10 +925,10 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 20,
-        "atqarmap": hasCombo(slot, itemId, [["28510"]]) ? (parseInt(getItemRefino(slot) / 3)) : 0
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["28510"]]) ? (parseInt(getItemRefino(slot) / 3)) : 0
       }
     }
   },
@@ -938,7 +938,7 @@ var cartas = [
     cartaSlot:   "itemEscudo",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -949,7 +949,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -961,7 +961,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["50","51","52","53"]) ? 20 : 0
       }
@@ -973,7 +973,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT","REQ_DFisico","REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 3
       }
@@ -985,7 +985,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["0"]) ? 20 : 0
       }
@@ -997,12 +997,12 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 20,
-        "atributoagilidade": hasCombo(slot, itemId, [["4210"],["4230"],["4257"],["4272"]]) ? 5 : 0,
-        "atributoforca": hasCombo(slot, itemId, [["4210"],["4230"],["4257"],["4272"]]) ? 5 : 0,
-        "aspdp": hasCombo(slot, itemId, [["4210"],["4230"],["4257"],["4272"]]) ? 5 : 0
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["4210"],["4230"],["4257"],["4272"]]) ? 5 : 0,
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["4210"],["4230"],["4257"],["4272"]]) ? 5 : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["4210"],["4230"],["4257"],["4272"]]) ? 5 : 0
       }
     }
   },
@@ -1012,7 +1012,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro",["1","3"]) ? 40 : 0,
         "danofisicopropriedade": isOpponent("propriedadeMonstro",["50","51","52","53","60","61","62","63"]) ? 40 : 0
@@ -1025,7 +1025,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": parseInt(getAtributoBase("des") / 10) * 2
       }
@@ -1037,7 +1037,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["4"]) ? 20 : 0
       }
@@ -1049,7 +1049,7 @@ var cartas = [
     cartaSlot:   "itemCabeca",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 10
       }
@@ -1061,7 +1061,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 25
       }
@@ -1073,7 +1073,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["60","61","62","63"]) ? 20 : 0
       }
@@ -1085,7 +1085,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 30
       }
@@ -1097,7 +1097,7 @@ var cartas = [
     cartaSlot:   "itemSapatos",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 15 + getItemRefino(slot),
         "danocritico": getItemRefino(slot),
@@ -1111,7 +1111,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": isClasse(["Classe_SC"]) ? 15 : 0,
         "danofisicoraca": isClasse(["Classe_SC"]) ? 5 : 0,
@@ -1130,7 +1130,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 20,
         "hpp": -1
@@ -1143,7 +1143,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 20,
         "spp": -1
@@ -1156,7 +1156,7 @@ var cartas = [
     cartaSlot:   "itemArmadura",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
 
       }
@@ -1168,7 +1168,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 15
       }
@@ -1180,7 +1180,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoalvo": isOpponent("idMonstro",["1023","1273","1213","1153","1189","1152"]) ? 30 : 0
       }
@@ -1192,10 +1192,10 @@ var cartas = [
     cartaSlot:   "itemAcessorioE",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 5,
-        "atqarmap": hasCombo(slot, itemId, [["27197"]]) ? 5 : 0
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["27197"]]) ? 5 : 0
       }
     }
   },
@@ -1205,7 +1205,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 20,
         "danofisicoraca": isOpponent("racaMonstro", ["3","7"]) ? 30 : 0
@@ -1218,7 +1218,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 9 + (getNivelBase() >= 100 ? 1 : 0),
         "danocritico": (getNivelBase() >= 100 ? 5 : 0)
@@ -1231,7 +1231,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_ATQDuplo"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       itemHabilitaAtaqueDuplo = true;
       return {
       }
@@ -1243,7 +1243,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_IgnDef"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "ignoredef": !isOpponentChefe() ? 100 : 0
       }
@@ -1255,7 +1255,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("racaMonstro", ["3"]) ? 20 : 0
       }
@@ -1267,7 +1267,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 1
       }
@@ -1279,7 +1279,7 @@ var cartas = [
     cartaSlot:   "itemEscudo",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -1290,7 +1290,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoraca": isOpponent("propriedadeMonstro", ["10","11","12","13"]) ? 20 : 0
       }
@@ -1302,7 +1302,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10
       }
@@ -1314,10 +1314,10 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atributoagilidade": (-1) + (hasCombo(slot, itemId, [["27165"]]) ? 2 : 0),
-        "atributodestreza": (-1) + (hasCombo(slot, itemId, [["27165"]]) ? 2 : 0),
+        "atributoagilidade": (-1) + (hasCombo(slot, itemId, tipoItem, [["27165"]]) ? 2 : 0),
+        "atributodestreza": (-1) + (hasCombo(slot, itemId, tipoItem, [["27165"]]) ? 2 : 0),
         "aspdp": 3
       }
     }
@@ -1328,11 +1328,11 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atributovitalidade": (-1) + (hasCombo(slot, itemId, [["27163"]]) ? 2 : 0),
-        "atributointeligencia": (-1) + (hasCombo(slot, itemId, [["27163"]]) ? 2 : 0),
-        "posconjuracao": (-3) + (hasCombo(slot, itemId, [["27163"]]) ? (-3) : 0)
+        "atributovitalidade": (-1) + (hasCombo(slot, itemId, tipoItem, [["27163"]]) ? 2 : 0),
+        "atributointeligencia": (-1) + (hasCombo(slot, itemId, tipoItem, [["27163"]]) ? 2 : 0),
+        "posconjuracao": (-3) + (hasCombo(slot, itemId, tipoItem, [["27163"]]) ? (-3) : 0)
       }
     }
   },
@@ -1342,7 +1342,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 3
       }
@@ -1354,7 +1354,7 @@ var cartas = [
     cartaSlot:   "itemCapa",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": parseInt(getAtributoBase("for") / 10) * 5
       }
@@ -1366,7 +1366,7 @@ var cartas = [
     cartaSlot:   "itemArma",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 15,
         "crit": isClasse(["Classe_SC","Classe_RO","Classe_ST","Classe_GX","Classe_SX","Classe_AS","Classe_GA"]) ? 4 : 0
@@ -1379,7 +1379,7 @@ var cartas = [
     cartaSlot:   "itemAcessorio",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES","REQ_CVar","REQ_Precisao"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 3
       }
@@ -1391,7 +1391,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 1,
         "atributovitalidade": -1,
@@ -1405,7 +1405,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
         "atributovitalidade": -2,
@@ -1419,7 +1419,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 4,
         "atributovitalidade": -4,
@@ -1433,7 +1433,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 1,
         "atributosorte": -1,
@@ -1447,7 +1447,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
         "atributosorte": -2,
@@ -1461,7 +1461,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 4,
         "atributosorte": -4,
@@ -1475,7 +1475,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1,
         "atributointeligencia": -1,
@@ -1489,7 +1489,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
         "atributointeligencia": -2,
@@ -1503,7 +1503,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 4,
         "atributointeligencia": -4,
@@ -1517,7 +1517,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 1,
         "atributoforca": -1,
@@ -1531,7 +1531,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2,
         "atributoforca": -2,
@@ -1545,7 +1545,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 4,
         "atributoforca": -4,
@@ -1559,7 +1559,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 1,
         "atributodestreza": -1,
@@ -1573,7 +1573,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 2,
         "atributodestreza": -2,
@@ -1587,7 +1587,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 4,
         "atributodestreza": -4,
@@ -1601,7 +1601,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 1,
         "atributoagilidade": -1
@@ -1614,7 +1614,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 2,
         "atributoagilidade": -2
@@ -1627,7 +1627,7 @@ var cartas = [
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 4,
         "atributoagilidade": -4
@@ -1640,7 +1640,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI","REQ_Aspd","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 1 + (getItemRefino(slot) >= 8 ? 3 : 0),
         "danofisicop": (getItemRefino(slot) >= 9 ? 1 : 0),
@@ -1655,7 +1655,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES","REQ_Aspd","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 1 + (getItemRefino(slot) >= 8 ? 3 : 0),
         "danomagicop": (getItemRefino(slot) >= 9 ? 1 : 0),
@@ -1670,7 +1670,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR","REQ_Aspd","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1 + (getItemRefino(slot) >= 8 ? 3 : 0),
         "danofisicop": (getItemRefino(slot) >= 9 ? 1 : 0),
@@ -1685,7 +1685,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT","REQ_Aspd","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 1 + (getItemRefino(slot) >= 8 ? 3 : 0),
         "danomagicop": (getItemRefino(slot) >= 9 ? 1 : 0),
@@ -1700,7 +1700,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI","REQ_Aspd","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 1 + (getItemRefino(slot) >= 8 ? 3 : 0),
         "hpp": (getItemRefino(slot) >= 9 ? 1 : 0),
@@ -1715,7 +1715,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT","REQ_Aspd","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 1 + (getItemRefino(slot) >= 8 ? 3 : 0),
         "spp": (getItemRefino(slot) >= 9 ? 1 : 0),
@@ -1730,7 +1730,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 2
       }
@@ -1742,7 +1742,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 4
       }
@@ -1754,7 +1754,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 6
       }
@@ -1766,7 +1766,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 8
       }
@@ -1778,7 +1778,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 10
       }
@@ -1790,7 +1790,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 12
       }
@@ -1802,7 +1802,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 14
       }
@@ -1814,7 +1814,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 16
       }
@@ -1826,7 +1826,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 18
       }
@@ -1838,7 +1838,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 20,
         "aspdf": 1
@@ -1851,7 +1851,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 6,
         "precisao": 2
@@ -1864,7 +1864,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 9,
         "precisao": 3
@@ -1877,7 +1877,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 12,
         "precisao": 4
@@ -1890,7 +1890,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 15,
         "precisao": 5
@@ -1903,7 +1903,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 18,
         "precisao": 5
@@ -1916,7 +1916,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 21,
         "precisao": 5
@@ -1929,7 +1929,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 24,
         "precisao": 5
@@ -1942,7 +1942,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 27,
         "precisao": 5
@@ -1955,7 +1955,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 30,
         "precisao": 5
@@ -1968,7 +1968,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
         "precisao": 5
@@ -1981,7 +1981,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 4
       }
@@ -1993,7 +1993,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 6
       }
@@ -2005,7 +2005,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 8
       }
@@ -2017,7 +2017,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10
       }
@@ -2029,7 +2029,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 6,
         "conjuracaovariavel": -3
@@ -2042,7 +2042,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 9,
         "conjuracaovariavel": -6
@@ -2055,7 +2055,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 12,
         "conjuracaovariavel": -8
@@ -2068,7 +2068,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 15,
         "conjuracaovariavel": -10
@@ -2081,7 +2081,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 18,
         "conjuracaovariavel": -10
@@ -2094,7 +2094,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 21,
         "conjuracaovariavel": -10
@@ -2107,7 +2107,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 24,
         "conjuracaovariavel": -10
@@ -2120,7 +2120,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 27,
         "conjuracaovariavel": -10
@@ -2133,7 +2133,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 9,
         "conjuracaovariavel": -6
@@ -2146,7 +2146,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 50,
         "conjuracaovariavel": -20
@@ -2159,7 +2159,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 3,
         "danocritico": 1
@@ -2172,7 +2172,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 6,
         "danocritico": 2
@@ -2185,7 +2185,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 9,
         "danocritico": 3
@@ -2198,7 +2198,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 12,
         "danocritico": 4
@@ -2211,7 +2211,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 15,
         "danocritico": 5
@@ -2224,7 +2224,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": 1
       }
@@ -2236,7 +2236,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 3
       }
@@ -2248,7 +2248,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 6
       }
@@ -2260,7 +2260,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2271,7 +2271,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2282,7 +2282,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 3
       }
@@ -2294,7 +2294,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 3
       }
@@ -2306,9 +2306,9 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danocritico": 3 + (hasCombo(slot, itemId, [["29360"],["29361"]]) ? 6 : 0)
+        "danocritico": 3 + (hasCombo(slot, itemId, tipoItem, [["29360"],["29361"]]) ? 6 : 0)
       }
     }
   },
@@ -2318,7 +2318,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 3
       }
@@ -2330,10 +2330,10 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 20,
-        "crit": (hasCombo(slot, itemId, [["29047"],["29359"],["29360"]]) ? 10 : 0)
+        "crit": (hasCombo(slot, itemId, tipoItem, [["29047"],["29359"],["29360"]]) ? 10 : 0)
       }
     }
   },
@@ -2343,7 +2343,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": getItemRefino(slot)
       }
@@ -2355,7 +2355,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": getItemRefino(slot) * 2
       }
@@ -2367,7 +2367,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": getItemRefino(slot) * 3
       }
@@ -2379,7 +2379,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": getItemRefino(slot) * 4
       }
@@ -2391,7 +2391,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": getItemRefino(slot) * 5
       }
@@ -2403,7 +2403,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 6,
         "precisao": 2
@@ -2416,7 +2416,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 9,
         "precisao": 3
@@ -2429,7 +2429,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 12,
         "precisao": 4
@@ -2442,7 +2442,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 14,
         "precisao": 5
@@ -2455,7 +2455,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 15,
         "precisao": 6
@@ -2468,7 +2468,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 1,
         "danocritico": 4
@@ -2481,7 +2481,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 2,
         "danocritico": 6
@@ -2494,7 +2494,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 3,
         "danocritico": 8
@@ -2507,7 +2507,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 4,
         "danocritico": 10
@@ -2520,7 +2520,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 1
       }
@@ -2532,7 +2532,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 3
       }
@@ -2544,7 +2544,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 1
       }
@@ -2556,7 +2556,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 2
       }
@@ -2568,7 +2568,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 3
       }
@@ -2580,7 +2580,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 4
       }
@@ -2592,7 +2592,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 5
       }
@@ -2604,7 +2604,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 6
       }
@@ -2616,7 +2616,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 7
       }
@@ -2628,7 +2628,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 2
       }
@@ -2640,7 +2640,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 4
       }
@@ -2652,7 +2652,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 6
       }
@@ -2664,7 +2664,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 1,
         "conjuracaofixap": -1
@@ -2677,7 +2677,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 2,
         "conjuracaofixap": -1
@@ -2690,7 +2690,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 3,
         "conjuracaofixap": -1
@@ -2703,7 +2703,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 1
       }
@@ -2715,7 +2715,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 2
       }
@@ -2727,7 +2727,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3
       }
@@ -2739,7 +2739,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 4
       }
@@ -2751,7 +2751,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spp": 4
       }
@@ -2763,7 +2763,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 10
       }
@@ -2775,7 +2775,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 25
       }
@@ -2787,7 +2787,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 50
       }
@@ -2799,7 +2799,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 75
       }
@@ -2811,7 +2811,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 100
       }
@@ -2823,7 +2823,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "spf": 150
       }
@@ -2835,7 +2835,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2846,7 +2846,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 200
       }
@@ -2858,7 +2858,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Pos","REQ_EP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2869,7 +2869,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_Pos","REQ_EP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 100,
         "aspdp": 100
@@ -2882,7 +2882,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2893,7 +2893,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 200
       }
@@ -2905,7 +2905,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2916,7 +2916,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar","REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 200
       }
@@ -2928,7 +2928,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES","REQ_CVar","REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2939,7 +2939,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES","REQ_CVar","REQ_DDist"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 200
       }
@@ -2951,7 +2951,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR","REQ_EP","REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2962,7 +2962,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR","REQ_EP","REQ_TCrit","REQ_DCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 200
       }
@@ -2974,7 +2974,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: [],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2985,7 +2985,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: [],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -2996,7 +2996,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: [],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
     }
@@ -3007,7 +3007,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 5,
         "conjuracaovariavel": -3
@@ -3020,7 +3020,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 10,
         "conjuracaovariavel": -3
@@ -3033,7 +3033,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 15,
         "conjuracaovariavel": -3
@@ -3046,7 +3046,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 20,
         "conjuracaovariavel": -3
@@ -3059,7 +3059,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CVar"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 30,
         "conjuracaovariavel": -3
@@ -3072,7 +3072,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -2,
       }
@@ -3084,7 +3084,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -4,
       }
@@ -3096,7 +3096,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Pos"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -6,
       }
@@ -3108,7 +3108,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: [],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquiva": 1,
       }
@@ -3120,7 +3120,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_EP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 3,
       }
@@ -3132,7 +3132,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_EP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 4,
       }
@@ -3144,7 +3144,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_EP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 5,
       }
@@ -3156,7 +3156,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": 1
       }
@@ -3168,7 +3168,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_EP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "esquivaperfeita": 3
       }
@@ -3180,9 +3180,9 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atq": hasCombo(slot, itemId, [[itemId]]) ? (parseInt(getAtributoBase("for") / 10) * 5) + (getItemRefino(slot) >= 7 ? 10 : 0) : 0
+        "atq": hasCombo(slot, itemId, tipoItem, [[itemId]]) ? (parseInt(getAtributoBase("for") / 10) * 5) + (getItemRefino(slot) >= 7 ? 10 : 0) : 0
       }
     }
   },
@@ -3192,9 +3192,9 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "atqm": hasCombo(slot, itemId, [[itemId]]) ? (parseInt(getAtributoBase("int") / 10) * 5) + (getItemRefino(slot) >= 7 ? 10 : 0) : 0
+        "atqm": hasCombo(slot, itemId, tipoItem, [[itemId]]) ? (parseInt(getAtributoBase("int") / 10) * 5) + (getItemRefino(slot) >= 7 ? 10 : 0) : 0
       }
     }
   },
@@ -3204,7 +3204,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 20
       }
@@ -3216,7 +3216,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 20
       }
@@ -3228,7 +3228,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5
       }
@@ -3240,7 +3240,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3
       }
@@ -3252,7 +3252,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 3,
         "atqarmap": 3
@@ -3265,7 +3265,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 6,
         "atqarmap": 6
@@ -3278,7 +3278,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 9,
         "atqarmap": 9
@@ -3291,7 +3291,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 12,
         "atqarmap": 12
@@ -3304,7 +3304,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 15,
         "atqarmap": 15
@@ -3317,7 +3317,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 18,
         "atqarmap": 18
@@ -3330,7 +3330,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 21,
         "atqarmap": 21
@@ -3343,7 +3343,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 24,
         "atqarmap": 24
@@ -3356,7 +3356,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 27,
         "atqarmap": 27
@@ -3369,7 +3369,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 30,
         "atqarmap": 33
@@ -3382,7 +3382,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 3,
         "conjuracaofixap": -0.1
@@ -3395,7 +3395,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 6,
         "conjuracaofixap": -0.2
@@ -3408,7 +3408,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 9,
         "conjuracaofixap": -0.3
@@ -3421,7 +3421,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 12,
         "conjuracaofixap": -0.4
@@ -3434,7 +3434,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 15,
         "conjuracaofixap": -0.5
@@ -3447,7 +3447,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 18,
         "conjuracaofixap": -0.6
@@ -3460,7 +3460,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 21,
         "conjuracaofixap": -0.7
@@ -3473,7 +3473,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 24,
         "conjuracaofixap": -0.8
@@ -3486,7 +3486,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 27,
         "conjuracaofixap": -0.9
@@ -3499,7 +3499,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_CFix"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danomagicop": 33,
         "conjuracaofixap": -1
@@ -3512,7 +3512,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 3,
         "danocritico": 10
@@ -3525,7 +3525,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 6,
         "danocritico": 20
@@ -3538,7 +3538,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 9,
         "danocritico": 30
@@ -3551,7 +3551,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 12,
         "danocritico": 40
@@ -3564,7 +3564,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 15,
         "danocritico": 50
@@ -3577,7 +3577,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 18,
         "danocritico": 60
@@ -3590,7 +3590,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 21,
         "danocritico": 70
@@ -3603,7 +3603,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 24,
         "danocritico": 80
@@ -3616,7 +3616,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 27,
         "danocritico": 90
@@ -3629,7 +3629,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCrit"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "crit": 33,
         "danocritico": 110
@@ -3642,7 +3642,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 1,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 4 : 0
@@ -3655,7 +3655,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 2,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 8 : 0
@@ -3668,7 +3668,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 3,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 12 : 0
@@ -3681,7 +3681,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 4,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 16 : 0
@@ -3694,7 +3694,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 5,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 20 : 0
@@ -3707,7 +3707,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 6,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 24 : 0
@@ -3720,7 +3720,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 7,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 28 : 0
@@ -3733,7 +3733,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 8,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 32 : 0
@@ -3746,7 +3746,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 9,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 36 : 0
@@ -3759,7 +3759,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_Aspd"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
         "danodistancia": isTipoArma("itemMaoDireita", ["Arma_Arco"]) ? 44 : 0
@@ -3772,7 +3772,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5
       }
@@ -3784,7 +3784,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 10
       }
@@ -3796,7 +3796,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 15
       }
@@ -3808,7 +3808,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 20
       }
@@ -3820,7 +3820,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 25
       }
@@ -3832,7 +3832,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 30
       }
@@ -3844,7 +3844,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 35
       }
@@ -3856,7 +3856,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 40
       }
@@ -3868,7 +3868,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 45
       }
@@ -3880,7 +3880,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_HP"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 55
       }
@@ -3892,7 +3892,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 5
       }
@@ -3904,7 +3904,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 10
       }
@@ -3916,7 +3916,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 15
       }
@@ -3928,7 +3928,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 20
       }
@@ -3940,7 +3940,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 25
       }
@@ -3952,7 +3952,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 30
       }
@@ -3964,7 +3964,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 35
       }
@@ -3976,7 +3976,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 40
       }
@@ -3988,7 +3988,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 45
       }
@@ -4000,7 +4000,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_Cura"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "efetividadecura": 55
       }
@@ -4012,7 +4012,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 1
       }
@@ -4024,7 +4024,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2
       }
@@ -4036,7 +4036,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 3
       }
@@ -4048,7 +4048,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 4
       }
@@ -4060,7 +4060,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 5
       }
@@ -4072,7 +4072,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 6
       }
@@ -4084,7 +4084,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 7
       }
@@ -4096,7 +4096,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 8
       }
@@ -4108,7 +4108,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 9
       }
@@ -4120,7 +4120,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_FOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10
       }
@@ -4132,7 +4132,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 1
       }
@@ -4144,7 +4144,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2
       }
@@ -4156,7 +4156,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 3
       }
@@ -4168,7 +4168,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 4
       }
@@ -4180,7 +4180,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 5
       }
@@ -4192,7 +4192,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 6
       }
@@ -4204,7 +4204,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 7
       }
@@ -4216,7 +4216,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 8
       }
@@ -4228,7 +4228,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 9
       }
@@ -4240,7 +4240,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_AGI"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 10
       }
@@ -4252,7 +4252,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 1
       }
@@ -4264,7 +4264,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 2
       }
@@ -4276,7 +4276,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 3
       }
@@ -4288,7 +4288,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 4
       }
@@ -4300,7 +4300,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 5
       }
@@ -4312,7 +4312,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 6
       }
@@ -4324,7 +4324,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 7
       }
@@ -4336,7 +4336,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 8
       }
@@ -4348,7 +4348,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 9
       }
@@ -4360,7 +4360,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_VIT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 10
       }
@@ -4372,7 +4372,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 1
       }
@@ -4384,7 +4384,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 2
       }
@@ -4396,7 +4396,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 3
       }
@@ -4408,7 +4408,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 4
       }
@@ -4420,7 +4420,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 5
       }
@@ -4432,7 +4432,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6
       }
@@ -4444,7 +4444,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 7
       }
@@ -4456,7 +4456,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 8
       }
@@ -4468,7 +4468,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 9
       }
@@ -4480,7 +4480,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_INT"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 3
       }
@@ -4492,7 +4492,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 1
       }
@@ -4504,7 +4504,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2
       }
@@ -4516,7 +4516,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 3
       }
@@ -4528,7 +4528,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 4
       }
@@ -4540,7 +4540,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 5
       }
@@ -4552,7 +4552,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 6
       }
@@ -4564,7 +4564,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 7
       }
@@ -4576,7 +4576,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 8
       }
@@ -4588,7 +4588,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 9
       }
@@ -4600,7 +4600,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_DES"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 10
       }
@@ -4612,7 +4612,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 1
       }
@@ -4624,7 +4624,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 2
       }
@@ -4636,7 +4636,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 3
       }
@@ -4648,7 +4648,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 4
       }
@@ -4660,7 +4660,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 5
       }
@@ -4672,7 +4672,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 6
       }
@@ -4684,7 +4684,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 7
       }
@@ -4696,7 +4696,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 8
       }
@@ -4708,7 +4708,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 9
       }
@@ -4720,7 +4720,7 @@ var cartas = [
     cartaSlot:   "encantamento",
     cartaClasses: ["todas"],
     itemBonus: ["REQ_SOR"],
-    itemFuncao: function(slot, itemId) {
+    itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 10
       }
