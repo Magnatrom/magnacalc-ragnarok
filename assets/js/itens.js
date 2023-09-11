@@ -83,6 +83,10 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Disparo_Triplo"],
     slots: 2,
+    bonusaleatorios: [
+      ["atq_5-60","crit_3-20","precisao_3-20","atqarmap_1-15","danofisicopropriedade_3-25"],
+      ["esquiva_5-45","aspdf_1-2","aspdp_3-20","danocritico_3-20","danodistancia_3-20","danofisicotamanho_3-20","danofisicoraca_3-20"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqm": 135,
@@ -7062,6 +7066,10 @@ var items = [
     itemPropriedade: 0,
     itemClasses: ["Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
+    bonusaleatorios: [
+      ["atq_5-60","crit_3-20","precisao_3-20","atqarmap_1-15","danofisicopropriedade_3-25"],
+      ["esquiva_5-45","aspdf_1-2","aspdp_3-20","danocritico_3-20","danodistancia_3-20","danofisicotamanho_3-20","danofisicoraca_3-20"]
+    ],
     slots: 2,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {

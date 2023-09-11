@@ -1056,6 +1056,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27361",
+    cartaNome:   "Carta Polluted Wander Man",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicotamanho": isOpponent("tamanhoMonstro",["1","2"]) ? 30 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4337",
     cartaNome:   "Carta Porcellio",
     cartaSlot:   "itemArmadura",
