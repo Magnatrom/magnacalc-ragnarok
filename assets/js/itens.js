@@ -5262,7 +5262,8 @@ var items = [
         "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-15) : 0),
         "danomelee": (getItemRefino(slot) >= 9 ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["18178"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
-        "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + isOpponent("tamanhoMonstro", ["2"]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0,
+        "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + (isOpponent("tamanhoMonstro", ["2"]) && hasCombo(slot, itemId, tipoItem, [["21047"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
+        "danomagicotamanho": (isOpponent("tamanhoMonstro", ["2"]) && hasCombo(slot, itemId, tipoItem, [["21047"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
         "danode--Laminas_de_Loki": (hasCombo(slot, itemId, tipoItem, [["28038"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0),
         "crit": (hasCombo(slot, itemId, tipoItem, [["21047"]]) ? 10 : 0),
         "danode--Explosao_Solar": (hasCombo(slot, itemId, tipoItem, [["28629"]]) ? (parseInt(getItemRefino(slot) / 2) * 4) : 0)
