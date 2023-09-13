@@ -4738,4 +4738,229 @@ var cartas = [
       }
     }
   },
+  {
+    cartaID:     "29531",
+    cartaNome:   "S-HPMax",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_HP"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 5,
+        "hpf": (getItemRefino(slot) >= 7 ? 500 : 0) + (getItemRefino(slot) >= 9 ? 750 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29530",
+    cartaNome:   "S-SPMax",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_SP"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "spp": 5,
+        "spf": (getItemRefino(slot) >= 7 ? 100 : 0) + (getItemRefino(slot) >= 9 ? 150 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29533",
+    cartaNome:   "S-Cura",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Cura"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "efetividadecura": 5 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 5 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29534",
+    cartaNome:   "S-ATQ",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 5,
+        "atq": (getItemRefino(slot) >= 7 ? 25 : 0) + (getItemRefino(slot) >= 9 ? 25 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29535",
+    cartaNome:   "S-ATQM",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DMagico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danomagicop": 5,
+        "atqm": (getItemRefino(slot) >= 7 ? 25 : 0) + (getItemRefino(slot) >= 9 ? 25 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29536",
+    cartaNome:   "S-Tiro",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DDist"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danodistancia": 3 + (getItemRefino(slot) >= 7 ? 2 : 0) + (getItemRefino(slot) >= 9 ? 2 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29537",
+    cartaNome:   "S-Rapidez",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Aspd"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "aspdf": 1,
+        "aspdp": (getItemRefino(slot) >= 7 ? 3 : 0) + (getItemRefino(slot) >= 9 ? 3 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29538",
+    cartaNome:   "S-Magia",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_CVar"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "conjuracaovariavel": (-5) + (getItemRefino(slot) >= 7 ? (-3) : 0) + (getItemRefino(slot) >= 9 ? (-3) : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29539",
+    cartaNome:   "S-CRIT",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DCrit","REQ_TCrit"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "crit": 10,
+        "danocritico": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 5 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29540",
+    cartaNome:   "U-Pós",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Pos"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": (-5) + (getItemRefino(slot) >= 7 ? (-5) : 0) + (getItemRefino(slot) >= 9 ? (-5) : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29541",
+    cartaNome:   "U-Fixa",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_CFix"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": (-0.3) + (getItemRefino(slot) >= 7 ? (-0.2) : 0) + (getItemRefino(slot) >= 9 ? (-0.2) : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29550",
+    cartaNome:   "L-Superpoder - Ativo",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributoforca": 50,
+        "atqarmap": 15,
+        "danomagicop": -15
+      }
+    }
+  },
+  {
+    cartaID:     "29551",
+    cartaNome:   "L-Lampejo - Ativo",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_AGI","REQ_DCrit"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributoagilidade": 50,
+        "danocritico": 10
+      }
+    }
+  },
+  {
+    cartaID:     "29547",
+    cartaNome:   "L-Eternidade - Ativo",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_VIT"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributovitalidade": 50
+      }
+    }
+  },
+  {
+    cartaID:     "29548",
+    cartaNome:   "L-Sortilégio - Ativo",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DMagico","REQ_INT"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributointeligencia": 50,
+        "danomagicop": 15,
+        "atqarmap": -15
+      }
+    }
+  },
+  {
+    cartaID:     "29549",
+    cartaNome:   "L-Astúcia - Ativo",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DES","REQ_DDist"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributodestreza": 50,
+        "danodistancia": 10
+      }
+    }
+  },
+  {
+    cartaID:     "29552",
+    cartaNome:   "L-Fortuna - Ativo",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_SOR","REQ_DMagico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributosorte": 50,
+        "danomagiconeutro": 10,
+        "danomagicofogo": 10,
+        "danomagicovento": 10,
+        "danomagicoterra": 10,
+        "danomagicoagua": 10,
+        "danomagicosagrado": 10,
+        "danomagicosombrio": 10,
+        "danomagicoveneno": 10,
+        "danomagicofantasma": 10
+      }
+    }
+  },
 ];

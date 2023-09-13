@@ -241,7 +241,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((1100) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos","REQ_Precisao"]
       },
       {
         id: "Acerto_de_Contas--2",
@@ -262,7 +262,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((1200 + (prop.atributoagilidade * 2)) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos","REQ_Precisao"]
       },
       {
         id: "Copia_Explosiva--1",

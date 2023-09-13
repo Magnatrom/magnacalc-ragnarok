@@ -3830,6 +3830,48 @@ var items = [
     }
   },
   {
+    itemId:     "15376",
+    itemNome:   "Colete Ilusión A [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_Aspd"],
+    slots: 1,
+    encantamentos: [
+      ["29534","29535","29536","29540"],
+      ["29534","29535","29536","29540"],
+      ["29534","29535","29536","29540"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 100 + (parseInt(getItemRefino(slot) / 2) * 10) + (hasCombo(slot, itemId, tipoItem, [["20933"]]) ? 50 : 0),
+        "aspdp": (getItemRefino(slot) >= 7 ? 10 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["20934"]]) ? (-10) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "15377",
+    itemNome:   "Colete Ilusión B [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DMagico","REQ_Aspd"],
+    slots: 1,
+    encantamentos: [
+      ["29534","29535","29536","29540"],
+      ["29534","29535","29536","29540"],
+      ["29534","29535","29536","29540"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqm": 100 + (parseInt(getItemRefino(slot) / 2) * 10) + (hasCombo(slot, itemId, tipoItem, [["20934"]]) ? 50 : 0),
+        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-10) : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["20933"]]) ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "1846",
     itemNome:   "Combo Ilusional [2]",
     itemTipo:   "itemArma",
@@ -7057,6 +7099,59 @@ var items = [
     }
   },
   {
+    itemId:     "20933",
+    itemNome:   "Motor Ilusión A [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["29537","29538","29539"],
+      ["29537","29538","29539"],
+      ["29537","29538","29539"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": 1000 + (parseInt(getItemRefino(slot) / 2) * 100),
+        "aspdp": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danocritico": (hasCombo(slot, itemId, tipoItem, [["22196"]]) ? 10 : 0),
+        "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? (-10) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "20934",
+    itemNome:   "Motor Ilusión B [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["29537","29538","29539"],
+      ["29537","29538","29539"],
+      ["29537","29538","29539"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": 1000 + (parseInt(getItemRefino(slot) / 2) * 100),
+        "conjuracaovariavel": (getItemRefino(slot) >= 7 ? (-5) : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["22196"]]) ? 5 : 0),
+        "danomagiconeutro": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagiconeutro": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicofogo": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicovento": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicoterra": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicoagua": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicosagrado": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicosombrio": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicoveneno": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0),
+        "danomagicofantasma": (hasCombo(slot, itemId, tipoItem, [["22197"]]) ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "18179",
     itemNome:   "MH-P89-OS [2]",
     itemTipo:   "itemArma",
@@ -7437,6 +7532,58 @@ var items = [
       return {
         "hpp": 5 + (parseInt(getItemRefino(slot) / 3) * 3) + (getNivelBase() >= 130 ? 4 : 0),
         "spp": 5 + (parseInt(getItemRefino(slot) / 3) * 3) + (getNivelBase() >= 130 ? 4 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "22196",
+    itemNome:   "Perna Ilusión A [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  150,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_SP","REQ_CFix","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["29531","29530","29533","29541","29550","29551","29547","29548","29549","29552"],
+      ["29531","29530","29533","29541","29550","29551","29547","29548","29549","29552"],
+      ["29531","29530","29533","29541","29550","29551","29547","29548","29549","29552"],
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "spf": 200 + (parseInt(getItemRefino(slot) / 2) * 20),
+        "danodistancia": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "atqarmap": (hasCombo(slot, itemId, tipoItem, [["15376"]]) ? 5 : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["15377"]]) ? 5 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "22197",
+    itemNome:   "Perna Ilusión B [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  150,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_SP","REQ_CFix","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["29531","29530","29533","29541","29550","29551","29547","29548","29549","29552"],
+      ["29531","29530","29533","29541","29550","29551","29547","29548","29549","29552"],
+      ["29531","29530","29533","29541","29550","29551","29547","29548","29549","29552"],
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "spf": 200 + (parseInt(getItemRefino(slot) / 2) * 20),
+        "danomagiconeutro": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicofogo": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicovento": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicoterra": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicoagua": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicosagrado": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicosombrio": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicoveneno": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "danomagicofantasma": (getItemRefino(slot) >= 7 ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["15376"]]) ? 5 : 0),
+        "danomagicop": (hasCombo(slot, itemId, tipoItem, [["15377"]]) ? 5 : 0)
       }
     }
   },
@@ -8265,6 +8412,44 @@ var items = [
     }
   },
   {
+    itemId:     "32209",
+    itemNome:   "Soquete Ilusión A-D [1]",
+    itemTipo:   "itemAcessorioD",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["4702","4732","4742","4752","4826","4881","4866","4836"],
+      ["4702","4732","4742","4752","4826","4881","4866","4836"],
+      ["4702","4732","4742","4752","4826","4881","4866","4836"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danomagicop": 5
+      }
+    }
+  },
+  {
+    itemId:     "32210",
+    itemNome:   "Soquete Ilusión B-E [1]",
+    itemTipo:   "itemAcessorioE",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["4742","4712","4722","4752","4826","4881","4866","4836"],
+      ["4742","4712","4722","4752","4826","4881","4866","4836"],
+      ["4742","4712","4722","4752","4826","4881","4866","4836"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danomagicop": 5
+      }
+    }
+  },
+  {
     itemId:     "1935",
     itemNome:   "Ukulele do Novo Oz [2]",
     itemTipo:   "itemArma",
@@ -8445,6 +8630,44 @@ var items = [
         "danode--Tempestade_de_Flechas": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino(slot) * 5) : 0),
         "danode--Temporal_de_Mil_Flechas": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino(slot) * 5) : 0),
         "aspdf": ((hasCombo(slot, itemId, tipoItem, [["1730"],["1752"]]) || hasCombo(slot, itemId, tipoItem, [["1731"],["1754"]]) || hasCombo(slot, itemId, tipoItem, [["1732"],["1756"]]) || hasCombo(slot, itemId, tipoItem, [["1733"],["1755"]])) ? (getItemRefino("itemMaoDireita") >= 10 ? 1 : 0) : 0),
+      }
+    }
+  },
+  {
+    itemId:     "32207",
+    itemNome:   "Turbina Ilusión A-D [1]",
+    itemTipo:   "itemAcessorioD",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    encantamentos: [
+      ["4702","4732","4742","4752","4826","4881","4866","4836"],
+      ["4702","4732","4742","4752","4826","4881","4866","4836"],
+      ["4702","4732","4742","4752","4826","4881","4866","4836"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 5
+      }
+    }
+  },
+  {
+    itemId:     "32208",
+    itemNome:   "Turbina Ilusión B-E [1]",
+    itemTipo:   "itemAcessorioE",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    encantamentos: [
+      ["4742","4712","4722","4752","4826","4881","4866","4836"],
+      ["4742","4712","4722","4752","4826","4881","4866","4836"],
+      ["4742","4712","4722","4752","4826","4881","4866","4836"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 5
       }
     }
   },
