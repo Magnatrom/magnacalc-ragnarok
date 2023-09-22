@@ -770,7 +770,7 @@ var classes = [
     ]
   },
   {
-    classeID: "Classe_SU",
+    classeID: "Classe_SH",
     classeNome: "Shura",
     classeTipo: "ClasseT3",
     transclasse: true,

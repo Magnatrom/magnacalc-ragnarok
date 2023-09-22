@@ -2313,7 +2313,7 @@ var items = [
     itemNome:   "Botas Temporais AGI",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar"],
     slots: 0,
     encantamentos: [
@@ -2336,7 +2336,7 @@ var items = [
     itemNome:   "Botas Temporais AGI [1]",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar"],
     slots: 1,
     encantamentos: [
@@ -2407,7 +2407,7 @@ var items = [
     itemNome:   "Botas Temporais DES",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_CFix"],
     slots: 0,
     encantamentos: [
@@ -2431,7 +2431,7 @@ var items = [
     itemNome:   "Botas Temporais DES [1]",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_CFix"],
     slots: 1,
     encantamentos: [
@@ -2499,7 +2499,7 @@ var items = [
     itemNome:   "Botas Temporais FOR",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar"],
     slots: 0,
     encantamentos: [
@@ -2521,7 +2521,7 @@ var items = [
     itemNome:   "Botas Temporais FOR [1]",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar"],
     slots: 1,
     encantamentos: [
@@ -2587,7 +2587,7 @@ var items = [
     itemNome:   "Botas Temporais INT",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar"],
     slots: 0,
     encantamentos: [
@@ -2609,7 +2609,7 @@ var items = [
     itemNome:   "Botas Temporais INT [1]",
     itemTipo:   "itemSapatos",
     itemNivel:  99,
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar"],
     slots: 1,
     encantamentos: [
@@ -2679,7 +2679,7 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
@@ -2701,7 +2701,7 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_DCrit"],
     slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
@@ -2765,7 +2765,7 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_HP"],
     slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
@@ -2786,7 +2786,7 @@ var items = [
       ["4808","4820","4821","4822","4832","4833","4834","4835","4814","4813","4812","4826","4741","4742","4861","4862","4869","4872","4873","4881","4752","4753","4754","4755"],
       ["4875","4875a","4877","4877a","4878","4878a","4876","4876a","4879","4879a","4880","4880a"]
     ],
-    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SU","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
+    itemClasses: ["Classe_SC","Classe_GX","Classe_AB","Classe_SH","Classe_WL","Classe_SO","Classe_RK","Classe_RG","Classe_ME","Classe_BI","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_DMagico","REQ_CVar","REQ_HP"],
     slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
@@ -4689,8 +4689,8 @@ var items = [
         "hpf": (getItemRefino(slot) * 10),
         "atributovitalidade": 1,
         "aspdf": isClasse(["Classe_LO","Classe_PA","Classe_SX","Classe_ST","Classe_TA","Classe_MT","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_GX","Classe_GX_NT","Classe_SC","Classe_SC_NT"]) ? 1 : 0,
-        "spp": isClasse(["Classe_AQ","Classe_PR","Classe_SU","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? 2 : 0,
-        "efetividadecura": isClasse(["Classe_AQ","Classe_PR","Classe_SU","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? 2 : 0,
+        "spp": isClasse(["Classe_AQ","Classe_PR","Classe_SH","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? 2 : 0,
+        "efetividadecura": isClasse(["Classe_AQ","Classe_PR","Classe_SH","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? 2 : 0,
         "esquiva": isClasse(["Classe_CR","Classe_MF","Classe_SN","Classe_MI","Classe_GY","Classe_JU","Classe_BI","Classe_BI_NT","Classe_MC","Classe_MC_NT","Classe_SE","Classe_SE_NT","Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT","Classe_IN"]) ? 15 : 0,
         "spf": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? 300 : 0,
         "conjuracaovariavel": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? (-5) : 0
@@ -6430,9 +6430,9 @@ var items = [
         "precisao": (getItemRefino(slot) * 1),
         "atq": isClasse(["Classe_LO","Classe_PA","Classe_SX","Classe_ST","Classe_TA","Classe_MT","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_GX","Classe_GX_NT","Classe_SC","Classe_SC_NT"]) ? (15 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 15 : 0)) : 0,
         "aspdf": isClasse(["Classe_LO","Classe_PA","Classe_SX","Classe_ST","Classe_TA","Classe_MT","Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_GX","Classe_GX_NT","Classe_SC","Classe_SC_NT"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 1 : 0)) : 0,
-        "atqm": isClasse(["Classe_AQ","Classe_PR","Classe_SU","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? (15 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 15 : 0)) : 0,
-        "spp": isClasse(["Classe_AQ","Classe_PR","Classe_SU","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 2 : 0)) : 0,
-        "efetividadecura": isClasse(["Classe_AQ","Classe_PR","Classe_SU","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 3 : 0)) : 0,
+        "atqm": isClasse(["Classe_AQ","Classe_PR","Classe_SH","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? (15 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 15 : 0)) : 0,
+        "spp": isClasse(["Classe_AQ","Classe_PR","Classe_SH","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 2 : 0)) : 0,
+        "efetividadecura": isClasse(["Classe_AQ","Classe_PR","Classe_SH","Classe_MS","Classe_NI","Classe_ES","Classe_AR","Classe_AR_NT","Classe_FE","Classe_FE_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT","Classe_OB","Classe_KA"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 3 : 0)) : 0,
         "danodistancia": isClasse(["Classe_CR","Classe_MF","Classe_SN","Classe_MI","Classe_GY","Classe_JU","Classe_BI","Classe_BI_NT","Classe_MC","Classe_MC_NT","Classe_SE","Classe_SE_NT","Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT","Classe_IN"]) ? (3 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 3 : 0)) : 0,
         "esquiva": isClasse(["Classe_CR","Classe_MF","Classe_SN","Classe_MI","Classe_GY","Classe_JU","Classe_BI","Classe_BI_NT","Classe_MC","Classe_MC_NT","Classe_SE","Classe_SE_NT","Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT","Classe_IN"]) ? ((getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 15 : 0)) : 0,
         "hpf": isClasse(["Classe_AP","Classe_SA","Classe_DO"]) ? (1000 + (getItemRefino(slot) + getItemRefino("itemEscudoSombrio") >= 17 ? 1000 : 0)) : 0,
