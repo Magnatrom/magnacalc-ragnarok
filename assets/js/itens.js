@@ -606,6 +606,26 @@ var items = [
     }
   },
   {
+    itemId:     "490145",
+    itemNome:   "Anel dos Confiantes [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  99,
+    itemClasses: ["Classe_SE","Classe_SE_NT","Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Pos","REQ_Tempestade_de_Flechas","REQ_Disparo_Certeiro"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributodestreza": 7,
+        "danofisicop": 10,
+        "danode--Tempestade_de_Flechas": parseInt(getNivelBase() / 10),
+        "danode--Disparo_Certeiro": parseInt(getNivelBase() / 10),
+        "posconjuracao": isClasse(["Classe_SE","Classe_SE_NT"]) ? (-20) : 0,
+        "danofisicochefe": isClasse(["Classe_SE","Classe_SE_NT"]) ? 15 : 0,
+        "precisaoperfeita": isClasse(["Classe_SE","Classe_SE_NT"]) ? 15 : 0,
+      }
+    }
+  },
+  {
     itemId:     "28561",
     itemNome:   "Anel Dracônico do Veterano [1]",
     itemTipo:   "itemAcessorio",
@@ -4713,17 +4733,16 @@ var items = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
-        "danode--Aegis_Inferi": 20 + (getItemRefino(slot) * 5),
-        "hpp": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
-        "spp": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 5 : 0),
-        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
-        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) && !isOpponentChefe() ? 50 : 0),
-        "atributoforca": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, tipoItem, [["24246"],["24250"],["24257"],["24289"],["24270"]]) ? 10 : 0
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 5 : 0),
+        "spp": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 5 : 0),
+        "ignoredef": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) && !isOpponentChefe() ? 50 : 0),
+        "ignoredefm": (hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) && !isOpponentChefe() ? 50 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0
       }
     }
   },
@@ -5241,6 +5260,22 @@ var items = [
       return {
         "hpf": (getItemRefino(slot) * 10),
         "atq": 10 + Math.max(((getItemRefino(slot) - 6) * 10), 0)
+      }
+    }
+  },
+  {
+    itemId:     "24266",
+    itemNome:   "Greva Sombria de Caçador",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_SE","Classe_SE_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Assalto_do_Falcao": 20 + (getItemRefino(slot) * 5),
+        "danode--Ataque_Aereo": 20 + (getItemRefino(slot) * 5)
       }
     }
   },
@@ -6191,6 +6226,23 @@ var items = [
     }
   },
   {
+    itemId:     "24298",
+    itemNome:   "Luva Sombria de Sentinela",
+    itemTipo:   "itemLuvaSombria",
+    itemNivel:  99,
+    itemClasses: ["Classe_SE","Classe_SE_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": getItemRefino(slot),
+        "atqm": getItemRefino(slot),
+        "danode--Bomba_Relogio": 20 + (getItemRefino(slot) * 5) + (hasCombo(slot, itemId, tipoItem, [["24311"]]) ? 20 : 0),
+        "danode--Disparo_Certeiro": hasCombo(slot, itemId, tipoItem, [["24311"]]) ? 20 : 0
+      }
+    }
+  },
+  {
     itemId:     "24299",
     itemNome:   "Luva Sombria de Trovador",
     itemTipo:   "itemLuvaSombria",
@@ -6432,6 +6484,22 @@ var items = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
+      }
+    }
+  },
+  {
+    itemId:     "24279",
+    itemNome:   "Malha Sombria de Caçador",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["Classe_SE","Classe_SE_NT"],
+    itemBonus: ["REQ_HP","REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danode--Armadilha_Explosiva": 20 + (getItemRefino(slot) * 5),
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["24266"]]) ? 3 : 0
       }
     }
   },
