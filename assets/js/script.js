@@ -824,15 +824,16 @@ function calcular() {
   if(hasBuff("29a")) {  bonusConsolidados.atributoagilidade += 12; } // Aumentar Agilidade nv10
   if(hasBuff("34b") && !hasBuff("34a")) {  bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributoforca += 5; } // Bênção nv5
   if(hasBuff("34a")) {  bonusConsolidados.atributodestreza += 10; bonusConsolidados.atributointeligencia += 10; bonusConsolidados.atributoforca += 10; } // Bênção nv10
-  if(hasBuff("45b") && !hasBuff("45a")) { // Visão Real nv.5
+  if(hasBuff("45b") && !hasBuff("45a")) { // Concentração nv.5
     bonusConsolidados.atributoagilidade += parseInt((getAtributoBase("agi") + classeAtual.bonusClasse.agi[nivelClasse]) * 0.07);
     bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.07);
   }
-  if(hasBuff("45a")) { // Visão Real nv.10
+  if(hasBuff("45a")) { // Concentração nv.10
     bonusConsolidados.atributoagilidade += parseInt((getAtributoBase("agi") + classeAtual.bonusClasse.agi[nivelClasse]) * 0.12);
     bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.12);
   }
-  if(hasBuff("380b") && !hasBuff("380a")) { bonusConsolidados.atributoforca += 5; bonusConsolidados.atributoagilidade += 5; bonusConsolidados.atributovitalidade += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributosorte += 5; }
+  if(hasBuff("380a") || hasBuff("380b")) { bonusConsolidados.atributoforca += 5; bonusConsolidados.atributoagilidade += 5; bonusConsolidados.atributovitalidade += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributosorte += 5; } // Visão Real
+  if(hasBuff("43")) { bonusConsolidados.atributodestreza += 10; } // Olhos de Coruja
 
 
   if(hasBuff("258") && isTipoArma("itemMaoDireita", ["Arma_Lanca1"])) {
@@ -984,8 +985,8 @@ function calcular() {
   if(hasBuff("113") && !hasBuff("486")) { damageModifier += 25; } // Força Violenta
   if(hasBuff("486")) { damageModifier += 100; } // Força Violentíssima
   if(hasBuff("359") && (buildAtual.ataque.tipoAtaque == "basico" || buildAtual.ataque.tipoAtaque == "basicocritico")) { damageModifier += 200; } // Frenesi
-  if(hasBuff("45b") && !hasBuff("45a")) { damageModifier += 10; } // Visão Real nv.5
-  if(hasBuff("45a")) { damageModifier += 20; } // Visão Real nv.5
+  if(hasBuff("380b") && !hasBuff("380a")) { damageModifier += 10; } // Visão Real nv.5
+  if(hasBuff("380a")) { damageModifier += 20; } // Visão Real nv.5
   damageModifier = damageModifier / skillFormula;
 
   // Calculo defesa leve do monstro

@@ -280,7 +280,7 @@ let buffs = [
         skillID: 43,
         skillName: "Olhos de Coruja",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: "45a",
