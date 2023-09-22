@@ -151,7 +151,7 @@ function getClasses() {
   var isDisabled = "";
   classes.forEach(function(item, index) {
     tempBuilds = getBuilds(item.classeID);
-    isDisabled = tempBuilds.length == 0 ? "disabled" : "";
+    isDisabled = tempBuilds.length == 0 ? "style='display:none'" : "";
     if(item.classeTipo == "ClasseT3") {
       $("#classePersonagem").append("<option value='" + (item.classeID) + "' " + isDisabled + ">" + (item.classeNome) + " (trans)</option>");
     }
@@ -159,7 +159,7 @@ function getClasses() {
   $("#classePersonagem").append("<option disabled>## Classe 3 não-transcendida ##</option>");
   classes.forEach(function(item, index) {
     tempBuilds = getBuilds(item.classeID);
-    isDisabled = tempBuilds.length == 0 ? "disabled" : "";
+    isDisabled = tempBuilds.length == 0 ? "style='display:none'" : "";
     if(item.classeTipo == "Classe3") {
       $("#classePersonagem").append("<option value='" + (item.classeID) + "' " + isDisabled + ">" + (item.classeNome) + " (não-trans)</option>");
     }
@@ -167,7 +167,7 @@ function getClasses() {
   $("#classePersonagem").append("<option disabled>## Classe expandida 2 ##</option>");
   classes.forEach(function(item, index) {
     tempBuilds = getBuilds(item.classeID);
-    isDisabled = tempBuilds.length == 0 ? "disabled" : "";
+    isDisabled = tempBuilds.length == 0 ? "style='display:none'" : "";
     if(item.classeTipo == "ClasseExp2") {
       $("#classePersonagem").append("<option value='" + (item.classeID) + "' " + isDisabled + ">" + (item.classeNome) + "</option>");
     }
@@ -175,7 +175,7 @@ function getClasses() {
   $("#classePersonagem").append("<option disabled>## Doram ##</option>");
   classes.forEach(function(item, index) {
     tempBuilds = getBuilds(item.classeID);
-    isDisabled = tempBuilds.length == 0 ? "disabled" : "";
+    isDisabled = tempBuilds.length == 0 ? "style='display:none'" : "";
     if(item.classeTipo == "Doram") {
       $("#classePersonagem").append("<option value='" + (item.classeID) + "' " + isDisabled + ">" + (item.classeNome) + "</option>");
     }
@@ -735,6 +735,10 @@ function getSkillFormula(prop, base, classe, tipoArma) {
   return formula
 }
 
+function getGolpes(prop, base, classe, tipoArma) {
+  return buildAtual.golpes(prop, base, classe, tipoArma)
+}
+
 function getBonusPercentage(bonus = 0) {
   return ROUNDDOWN(bonus / 100, 5);
 }
@@ -855,6 +859,7 @@ function calcular() {
   let itemArmaAtual = filterItemById($("#itemMaoDireita select.equipamento").val());
 
   let skillFormula = getSkillFormula(bonusConsolidados, getNivelBase(), getNivelClasse(), itemArmaAtual ? itemArmaAtual.itemSubtipo : "");
+  let golpes = getGolpes(bonusConsolidados, getNivelBase(), getNivelClasse(), itemArmaAtual ? itemArmaAtual.itemSubtipo : "");
   console.log("Formula: ", skillFormula);
 
   let nivelMonstro = parseInt($("#nivelMonstro").val()) || 1;
@@ -957,7 +962,7 @@ function calcular() {
   atqGroupAMin = parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt((weaponAtqMin) * (1 + getBonusPercentage(bonusConsolidados.danofisicotamanho))) * (1 + getBonusPercentage(bonusConsolidados.atqarmap))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoraca))) * (1 + getBonusPercentage(bonusConsolidados.danofisicopropriedade))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoalvo))) * (1 + getBonusPercentage(bonusConsolidados.danofisicop))) * vantagemElemento);
   atqGroupAMax = parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt((weaponAtqMax) * (1 + getBonusPercentage(bonusConsolidados.danofisicotamanho))) * (1 + getBonusPercentage(bonusConsolidados.atqarmap))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoraca))) * (1 + getBonusPercentage(bonusConsolidados.danofisicopropriedade))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoalvo))) * (1 + getBonusPercentage(bonusConsolidados.danofisicop))) * vantagemElemento);
 
-  atqGroupB = parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt((extraAtq) * (1 + getBonusPercentage(bonusConsolidados.danofisicotamanho))) * (1 + getBonusPercentage(bonusConsolidados.atqarmap))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoraca))) * (1 + getBonusPercentage(bonusConsolidados.danofisicopropriedade))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoalvo))) * (1 + getBonusPercentage(bonusConsolidados.danofisicop))) * vantagemElemento);
+  atqGroupB = parseInt(parseInt(parseInt(parseInt(parseInt(parseInt((extraAtq) * (1 + getBonusPercentage(bonusConsolidados.danofisicotamanho))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoraca))) * (1 + getBonusPercentage(bonusConsolidados.danofisicopropriedade))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoalvo))) * (1 + getBonusPercentage(bonusConsolidados.danofisicop))) * vantagemElemento);
 
   // atqGroupB = parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt((extraAtq) * (1 + getBonusPercentage(bonusConsolidados.danofisicotamanho))) * (1 + getBonusPercentage(bonusConsolidados.atqarmap))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoraca))) * (1 + getBonusPercentage(bonusConsolidados.danofisicopropriedade))) * (1 + getBonusPercentage(bonusConsolidados.danofisicoalvo))) * (1 + getBonusPercentage(bonusConsolidados.danofisicop))) * vantagemElemento);
 
@@ -998,8 +1003,9 @@ function calcular() {
   if(hasBuff("78")) { multiplicadorFinal1 += 1; } // Lex Aeterna
   if(hasBuff("5001") && buildAtual.ataque.distancia == "curta") { multiplicadorFinal2 += 1.5; } // Garra Sombria
 
-  let finalMin = (parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(atqTotalMin * reducaoDefesaFisicaPesadaMonstro) * skillModifier) - reducaoDefesaFisicaLeveMonstro) * skillBonus) * distanceModifier) * damageModifier) * modificadorCritBonus) * modificadorCritBase) * multiplicadorFinal1) * multiplicadorFinal2) * buildAtual.ataque.golpes);
-  let finalMax = (parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(atqTotalMax * reducaoDefesaFisicaPesadaMonstro) * skillModifier) - reducaoDefesaFisicaLeveMonstro) * skillBonus) * distanceModifier) * damageModifier) * modificadorCritBonus) * modificadorCritBase) * multiplicadorFinal1) * multiplicadorFinal2) * buildAtual.ataque.golpes);
+  console.log("Golpes: ", golpes)
+  let finalMin = (parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(atqTotalMin * reducaoDefesaFisicaPesadaMonstro) * skillModifier) - reducaoDefesaFisicaLeveMonstro) * skillBonus) * distanceModifier) * damageModifier) * modificadorCritBonus) * modificadorCritBase) * multiplicadorFinal1) * multiplicadorFinal2) * golpes[0]);
+  let finalMax = (parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(parseInt(atqTotalMax * reducaoDefesaFisicaPesadaMonstro) * skillModifier) - reducaoDefesaFisicaLeveMonstro) * skillBonus) * distanceModifier) * damageModifier) * modificadorCritBonus) * modificadorCritBase) * multiplicadorFinal1) * multiplicadorFinal2) * golpes[1]);
 
   if($("#auraverde").prop("checked")) {
     finalMin = parseInt(finalMin / 10);
@@ -1054,6 +1060,13 @@ function calcular() {
       &&
       (isTipoArma("itemMaoDireita", ["Arma_Adaga"]) || itemHabilitaAtaqueDuplo)
     ) { modificadorDPS *= 1.5; } // Ataque Duplo
+    if(
+      hasBuff("2234")
+      &&
+      (buildAtual.ataque.tipoAtaque == "basico" || buildAtual.ataque.tipoAtaque == "basicocritico")
+      &&
+      isTipoArma("itemMaoDireita", ["Arma_Arco"])
+    ) { modificadorDPS *= 1.6; } // Ataque Duplo
 
   let danoPorSegundo = (((finalMin + finalMax) / 2) * golpesPorSegundo) * modificadorDPS;
   if(!hasBuff("78")) {

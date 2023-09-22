@@ -46,8 +46,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
@@ -67,8 +69,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
@@ -88,8 +92,10 @@ var classes = [
           conjuracaovariavel: 0.5,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((300 + (prop.atributoagilidade * 5)) * (nivelBase / 120))
@@ -109,8 +115,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.35,
-          recarga: 0.2,
-          golpes: 1
+          recarga: 0.2
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((2300 + (prop.atributoagilidade * 3)) * (nivelBase / 100))
@@ -130,8 +138,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.1,
-          recarga: 0,
-          golpes: 2
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [2, 2]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 190
@@ -151,8 +161,10 @@ var classes = [
           conjuracaovariavel: 0.35,
           conjuracaofixa: 0.35,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 2
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [2, 2]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 500
@@ -172,8 +184,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 700
@@ -193,8 +207,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((400 + prop.atributoagilidade) * (nivelBase / 100))
@@ -214,8 +230,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((1000 + prop.atributoagilidade) * (nivelBase / 100))
@@ -235,11 +253,13 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [(tipoArma == "Arma_Adaga" ? 2 : 1), (tipoArma == "Arma_Adaga" ? 2 : 1)]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return parseInt((1100) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
+          return parseInt((1100) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos","REQ_Precisao"]
       },
@@ -256,11 +276,13 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [(tipoArma == "Arma_Adaga" ? 2 : 1), (tipoArma == "Arma_Adaga" ? 2 : 1)]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return parseInt((1200 + (prop.atributoagilidade * 2)) * (nivelBase / 100)) * (tipoArma == "Arma_Adaga" ? 2 : 1)
+          return (1200 + (prop.atributoagilidade * 2))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos","REQ_Precisao"]
       },
@@ -277,8 +299,10 @@ var classes = [
           conjuracaovariavel: 1,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 5,
-          golpes: 1
+          recarga: 5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((prop.atributodestreza * 2) * parseInt(nivelClasse / 10) * parseInt(nivelBase / 120))
@@ -298,8 +322,10 @@ var classes = [
           conjuracaovariavel: 1,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 5,
-          golpes: 1
+          recarga: 5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (11 * parseInt(prop.atributodestreza / 2) * parseInt(nivelClasse / 10) * parseInt(nivelBase / 120))
@@ -355,8 +381,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
@@ -376,8 +404,10 @@ var classes = [
           conjuracaovariavel: 0.5,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((300 + (prop.atributoagilidade * 5)) * (nivelBase / 120))
@@ -397,8 +427,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.35,
-          recarga: 0.2,
-          golpes: 1
+          recarga: 0.2
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return ((2300 + (prop.atributoagilidade * 3)) * (nivelBase / 100))
@@ -418,8 +450,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.1,
-          recarga: 0,
-          golpes: 2
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 190
@@ -439,8 +473,10 @@ var classes = [
           conjuracaovariavel: 0.35,
           conjuracaofixa: 0.35,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 2
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [2, 2]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 500
@@ -460,8 +496,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 700
@@ -531,8 +569,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
@@ -552,8 +592,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 100
@@ -573,8 +615,10 @@ var classes = [
           conjuracaovariavel: 0.25,
           conjuracaofixa: 0.25,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 440
@@ -594,8 +638,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.2,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt(300 * (nivelBase / 100))
@@ -710,8 +756,10 @@ var classes = [
           conjuracaovariavel: 1,
           conjuracaofixa: 0,
           posconjuracao: 1,
-          recarga: 3,
-          golpes: 1
+          recarga: 3
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           prop.pesoEscudo = prop.pesoEscudo ? prop.pesoEscudo : 0;
@@ -768,8 +816,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((400 + prop.atributoagilidade) * (nivelBase / 100))
@@ -789,8 +839,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0.5,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((1000 + prop.atributoagilidade) * (nivelBase / 100))
@@ -881,8 +933,10 @@ var classes = [
           conjuracaovariavel: 0,
           conjuracaofixa: 0,
           posconjuracao: 0,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 600
@@ -935,6 +989,14 @@ var classes = [
     classeNome: "Sentinela",
     classeTipo: "ClasseT3",
     transclasse: true,
+    bonusClasse: {
+      for: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+      agi: [0,0,0,0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,6,6,7,7,7,7,7,8,8,8,8,8,9,9,9,9,9,10],
+      vit: [0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6],
+      int: [0,0,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,6,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,9,9,9,9,9,9,9],
+      des: [0,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,8,8],
+      sor: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2]
+    },
     classeAspdBase: 156,
     classePenEscudo: -8,
     classeArmas: [
@@ -947,7 +1009,106 @@ var classes = [
         penalidade: -9
       }
     ],
-    classeBuilds: []
+    classeBuilds: [
+      {
+        id: "Arco_Critico",
+        nome: "Crítico com Arco",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "basicocritico",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0,
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return 100
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_TCrit","REQ_TCritD","REQ_DCrit","REQ_IgnDef"]
+      },
+      {
+        id: "Disparo_Certeiro--1",
+        nome: "Disparo Certeiro (não imobilizado)",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 4,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (1000 * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Disparo_Certeiro","REQ_CFix"]
+      },
+      {
+        id: "Disparo_Certeiro--2",
+        nome: "Disparo Certeiro (imobilizado)",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 4,
+          conjuracaofixa: 0.5,
+          posconjuracao: 1,
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [
+            (isOpponent("tamanhoMonstro",["0"]) ? 2 : (isOpponent("tamanhoMonstro",["1"]) ? 3 : (isOpponent("tamanhoMonstro",["2"]) ? 4 : 0))),
+            (isOpponent("tamanhoMonstro",["0"]) ? 3 : (isOpponent("tamanhoMonstro",["1"]) ? 4 : (isOpponent("tamanhoMonstro",["2"]) ? 5 : 0)))
+          ]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (1000 * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Disparo_Certeiro","REQ_CFix"]
+      },
+      {
+        id: "Disparo_Certeiro--3",
+        nome: "Disparo Certeiro (nv.185)",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 2,
+          conjuracaofixa: 1,
+          posconjuracao: 1,
+          recarga: 1
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [
+            (isOpponent("tamanhoMonstro",["0"]) ? 2 : (isOpponent("tamanhoMonstro",["1"]) ? 3 : (isOpponent("tamanhoMonstro",["2"]) ? 4 : 0))),
+            (isOpponent("tamanhoMonstro",["0"]) ? 3 : (isOpponent("tamanhoMonstro",["1"]) ? 4 : (isOpponent("tamanhoMonstro",["2"]) ? 5 : 0)))
+          ]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (700 * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Disparo_Certeiro","REQ_CFix"]
+      },
+    ]
   },
   {
     classeID: "Classe_TR",
@@ -992,8 +1153,10 @@ var classes = [
           conjuracaovariavel: 1.5,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 5,
-          golpes: 12
+          recarga: 5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
@@ -1013,8 +1176,10 @@ var classes = [
           conjuracaovariavel: 2,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 5.5,
-          golpes: 12
+          recarga: 5.5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
@@ -1034,8 +1199,10 @@ var classes = [
           conjuracaovariavel: 2.5,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 6,
-          golpes: 12
+          recarga: 6
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
@@ -1055,8 +1222,10 @@ var classes = [
           conjuracaovariavel: 3,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 6.5,
-          golpes: 12
+          recarga: 6.5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
@@ -1076,8 +1245,10 @@ var classes = [
           conjuracaovariavel: 3.5,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 7,
-          golpes: 12
+          recarga: 7
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
@@ -1097,8 +1268,10 @@ var classes = [
           conjuracaovariavel: 3.04,
           conjuracaofixa: 0.76,
           posconjuracao: 2,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 1200
@@ -1150,8 +1323,10 @@ var classes = [
           conjuracaovariavel: 1.5,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 5,
-          golpes: 12
+          recarga: 5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.2) * (nivelBase / 100))
@@ -1171,8 +1346,10 @@ var classes = [
           conjuracaovariavel: 2,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 5.5,
-          golpes: 12
+          recarga: 5.5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.4) * (nivelBase / 100))
@@ -1192,8 +1369,10 @@ var classes = [
           conjuracaovariavel: 2.5,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 6,
-          golpes: 12
+          recarga: 6
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.6) * (nivelBase / 100))
@@ -1213,8 +1392,10 @@ var classes = [
           conjuracaovariavel: 3,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 6.5,
-          golpes: 12
+          recarga: 6.5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 0.8) * (nivelBase / 100))
@@ -1234,8 +1415,10 @@ var classes = [
           conjuracaovariavel: 3.5,
           conjuracaofixa: 0.5,
           posconjuracao: 1,
-          recarga: 7,
-          golpes: 12
+          recarga: 7
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [12, 12]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (((prop.atributodestreza + prop.atributoagilidade) * 1) * (nivelBase / 100))
@@ -1255,8 +1438,10 @@ var classes = [
           conjuracaovariavel: 3.04,
           conjuracaofixa: 0.76,
           posconjuracao: 2,
-          recarga: 0,
-          golpes: 1
+          recarga: 0
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 1200

@@ -571,6 +571,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4556",
+    cartaNome:   "Carta Fenrir",
+    cartaSlot:   "itemCabeca",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DMagico","REQ_CFix"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqm": 50 + (getItemRefino(slot) * 5),
+        "conjuracaofixap": -70
+      }
+    }
+  },
+  {
     cartaID:     "4080",
     cartaNome:   "Carta Flora",
     cartaSlot:   "itemArma",

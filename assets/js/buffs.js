@@ -394,7 +394,7 @@ let buffs = [
         skillID: 2234,
         skillName: "Disparo Selvagem",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: 5002,
