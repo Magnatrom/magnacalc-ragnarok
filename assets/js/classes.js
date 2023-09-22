@@ -1034,6 +1034,29 @@ var classes = [
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_TCrit","REQ_TCritD","REQ_DCrit","REQ_IgnDef"]
       },
       {
+        id: "Tempestade_de_Flechas",
+        nome: "Tempestade de Flechas",
+        maoDireita: ["Arma_Arco"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 3.8,
+          conjuracaofixa: 0,
+          posconjuracao: 0,
+          recarga: 3.2
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (1800 * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Tempestade_de_Flechas"]
+      },
+      {
         id: "Disparo_Certeiro--1",
         nome: "Disparo Certeiro (não imobilizado)",
         maoDireita: ["Arma_Arco"],
