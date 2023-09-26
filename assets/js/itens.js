@@ -5831,6 +5831,42 @@ var items = [
     }
   },
   {
+    itemId:     "13412",
+    itemNome:   "Lâmina Gêmea Azul [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 150,
+    itemArmaNivel: 4,
+    itemNivel:  75,
+    itemPropriedade: 1,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_SC","Classe_GX","Classe_BI","Classe_ME"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+      }
+    }
+  },
+  {
+    itemId:     "13413",
+    itemNome:   "Lâmina Gêmea Vermelha [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 160,
+    itemArmaNivel: 4,
+    itemNivel:  75,
+    itemPropriedade: 3,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_SC","Classe_GX","Classe_BI","Classe_ME"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+      }
+    }
+  },
+  {
     itemId:     "500009",
     itemNome:   "Lâmina Sagrada [1]",
     itemTipo:   "itemArma",
@@ -7520,6 +7556,26 @@ var items = [
         "danodistancia": getItemRefino(slot) >= 7 ? 7 : 0,
         "recargade--Temporal_de_Mil_Flechas": getItemRefino(slot) >= 9 ? (-2) : 0,
         "danode--Temporal_de_Mil_Flechas": getItemRefino(slot) >= 11 ? 15 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "13453",
+    itemNome:   "Mysteltain [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 170,
+    itemArmaNivel: 4,
+    itemNivel:  40,
+    itemPropriedade: 7,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_SC","Classe_GX","Classe_BI","Classe_ME"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributodestreza": 3,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro",["90","91","92","93"]) ? 15 : 0
       }
     }
   },

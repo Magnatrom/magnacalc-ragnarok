@@ -412,6 +412,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27295",
+    cartaNome:   "Carta Disparador de Pedras",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DCrit","REQ_Aspd"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danocritico": (parseInt(getAtributoBase("sor") / 10)) + (getAtributoBase("sor") >= 120 ? 5 : 0),
+        "aspdp": (parseInt(getAtributoBase("sor") / 10)),
+      }
+    }
+  },
+  {
     cartaID:     "4506",
     cartaNome:   "Carta Dolomedes",
     cartaSlot:   "itemCabeca",
