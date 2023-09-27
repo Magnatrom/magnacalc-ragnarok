@@ -8497,6 +8497,44 @@ var items = [
     }
   },
   {
+    itemId:     "1230",
+    itemNome:   "Rondel",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 80,
+    itemArmaNivel: 3,
+    itemNivel:  36,
+    itemPropriedade: 4,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      temInvestigar = true;
+      return {
+      }
+    }
+  },
+  {
+    itemId:     "13017",
+    itemNome:   "Rondel [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 70,
+    itemArmaNivel: 3,
+    itemNivel:  36,
+    itemPropriedade: 4,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    encantamentos: [encantamentosMalangdoFisico, encantamentosMalangdoFisico],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      temInvestigar = true;
+      return {
+      }
+    }
+  },
+  {
     itemId:     "19318",
     itemNome:   "Rosário da Guarda Real",
     itemTipo:   "itemBaixo",
