@@ -7174,6 +7174,20 @@ var items = [
     }
   },
   {
+    itemId:     "420031",
+    itemNome:   "Mascara Azulada",
+    itemTipo:   "itemBaixo",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danomelee": 5
+      }
+    }
+  },
+  {
     itemId:     "5361",
     itemNome:   "Máscara de Fugitivo",
     itemTipo:   "itemBaixo",

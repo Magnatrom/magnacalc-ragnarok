@@ -76,7 +76,7 @@ let itemBonuses = {
     "porcentagem": true
   },
   "danomelee": {
-    "nome": "Dano físico de curta distância",
+    "nome": "Dano físico corpo a corpo",
     "porcentagem": true
   },
   "danocritico": {
