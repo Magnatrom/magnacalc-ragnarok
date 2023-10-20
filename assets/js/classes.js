@@ -242,7 +242,7 @@ var classes = [
       },
       {
         id: "Acerto_de_Contas--1",
-        nome: "Acerto de Contas (nv. 185)",
+        nome: "Ofensiva Fatal (Acerto de Contas)",
         maoDireita: ["Arma_Espada1","Arma_Adaga"],
         maoEsquerda: ["itemEscudo"],
         ataque: {
@@ -265,7 +265,7 @@ var classes = [
       },
       {
         id: "Acerto_de_Contas--2",
-        nome: "Acerto de Contas (nv. 200)",
+        nome: "Ofensiva Fatal (rebalance nv. 200)",
         maoDireita: ["Arma_Espada1","Arma_Adaga"],
         maoEsquerda: ["itemEscudo"],
         ataque: {
