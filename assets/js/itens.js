@@ -722,7 +722,7 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "esquiva": 10
+        "esquiva": 10,
         "danofisicopropriedade": parseInt(getAtributoBase("for") / 20) + (isOpponent("propriedadeMonstro",["00","01","02","03"]) ? (parseInt(getAtributoBase("agi") / 20)) : 0) + (isOpponent("propriedadeMonstro",["40","41","42","43"]) ? (parseInt(getAtributoBase("vit") / 20)) : 0) + (isOpponent("propriedadeMonstro",["30","31","32","33"]) ? (parseInt(getAtributoBase("int") / 20)) : 0) + (isOpponent("propriedadeMonstro",["10","11","12","13"]) ? (parseInt(getAtributoBase("des") / 20)) : 0) + (isOpponent("propriedadeMonstro",["20","21","22","23"]) ? (parseInt(getAtributoBase("sor") / 20)) : 0) + ((getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor") >= 500) ? 8 : 0)
       }
     }
