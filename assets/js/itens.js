@@ -9335,7 +9335,7 @@ var items = [
     }
   },
   {
-    itemId:     "450214a",
+    itemId:     "450214b",
     itemNome:   "Tríade Sombria [1] - tendo aprendido Disparo Triplo nível 2",
     itemTipo:   "itemArmadura",
     itemNivel:  100,
@@ -9355,7 +9355,7 @@ var items = [
     }
   },
   {
-    itemId:     "450214b",
+    itemId:     "450214c",
     itemNome:   "Tríade Sombria [1] - não aprendendo Disparo Triplo",
     itemTipo:   "itemArmadura",
     itemNivel:  100,
