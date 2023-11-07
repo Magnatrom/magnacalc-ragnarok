@@ -9316,7 +9316,7 @@ var items = [
   },
   {
     itemId:     "450214a",
-    itemNome:   "Tríade Sombria [1] - com dano físico",
+    itemNome:   "Tríade Sombria [1] - tendo aprendido Disparo Triplo nível 10",
     itemTipo:   "itemArmadura",
     itemNivel:  100,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
@@ -9335,8 +9335,28 @@ var items = [
     }
   },
   {
+    itemId:     "450214a",
+    itemNome:   "Tríade Sombria [1] - tendo aprendido Disparo Triplo nível 2",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 10,
+        "spp": 10,
+        "precisaoperfeita": (getItemRefino(slot) >= 5 ? 10 : 0) + (getItemRefino(slot) >= 7 ? 15 : 0),
+        "danofisicoraca": isClasse(["Classe_SC","Classe_SC_NT"]) ? 4 : 0,
+        "atq": isClasse(["Classe_SC","Classe_SC_NT"]) ? 150 : 0,
+        "atributoagilidade": isClasse(["Classe_SC","Classe_SC_NT"]) ? 30 : 0,
+        "atributodestreza": (getItemRefino(slot) >= 10 ? 30 : 0)
+      }
+    }
+  },
+  {
     itemId:     "450214b",
-    itemNome:   "Tríade Sombria [1] - sem dano físico",
+    itemNome:   "Tríade Sombria [1] - não aprendendo Disparo Triplo",
     itemTipo:   "itemArmadura",
     itemNivel:  100,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
