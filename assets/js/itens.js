@@ -8662,6 +8662,21 @@ var items = [
     }
   },
   {
+    itemId:     "470075",
+    itemNome:   "Sandálias Antigas [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": getNivelBase(),
+        "atqm": getNivelBase()
+      }
+    }
+  },
+  {
     itemId:     "2479",
     itemNome:   "Sapatos das Asas da Luz [1]",
     itemTipo:   "itemSapatos",
