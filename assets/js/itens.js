@@ -6,6 +6,10 @@ let encantamentosMalangdoFisico = ["4811","4810","4808","4820","4821","4822","48
 let encantamentosMalangdoDistancia = ["4818","4811","4810","4832","4833","4834","4835","4836","4837","29135","29136","29137","29138","29139","4815","4732","4733","4734","4735","4752","4753","4754","4755","4869","4872","4873","4807"];
 let encantamentosMalangdoMagico = ["4818","4811","4810","4832","29135","4815","4814","4813","4812","4826","4827","4712","4713","4714","4715","4722","4723","4724","4725","4869","4872","4873","4760","4761","29445","29446"];
 
+let bonusaleatoriosSombriosNormais = ["hpp_1-2","spp_1-2","atq_1-15","atqm_1-15","crit_1-5","precisao_5-15","efetividadecura_3-5","hpf_100-500","spf_20-100","danofisicop_1-3","danomagicop_1-3","danocritico_1-5","danodistancia_1-5","aspdp_1-5","conjuracaovariavel_1-3","aspdf_1-1"];
+
+let bonusaleatoriosSombriosClasse = ["danofisicopropriedade_1-5","hpp_1-2","spp_1-2","hpf_100-500","spf_20-100","precisao_5-15","atq_1-15","atqarmap_1-3","danocritico_1-5","danodistancia_1-5","conjuracaovariavel_1-5","aspdp_1-5","aspdf_1-1","ignoredef_1-7"];
+
 var items = [
   {
     itemId:     "450158",
@@ -2895,6 +2899,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributodestreza_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -2911,6 +2918,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributodestreza_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -2927,6 +2937,9 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributodestreza_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -2944,11 +2957,31 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributodestreza_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "hpp": (hasCombo(slot, itemId, tipoItem, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0),
         "danofisicoraca": (hasCombo(slot, itemId, tipoItem, [["24253"]]) ? (1 + (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 10 ? 2 : 0)) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "24661",
+    itemNome:   "Brinco Sombrio Penetrante",
+    itemTipo:   "itemBrincoSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_IgnDef"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "ignoredef": 5 + (parseInt(getItemRefino(slot) / 2)),
+        "danofisicoraca": getItemRefino(slot) >= 10 ? 3 : 0
       }
     }
   },
@@ -2960,6 +2993,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar","REQ_Precisao","REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": getItemRefino(slot) * 10,
@@ -3931,6 +3965,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Aspd"],
     slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -3946,6 +3981,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Chuva_de_Flechas","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributodestreza_1-10", "atributosorte_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -3961,6 +3999,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Impacto_Explosivo"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributodestreza_1-10", "atributosorte_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -3976,6 +4017,9 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_Envenenar","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributodestreza_1-10", "atributosorte_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -3991,10 +4035,31 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributodestreza_1-10", "atributosorte_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Cavalo_de_Pau": 20 + (getItemRefino(slot) * 5)
+      }
+    }
+  },
+  {
+    itemId:     "24662",
+    itemNome:   "Colar Sombrio Penetrante",
+    itemTipo:   "itemColarSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_IgnDef"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "ignoredef": 5 + (parseInt(getItemRefino(slot) / 2)) + (hasCombo(slot, itemId, tipoItem, [["24661"]]) && (getItemRefino(slot) + getItemRefino("itemBrincoSombrio") >= 18) ? 100 : 0),
+        "danofisicoraca": getItemRefino(slot) >= 10 ? 3 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["24661"]]) ? 2 : 0
       }
     }
   },
@@ -4006,6 +4071,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_CVar","REQ_Precisao","REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": getItemRefino(slot) * 10,
@@ -4699,6 +4765,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_SP","REQ_CVar"],
     slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -4720,6 +4787,9 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aegis_Inferi"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributosorte_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -4745,6 +4815,9 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aegis_Inferi"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributosorte_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -4769,6 +4842,9 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributosorte_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -4793,6 +4869,9 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributosorte_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -4817,6 +4896,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributosorte_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -4841,6 +4923,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributosorte_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -5241,6 +5326,9 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -5256,6 +5344,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_ST"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -5271,6 +5362,9 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MI"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -5286,6 +5380,9 @@ var items = [
     itemClasses: ["Classe_SE","Classe_SE_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -5302,6 +5399,9 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -5317,9 +5417,46 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_PA"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributoagilidade_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
+      }
+    }
+  },
+  {
+    itemId:     "24393",
+    itemNome:   "Grevas Sombria Física",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "aspdp": 2 + (getItemRefino(slot) >= 7 ? 3 : 0) + (getItemRefino(slot) >= 9 ? 3 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "24664",
+    itemNome:   "Greva Sombria Penetrante",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_IgnDef"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "ignoredef": 5 + (parseInt(getItemRefino(slot) / 2)),
+        "danofisicoraca": getItemRefino(slot) >= 10 ? 3 : 0
       }
     }
   },
@@ -6232,6 +6369,9 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getItemRefino(slot),
@@ -6250,6 +6390,9 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Disparo_Perfurante"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getItemRefino(slot),
@@ -6266,6 +6409,9 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (hasCombo(slot, itemId, tipoItem, [["24313"]]) ? 2 : 0),
@@ -6284,6 +6430,9 @@ var items = [
     itemClasses: ["Classe_SE","Classe_SE_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": getItemRefino(slot),
@@ -6301,6 +6450,9 @@ var items = [
     itemClasses: ["Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 3 + (hasCombo(slot, itemId, tipoItem, [["24312"]]) ? 2 : 0),
@@ -6319,6 +6471,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_Disparo_Triplo"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributoforca_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (getItemRefino(slot)),
@@ -6337,6 +6492,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
     itemFuncao: function(slot, itemId, tipoItem) {
       if(getItemRefino(slot) >= 10) { temDrake = true; }
       return {
@@ -6474,6 +6630,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_DDist","REQ_Aspd","REQ_HP"],
     slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 1,
@@ -6501,6 +6658,9 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -6516,6 +6676,9 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_ST"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Ataque_Surpresa"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -6532,6 +6695,9 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MI"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
@@ -6546,6 +6712,9 @@ var items = [
     itemClasses: ["Classe_SE","Classe_SE_NT"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -6562,6 +6731,9 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
@@ -6576,6 +6748,9 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT","Classe_GY"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Ataque_Surpresa"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
@@ -6591,11 +6766,32 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_PA"],
     itemBonus: ["REQ_HP","REQ_DFisico","REQ_Crux_Magnum","REQ_Crux_Divinum"],
     slots: 0,
+    bonusaleatorios: [
+      [...bonusaleatoriosSombriosClasse, "atributovitalidade_1-10", "atributointeligencia_1-10"]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10),
         "danode--Crux_Magnum": 20 + (getItemRefino(slot) * 5),
         "danode--Crux_Divinum": hasCombo(slot, itemId, tipoItem, [["24257"]]) ? 20 : 0
+      }
+    }
+  },
+  {
+    itemId:     "24663",
+    itemNome:   "Malha Sombria Penetrante",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_IgnDef"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "ignoredef": 5 + (parseInt(getItemRefino(slot) / 2)) + (hasCombo(slot, itemId, tipoItem, [["24664"]]) && (getItemRefino(slot) + getItemRefino("itemGrevaSombria") >= 18) ? 100 : 0),
+        "danofisicoraca": getItemRefino(slot) >= 10 ? 3 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["24664"]]) ? 2 : 0
       }
     }
   },

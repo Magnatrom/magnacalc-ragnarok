@@ -375,11 +375,12 @@ function exibirBonusAleatorios(posicao) {
     if(itemSelecionado) {
       let item = filterItemById(itemSelecionado);
       let bonusAleatorios = (item.bonusaleatorios) ? item.bonusaleatorios : [];
+      console.log("Posição: " + posicao, bonusAleatorios);
       let qtdBonusAleatorios = (bonusAleatorios.length > 0) ? bonusAleatorios.length : 0;
       if(qtdBonusAleatorios > 0) {
         let htmlcode = `<div class="row bonusaleatorios">`;
         bonusAleatorios.forEach((listaBonusAleatorios, indexSuperLista) => {
-          let tamanhoDiv = (qtdBonusAleatorios % 2 == 1 && indexSuperLista == qtdBonusAleatorios) ? "col-12" : "col-6";
+          let tamanhoDiv = (qtdBonusAleatorios % 2 == 1 && (indexSuperLista + 1) == qtdBonusAleatorios) ? "col-12" : "col-6";
           htmlcode += `<div class="${tamanhoDiv} bonus-${indexSuperLista}"><select><option value="">Bônus aleatório</option>`;
           listaBonusAleatorios.forEach((bonusAleatorio, indexLista) => {
             let nomebonus = bonusAleatorio.split("_")[0];
