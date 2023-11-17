@@ -1058,6 +1058,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4485",
+    cartaNome:   "Carta Pesar Noturno Selada",
+    cartaSlot:   "itemArmadura",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId) {
+      return {
+        "danofisicoraca": isOpponent("racaMonstro",["1","3"]) ? (20 + (getItemRefino(slot) >= 15 ? 10 : 0)) : 0,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro",["50","51","52","53","60","61","62","63"]) ? (20 + (getItemRefino(slot) >= 15 ? 10 : 0)) : 0
+      }
+    }
+  },
+  {
     cartaID:     "4594",
     cartaNome:   "Carta Petal",
     cartaSlot:   "itemCapa",

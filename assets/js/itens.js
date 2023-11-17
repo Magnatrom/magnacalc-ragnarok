@@ -2122,7 +2122,7 @@ var items = [
     }
   },
   {
-    itemId:     "22204",
+    itemId:     "22134",
     itemNome:   "Botas do Conjurador",
     itemTipo:   "itemSapatos",
     itemNivel:  1,
@@ -8408,6 +8408,31 @@ var items = [
         "hpp": isClasse(["Classe_SH","Classe_SH_NT"]) ? 20 : 0,
         "spp": isClasse(["Classe_SH","Classe_SH_NT"]) ? 20 : 0,
         "esquiva": isClasse(["Classe_SH","Classe_SH_NT"]) ? 50 : 0
+      }
+    }
+  },
+  {
+    itemId:     "32204",
+    itemNome:   "Pulseira Militar [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_GX","Classe_GX_NT","Classe_RK","Classe_RK_NT","Classe_WL","Classe_WL_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    encantamentos: [
+      ["4818","4817","4815","4814","4832","4833","4869","4872","4811","4810","4803","4804","4805","4850","4897","4767"],
+      ["4818","4817","4815","4814","4832","4833","4869","4872","4811","4810","4803","4804","4805","4850","4897","4767"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 50,
+        "atqm": 50,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["28010"]]) ? (getItemRefino(slot) * 3) : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["21018"]]) ? (getItemRefino(slot) * 3) : 0,
+        "crit": hasCombo(slot, itemId, tipoItem, [["21018"]]) && getItemRefino(slot) >= 9 ? 50 : 0,
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["21018"]]) && getItemRefino(slot) >= 9 ? 25 : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["2027"]]) ? (getItemRefino(slot) * 2) : 0,
+        "danode--Meteoro_Escarlate": hasCombo(slot, itemId, tipoItem, [["2027"]]) ? getItemRefino(slot) : 0
       }
     }
   },
