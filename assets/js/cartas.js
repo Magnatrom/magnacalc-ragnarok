@@ -609,6 +609,20 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27152",
+    cartaNome:   "Carta Fofinho",
+    cartaSlot:   "itemSapatos",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_AGI","REQ_Aspd"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 10,
+        "atributoagilidade": parseInt(getItemRefino(slot) / 2),
+        "aspdp": parseInt(getItemRefino(slot) / 2)
+      }
+    }
+  },
+  {
     cartaID:     "27018",
     cartaNome:   "Carta GC109",
     cartaSlot:   "itemAcessorio",

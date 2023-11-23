@@ -10,6 +10,11 @@ let bonusaleatoriosSombriosNormais = ["hpp_1-2","spp_1-2","atq_1-15","atqm_1-15"
 
 let bonusaleatoriosSombriosClasse = ["danofisicopropriedade_1-5","hpp_1-2","spp_1-2","hpf_100-500","spf_20-100","precisao_5-15","atq_1-15","atqarmap_1-3","danocritico_1-5","danodistancia_1-5","conjuracaovariavel_1-5","aspdp_1-5","aspdf_1-1","ignoredef_1-7"];
 
+let bonusaleatoriosCinzasPoder1 = ["danofisicopropriedade_1-20","aspdp_5-10","aspdf_1-1","drake"];
+let bonusaleatoriosCinzasPoder2 = ["danofisicoraca_1-20","danocritico_5-20","atqarmap_3-7","danofisicochefe_1-10"];
+let bonusaleatoriosCinzasMira1 = ["danofisicopropriedade_1-20","aspdp_5-10","aspdf_1-1","danodistancia_1-10","drake"];
+let bonusaleatoriosCinzasMira2 = ["danofisicoraca_1-20","danocritico_5-20","atqarmap_3-7","danofisicochefe_1-10"];
+
 var items = [
   {
     itemId:     "450158",
@@ -875,8 +880,8 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "ignoredef": isOpponent("racaMonstro", ["10","5"]) ? 20 : 0 + (isOpponent("racaMonstro", ["10","5"]) && getItemRefino("itemMaoDireita") >= 6) ? 5 : 0,
-        "danofisicoraca": isOpponent("racaMonstro", ["10","5"]) ? 55 : 0 + (getItemRefino("itemMaoDireita") >= 6 ? Math.pow(getItemRefino("itemMaoDireita") - 4, 2) : 0),
+        "ignoredef": isOpponent("racaMonstro", ["10","5"]) ? (20 + ((getItemRefino("itemMaoDireita") >= 6) ? 5 : 0)) : 0,
+        "danofisicoraca": (isOpponent("racaMonstro", ["10","5"]) ? (55 + (getItemRefino("itemMaoDireita") >= 6 ? Math.pow(Math.min(getItemRefino("itemMaoDireita"), 14) - 4, 2) : 0)) : 0),
         "danocritico": Math.min(getItemRefino("itemMaoDireita"), 10) * 2,
         "danode--Rajada_de_Flechas": getItemRefino("itemMaoDireita") >= 9 ? 20 : 0
       }
@@ -943,6 +948,10 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_MU","Classe_TR"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasMira2]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6,
@@ -3137,7 +3146,7 @@ var items = [
   },
   {
     itemId:     "13447",
-    itemNome:   "Byeollungum [1]",
+    itemNome:   "Byeollungum [2]",
     itemTipo:   "itemArma",
     itemSubtipo: "Arma_Espada1",
     itemArmaATQ: 150,
@@ -4371,6 +4380,48 @@ var items = [
     }
   },
   {
+    itemId:     "13034",
+    itemNome:   "Crepúsculo do Deserto [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 130,
+    itemArmaNivel: 2,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "precisao": hasCombo(slot, itemId, tipoItem, [["13035"]]) ? 10 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["13035"]]) ? 5 : 0,
+        "spf": hasCombo(slot, itemId, tipoItem, [["13035"]]) ? 20 : 0,
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["13035"]]) && isOpponent("tamanhoMonstro",["2"]) ? 30 : 0
+      }
+    }
+  },
+  {
+    itemId:     "28704",
+    itemNome:   "Crepúsculo do Deserto [4]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 130,
+    itemArmaNivel: 2,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 4,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "precisao": hasCombo(slot, itemId, tipoItem, [["13035"]]) ? 10 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["13035"]]) ? 5 : 0,
+        "spf": hasCombo(slot, itemId, tipoItem, [["13035"]]) ? 20 : 0,
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["13035"]]) && isOpponent("tamanhoMonstro",["2"]) ? 30 : 0
+      }
+    }
+  },
+  {
     itemId:     "28433",
     itemNome:   "Cristal da Luz Azul [1]",
     itemTipo:   "itemAcessorio",
@@ -5299,6 +5350,25 @@ var items = [
     }
   },
   {
+    itemId:     "13042",
+    itemNome:   "Gladius Glorioso",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 120,
+    itemArmaNivel: 4,
+    itemNivel:  80,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicoraca": (isOpponent("racaMonstro", ["10","5"]) ? (75 + (getItemRefino("itemMaoDireita") >= 6 ? Math.pow(Math.min(getItemRefino("itemMaoDireita"), 14) - 4, 2) : 0)) : 0),
+        "ignoredef": (isOpponent("racaMonstro", ["10","5"]) ? (20 + (getItemRefino("itemMaoDireita") >= 6 ? 5 : 0)) : 0)
+      }
+    }
+  },
+  {
     itemId:     "22178",
     itemNome:   "Grevas do Poder [1]",
     itemTipo:   "itemSapatos",
@@ -5947,6 +6017,10 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMira2]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6,
@@ -5979,6 +6053,25 @@ var items = [
         "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
         "danofisicoraca": isOpponent("racaMonstro", ["3","11","10","5"]) ? (getItemRefino(slot) >= 9 ? 25 : 0) : 0,
         "crit": (getItemRefino(slot) >= 11 ? 15 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "28007",
+    itemNome:   "Katar Rubi [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Katar",
+    itemArmaATQ: 130,
+    itemArmaNivel: 3,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SX","Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": (parseInt((getNivelBase() - 70) / 10) * 5) + Math.pow(Math.min(getItemRefino(slot), 15), 2),
+        "atqm": parseInt(Math.pow(Math.min(getItemRefino(slot), 15), 2) / 2)
       }
     }
   },
@@ -6036,6 +6129,30 @@ var items = [
         "atributointeligencia": 10,
         "danofisicop": getItemRefino(slot) * 10,
         "danomagicosagrado": hasCombo(slot, itemId, tipoItem, [["4407"]]) ? (getNivelBase() >= 100 ? 100 : 30) : 0
+      }
+    }
+  },
+  {
+    itemId:     "28739",
+    itemNome:   "Lacma [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 45,
+    itemArmaNivel: 3,
+    itemNivel:  1,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      if(getItemRefino(slot) >= 12) {
+        temDrake = true;
+      }
+      return {
+        "atq": parseInt(getItemRefino(slot) / 3) * 40,
+        "atqm": parseInt(getItemRefino(slot) / 3) * 40,
+        "danofisicotamanho": isOpponent("tamanhoMonstro",["1"]) ? ((getItemRefino(slot) >= 6 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0)) : 0
       }
     }
   },
@@ -9286,6 +9403,23 @@ var items = [
       return {
         "danofisicop": 7,
         "aspdp": 10
+      }
+    }
+  },
+  {
+    itemId:     "13035",
+    itemNome:   "Tempestade de Areia [4]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 50,
+    itemArmaNivel: 2,
+    itemNivel:  70,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 4,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
       }
     }
   },
