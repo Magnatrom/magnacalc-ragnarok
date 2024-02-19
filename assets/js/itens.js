@@ -369,6 +369,27 @@ var items = [
     }
   },
   {
+    itemId:     "490104",
+    itemNome:   "Anel da Águia Escarlate [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["Classe_RG","Classe_RG_NT","Classe_SA"],
+    itemBonus: ["REQ_DFisico","REQ_Choque_Rapido","REQ_Lanca_do_Destino"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicotamanho": 10,
+        "danode--Choque_Rapido": getNivelBase(),
+        "danode--Lanca_do_Destino": parseInt(getNivelBase() / 3),
+        "conjuracaovariavel": isClasse(["Classe_RG","Classe_RG_NT"]) ? -30 : 0,
+        "danofisicochefe": isClasse(["Classe_RG","Classe_RG_NT"]) ? 15 : 0,
+        "hpp": isClasse(["Classe_RG","Classe_RG_NT"]) ? 15 : 0,
+        "spp": isClasse(["Classe_RG","Classe_RG_NT"]) ? 15 : 0,
+        "aspdp": isClasse(["Classe_RG","Classe_RG_NT"]) ? 10 : 0,
+      }
+    }
+  },
+  {
     itemId:     "490290",
     itemNome:   "Anel de Ameretat [1]",
     itemTipo:   "itemAcessorio",
@@ -9123,6 +9144,28 @@ var items = [
       return {
         "danofisicopropriedade": isOpponent("propriedadeMonstro", ["00","01","02","03","10","11","12","13","20","21","22","23","30","31","32","33","40","41","42","43"]) ? (5 + (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0)) : 0,
         "danomagicopropriedade": isOpponent("propriedadeMonstro", ["00","01","02","03","10","11","12","13","20","21","22","23","30","31","32","33","40","41","42","43"]) ? (5 + (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0)) : 0
+      }
+    }
+  },
+  {
+    itemId:     "470048",
+    itemNome:   "Sapatos Sagrados",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Pos","REQ_Precisao"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": -30,
+        "precisaoperfeita": 10 + (getItemRefino(slot) >= 7 ? 20 : 0) + (getItemRefino(slot) >= 9 ? 20 : 0),
+        "atributoforca": hasCombo(slot, itemId, tipoItem, [["480114"]]) ? ((parseInt(getItemRefino(slot) / 4) * 3) + (parseInt(getItemRefino("itemCapa") / 4) * 3)) : 0,
+        "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["480114"]]) ? ((parseInt(getItemRefino(slot) / 4) * 3) + (parseInt(getItemRefino("itemCapa") / 4) * 3)) : 0,
+        "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["480114"]]) ? ((parseInt(getItemRefino(slot) / 4) * 3) + (parseInt(getItemRefino("itemCapa") / 4) * 3)) : 0,
+        "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["480114"]]) ? ((parseInt(getItemRefino(slot) / 4) * 3) + (parseInt(getItemRefino("itemCapa") / 4) * 3)) : 0,
+        "atributodestreza": hasCombo(slot, itemId, tipoItem, [["480114"]]) ? ((parseInt(getItemRefino(slot) / 4) * 3) + (parseInt(getItemRefino("itemCapa") / 4) * 3)) : 0,
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["480114"]]) ? ((parseInt(getItemRefino(slot) / 4) * 3) + (parseInt(getItemRefino("itemCapa") / 4) * 3)) : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["19379"]]) ? 25 : 0
       }
     }
   },

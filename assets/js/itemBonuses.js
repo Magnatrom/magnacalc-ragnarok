@@ -463,4 +463,12 @@ let itemBonuses = {
     "nome": "Anula a penalidade de tamanho da arma",
     "porcentagem": false
   },
+  "danode--Choque_Rapido": {
+    "nome": "Dano de Choque Rápido",
+    "porcentagem": true
+  },
+  "danode--Lanca_do_Destino": {
+    "nome": "Dano de Lança do Destino",
+    "porcentagem": true
+  },
 }
