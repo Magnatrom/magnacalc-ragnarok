@@ -282,6 +282,25 @@ var items = [
       }
     }
   },
+{
+    itemId:     "1922",
+    itemNome:   "Alaúde Oriental [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 150,
+    itemArmaNivel: 4,
+    itemNivel:  65,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Vulcao_de_Flechas": 10,
+        "danode--Flecha_Melodica": 10
+      }
+    }
+  },
   {
     itemId:     "2913",
     itemNome:   "Algemas de Presidiário [1]",
@@ -572,7 +591,7 @@ var items = [
   },
   {
     itemId:     "2988",
-    itemNome:   "Anel do Novo Oz [1]",
+    itemNome:   "Anel do Músico [1]",
     itemTipo:   "itemAcessorio",
     itemNivel:  130,
     itemClasses: ["Classe_TR","Classe_TR_NT"],
@@ -584,6 +603,27 @@ var items = [
       }
     }
   },
+
+  {
+    itemId:     "490032",
+    itemNome:   "Anel de Gêmeos",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  1,
+    itemClasses: ["Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "spf": 100,
+        "precisao": 50,
+        "posconjuracao": -10,
+        "danofisicop": 10,
+        "danomagicop": 5,
+        "danode--Vulcao_de_Flechas": 300,
+        "variavelfde--Vulcao_de_Flechas": -0.5
+      }
+    }
+  },
   {
     itemId:     "28517",
     itemNome:   "Anel do Rei Abissal [1]",
@@ -591,7 +631,7 @@ var items = [
     itemNivel: 130,
     itemClasses: ["Classe_GX"],
     itemBonus: ["REQ_Laminas_de_Loki","REQ_Castigo_de_Loki"],
-    slots: 1,
+    slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
@@ -3749,6 +3789,25 @@ var items = [
       }
     }
   },
+ {
+    itemId:     "1993",
+    itemNome:   "Arame Farpado [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 80,
+    itemArmaNivel: 4,
+    itemNivel:  105,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      temInvestigar = true;
+      return {
+      }
+    }
+  },
   {
     itemId:     "28501",
     itemNome:   "Chifres de Kirin [1]",
@@ -4934,7 +4993,7 @@ var items = [
     }
   },
   {
-    itemId:     "24313",
+    itemId:     "24312",
     itemNome:   "Escudo Sombrio de Trovador",
     itemTipo:   "itemEscudoSombrio",
     itemNivel:  99,
