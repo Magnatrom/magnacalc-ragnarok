@@ -1085,7 +1085,7 @@ function exibirMunicoes() {
   if(idMaoDireita != "") {
     let itemMaoDireita = filterItemById(idMaoDireita);
     let tipoItemMaoDireita = itemMaoDireita.itemSubtipo;
-    if(tipoItemMaoDireita == "Arma_Arco" && $("#municoes").length <= 0) {
+    if((tipoItemMaoDireita == "Arma_Arco" || tipoItemMaoDireita == "Arma_Instrumento" || tipoItemMaoDireita == "Arma_Chicote") && $("#municoes").length <= 0) {
       let row = $("#itemMaoDireita select.equipamento").closest(".row");
       let municoesAtuais = filterAmmoByWeaponType("flecha");
       let htmlcode = `<div class="col-6" id="municoes"><select><option value="">Munição</option>`;
@@ -1096,7 +1096,7 @@ function exibirMunicoes() {
       row.append(htmlcode);
       $("#municoes").on("change", onChangeInputs);
     }
-    if(tipoItemMaoDireita != "Arma_Arco") {
+    if(tipoItemMaoDireita != "Arma_Arco" && tipoItemMaoDireita != "Arma_Instrumento" && tipoItemMaoDireita != "Arma_Chicote") {
       $("#municoes").remove();
     }
   } else {

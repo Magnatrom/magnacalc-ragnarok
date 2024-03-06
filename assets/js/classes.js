@@ -1297,7 +1297,7 @@ var classes = [
           return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return 1200
+          return (1500 * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Vulcao_de_Flechas","REQ_Pos","REQ_CVar","REQ_CFix"]
       },
@@ -1467,7 +1467,7 @@ var classes = [
           return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return 1200
+          return (1500 * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Vulcao_de_Flechas","REQ_Pos","REQ_CVar","REQ_CFix"]
       },
