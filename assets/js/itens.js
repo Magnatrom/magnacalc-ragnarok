@@ -3789,6 +3789,25 @@ var items = [
       }
     }
   },
+ {
+    itemId:     "1993",
+    itemNome:   "Arame Farpado [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 80,
+    itemArmaNivel: 4,
+    itemNivel:  105,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      temInvestigar = true;
+      return {
+      }
+    }
+  },
   {
     itemId:     "28501",
     itemNome:   "Chifres de Kirin [1]",
