@@ -631,7 +631,7 @@ var items = [
     itemNivel: 130,
     itemClasses: ["Classe_GX"],
     itemBonus: ["REQ_Laminas_de_Loki","REQ_Castigo_de_Loki"],
-    slots: 0,
+    slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
