@@ -313,10 +313,10 @@ let buffs = [
         disponivel: false
       },
       {
-        skillID: 321,
-        skillName: "Poema de Bragi",
+        skillID: "321",
+        skillName: "Poema de Bragi nv.5",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: 320,
@@ -397,8 +397,14 @@ let buffs = [
         disponivel: true
       },
       {
-        skillID: 5002,
-        skillName: "Ilimitar",
+        skillID: "5002a",
+        skillName: "Ilimitar nv.5",
+        niveis: 1,
+        disponivel: true
+      },
+      {
+        skillID: "5002b",
+        skillName: "Ilimitar nv.3",
         niveis: 1,
         disponivel: true
       },
@@ -471,7 +477,7 @@ let buffs = [
         skillID: 155,
         skillName: "Grito de Guerra",
         niveis: 1,
-        disponivel: false
+        disponivel: true
       },
       {
         skillID: 111,
