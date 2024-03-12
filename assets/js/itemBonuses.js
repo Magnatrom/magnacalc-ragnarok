@@ -451,6 +451,10 @@ let itemBonuses = {
     "nome": "Conjuração variável de Aegis Inferi",
     "porcentagem": false
   },
+  "variavelfde--Vulcao_de_Flechas": {
+    "nome": "Conjuração variável de Vulcão de Flechas",
+    "porcentagem": false
+  },
   "pesoEscudo": {
     "nome": "Peso",
     "porcentagem": false
