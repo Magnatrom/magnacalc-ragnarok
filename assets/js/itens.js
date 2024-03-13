@@ -4089,7 +4089,28 @@ var items = [
       }
     }
   },
- {
+  {
+    itemId:     "28901",
+    itemNome:   "Coelho Macabro",
+    itemTipo:   "itemEscudo",
+    itemDefesa: 0,
+    itemPeso: 10,
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico","REQ_TCrit"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+	      "danomagicop": 5,
+        "danofisicoraca": 5,
+	      "aspdf": 3,
+        "atq": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+        "atqm": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+	      "crit": (getItemRefino(slot) >= 12 ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "28902",
     itemNome:   "Coelho Macabro [1]",
     itemTipo:   "itemEscudo",
@@ -4103,7 +4124,6 @@ var items = [
       return {
 	      "danomagicop": 5,
         "danofisicoraca": 5,
-	      "aspdf": 3,
         "atq": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
         "atqm": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
 	      "crit": (getItemRefino(slot) >= 12 ? 10 : 0)
