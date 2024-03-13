@@ -368,7 +368,7 @@ function exibirBuilds() {
 
 function exibirBonusAleatorios(posicao) {
   $("#" + posicao + " div.bonusaleatorios select").val("");
-  $("#" + posicao + " div.bonusaleatorios").slice(1).remove();
+  $("#" + posicao + " div.bonusaleatorios").slice(2).remove();
   $("#" + posicao + " div.bonusaleatorios").html("");
   if(posicao != "") {
     let itemSelecionado = $("#" + posicao + " select.equipamento").val();
@@ -380,7 +380,7 @@ function exibirBonusAleatorios(posicao) {
       if(qtdBonusAleatorios > 0) {
         let htmlcode = `<div class="row bonusaleatorios">`;
         bonusAleatorios.forEach((listaBonusAleatorios, indexSuperLista) => {
-          let tamanhoDiv = (qtdBonusAleatorios % 2 == 1 && (indexSuperLista + 1) == qtdBonusAleatorios) ? "col-12" : "col-6";
+          let tamanhoDiv = (qtdBonusAleatorios % 3 == 1 && (indexSuperLista + 1) == qtdBonusAleatorios) ? "col-12" : "col-6";
           htmlcode += `<div class="${tamanhoDiv} bonus-${indexSuperLista}"><select><option value="">Bônus aleatório</option>`;
           listaBonusAleatorios.forEach((bonusAleatorio, indexLista) => {
             let nomebonus = bonusAleatorio.split("_")[0];
@@ -952,7 +952,7 @@ function calcular() {
   // console.log("extraAtq: ", extraAtq);
   // console.log("statusAtq: ", statusAtq);
 
-  // Calculo de defesa pesada do monstro
+   // Calculo de defesa pesada do monstro
   let defesaFisicaFinalMonstro = defesaFisicaInicialMonstro * (1 - (getBonusPercentage(Math.min(bonusConsolidados.ignoredef || 0, 100))));
   if(temInvestigar) { extraAtq += parseInt(defesaFisicaFinalMonstro / 2); defesaFisicaFinalMonstro = 0; } // Carta Thanatos
   if(hasBuff("2315a") && !hasBuff("2315b")) { extraAtq += 150; } // Aegis Domini 150 DEF
