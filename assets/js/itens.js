@@ -2,14 +2,18 @@ let encantamentosArmasBrasilis = [
   ["29361","4881","4825","29446","4831","4841"]
 ];
 
+
+//Malangdo
 let encantamentosMalangdoFisico = ["4811","4810","4808","4820","4821","4822","4823","4818","4817","4816","4843","4844","4832","29135","4815","4702","4703","4704","4705","4742","4743","4744","4745","4864","4865","4866","4807"];
 let encantamentosMalangdoDistancia = ["4818","4811","4810","4832","4833","4834","4835","4836","4837","29135","29136","29137","29138","29139","4815","4732","4733","4734","4735","4752","4753","4754","4755","4869","4872","4873","4807"];
 let encantamentosMalangdoMagico = ["4818","4811","4810","4832","29135","4815","4814","4813","4812","4826","4827","4712","4713","4714","4715","4722","4723","4724","4725","4869","4872","4873","4760","4761","29445","29446"];
 
+//Sombrio
 let bonusaleatoriosSombriosNormais = ["hpp_1-2","spp_1-2","atq_1-15","atqm_1-15","crit_1-5","precisao_5-15","efetividadecura_3-5","hpf_100-500","spf_20-100","danofisicop_1-3","danomagicop_1-3","danocritico_1-5","danodistancia_1-5","aspdp_1-5","conjuracaovariavel_1-3","aspdf_1-1"];
 
 let bonusaleatoriosSombriosClasse = ["danofisicopropriedade_1-5","hpp_1-2","spp_1-2","hpf_100-500","spf_20-100","precisao_5-15","atq_1-15","atqarmap_1-3","danocritico_1-5","danodistancia_1-5","conjuracaovariavel_1-5","aspdp_1-5","aspdf_1-1","ignoredef_1-7"];
 
+//Palácio das Mágoas - Armas de Cinzas
 let bonusaleatoriosCinzasPoder1 = ["danofisicopropriedade_1-20","aspdp_5-10","aspdf_1-1","drake"];
 let bonusaleatoriosCinzasPoder2 = ["danofisicoraca_1-20","danocritico_5-20","atqarmap_3-7","danofisicochefe_1-10"];
 
@@ -22,6 +26,13 @@ let bonusaleatoriosCinzasMagia2 = ["danomagicoraca_1-20","danomagicop_3-5","conj
 
 let bonusaleatoriosCinzasMira1 = ["danofisicopropriedade_1-20","aspdp_5-10","aspdf_1-1","danodistancia_1-10","drake"];
 let bonusaleatoriosCinzasMira2 = ["danofisicoraca_1-20","danocritico_5-20","atqarmap_3-7","danofisicochefe_1-10"];
+
+
+//Sonho Sombrio
+let bonusaleatoriosSonho1 = ["danofisicopropriedade_1-20","atqarmap_1-10","drake"];
+let bonusaleatoriosSonho2 = ["danofisicoraca_1-20"];
+let bonusaleatoriosSonho3 = ["atributosorte_1-10","atributodestreza_1-10","atributoagilidade_1-10","crit_1-20","atq_10-50","danocritico_1-15","danodistancia_1-20","aspdf_1-5"];
+
 
 var items = [
   {
@@ -917,6 +928,11 @@ var items = [
     itemClasses: ["Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosSonho1],
+      [...bonusaleatoriosSonho2],
+      [...bonusaleatoriosSonho3],
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": 30,
@@ -1239,6 +1255,11 @@ var items = [
     itemClasses: ["Classe_SE"],
     itemBonus: ["REQ_DFisico","REQ_DDist"],
     slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosSonho1],
+      [...bonusaleatoriosSonho2],
+      [...bonusaleatoriosSonho3],
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": -50,
@@ -4401,6 +4422,11 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
+    bonusaleatorios: [
+      [...bonusaleatoriosSonho1],
+      [...bonusaleatoriosSonho2],
+      [...bonusaleatoriosSonho3],
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
       }
@@ -5306,6 +5332,11 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 2,
+    bonusaleatorios: [
+      [...bonusaleatoriosSonho1],
+      [...bonusaleatoriosSonho2],
+      [...bonusaleatoriosSonho3],
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 20
@@ -8017,6 +8048,11 @@ var items = [
     itemClasses: ["Classe_MU","Classe_MU_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
+    bonusaleatorios: [
+      [...bonusaleatoriosSonho1],
+      [...bonusaleatoriosSonho2],
+      [...bonusaleatoriosSonho3],
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["2989"]]) ? 200 : 0,
@@ -8951,6 +8987,10 @@ var items = [
     itemClasses: ["Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMira2]
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributointeligencia": 6,
@@ -9633,7 +9673,7 @@ var items = [
   },
   {
     itemId:     "1935",
-    itemNome:   "Ukulele do Novo Oz [2]",
+    itemNome:   "Ukulele [2]",
     itemTipo:   "itemArma",
     itemSubtipo: "Arma_Instrumento",
     itemArmaATQ: 160,
@@ -9643,6 +9683,11 @@ var items = [
     itemClasses: ["Classe_TR","Classe_TR_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
+    bonusaleatorios: [
+      [...bonusaleatoriosSonho1],
+      [...bonusaleatoriosSonho2],
+      [...bonusaleatoriosSonho3],
+    ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["2988"]]) ? 200 : 0,
