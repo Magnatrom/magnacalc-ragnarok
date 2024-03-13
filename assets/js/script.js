@@ -835,6 +835,7 @@ function calcular() {
   }
   if(hasBuff("380a") || hasBuff("380b")) { bonusConsolidados.atributoforca += 5; bonusConsolidados.atributoagilidade += 5; bonusConsolidados.atributovitalidade += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributosorte += 5; } // Visão Real
   if(hasBuff("43")) { bonusConsolidados.atributodestreza += 10; } // Olhos de Coruja
+  if(hasBuff("155")) { bonusConsolidados.atributoforca += 4; } // Grito de Guerra;
 
 
   if(hasBuff("258") && isTipoArma("itemMaoDireita", ["Arma_Lanca1"])) {
@@ -956,6 +957,7 @@ function calcular() {
   if(temInvestigar) { extraAtq += parseInt(defesaFisicaFinalMonstro / 2); defesaFisicaFinalMonstro = 0; } // Carta Thanatos
   if(hasBuff("2315a") && !hasBuff("2315b")) { extraAtq += 150; } // Aegis Domini 150 DEF
   if(hasBuff("2315b")) {  extraAtq += 170; } // Aegis Domini 170 DEF
+  if(hasBuff("155")) {  extraAtq += 30; } // Grito de Guerra;
   let reducaoDefesaFisicaPesadaMonstro = ((4000 + defesaFisicaFinalMonstro) / (4000 + defesaFisicaFinalMonstro * 10));
 
   if(hasBuff("286") && propriedadeAtaque == "1") { vantagemElemento += 0.2; } // Dilúvio
@@ -977,8 +979,10 @@ function calcular() {
   let skillModifier = (buildAtual.ataque.tipoAtaque == "skill" || buildAtual.ataque.tipoAtaque == "skillcritico") ? (getBonusPercentage(skillFormula)) : 1;
   let skillBonus = (buildAtual.ataque.tipoAtaque == "skill" || buildAtual.ataque.tipoAtaque == "skillcritico") ? (1 + getBonusPercentage(bonusConsolidados["danode--" + (buildAtual.id.split("--")[0])])) : 1;
 
+
   // Curta = dano corpo a corpo | Longa = dano a distância
-  if(hasBuff("5002")) { bonusConsolidados.danodistancia = (bonusConsolidados.danodistancia ? bonusConsolidados.danodistancia : 0) + 250; } // Ilimitar
+  if(hasBuff("5002b") && !hasBuff("5002a")) { bonusConsolidados.danodistancia = (bonusConsolidados.danodistancia ? bonusConsolidados.danodistancia : 0) + 250; } // Ilimitar nv.3
+  if(hasBuff("5002a")) { bonusConsolidados.danodistancia = (bonusConsolidados.danodistancia ? bonusConsolidados.danodistancia : 0) + 350; } // Ilimitar nv.5
   let distanceModifier = ((buildAtual.ataque.distancia == "curta") ? (1 + getBonusPercentage(bonusConsolidados.danomelee)) : (1 + getBonusPercentage(bonusConsolidados.danodistancia)));
 
   // Pentente: Frenesi, Olhos de Águia, Força Violenta, Força Violentíssima, Furor, Dedicação

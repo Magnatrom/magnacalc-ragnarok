@@ -12,6 +12,14 @@ let bonusaleatoriosSombriosClasse = ["danofisicopropriedade_1-5","hpp_1-2","spp_
 
 let bonusaleatoriosCinzasPoder1 = ["danofisicopropriedade_1-20","aspdp_5-10","aspdf_1-1","drake"];
 let bonusaleatoriosCinzasPoder2 = ["danofisicoraca_1-20","danocritico_5-20","atqarmap_3-7","danofisicochefe_1-10"];
+
+let bonusaleatoriosCinzasMagia1 = ["conjuracaovariavel_5-10","posconjuracao_1-5"];
+let bonusaleatoriosCinzasMagia2 = ["conjuracaovariavel_5-10"];
+
+//Abaixo com todos encantamentos de bônus mágicos
+/*let bonusaleatoriosCinzasMagia1 = ["conjuracaovariavel_5-10","danomagicopropriedade_1-20","posconjuracao_1-5"];
+let bonusaleatoriosCinzasMagia2 = ["danomagicoraca_1-20","danomagicop_3-5","conjuracaovariavel_5-10","danomagicochefe_1-20","danomagicoconormal_1-20"];*/
+
 let bonusaleatoriosCinzasMira1 = ["danofisicopropriedade_1-20","aspdp_5-10","aspdf_1-1","danodistancia_1-10","drake"];
 let bonusaleatoriosCinzasMira2 = ["danofisicoraca_1-20","danocritico_5-20","atqarmap_3-7","danofisicochefe_1-10"];
 
@@ -158,6 +166,31 @@ var items = [
         "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
         "danode--Acerto_de_Contas": getItemRefino("itemMaoDireita") >= 9 ? 20 : 0,
         "posconjuracao": getItemRefino("itemMaoDireita") >= 11 ? (-7) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "13093",
+    itemNome:   "Adaga de Cinzas [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 100,
+    itemArmaATQM: 130,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_SE","Classe_SE_NT","Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT","Classe_BI","Classe_BI_NT","Classe_ME","Classe_ME_NT","Classe_SC","Classe_SC_NT","Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMagia1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMagia2]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributointeligencia": 6,
+        "atributovitalidade": 6,
+        "atributosorte": -6,
       }
     }
   },
@@ -1006,8 +1039,8 @@ var items = [
     itemArmaNivel: 4,
     itemNivel:  120,
     itemPropriedade: 0,
-    itemClasses: ["Classe_SC","Classe_SE","Classe_MU","Classe_TR"],
-    itemBonus: ["REQ_DFisico","REQ_DDist"],
+    itemClasses: ["Classe_SE","Classe_SE_NT","Classe_TR","Classe_TR_NT","Classe_MU","Classe_MU_NT","Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_DDist"],
     slots: 1,
     bonusaleatorios: [
       [...bonusaleatoriosCinzasMira1],
@@ -2908,6 +2941,21 @@ var items = [
     }
   },
   {
+    itemId:     "490367",
+    itemNome:   "Bracelete de Ulle [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico", "REQ_Pos"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicop": 10,
+        "posconjuracao": -15
+      }
+    }
+  },
+  {
     itemId:     "2989",
     itemNome:   "Bracelete Floral de Igu [1]",
     itemTipo:   "itemAcessorio",
@@ -2958,6 +3006,24 @@ var items = [
         "danode--Flecha_Melodica": getNivelBase(),
         "danode--Ruido_Estridente": parseInt(getNivelBase() / 5) * 2,
         "conjuracaovariavel--Ruido_Estridente": parseInt(getNivelBase() / 5) * (-1)
+      }
+    }
+  },
+  {
+    itemId:     "16033",
+    itemNome:   "Braço Robótico [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 195,
+    itemArmaNivel: 4,
+    itemNivel:  130,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT","Classe_AB","Classe_AB_NT","Classe_SH","Classe_SH_NT"],
+    itemBonus: ["REQ_DFisico","REQ_TCrit"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "crit": 20
       }
     }
   },
@@ -3712,6 +3778,24 @@ var items = [
     }
   },
   {
+    itemId:     "400396",
+    itemNome:   "Chifres Oníricos [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","Req_Pos","REQ_Impacto_Meteoro","REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+	      "aspdp": 10,
+        "posconjuracao": (-20) + (parseInt(getItemRefino(slot) / 3) * (-3)),
+	      "danode--Impacto_Meteoro": parseInt(getNivelBase() / 5) + (getItemRefino(slot) >= 7 ? (parseInt(getNivelBase() / 5)) : 0) + (getItemRefino(slot) >= 9 ? (parseInt(getNivelBase() / 5)) : 0),
+        "atqarmap": 25,
+	      "danofisicopropriedade": 25,
+      }
+    }
+  },  
+  {
     itemId:     "1970",
     itemNome:   "Chicote da Rainha",
     itemTipo:   "itemArma",
@@ -3748,6 +3832,31 @@ var items = [
       return {
         "danode--Vulcao_de_Flechas": 10,
         "danode--Flecha_Melodica": 10
+      }
+    }
+  },
+  {
+    itemId:     "1988",
+    itemNome:   "Chicote de Cinzas [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Chicote",
+    itemArmaATQ: 200,
+    itemArmaATQM: 130,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_MU","Classe_MU_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_DDist"],
+    slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMagia1, ...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMagia2, ...bonusaleatoriosCinzasMira2]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributointeligencia": 6,
+        "atributovitalidade": 6,
+        "atributosorte": -6,
       }
     }
   },
@@ -3977,6 +4086,27 @@ var items = [
       return {
         "atq": 5 + (getItemRefino(slot) > 5 ? (getItemRefino(slot) - 5) : 0),
         "atqm": 5 + (getItemRefino(slot) > 5 ? (getItemRefino(slot) - 5) : 0)
+      }
+    }
+  },
+ {
+    itemId:     "28902",
+    itemNome:   "Coelho Macabro [1]",
+    itemTipo:   "itemEscudo",
+    itemDefesa: 0,
+    itemPeso: 10,
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico","REQ_TCrit"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+	      "danomagicop": 5,
+        "danofisicoraca": 5,
+	      "aspdf": 3,
+        "atq": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+        "atqm": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+	      "crit": (getItemRefino(slot) >= 12 ? 10 : 0)
       }
     }
   },
@@ -4767,6 +4897,21 @@ var items = [
     }
   },
   {
+    itemId:     "19311",
+    itemNome:   "Elmo do Guerreiro Feroz [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 10,
+        "danofisicop": 6 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 5 : 0)
+      }
+    }
+  },
+  {
     itemId:     "1972",
     itemNome:   "Enguia Elétrica [2]",
     itemTipo:   "itemArma",
@@ -5072,6 +5217,45 @@ var items = [
         "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
         "atributodestreza": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0,
         "atributosorte": hasCombo(slot, itemId, tipoItem, [["24295"],["28391"],["24253"],["24263"],["24276"]]) ? 10 : 0
+      }
+    }
+  },
+  {
+    itemId:     "13441",
+    itemNome:   "Espada de Cinzas [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 150,
+    itemArmaATQM: 100,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMagia1, ...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMagia2, ...bonusaleatoriosCinzasMira2]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributointeligencia": 6,
+        "atributovitalidade": 6,
+        "atributosorte": -6,
+      }
+    }
+  },
+  {
+    itemId:     "420180",
+    itemNome:   "Espinha de Brinaranha",
+    itemTipo:   "itemBaixo",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Pos"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": -10
       }
     }
   },
@@ -6095,7 +6279,7 @@ var items = [
     itemNivel:  120,
     itemPropriedade: 0,
     itemClasses: ["Classe_GX","Classe_GX_NT"],
-    itemBonus: ["REQ_DFisico"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
     slots: 1,
     bonusaleatorios: [
       [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMira1],
@@ -6278,6 +6462,31 @@ var items = [
         "aspdp": getItemRefino(slot) >= 9 ? 10 : 0,
         "danode--Disparo_Perfurante": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 20 : 0),
         "danode--Toque_do_Oblivio": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 11 ? 20 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "1438",
+    itemNome:   "Lança de Cinzas [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Lanca1",
+    itemArmaATQ: 150,
+    itemArmaATQM: 100,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RK_NT","Classe_RG","Classe_RG_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMira2],
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributointeligencia": 6,
+        "atributovitalidade": 6,
+        "atributosorte": -6,
       }
     }
   },
@@ -9982,6 +10191,31 @@ var items = [
         "danode--Luz_da_Criacao": parseInt(getItemRefino(slot) / 3) * 5,
         "conjuracaovariavel": getItemRefino(slot) >= 9 ? (-10) : 0,
         "danomagicosagrado": getItemRefino(slot) >= 11 ? 15 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "1933",
+    itemNome:   "Violino de Cinzas [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Instrumento",
+    itemArmaATQ: 200,
+    itemArmaATQM: 130,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_TR","Classe_TR_NT"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_DDist"],
+    slots: 1,
+    bonusaleatorios: [
+      [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMagia1, ...bonusaleatoriosCinzasMira1],
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMagia2, ...bonusaleatoriosCinzasMira2]      
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributointeligencia": 6,
+        "atributovitalidade": 6,
+        "atributosorte": -6,
       }
     }
   },

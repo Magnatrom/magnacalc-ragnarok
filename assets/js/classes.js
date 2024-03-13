@@ -621,7 +621,7 @@ var classes = [
           return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return 440
+          return ((1400 + (prop.atributoforca * 5)) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Impacto_Meteoro","REQ_Pos","REQ_Precisao"]
       },
