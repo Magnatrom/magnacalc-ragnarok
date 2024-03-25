@@ -825,7 +825,11 @@ function calcular() {
   if(hasBuff("29a")) {  bonusConsolidados.atributoagilidade += 12; } // Aumentar Agilidade nv10
   if(hasBuff("34b") && !hasBuff("34a")) {  bonusConsolidados.atributodestreza += 5; bonusConsolidados.atributointeligencia += 5; bonusConsolidados.atributoforca += 5; } // Bênção nv5
   if(hasBuff("34a")) {  bonusConsolidados.atributodestreza += 10; bonusConsolidados.atributointeligencia += 10; bonusConsolidados.atributoforca += 10; } // Bênção nv10
-  if(hasBuff("45b") && !hasBuff("45a")) { // Concentração nv.5
+  if(hasBuff("45c") && !hasBuff("45a") && !hasBuff("45b")) { // Concentração nv.5
+    bonusConsolidados.atributoagilidade += parseInt((getAtributoBase("agi") + classeAtual.bonusClasse.agi[nivelClasse]) * 0.03);
+    bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.03);
+  }
+  if(hasBuff("45b") && !hasBuff("45a") && !hasBuff("45c")) { // Concentração nv.5
     bonusConsolidados.atributoagilidade += parseInt((getAtributoBase("agi") + classeAtual.bonusClasse.agi[nivelClasse]) * 0.07);
     bonusConsolidados.atributodestreza += parseInt((getAtributoBase("des") + classeAtual.bonusClasse.des[nivelClasse]) * 0.07);
   }
@@ -837,6 +841,9 @@ function calcular() {
   if(hasBuff("43")) { bonusConsolidados.atributodestreza += 10; } // Olhos de Coruja
   if(hasBuff("155")) { bonusConsolidados.atributoforca += 4; } // Grito de Guerra;
 
+
+
+  if(hasBuff("509")) { bonusConsolidados.aspdp += 5; } // Ataque Concentrado
 
   if(hasBuff("258") && isTipoArma("itemMaoDireita", ["Arma_Lanca1"])) {
     bonusConsolidados.esquiva = bonusConsolidados.esquiva ? (bonusConsolidados.esquiva + 20) : 0;
@@ -958,6 +965,8 @@ function calcular() {
   if(hasBuff("2315a") && !hasBuff("2315b")) { extraAtq += 150; } // Aegis Domini 150 DEF
   if(hasBuff("2315b")) {  extraAtq += 170; } // Aegis Domini 170 DEF
   if(hasBuff("155")) {  extraAtq += 30; } // Grito de Guerra;
+  if(hasBuff("2552")) {  extraAtq += 30; } // Farta Fortuna;
+
   let reducaoDefesaFisicaPesadaMonstro = ((4000 + defesaFisicaFinalMonstro) / (4000 + defesaFisicaFinalMonstro * 10));
 
   if(hasBuff("286") && propriedadeAtaque == "1") { vantagemElemento += 0.2; } // Dilúvio
@@ -1089,9 +1098,14 @@ function exibirMunicoes() {
   if(idMaoDireita != "") {
     let itemMaoDireita = filterItemById(idMaoDireita);
     let tipoItemMaoDireita = itemMaoDireita.itemSubtipo;
-    if((tipoItemMaoDireita == "Arma_Arco" || tipoItemMaoDireita == "Arma_Instrumento" || tipoItemMaoDireita == "Arma_Chicote") && $("#municoes").length <= 0) {
+    if(($.inArray(tipoItemMaoDireita, ["Arma_Arco", "Arma_Instrumento", "Arma_Chicote", "Arma_Espingarda"]) !== -1) && $("#municoes").length <= 0) {
       let row = $("#itemMaoDireita select.equipamento").closest(".row");
-      let municoesAtuais = filterAmmoByWeaponType("flecha");
+      let municoesAtuais;
+      if (tipoItemMaoDireita === "Arma_Espingarda") {
+        municoesAtuais = filterAmmoByWeaponType("projétil");
+      } else {
+        municoesAtuais = filterAmmoByWeaponType("flecha");
+      }
       let htmlcode = `<div class="col-6" id="municoes"><select><option value="">Munição</option>`;
       municoesAtuais.forEach(function(municao, index) {
         htmlcode += `<option value="${municao.municaoId}">${municao.municaoNome}</option>`;
@@ -1100,7 +1114,7 @@ function exibirMunicoes() {
       row.append(htmlcode);
       $("#municoes").on("change", onChangeInputs);
     }
-    if(tipoItemMaoDireita != "Arma_Arco" && tipoItemMaoDireita != "Arma_Instrumento" && tipoItemMaoDireita != "Arma_Chicote") {
+    if($.inArray(tipoItemMaoDireita, ["Arma_Arco", "Arma_Instrumento", "Arma_Chicote", "Arma_Espingarda"]) === -1) {
       $("#municoes").remove();
     }
   } else {
@@ -1108,6 +1122,7 @@ function exibirMunicoes() {
     $("#municoes").remove();
   }
 }
+
 
 function listarBuffs() {
   let htmlcode = ``;
