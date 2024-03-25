@@ -452,7 +452,7 @@ let itemBonuses = {
     "porcentagem": false
   },
   "variavelfde--Vulcao_de_Flechas": {
-    "nome": "Conjuração variável de Vulcão de Flechas",
+    "nome": "Conjuração fixa de Vulcão de Flechas",
     "porcentagem": false
   },
   "pesoEscudo": {

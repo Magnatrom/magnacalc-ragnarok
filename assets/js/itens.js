@@ -675,7 +675,7 @@ var items = [
     itemNivel: 130,
     itemClasses: ["Classe_GX"],
     itemBonus: ["REQ_Laminas_de_Loki","REQ_Castigo_de_Loki"],
-    slots: 0,
+    slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
@@ -1942,16 +1942,16 @@ var items = [
         "danomagiconeutro": (getItemRefino(slot) >= 7 ? 15 : 0),
         "danodistancia": (getItemRefino(slot) >= 9 ? 15 : 0),
         "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
-        "danofisicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
-        "danomagicop": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["400000"]]) ? 4 : 0),
+        "danofisicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0),
+        "danomagicotamanho": (getItemRefino(slot) >= 11 && isOpponent("tamanhoMonstro", ["0","1"]) ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["400000"]]) ? 4 : 0),
         "atqarmap": (hasCombo(slot, itemId, tipoItem, [["400000"]]) ? 4 : 0),
-        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, tipoItem, [["18123"]]) ? (parseInt(getItemRefino(slot) / 2) * 5) : 0),
+        "danode--Temporal_de_Mil_Flechas": (hasCombo(slot, itemId, tipoItem, [["18123"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) : 0),
         "recargade--Tempestade_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (-1.5) : 0),
-        "aspdp": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["18122"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 3) : 0),
         "conjuracaovariavel": (hasCombo(slot, itemId, tipoItem, [["1935","1990"]]) ? (-25) : 0),
-        "danode--Vulcao_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["1935","1990"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "danode--Vulcao_de_Flechas": (hasCombo(slot, itemId, tipoItem, [["1935","1990"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 7) : 0),
         "recargade--Ruido_Estridente": (hasCombo(slot, itemId, tipoItem, [["1989","1934"]]) ? (-2) : 0),
-        "danode--Ruido_Estridente": (hasCombo(slot, itemId, tipoItem, [["1989","1934"]]) ? (parseInt(getItemRefino(slot) / 2) * 7) : 0),
+        "danode--Ruido_Estridente": (hasCombo(slot, itemId, tipoItem, [["1989","1934"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 7) : 0),
       }
     }
   },
@@ -4150,7 +4150,28 @@ var items = [
       }
     }
   },
- {
+  {
+    itemId:     "28901",
+    itemNome:   "Coelho Macabro",
+    itemTipo:   "itemEscudo",
+    itemDefesa: 0,
+    itemPeso: 10,
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_DMagico","REQ_TCrit"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+	      "danomagicop": 5,
+        "danofisicoraca": 5,
+	      "aspdf": 3,
+        "atq": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+        "atqm": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+	      "crit": (getItemRefino(slot) >= 12 ? 10 : 0)
+      }
+    }
+  },
+  {
     itemId:     "28902",
     itemNome:   "Coelho Macabro [1]",
     itemTipo:   "itemEscudo",
@@ -4164,7 +4185,6 @@ var items = [
       return {
 	      "danomagicop": 5,
         "danofisicoraca": 5,
-	      "aspdf": 3,
         "atq": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
         "atqm": (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
 	      "crit": (getItemRefino(slot) >= 12 ? 10 : 0)
