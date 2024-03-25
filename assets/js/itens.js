@@ -2942,6 +2942,27 @@ var items = [
     }
   },
   {
+    itemId:     "470028",
+    itemNome:   "Botas Robustas [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_IgnDef","REQ_CFix","REQ_Pos","REQ_DFisico","REQ_Tiro_Neutralizante"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "aspdp": (isClasse("Classe_IN") ? 20 : 0),
+        "ignoredef": (isClasse("Classe_IN") ? 100 : 0),
+        "danode--Tiro_Neutralizante": (isClasse("Classe_IN") ? 300 : 0),
+        "conjuracaofixap": (isClasse("Classe_IN") ? -100 : 0),
+        "danofisicop": (isClasse("Classe_IN") ? 20 : 0),
+        "posconjuracao": (isClasse("Classe_IN") ? -40 : 0)
+      }
+    }
+  },
+  {
     itemId:     "22129",
     itemNome:   "Botas Veteranas",
     itemTipo:   "itemSapatos",
@@ -2968,7 +2989,7 @@ var items = [
     itemNivel:  100,
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico", "REQ_Pos"],
-    slots: 0,
+    slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10,
@@ -3561,6 +3582,25 @@ var items = [
     }
   },
   {
+    itemId:     "400597",
+    itemNome:   "Caubói de Kiwawa [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  150,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_CFix","REQ_Pos","REQ_Tiro_Neutralizante"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 15 + (hasCombo(slot, itemId, tipoItem, [["28242"]]) ? (parseInt(getItemRefino(slot) / 2) * 15) : 0),
+        "danodistancia": parseInt(getItemRefino(slot) / 3) * 4,
+        "danofisicotamanho": (getItemRefino(slot) >= 9 ? 10 : 0),
+        "posconjuracao": (getItemRefino(slot) >= 11 ? (-15) : 0),
+        "conjuracaofixas": (getItemRefino(slot) >= 11 ? (-0.2) : 0),
+        "recargade--Tiro_Neutralizante": (hasCombo(slot, itemId, tipoItem, [["28242"]]) ? (getItemRefino("itemMaoDireita") >= 12 ? -1.3 : 0) : 0)
+      }
+    }
+  },
+  {
     itemId:     "490031",
     itemNome:   "Cauda de Petal [1]",
     itemTipo:   "itemAcessorio",
@@ -3803,7 +3843,7 @@ var items = [
     itemNome:   "Chifres Oníricos [1]",
     itemTipo:   "itemTopo",
     itemNivel:  100,
-    itemClasses: ["todas"],
+    itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_Aspd","Req_Pos","REQ_Impacto_Meteoro","REQ_DFisico"],
     slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
@@ -4957,6 +4997,56 @@ var items = [
     }
   },
   {
+    itemId:     "28256",
+    itemNome:   "Escopeta Ancestral [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 275,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_DDist"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 10,
+        "danodistancia": parseInt(getItemRefino("itemMaoDireita") / 2) * 3,
+        "danofisicochefe": (getItemRefino(slot) >= 7 ? 10 : 0)
+      }
+    }
+  },
+  {
+    itemId:     "820001",
+    itemNome:   "Escopeta Primordial [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 295,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_DDist"],
+    bonusaleatorios: [
+      ["danofisicopropriedade_3-20","atq_5-30","aspdp_3-10","danodistancia_3-10","aspdf_1-1"],
+      ["danofisicoraca_3-20","danocritico_3-10","danofisicochefe_1-10","atqarmap_1-5"]
+    ],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 10,
+        "danodistancia": parseInt(getItemRefino("itemMaoDireita") / 2) * 3,
+        "danofisicochefe": (getItemRefino(slot) >= 7 ? 15 : 0),
+        "danofisicoraca": isOpponent("racaMonstro", ["3","7"]) ? (getItemRefino(slot) >= 7 ? 15 : 0) : 0,
+        "danode--Tiro_Neutralizante": (getItemRefino(slot) >=11 ? 35 : 0), 
+      }
+    }
+  },
+  {
     itemId:     "460023",
     itemNome:   "Escudo da Fênix [1]",
     itemTipo:   "itemEscudo",
@@ -5268,6 +5358,60 @@ var items = [
         "atributointeligencia": 6,
         "atributovitalidade": 6,
         "atributosorte": -6,
+      }
+    }
+  },
+  {
+    itemId:     "13196",
+    itemNome:   "Espingarda da Destruição [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 250,
+    itemArmaNivel: 3,
+    itemNivel:  140,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_Aspd"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "aspdp": 25 ,
+      }
+    }
+  },
+  {
+    itemId:     "13193",
+    itemNome:   "Espingarda de Trovoada [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 280,
+    itemArmaNivel: 3,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_Aspd"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "aspdp": (-10) ,
+      }
+    }
+  },
+  {
+    itemId:     "13192",
+    itemNome:   "Espingarda Disparo Mortal [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 400,
+    itemArmaNivel: 3,
+    itemNivel:  108,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_Aspd"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "aspdp": (-10) ,
       }
     }
   },
@@ -8339,6 +8483,27 @@ var items = [
       }
     }
   },
+ {
+    itemId:     "28242",
+    itemNome:   "Olho de Anaconda [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 305,
+    itemArmaNivel: 4,
+    itemNivel:  150,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_SP","REQ_Tiro_Neutralizante"],
+    slots: 2,
+    encantamentos: [[...encantamentosMalangdoDistancia], [...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "spp": 2,
+        "danodistancia": (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) + (getItemRefino("itemMaoDireita") >= 9 ? 5 : 0),
+        "danode--Tiro_Neutralizante": (getItemRefino(slot) >= 7 ? 20 : 0),      
+      }
+    }
+  },
   {
     itemId:     "5325",
     itemNome:   "Olhos Biônicos",
@@ -9873,6 +10038,26 @@ var items = [
         "recargade--Explosao_Espiritual": (hasCombo(slot, itemId, tipoItem, [["1862"]]) ? (-1) : 0),
         "danode--Execucao": (hasCombo(slot, itemId, tipoItem, [["28253"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0),
         "danode--Bomba_Acida": (hasCombo(slot, itemId, tipoItem, [["16088"]]) ? (parseInt(getItemRefino(slot) / 2) * 3) : 0)
+      }
+    }
+  },
+  {
+    itemId:     "28224",
+    itemNome:   "Tiro Centelha [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espingarda",
+    itemArmaATQ: 300,
+    itemArmaNivel: 3,
+    itemNivel:  120,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_Tiro_Neutralizante"],
+    slots: 2,
+    encantamentos: [[...encantamentosMalangdoDistancia], [...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Tiro_Neutralizante": (getItemRefino(slot) >= 9 ? 15 : 0),
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["13215"]]) ? 30 : 0  
       }
     }
   },
