@@ -671,6 +671,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27339",
+    cartaNome:   "Carta Ghostring Caótico",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 20,
+        "danofisicotamanho": isOpponent("tamanhoMonstro",["0","2"]) ? 25 : 0
+      }
+    }
+  },
+  {
     cartaID:     "4682",
     cartaNome:   "Carta Guardião Real Randel",
     cartaSlot:   "itemCapa",

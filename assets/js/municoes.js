@@ -365,4 +365,200 @@ var municoes = [
       }
     }
   },
+  {
+    municaoId:     "13200",
+    municaoNome:   "Projétil",
+    municaoTipo:   "projétil",
+    municaoAtaque: 25,
+    municaoPropriedade:  0,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+{
+    municaoId:     "13221",
+    municaoNome:   "Projétil de Prata",
+    municaoTipo:   "projétil",
+    municaoAtaque: 15,
+    municaoPropriedade:  6,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13228",
+    municaoNome:   "Projétil de Fogo",
+    municaoTipo:   "projétil",
+    municaoAtaque: 20,
+    municaoPropriedade:  3,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13229",
+    municaoNome:   "Projétil Relâmpago",
+    municaoTipo:   "projétil",
+    municaoAtaque: 20,
+    municaoPropriedade:  4,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13230",
+    municaoNome:   "Projétil Congelante",
+    municaoTipo:   "projétil",
+    municaoAtaque: 20,
+    municaoPropriedade:  1,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13231",
+    municaoNome:   "Projétil Venenoso",
+    municaoTipo:   "projétil",
+    municaoAtaque: 20,
+    municaoPropriedade:  5,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13232",
+    municaoNome:   "Projétil Cegante",
+    municaoTipo:   "projétil",
+    municaoAtaque: 20,
+    municaoPropriedade:  7,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13228",
+    municaoNome:   "Projétil Sanguinário",
+    municaoTipo:   "projétil",
+    municaoAtaque: 30,
+    municaoPropriedade:  0,
+    municaoNivel:  1,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13215",
+    municaoNome:   "Projétil Perfurador",
+    municaoTipo:   "projétil",
+    municaoAtaque: 50,
+    municaoPropriedade:  0,
+    municaoNivel:  100,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13216",
+    municaoNome:   "Projétil Incandescente",
+    municaoTipo:   "projétil",
+    municaoAtaque: 40,
+    municaoPropriedade:  3,
+    municaoNivel:  100,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13217",
+    municaoNome:   "Projétil Glacial",
+    municaoTipo:   "projétil",
+    municaoAtaque: 40,
+    municaoPropriedade:  1,
+    municaoNivel:  100,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13218",
+    municaoNome:   "Projétil de Eletrochoque",
+    municaoTipo:   "projétil",
+    municaoAtaque: 40,
+    municaoPropriedade:  4,
+    municaoNivel:  100,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13219",
+    municaoNome:   "Projétil Tectônico",
+    municaoTipo:   "projétil",
+    municaoAtaque: 40,
+    municaoPropriedade:  2,
+    municaoNivel:  100,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
+  {
+    municaoId:     "13220",
+    municaoNome:   "Projétil de Purificação",
+    municaoTipo:   "projétil",
+    municaoAtaque: 40,
+    municaoPropriedade:  6,
+    municaoNivel:  100,
+    municaoClasses: ["todas"],
+    municaoBonus: ["REQ_DFisico"],
+    municaoFuncao: function() {
+      return {
+      }
+    }
+  },
 ];

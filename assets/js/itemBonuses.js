@@ -63,15 +63,7 @@ let itemBonuses = {
     "nome": "Dano mágico (%)",
     "porcentagem": true
   },
-  "danofisicochefe": {
-    "nome": "Dano físico contra chefes",
-    "porcentagem": true
-  },
-  "danomagicochefe": {
-    "nome": "Dano mágico contra chefes",
-    "porcentagem": true
-  },
-  "danodistancia": {
+   "danodistancia": {
     "nome": "Dano físico a distância",
     "porcentagem": true
   },
@@ -261,6 +253,14 @@ let itemBonuses = {
   },
   "danode--Tiro_Preciso": {
     "nome": "Dano de Tiro Preciso",
+    "porcentagem": true
+  },
+  "recargade--Tiro_Neutralizante": {
+    "nome": "Recarga de Tiro Neutralizante",
+    "porcentagem": false
+  },
+  "danode--Tiro_Neutralizante": {
+    "nome": "Dano de Tiro Neutralizante",
     "porcentagem": true
   },
   "danode--Ataque_Aereo": {
