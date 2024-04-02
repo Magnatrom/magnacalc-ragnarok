@@ -1527,32 +1527,63 @@ var classes = [
     classeID: "Classe_IN",
     classeNome: "Insurgente",
     classeTipo: "ClasseExp2",
+    bonusClasse: {
+      for: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3],
+      agi: [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,6,6,6,6],
+      vit: [0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6],
+      int: [0,0,0,0,1,1,1,1,2,2,2,2,2,2,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8],
+      des: [0,0,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8],
+      sor: [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5]
+    },
     transclasse: false,
-    classeAspdBase: 146,
-    classePenEscudo: -4,
+    classeAspdBase: 151,
+    classePenEscudo: -10,
     classeArmas: [
       {
         idArma: "Arma_Pistola",
-        penalidade: 1
+        penalidade: -5
       },
       {
         idArma: "Arma_Rifle",
-        penalidade: -4
+        penalidade: -10
       },
       {
         idArma: "Arma_Metralhadora",
-        penalidade: 3
+        penalidade: -3
       },
       {
         idArma: "Arma_Espingarda",
-        penalidade: -24
+        penalidade: -30
       },
       {
         idArma: "Arma_Granadas",
-        penalidade: -29
+        penalidade: -35
       }
     ],
-    classeBuilds: []
+    classeBuilds: [
+      {
+        id: "Tiro_Neutralizante",
+        nome: "Tiro Neutralizante",
+        maoDireita: ["Arma_Espingarda"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 1,
+          conjuracaofixa: 1,
+          posconjuracao: 0,
+          recarga: 2
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (3500)
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Tiro_Neutralizante","REQ_CFix"]
+      },]
   },
   {
     classeID: "Classe_KA",
