@@ -47,6 +47,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4695",
+    cartaNome:   "Carta Alma de Cecil",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Temporal_de_Mil_Flechas"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Temporal_de_Mil_Flechas": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4601",
     cartaNome:   "Carta Amdarais",
     cartaSlot:   "itemArmadura",
