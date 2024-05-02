@@ -63,7 +63,11 @@ let itemBonuses = {
     "nome": "Dano mágico (%)",
     "porcentagem": true
   },
-   "danodistancia": {
+  "danofisicochefe": {
+    "nome": "Dano físico contra chefe (%)",
+    "porcentagem": true
+  },
+  "danodistancia": {
     "nome": "Dano físico a distância",
     "porcentagem": true
   },

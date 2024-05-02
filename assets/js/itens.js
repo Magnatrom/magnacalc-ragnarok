@@ -1244,6 +1244,26 @@ var items = [
     }
   },
   {
+    itemId:     "700102",
+    itemNome:   "Arco Experimental [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 180,
+    itemArmaNivel: 4,
+    itemNivel:  105,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SE","Classe_MU","Classe_TR","Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["1760","1761","1769","1768"]]) ? 70 : 0,
+        "danofisicoraca": ((hasCombo(slot, itemId, tipoItem, [["1760"],["4687"]]) && isOpponent("racaMonstro",["9"])) || (hasCombo(slot, itemId, tipoItem, [["1761"],["4687"]]) && isOpponent("racaMonstro",["5","10"])) || (hasCombo(slot, itemId, tipoItem, [["1768"],["4687"]]) && isOpponent("racaMonstro",["2"])) || (hasCombo(slot, itemId, tipoItem, [["1769"],["4687"]]) && isOpponent("racaMonstro",["6"]))) ? (getItemRefino(slot) * 2) : 0,
+        "danode--Bomba_Relogio": hasCombo(slot, itemId, tipoItem, [["1760","1761","1769","1768"],["4687"]]) ? (getItemRefino(slot) * 2) : 0
+      }
+    }
+  },
+  {
     itemId:     "18122",
     itemNome:   "Arco Gigante [1]",
     itemTipo:   "itemArma",
@@ -3855,7 +3875,7 @@ var items = [
 	      "danofisicopropriedade": 25,
       }
     }
-  },  
+  },
   {
     itemId:     "1970",
     itemNome:   "Chicote da Rainha",
@@ -5062,7 +5082,7 @@ var items = [
         "danodistancia": parseInt(getItemRefino("itemMaoDireita") / 2) * 3,
         "danofisicochefe": (getItemRefino(slot) >= 7 ? 15 : 0),
         "danofisicoraca": isOpponent("racaMonstro", ["3","7"]) ? (getItemRefino(slot) >= 7 ? 15 : 0) : 0,
-        "danode--Tiro_Neutralizante": (getItemRefino(slot) >=11 ? 35 : 0), 
+        "danode--Tiro_Neutralizante": (getItemRefino(slot) >=11 ? 35 : 0),
       }
     }
   },
@@ -8520,7 +8540,7 @@ var items = [
       return {
         "spp": 2,
         "danodistancia": (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) + (getItemRefino("itemMaoDireita") >= 9 ? 5 : 0),
-        "danode--Tiro_Neutralizante": (getItemRefino(slot) >= 7 ? 20 : 0),      
+        "danode--Tiro_Neutralizante": (getItemRefino(slot) >= 7 ? 20 : 0),
       }
     }
   },
@@ -10077,7 +10097,7 @@ var items = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Tiro_Neutralizante": (getItemRefino(slot) >= 9 ? 15 : 0),
-        "danodistancia": hasCombo(slot, itemId, tipoItem, [["13215"]]) ? 30 : 0  
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["13215"]]) ? 30 : 0
       }
     }
   },
@@ -10459,7 +10479,7 @@ var items = [
     slots: 1,
     bonusaleatorios: [
       [...bonusaleatoriosCinzasPoder1, ...bonusaleatoriosCinzasMagia1, ...bonusaleatoriosCinzasMira1],
-      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMagia2, ...bonusaleatoriosCinzasMira2]      
+      [...bonusaleatoriosCinzasPoder2, ...bonusaleatoriosCinzasMagia2, ...bonusaleatoriosCinzasMira2]
     ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
