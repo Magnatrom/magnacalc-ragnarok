@@ -10336,7 +10336,7 @@ var items = [
     itemBonus: ["REQ_DFisico"],
     slots: 2,
     encantamentos: [
-      ["29603"]
+      ["29603","4832","4833","4834","4808","4820","4821"]
     ],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
