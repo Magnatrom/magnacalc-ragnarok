@@ -1815,6 +1815,26 @@ var cartas = [
     }
   },
   {
+    cartaID:     "29603",
+    cartaNome:   "Memória de Gertie",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_Disparo_Triplo","REQ_Apunhalar","REQ_Ofensiva_Fatal","REQ_DMagico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Apunhalar": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? (parseInt(getItemRefino(slot) / 3) * 10) : 0,
+        "danode--Ofensiva_Fatal": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? (parseInt(getItemRefino(slot) / 3) * 5) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (parseInt(getItemRefino(slot) / 3) * 2) : 0,
+        "danomagicofogo": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (parseInt(getItemRefino(slot) / 3) * 5) : 0,
+        "danomagicoagua": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (parseInt(getItemRefino(slot) / 3) * 5) : 0,
+        "danomagicoterra": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (parseInt(getItemRefino(slot) / 3) * 5) : 0,
+        "danomagicovento": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (parseInt(getItemRefino(slot) / 3) * 5) : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? (parseInt(getItemRefino(slot) / 3) * 2) : 0,
+        "danode--Disparo_Triplo": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? (parseInt(getItemRefino(slot) / 3) * 7) : 0,
+      }
+    }
+  },
+  {
     cartaID:     "4832",
     cartaNome:   "Mira Apurada 1",
     cartaSlot:   "encantamento",

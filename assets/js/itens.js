@@ -10325,6 +10325,28 @@ var items = [
     }
   },
   {
+    itemId:     "18184",
+    itemNome:   "Triarco [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Arco",
+    itemArmaATQ: 185,
+    itemArmaNivel: 4,
+    itemNivel:  170,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    encantamentos: [
+      ["29603"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danodistancia": 10,
+        "atq": getItemRefino(slot) * 4,
+        "danode--Disparo_Triplo": (getItemRefino(slot) >= 9 ? 20 : 0) + (getItemRefino(slot) >= 11 ? 15 : 0)
+      }
+    }
+  },
+  {
     itemId:     "2295",
     itemNome:   "Venda",
     itemTipo:   "itemMeio",
