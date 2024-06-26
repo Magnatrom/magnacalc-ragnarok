@@ -34,6 +34,10 @@ let bonusaleatoriosSonho2 = ["danofisicoraca_1-20"];
 let bonusaleatoriosSonho3 = ["atributosorte_1-10","atributodestreza_1-10","atributoagilidade_1-10","crit_1-20","atq_10-50","danocritico_1-15","danodistancia_1-20","aspdf_1-5"];
 
 
+//Acessorios encantaveis Tumulo do Monarca
+let encantamentosMonarca = ["4700", "4701", "4702", "4703", "4730", "4731", "4732", "4733", "4740", "4741", "4742", "4743", "4720", "4721", "4722", "4723", "4809", "4808", "4820", "4813", "4812", "4826", "4817", "4816", "4843", "4832", "29047", "4863", "4864", "4882", "4760"]
+
+
 var items = [
   {
     itemId:     "450158",
@@ -353,6 +357,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 5 + (hasCombo(slot, itemId, tipoItem, [["2295"]]) ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["2655","28388"]]) ? 10 : 0)
@@ -411,6 +416,48 @@ var items = [
     }
   },
   {
+    itemId:     "490337",
+    itemNome:   "Amuleto Mitológico [1]",
+    itemTipo:   "itemAcessorioD",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["Req_Pos","REQ_Aspd","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": -15,
+        "aspdp": 15,
+        "hpf": (parseInt(getNivelBase() / 2) * 50),
+        "spf": (parseInt(getNivelBase() / 2) * 5),
+        "atq": (parseInt(getNivelBase() / 2)),
+        "atqm": (parseInt(getNivelBase() / 2))
+      }
+    }
+  },
+  {
+    itemId:     "490381",
+    itemNome:   "Amuleto de Yggdrasil [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["Req_Pos","REQ_Aspd","REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": -15,
+        "aspdp": 10,
+        "atributoforca": 3 + (hasCombo(slot, itemId, tipoItem, [["28534"]]) ? 10 : 0),
+        "atributoagilidade": 3 + (hasCombo(slot, itemId, tipoItem, [["28534"]]) ? 10 : 0),
+        "atributovitalidade": 3 + (hasCombo(slot, itemId, tipoItem, [["28534"]]) ? 10 : 0),
+        "atributointeligencia": 3 + (hasCombo(slot, itemId, tipoItem, [["28534"]]) ? 10 : 0),
+        "atributodestreza": 3 + (hasCombo(slot, itemId, tipoItem, [["28534"]]) ? 10 : 0),
+        "atributosorte": 3 + (hasCombo(slot, itemId, tipoItem, [["28534"]]) ? 10 : 0),
+        "danofisicotamanho": 15,
+        "danomagicotamanho": 15
+      }
+    }
+  },
+  {
     itemId:     "32263",
     itemNome:   "Anel da Égide [1]",
     itemTipo:   "itemAcessorio",
@@ -418,6 +465,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT"],
     itemBonus: ["REQ_DFisico","REQ_Aegis_Inferi","REQ_Pos"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
@@ -439,6 +487,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_SA"],
     itemBonus: ["REQ_DFisico","REQ_Choque_Rapido","REQ_Lanca_do_Destino"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicotamanho": 10,
@@ -480,6 +529,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SA","Classe_RK"],
     itemBonus: ["REQ_DFisico","REQ_FOR","REQ_AGI","REQ_VIT","REQ_Impacto_de_Tyr","REQ_Golpe_Fulminante"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50 + (hasCombo(slot, itemId, tipoItem, [["16074"]]) ? 100 : 0),
@@ -515,6 +565,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SE","Classe_TR","Classe_MU"],
     itemBonus: ["REQ_DFisico","REQ_AGI","REQ_DES","REQ_VIT","REQ_Rajada_de_Flechas","REQ_Chuva_de_Flechas","REQ_Temporal_de_Mil_Flechas"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": 50,
@@ -535,6 +586,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_HP","REQ_SP","REQ_DFisico","REQ_DMagico"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": (slot == "itemAcessorioE") ? (parseInt(getAtributoBase("vit") / 10) * 2) : 0,
@@ -569,6 +621,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DDist","REQ_CFix","REQ_DFisico","REQ_DMagico","REQ_Pos"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danodistancia": (slot == "itemAcessorioD") ? (parseInt(getAtributoBase("des") / 10) * 1) : 0,
@@ -602,6 +655,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DMagico","REQ_DFisico","REQ_Aspd","REQ_HP","REQ_CVar","REQ_DCrit"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atqarmap": 5 + (hasCombo(slot, itemId, tipoItem, [["4908"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4909"]])) ? 5 : 0 + (hasCombo(slot, itemId, tipoItem, [["4910"]])) ? 5 : 0,
@@ -621,6 +675,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_CVar","REQ_DMagico","REQ_CFix"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdf": 1,
@@ -676,6 +731,7 @@ var items = [
     itemClasses: ["Classe_GX"],
     itemBonus: ["REQ_Laminas_de_Loki","REQ_Castigo_de_Loki"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
@@ -727,6 +783,7 @@ var items = [
     itemClasses: ["Classe_SE","Classe_SE_NT","Classe_SC","Classe_SC_NT"],
     itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Pos","REQ_Tempestade_de_Flechas","REQ_Disparo_Certeiro"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 7,
@@ -747,6 +804,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd","REQ_DFisico","REQ_HP","REQ_SP","REQ_Impacto_de_Tyr","REQ_Golpe_Fulminante","REQ_Furia_do_Furacao"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "aspdp": 10,
@@ -769,6 +827,7 @@ var items = [
     itemClasses: ["Classe_GX","Classe_GX_NT"],
     itemBonus: ["REQ_DFisico","REQ_Pos"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
@@ -789,6 +848,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Disparo_Triplo","REQ_Apunhalar"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danode--Apunhalar": getNivelBase() * 2,
@@ -1983,6 +2043,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (hasCombo(slot, itemId, tipoItem, [["2408","22105"]]) ? 50 : 0)
@@ -3039,6 +3100,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DMagico","REQ_Esporo_Explosivo"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 10,
@@ -3057,6 +3119,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Vulcao_de_Flechas","REQ_Estilingue","REQ_Flecha_Melodica","REQ_Ruido_Estridente"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 5 + (isClasse(["Classe_SE","Classe_TR"]) ? 5 : 0),
@@ -3628,6 +3691,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DCrit","REQ_TCritD","REQ_DFisico"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danocritico": 5 + (hasCombo(slot, itemId, tipoItem, [["19316"]]) ? ((getItemRefino("itemTopo") >= 6 ? 10 : 0) + (getItemRefino("itemTopo") >= 8 ? 15 : 0)) : 0),
@@ -4006,6 +4070,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Aspd"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
@@ -4254,6 +4319,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico"],
     slots: 0,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 10,
@@ -5593,6 +5659,7 @@ var items = [
     itemClasses: ["Classe_ME"],
     itemBonus: ["REQ_Pos","REQ_DFisico","REQ_Canhao","REQ_Gas_Criogenico","REQ_Lanca_Chamas"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 10,
@@ -6300,6 +6367,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_SA"],
     itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas","REQ_Pos"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 7,
@@ -6916,6 +6984,7 @@ var items = [
     itemClasses: ["Classe_BI","Classe_BI_NT"],
     itemBonus: ["REQ_DFisico","REQ_Precisao","REQ_Tornado_do_Carrinho"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributosorte": 7,
@@ -6936,6 +7005,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_SP"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoforca": 2,
@@ -6953,6 +7023,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DFisico","REQ_IgnDef"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "posconjuracao": -10,
@@ -6969,6 +7040,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Furia_do_Furacao","REQ_Brandir_Machado","REQ_Arremesso_de_Machado"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributovitalidade": 7,
@@ -8706,6 +8778,7 @@ var items = [
     itemClasses: ["Classe_RG","Classe_RG_NT","Classe_RK","Classe_RK_NT"],
     itemBonus: ["REQ_DFisico"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": hasCombo(slot, itemId, tipoItem, [["15037"]]) && getItemRefino("itemArmadura") >= 7 ? 15 : 0,
@@ -8870,6 +8943,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_DFisico","REQ_HP","REQ_SP","REQ_Choque_do_Carrinho","REQ_Onda_de_Choque","REQ_Perfurar_em_Espiral","REQ_Disparo_Certeiro","REQ_Tempestade_de_Flechas"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicop": 5,
@@ -8996,6 +9070,7 @@ var items = [
     itemClasses: ["todas"],
     itemBonus: ["REQ_Pos","REQ_DDist"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
@@ -9046,6 +9121,7 @@ var items = [
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_SH","Classe_SH_NT"],
     itemBonus: ["REQ_DFisico","REQ_Soco_Furacao"],
     slots: 1,
+    encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 7 + (isClasse(["Classe_SH","Classe_SH_NT"]) ? 20 : 0),
