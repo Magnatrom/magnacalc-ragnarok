@@ -5915,6 +5915,39 @@ var items = [
     }
   },
   {
+    itemId:     "400120",
+    itemNome:   "Goat Crown [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  170,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 20,
+        "atqm": parseInt(getItemRefino(slot) / 2) * 20,
+        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
+        "danofisicop": getItemRefino(slot) >= 9 ? 15 : 0,
+        "danomagicop": getItemRefino(slot) >= 9 ? 15 : 0,
+        "danofisicotamanho": getItemRefino(slot) >= 11 ? 10 : 0,
+        "danomagicotamanho": getItemRefino(slot) >= 11 ? 10 : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? -10 : 0,
+        "danode--Ofensiva_Fatal": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? (getItemRefino("itemMaoDireita") * 10) : 0,
+        "danomagiconeutro": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicoagua": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicofogo": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicoterra": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicovento": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicoveneno": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicosagrado": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicosombrio": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicofantasma": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? 10 : 0,
+        "danode--Disparo_Triplo": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? (getItemRefino("itemMaoDireita") * 10) : 0,
+      }
+    }
+  },
+  {
     itemId:     "22178",
     itemNome:   "Grevas do Poder [1]",
     itemTipo:   "itemSapatos",
