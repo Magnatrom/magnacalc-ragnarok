@@ -169,7 +169,7 @@ var items = [
     itemNivel:  100,
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
-    itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas"],
+    itemBonus: ["REQ_DFisico","REQ_Ofensiva_Fatal"],
     bonusaleatorios: [
       ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
@@ -179,7 +179,7 @@ var items = [
       return {
         "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 10,
         "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
-        "danode--Acerto_de_Contas": getItemRefino("itemMaoDireita") >= 9 ? 20 : 0,
+        "danode--Ofensiva_Fatal": getItemRefino("itemMaoDireita") >= 9 ? 20 : 0,
         "posconjuracao": getItemRefino("itemMaoDireita") >= 11 ? (-7) : 0,
       }
     }
@@ -219,11 +219,11 @@ var items = [
     itemNivel:  102,
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
-    itemBonus: ["REQ_Acerto_de_Contas"],
+    itemBonus: ["REQ_Ofensiva_Fatal"],
     slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "danode--Acerto_de_Contas": 30 + (Math.max(getItemRefino(slot) - 5, 0) * 2)
+        "danode--Ofensiva_Fatal": 30 + (Math.max(getItemRefino(slot) - 5, 0) * 2)
       }
     }
   },
@@ -237,7 +237,7 @@ var items = [
     itemNivel:  150,
     itemPropriedade: 0,
     itemClasses: ["Classe_SC","Classe_SC_NT"],
-    itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas"],
+    itemBonus: ["REQ_DFisico","REQ_Ofensiva_Fatal"],
     bonusaleatorios: [
       ["danofisicopropriedade_3-25","atq_5-40","aspdp_3-12","danodistancia_3-12","danomelee_3-12","aspdf_1-2"],
       ["danofisicoraca_3-25","danocritico_3-12","danofisicochefe_1-12","atqarmap_1-7"]
@@ -247,7 +247,7 @@ var items = [
       return {
         "atq": parseInt(getItemRefino("itemMaoDireita") / 2) * 15,
         "aspdp": parseInt(getItemRefino("itemMaoDireita") / 3) * 2,
-        "danode--Acerto_de_Contas": getItemRefino("itemMaoDireita") >= 7 ? 25 : 0,
+        "danode--Ofensiva_Fatal": getItemRefino("itemMaoDireita") >= 7 ? 25 : 0,
         "posconjuracao": (getItemRefino("itemMaoDireita") >= 9 ? (-7) : 0) + (getItemRefino("itemMaoDireita") >= 11 ? (-7) : 0),
         "danomelee": (getItemRefino("itemMaoDireita") >= 11 ? 10 : 0)
       }
@@ -5552,6 +5552,29 @@ var items = [
     }
   },
   {
+    itemId:     "28767",
+    itemNome:   "Estripadora [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 185,
+    itemArmaNivel: 4,
+    itemNivel:  170,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    encantamentos: [
+      ["29603"],
+      ["4832","4833","4834","4808","4820","4821"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Apunhalar": 40,
+        "atq": getItemRefino(slot) * 4,
+        "danode--Ofensiva_Fatal": (getItemRefino(slot) >= 9 ? 30 : 0)
+      }
+    }
+  },
+  {
     itemId:     "19101",
     itemNome:   "Familiar de Combate",
     itemTipo:   "itemBaixo",
@@ -6398,7 +6421,7 @@ var items = [
     itemTipo:   "itemAcessorio",
     itemNivel:  100,
     itemClasses: ["Classe_SC","Classe_SC_NT","Classe_SA"],
-    itemBonus: ["REQ_DFisico","REQ_Acerto_de_Contas","REQ_Pos"],
+    itemBonus: ["REQ_DFisico","REQ_Ofensiva_Fatal","REQ_Pos"],
     slots: 1,
     encantamentos: [encantamentosMonarca],
     itemFuncao: function(slot, itemId, tipoItem) {
@@ -6407,7 +6430,7 @@ var items = [
         "atributoagilidade": hasCombo(slot, itemId, tipoItem, [["4877"]]) ? 40 : 0,
         "danofisicop": 10,
         "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["4877"]]) ? 10 : 0,
-        "danode--Acerto_de_Contas": parseInt(getNivelBase() / 3),
+        "danode--Ofensiva_Fatal": parseInt(getNivelBase() / 3),
         "posconjuracao": isClasse(["Classe_SC","Classe_SC_NT"]) ? (-30) : 0
       }
     }
@@ -9698,7 +9721,7 @@ var items = [
     itemTipo:   "itemSapatos",
     itemNivel:  100,
     itemClasses: ["todas"],
-    itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_IgnDef","REQ_DFisico","REQ_Acerto_de_Contas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_IgnDef","REQ_DFisico","REQ_Ofensiva_Fatal"],
     slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
       if(isClasse("Classe_SC")) {
@@ -9708,7 +9731,7 @@ var items = [
         "esquiva": (isClasse("Classe_SC") ? 52 : 0),
         "ignoredef": (isClasse("Classe_SC") ? 100 : 0),
         "danofisicop": (isClasse("Classe_SC","Classe_RK","Classe_RG","Classe_SA") ? 20 : 0),
-        "danode--Acerto_de_Contas": (isClasse("Classe_SC") ? 100 : 0),
+        "danode--Ofensiva_Fatal": (isClasse("Classe_SC") ? 100 : 0),
         "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "aspdp": (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0)
@@ -10285,14 +10308,14 @@ var items = [
     itemTipo:   "itemArmadura",
     itemNivel:  160,
     itemClasses: ["Classe_SC","Classe_GX"],
-    itemBonus: ["REQ_HP","REQ_SP","REQ_Disparo_Triplo","REQ_Acerto_de_Contas","REQ_Laminas_Retalhadoras","REQ_Castigo_de_Loki"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_Disparo_Triplo","REQ_Ofensiva_Fatal","REQ_Laminas_Retalhadoras","REQ_Castigo_de_Loki"],
     slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5,
         "spp": 5,
         "danode--Disparo_Triplo": 10,
-        "danode--Acerto_de_Contas": 10,
+        "danode--Ofensiva_Fatal": 10,
         "danode--Laminas_Retalhadoras": 10,
         "danode--Castigo_de_Loki": 10
       }
@@ -10304,14 +10327,14 @@ var items = [
     itemTipo:   "itemArmadura",
     itemNivel:  160,
     itemClasses: ["Classe_SC","Classe_GX"],
-    itemBonus: ["REQ_HP","REQ_SP","REQ_Disparo_Triplo","REQ_Acerto_de_Contas","REQ_Laminas_Retalhadoras","REQ_Castigo_de_Loki","REQ_TCrit","REQ_DFisico","REQ_DMagico"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_Disparo_Triplo","REQ_Ofensiva_Fatal","REQ_Laminas_Retalhadoras","REQ_Castigo_de_Loki","REQ_TCrit","REQ_DFisico","REQ_DMagico"],
     slots: 1,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpp": 5,
         "spp": 5,
         "danode--Disparo_Triplo": 10,
-        "danode--Acerto_de_Contas": 10,
+        "danode--Ofensiva_Fatal": 10,
         "danode--Laminas_Retalhadoras": 10,
         "danode--Castigo_de_Loki": 10,
         "crit": 20,

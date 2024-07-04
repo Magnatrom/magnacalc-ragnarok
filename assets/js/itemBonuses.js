@@ -443,8 +443,8 @@ let itemBonuses = {
     "nome": "Dano de Mammonita",
     "porcentagem": true
   },
-  "danode--Acerto_de_Contas": {
-    "nome": "Dano de Acerto de Contas",
+  "danode--Ofensiva_Fatal": {
+    "nome": "Dano de Ofensiva Fatal",
     "porcentagem": true
   },
   "danode--Aegis_Inferi": {

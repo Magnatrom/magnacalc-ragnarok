@@ -241,8 +241,8 @@ var classes = [
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Soco_Furacao","REQ_Pos"]
       },
       {
-        id: "Acerto_de_Contas--1",
-        nome: "Ofensiva Fatal (Acerto de Contas)",
+        id: "Ofensiva_Fatal--1",
+        nome: "Ofensiva Fatal",
         maoDireita: ["Arma_Espada1","Arma_Adaga"],
         maoEsquerda: ["itemEscudo"],
         ataque: {
@@ -261,10 +261,10 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return parseInt((1100) * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos","REQ_Precisao"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Ofensiva_Fatal","REQ_Pos","REQ_Precisao"]
       },
       {
-        id: "Acerto_de_Contas--2",
+        id: "Ofensiva_Fatal--2",
         nome: "Ofensiva Fatal (rebalance nv. 200)",
         maoDireita: ["Arma_Espada1","Arma_Adaga"],
         maoEsquerda: ["itemEscudo"],
@@ -284,7 +284,7 @@ var classes = [
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return (1200 + (prop.atributoagilidade * 2))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Acerto_de_Contas","REQ_Pos","REQ_Precisao"]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Ofensiva_Fatal","REQ_Pos","REQ_Precisao"]
       },
       {
         id: "Copia_Explosiva--1",

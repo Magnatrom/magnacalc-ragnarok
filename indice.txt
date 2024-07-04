@@ -91,7 +91,7 @@ Lança-Granadas                Arma_Granadas
 
 #######################################
 
-Íncice de Requisitos
+Índice de Requisitos
 
 Velocidade de Ataque          REQ_Aspd
 Dano Físico                   REQ_DFisico
@@ -121,7 +121,6 @@ INT                           REQ_INT
 DES                           REQ_DES
 SOR                           REQ_SOR
 -----
-Acerto de Contas              REQ_Acerto_de_Contas
 Ataque Aéreo                  REQ_Ataque_Aereo
 Bomba Relógio                 REQ_Bomba_Relogio
 Castigo de Loki               REQ_Castigo_de_Loki
@@ -139,6 +138,7 @@ Garra de Tigre                REQ_Garra_de_Tigre
 Golpe Fulminante              REQ_Golpe_Fulminante
 Impacto de Tyr                REQ_Impacto_de_Tyr
 Lâminas Retalhadoras          REQ_Laminas_Retalhadoras
+Ofensiva Fatal                REQ_Ofensiva_Fatal
 Onda de Choque                REQ_Onda_de_Choque
 Perfurar em Espiral           REQ_Perfurar_em_Espiral
 Rajada de Flechas             REQ_Rajada_de_Flechas
