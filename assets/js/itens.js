@@ -5812,6 +5812,37 @@ var items = [
     }
   },
   {
+    itemId:     "400687",
+    itemNome:   "Garra Diabólica [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicop": getItemRefino(slot) * 5,
+        "danomagicop": getItemRefino(slot) * 5,
+        "atq": parseInt(getItemRefino(slot) / 2) * 15,
+        "atqm": parseInt(getItemRefino(slot) / 2) * 15,
+        "posconjuracao": getItemRefino(slot) >= 7 ? (-8) : 0,
+        "conjuracaovariavel": getItemRefino(slot) >= 7 ? (-8) : 0,
+        "danodistancia": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomelee": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagiconeutro": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicoagua": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicofogo": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicoterra": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicovento": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicoveneno": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicosagrado": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicosombrio": getItemRefino(slot) >= 9 ? (10) : 0,
+        "danomagicofantasma": getItemRefino(slot) >= 9 ? (10) : 0,
+        "conjuracaofixas": getItemRefino(slot) >= 11 ? (-0.2) : 0,
+      }
+    }
+  },
+  {
     itemId:     "1841",
     itemNome:   "Garra Prismática [3]",
     itemTipo:   "itemArma",
@@ -9847,6 +9878,33 @@ var items = [
         "atributointeligencia": 2,
         "danode--Vulcao_de_Flechas": 20,
         "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? 95 : 0
+      }
+    }
+  },
+  {
+    itemId:     "420326",
+    itemNome:   "Sistema Elyumina",
+    itemTipo:   "itemBaixo",
+    itemNivel:  130,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 10 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 10 : 0,
+        "atq": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 100 : 0,
+        "atqm": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 100 : 0,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 9 ? 7 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 9 ? 7 : 0,
+        "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["29538"]]) ? (-15) : 0,
+        "danomagicochefe": hasCombo(slot, itemId, tipoItem, [["29538"]]) ? 20 : 0,
+        "precisao": hasCombo(slot, itemId, tipoItem, [["29537"]]) ? 50 : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["29537"]]) ? (-20) : 0,
+        "precisaoperfeita": hasCombo(slot, itemId, tipoItem, [["29537"]]) ? 25 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["29539"]]) ? 7 : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["29539"]]) ? 15 : 0,
+        "danomelee": hasCombo(slot, itemId, tipoItem, [["29539"]]) ? 15 : 0
       }
     }
   },
