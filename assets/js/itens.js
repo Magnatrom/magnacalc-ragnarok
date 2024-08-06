@@ -3023,6 +3023,28 @@ var items = [
     }
   },
   {
+    itemId:     "470180",
+    itemNome:   "Botas Três Marias [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Aspd","REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "posconjuracao": getItemRefino(slot) * (-2),
+        "atributoforca": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "atributoagilidade": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "atributovitalidade": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "atributointeligencia": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "atributodestreza": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "atributosorte": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "danofisicop": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 25 : 0),
+        "danomagicop": (getItemRefino(slot) >= 10 ? 15 : 0) + (getItemRefino(slot) >= 12 ? 25 : 0)
+      }
+    }
+  },
+  {
     itemId:     "470028",
     itemNome:   "Botas Robustas [1]",
     itemTipo:   "itemSapatos",
