@@ -350,6 +350,25 @@ var items = [
     }
   },
   {
+    itemId:     "450338",
+    itemNome:   "Algazarra [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": getItemRefino(slot) * 30,
+        "atqm": getItemRefino(slot) * 30,
+        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
+        "danofisicoraca": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 25 : 0),
+        "danomagicoraca": (getItemRefino(slot) >= 7 ? 15 : 0) + (getItemRefino(slot) >= 9 ? 25 : 0),
+        "precisaoperfeita": getItemRefino(slot) >= 9 ? 25 : 0
+      }
+    }
+  },
+  {
     itemId:     "2913",
     itemNome:   "Algemas de Presidiário [1]",
     itemTipo:   "itemAcessorio",
@@ -9556,6 +9575,24 @@ var items = [
         "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["20838"]]) ? (-15) : 0,
         "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["16063"]]) ? (parseInt(getItemRefino("itemMaoDireita") / 2) * 5) : 0,
         "danode--Punho_Supremo_de_Asura": hasCombo(slot, itemId, tipoItem, [["16063"]]) && getItemRefino("itemMaoDireita") >= 11 ? 35 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "450215",
+    itemNome:   "Revelação de Aramazd [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "aspdp": 10,
+        "danofisicoraca": isOpponent("racaMonstro", ["5","7"]) ? 40 : 0,
+        "danomagicoraca": isOpponent("racaMonstro", ["5","7"]) ? 40 : 0,
+        "danofisicopropriedade": isOpponent("propriedadeMonstro", ["60","61","62","63","70","71","72","73"]) ? 40 : 0,
+        "danomagicopropriedade": isOpponent("propriedadeMonstro", ["60","61","62","63","70","71","72","73"]) ? 40 : 0,
       }
     }
   },

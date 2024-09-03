@@ -300,6 +300,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "300422",
+    cartaNome:   "Carta Catherine Gaebolg",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DCorp"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danomelee": 5 + (parseInt(getItemRefino(slot) / 2) * 4) + (hasCombo(slot, itemId, tipoItem, [["300310"]]) ? 5 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4609",
     cartaNome:   "Carta Cavaleira Khalitzburg",
     cartaSlot:   "itemEscudo",
@@ -408,6 +420,18 @@ var cartas = [
         "hpp": -2 + (parseInt(getItemRefino(slot) / 2) * (-1)),
         "danomagicop": 1 + parseInt(getItemRefino(slot) / 2),
         "atqarmap": 1 + parseInt(getItemRefino(slot) / 2)
+      }
+    }
+  },
+  {
+    cartaID:     "300426",
+    cartaNome:   "Carta Crux Findel",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DDist"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danodistancia": 5 + (parseInt(getItemRefino(slot) / 2) * 4) + (hasCombo(slot, itemId, tipoItem, [["300310"]]) ? 5 : 0)
       }
     }
   },
