@@ -9836,6 +9836,26 @@ var items = [
     }
   },
   {
+    itemId:     "470010",
+    itemNome:   "Sapatos de Capricórnio",
+    itemTipo:   "itemSapatos",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_Aspd","REQ_Apunhalar","REQ_Disparo_Triplo"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 50 + (isClasse("Classe_SC") ? 80 : 0),
+        "atqm": 50 + (isClasse("Classe_SC") ? 80 : 0),
+        "hpp": 10 + (isClasse("Classe_SC") ? 10 : 0),
+        "spp": 10 + (isClasse("Classe_SC") ? 10 : 0),
+        "aspdp": 10,
+        "danode--Apunhalar": (isClasse("Classe_SC") ? 700 : 0),
+        "danode--Disparo_Triplo": (isClasse("Classe_SC") ? 100 : 0)
+      }
+    }
+  },
+  {
     itemId:     "470056",
     itemNome:   "Sapatos do Perseguidor",
     itemTipo:   "itemSapatos",

@@ -851,6 +851,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "300151",
+    cartaNome:   "Carta Kraken Abismal",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DDist"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "precisaoperfeita": 5,
+        "danodistancia": 25
+      }
+    }
+  },
+  {
     cartaID:     "4419",
     cartaNome:   "Carta Ktullanux",
     cartaSlot:   "itemArmadura",
