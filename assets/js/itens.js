@@ -3271,6 +3271,26 @@ var items = [
     }
   },
   {
+    itemId:     "24681",
+    itemNome:   "Brinco Sombrio do Mastodonte",
+    itemTipo:   "itemBrincoSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": getItemRefino(slot) >= 10 ? 3 : 0,
+        "atqarmap": 3 + (hasCombo(slot, itemId, tipoItem, [["24682"]]) ? 2 : 0),
+        "danomelee": parseInt(getItemRefino(slot) / 2),
+        "danodistancia": parseInt(getItemRefino(slot) / 2),
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["24682"]]) && (getItemRefino(slot) + getItemRefino("itemColarSombrio") >= 20) ? 12 : 0
+      }
+    }
+  },
+  {
     itemId:     "24661",
     itemNome:   "Brinco Sombrio Penetrante",
     itemTipo:   "itemBrincoSombrio",
@@ -4473,6 +4493,25 @@ var items = [
     }
   },
   {
+    itemId:     "24682",
+    itemNome:   "Colar Sombrio do Mastodonte",
+    itemTipo:   "itemColarSombrio",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": getItemRefino(slot) >= 10 ? 3 : 0,
+        "atqarmap": 3,
+        "danomelee": parseInt(getItemRefino(slot) / 2),
+        "danodistancia": parseInt(getItemRefino(slot) / 2)
+      }
+    }
+  },
+  {
     itemId:     "24662",
     itemNome:   "Colar Sombrio Penetrante",
     itemTipo:   "itemColarSombrio",
@@ -5484,6 +5523,25 @@ var items = [
     }
   },
   {
+    itemId:     "24735",
+    itemNome:   "Escudo Sombrio Durável",
+    itemTipo:   "itemEscudoSombrio",
+    itemNivel:  99,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "danomelee": 2 + (getItemRefino(slot) >= 10 ? 7 : 0),
+        "danodistancia": 2 + (getItemRefino(slot) >= 10 ? 7 : 0),
+        "atqarmap": parseInt(getItemRefino(slot) / 2),
+        "aspdf": getItemRefino(slot) >= 9 ? 1 : 0,
+      }
+    }
+  },
+  {
     itemId:     "13441",
     itemNome:   "Espada de Cinzas [1]",
     itemTipo:   "itemArma",
@@ -6167,6 +6225,25 @@ var items = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "hpf": (getItemRefino(slot) * 10)
+      }
+    }
+  },
+  {
+    itemId:     "24680",
+    itemNome:   "Greva Sombria do Mastodonte",
+    itemTipo:   "itemGrevaSombria",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": getItemRefino(slot) >= 10 ? 3 : 0,
+        "atqarmap": 3,
+        "danomelee": parseInt(getItemRefino(slot) / 2),
+        "danodistancia": parseInt(getItemRefino(slot) / 2)
       }
     }
   },
@@ -7325,6 +7402,26 @@ var items = [
     }
   },
   {
+    itemId:     "24734",
+    itemNome:   "Luva Sombria Durável",
+    itemTipo:   "itemLuvaSombria",
+    itemNivel:  99,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": getItemRefino(slot),
+        "atqm": getItemRefino(slot),
+        "danomelee": 2 + (getItemRefino(slot) >= 10 ? 7 : 0),
+        "danodistancia": 2 + (getItemRefino(slot) >= 10 ? 7 : 0),
+        "atqarmap": parseInt(getItemRefino(slot) / 2),
+        "aspdf": getItemRefino(slot) >= 9 ? 1 : 0,
+      }
+    }
+  },
+  {
     itemId:     "16003",
     itemNome:   "Maça Carga [2]",
     itemTipo:   "itemArma",
@@ -7595,6 +7692,26 @@ var items = [
         "hpf": (getItemRefino(slot) * 10),
         "danode--Crux_Magnum": 20 + (getItemRefino(slot) * 5),
         "danode--Crux_Divinum": hasCombo(slot, itemId, tipoItem, [["24257"]]) ? 20 : 0
+      }
+    }
+  },
+  {
+    itemId:     "24679",
+    itemNome:   "Malha Sombria do Mastodonte",
+    itemTipo:   "itemMalhaSombria",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DCorp","REQ_DDist"],
+    slots: 0,
+    bonusaleatorios: [bonusaleatoriosSombriosNormais],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpf": (getItemRefino(slot) * 10),
+        "hpp": getItemRefino(slot) >= 10 ? 3 : 0,
+        "atqarmap": 3 + (hasCombo(slot, itemId, tipoItem, [["24680"]]) ? 2 : 0),
+        "danomelee": parseInt(getItemRefino(slot) / 2),
+        "danodistancia": parseInt(getItemRefino(slot) / 2),
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["24680"]]) && (getItemRefino(slot) + getItemRefino("itemGrevaSombria") >= 20) ? 12 : 0
       }
     }
   },
@@ -10000,12 +10117,12 @@ var items = [
     slots: 0,
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
-        "hpp": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 10 : 0,
-        "spp": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 10 : 0,
-        "atq": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 100 : 0,
-        "atqm": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 7 ? 100 : 0,
-        "danofisicop": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 9 ? 7 : 0,
-        "danomagicop": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino(slot) >= 9 ? 7 : 0,
+        "hpp": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino("itemCapa") >= 7 ? 10 : 0,
+        "spp": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino("itemCapa") >= 7 ? 10 : 0,
+        "atq": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino("itemCapa") >= 7 ? 100 : 0,
+        "atqm": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino("itemCapa") >= 7 ? 100 : 0,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino("itemCapa") >= 9 ? 7 : 0,
+        "danomagicop": hasCombo(slot, itemId, tipoItem, [["20933","20934"]]) && getItemRefino("itemCapa") >= 9 ? 7 : 0,
         "conjuracaovariavel": hasCombo(slot, itemId, tipoItem, [["29538"]]) ? (-15) : 0,
         "danomagicochefe": hasCombo(slot, itemId, tipoItem, [["29538"]]) ? 20 : 0,
         "precisao": hasCombo(slot, itemId, tipoItem, [["29537"]]) ? 50 : 0,
