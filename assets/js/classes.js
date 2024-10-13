@@ -282,7 +282,7 @@ var classes = [
           return [(tipoArma == "Arma_Adaga" ? 2 : 1), (tipoArma == "Arma_Adaga" ? 2 : 1)]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return (1200 + (prop.atributoagilidade * 2))
+          return ((1200 + (prop.atributoagilidade * 2)) * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_IgnDef","REQ_Ofensiva_Fatal","REQ_Pos","REQ_Precisao"]
       },
