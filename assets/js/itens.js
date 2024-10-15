@@ -9885,6 +9885,66 @@ var items = [
     }
   },
   {
+    itemId:     "470299",
+    itemNome:   "Salto Fantasma",
+    itemTipo:   "itemSapatos",
+    itemNivel:  170,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_CFix"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 5,
+        "hpp": 7,
+        "spp": 7,
+        "aspdp": getItemRefino(slot) >= 8 ? 10 : 0,
+        "conjuracaofixas": (getItemRefino(slot) >= 10 ? -0.5 : 0) + (hasCombo(slot, itemId, tipoItem, [["19439"]]) && getAtributoBase("DES") >= 130 ? -0.5 : 0),
+        "danodistancia": getItemRefino(slot) >= 12 ? 15 : 0,
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["18184","18187","18186"]]) ? (getItemRefino(slot) * 3) : 0,
+        "precisaoperfeita": hasCombo(slot, itemId, tipoItem, [["18184","18187","18186"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? 30 : 0,
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["18184"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? 25 : 0,
+        "recargade--Tempestade_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18187"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? -0.5 : 0,
+        "danode--Tiro_Preciso": hasCombo(slot, itemId, tipoItem, [["18185"]]) ? (getItemRefino(slot) * 10) : 0,
+        "crit": hasCombo(slot, itemId, tipoItem, [["18185"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? 50 : 0,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["18185"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? 25 : 0,
+        "danode--Rajada_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18188"]]) ? (getItemRefino(slot) * 20) : 0,
+        "danode--Chuva_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18188"]]) ? (getItemRefino(slot) * 20) : 0,
+        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["32108","26213"]]) ? (getItemRefino(slot) * 20) : 0,
+        "recargade--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["32108","26213"]]) ? (((getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? -0.7 : 0) + ((getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? -1.5 : 0)) : 0,
+      }
+    }
+  },
+  {
+    itemId:     "470300",
+    itemNome:   "Salto Fantasma [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  170,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_DDist","REQ_CFix"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 5,
+        "hpp": 7,
+        "spp": 7,
+        "aspdp": getItemRefino(slot) >= 8 ? 10 : 0,
+        "conjuracaofixas": (getItemRefino(slot) >= 10 ? -0.5 : 0) + (hasCombo(slot, itemId, tipoItem, [["19439"]]) && getAtributoBase("DES") >= 130 ? -0.5 : 0),
+        "danodistancia": getItemRefino(slot) >= 12 ? 15 : 0,
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["18184","18187","18186"]]) ? (getItemRefino(slot) * 3) : 0,
+        "precisaoperfeita": hasCombo(slot, itemId, tipoItem, [["18184","18187","18186"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? 30 : 0,
+        "danofisicochefe": hasCombo(slot, itemId, tipoItem, [["18184"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? 25 : 0,
+        "recargade--Tempestade_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18187"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? -0.5 : 0,
+        "danode--Tiro_Preciso": hasCombo(slot, itemId, tipoItem, [["18185"]]) ? (getItemRefino(slot) * 10) : 0,
+        "crit": hasCombo(slot, itemId, tipoItem, [["18185"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? 50 : 0,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["18185"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? 25 : 0,
+        "danode--Rajada_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18188"]]) ? (getItemRefino(slot) * 20) : 0,
+        "danode--Chuva_de_Flechas": hasCombo(slot, itemId, tipoItem, [["18188"]]) ? (getItemRefino(slot) * 20) : 0,
+        "danode--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["32108","26213"]]) ? (getItemRefino(slot) * 20) : 0,
+        "recargade--Vulcao_de_Flechas": hasCombo(slot, itemId, tipoItem, [["32108","26213"]]) ? (((getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? -0.7 : 0) + ((getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? -1.5 : 0)) : 0,
+      }
+    }
+  },
+  {
     itemId:     "28922",
     itemNome:   "Sancti Ilusional [1]",
     itemTipo:   "itemEscudo",
