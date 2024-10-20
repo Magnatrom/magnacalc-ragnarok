@@ -11,6 +11,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27322",
+    cartaNome:   "Carta Ahat",
+    cartaSlot:   "itemAcessorio",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_SP","REQ_HP"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "spp": 5 + (hasCombo(slot, itemId, tipoItem, [["27323"]]) ? 5 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4694",
     cartaNome:   "Carta Alma de Gertie",
     cartaSlot:   "itemArma",
@@ -444,6 +456,20 @@ var cartas = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "precisao": 20 + (getAtributoBase("sor") >= 110 ? 20 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "27321",
+    cartaNome:   "Carta deus Morroc",
+    cartaSlot:   "itemSapatos",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_HP"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": (-50) + (hasCombo(slot, itemId, tipoItem, [["27326"]]) ? 50 : 0),
+        "atqarmap": 10,
+        "danofisicoraca": isOpponent("racaMonstro", ["1","5","10"]) ? 30 : 0
       }
     }
   },
@@ -1310,6 +1336,18 @@ var cartas = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicoalvo": isOpponent("idMonstro",["1023","1273","1213","1153","1189","1152"]) ? 30 : 0
+      }
+    }
+  },
+  {
+    cartaID:     "27323",
+    cartaNome:   "Carta Shenime",
+    cartaSlot:   "itemAcessorio",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico","REQ_SP","REQ_HP"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 5 + (hasCombo(slot, itemId, tipoItem, [["27322"]]) ? 5 : 0)
       }
     }
   },

@@ -1802,6 +1802,32 @@ var items = [
     }
   },
   {
+    itemId:     "480188",
+    itemNome:   "Asas da Valquíria Caída [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      if(getItemRefino(slot) >= 12) {
+        temInvestigar = true;
+      }
+      return {
+        "hpp": parseInt(getItemRefino(slot) / 3) * 2,
+        "spp": parseInt(getItemRefino(slot) / 3) * 2,
+        "atributoforca": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributoagilidade": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributovitalidade": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributointeligencia": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributodestreza": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributosorte": getItemRefino(slot) >= 10 ? 10 : 0,
+        "danofisicopropriedade": (getItemRefino(slot) >= 10 ? 10 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+        "danomagicopropriedade": (getItemRefino(slot) >= 10 ? 10 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+      }
+    }
+  },
+  {
     itemId:     "2589",
     itemNome:   "Asas de Arcanjo Caído [1]",
     itemTipo:   "itemCapa",
@@ -9696,6 +9722,28 @@ var items = [
     }
   },
   {
+    itemId:     "480319",
+    itemNome:   "Relíquia Divina [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": parseInt(getItemRefino(slot) / 3) * 2,
+        "spp": parseInt(getItemRefino(slot) / 3) * 2,
+        "atributoforca": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributoagilidade": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributovitalidade": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributointeligencia": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributodestreza": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributosorte": getItemRefino(slot) >= 10 ? 10 : 0,
+        "atributosorte": (getItemRefino(slot) >= 10 ? 10 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+      }
+    }
+  },
+  {
     itemId:     "450215",
     itemNome:   "Revelação de Aramazd [1]",
     itemTipo:   "itemArmadura",
@@ -10056,6 +10104,29 @@ var items = [
     }
   },
   {
+    itemId:     "470057",
+    itemNome:   "Sapatos do Perseguidor [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_HP","REQ_SP","REQ_Aspd","REQ_IgnDef","REQ_DFisico","REQ_Ofensiva_Fatal"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      if(isClasse("Classe_SC")) {
+        temDrake = true;
+      }
+      return {
+        "esquiva": (isClasse("Classe_SC") ? 52 : 0),
+        "ignoredef": (isClasse("Classe_SC") ? 100 : 0),
+        "danofisicop": (isClasse("Classe_SC","Classe_RK","Classe_RG","Classe_SA") ? 20 : 0),
+        "danode--Ofensiva_Fatal": (isClasse("Classe_SC") ? 100 : 0),
+        "hpp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
+        "aspdp": (getItemRefino(slot) >= 5 ? 5 : 0) + (getItemRefino(slot) >= 7 ? 5 : 0)
+      }
+    }
+  },
+  {
     itemId:     "22195",
     itemNome:   "Sapatos Inteligentes [1]",
     itemTipo:   "itemSapatos",
@@ -10164,6 +10235,40 @@ var items = [
         "atributointeligencia": 2,
         "danode--Vulcao_de_Flechas": 20,
         "danofisicoraca": isOpponent("racaMonstro",["5","10"]) ? 95 : 0
+      }
+    }
+  },
+  {
+    itemId:     "420236",
+    itemNome:   "Servos de Morroc",
+    itemTipo:   "itemBaixo",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DMagico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicoraca": (isOpponent("racaMonstro",["1","5","10"]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["27323"]]) ? 15 : 0) + (hasCombo(slot, itemId, tipoItem, [["27321"]]) ? 40 : 0),
+        "danomagicoraca": (isOpponent("racaMonstro",["1","5","10"]) ? 5 : 0) + (hasCombo(slot, itemId, tipoItem, [["27323"]]) ? 15 : 0),
+        "danofisicotamanho": (hasCombo(slot, itemId, tipoItem, [["27322"]]) ? 15 : 0),
+        "danomagicotamanho": (hasCombo(slot, itemId, tipoItem, [["27322"]]) ? 15 : 0),
+        "danomelee": (hasCombo(slot, itemId, tipoItem, [["4910"]]) ? 20 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["4916"]]) ? -10 : 0),
+        "hpp": (hasCombo(slot, itemId, tipoItem, [["4916"]]) ? -15 : 0) + (hasCombo(slot, itemId, tipoItem, [["4919"]]) ? 30 : 0) + (hasCombo(slot, itemId, tipoItem, [["27321"]]) ? 50 : 0),
+        "aspdp": (hasCombo(slot, itemId, tipoItem, [["4919"]]) ? -50 : 0),
+        "danomagiconeutro": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicofogo": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicoagua": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicoterra": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicovento": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicoveneno": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicofantasma": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicosagrado": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danomagicosombrio": (hasCombo(slot, itemId, tipoItem, [["4913"]]) ? 20 : 0),
+        "danodistancia": (hasCombo(slot, itemId, tipoItem, [["4922"]]) ? 20 : 0),
+        "danocritico": (hasCombo(slot, itemId, tipoItem, [["4925"]]) ? 20 : 0),
+        "efetividadecura": (hasCombo(slot, itemId, tipoItem, [["4925"]]) ? 20 : 0),
+        "posconjuracao": (hasCombo(slot, itemId, tipoItem, [["4925"]]) ? 10 : 0),
       }
     }
   },
