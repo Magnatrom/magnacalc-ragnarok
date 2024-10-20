@@ -1873,6 +1873,28 @@ var items = [
     }
   },
   {
+    itemId:     "480251",
+    itemNome:   "Asas Majestosas [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  1,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Pos","REQ_DCrit","REQ_DMagico","REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicop": parseInt((getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) / 100) * 5,
+        "danocritico": parseInt((getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) / 100) * 5,
+        "danomagicop": parseInt((getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) / 100) * 5,
+        "hpp": (getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) >= 300 ? 20 : 0,
+        "spp": (getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) >= 300 ? 20 : 0,
+        "posconjuracao": (getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) >= 400 ? -15 : 0,
+        "aspdp": (getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) >= 400 ? 15 : 0,
+        "conjuracaofixap": (getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) >= 500 ? -70 : 0,
+        "precisaoperfeita": (getAtributoBase("for") + getAtributoBase("agi") + getAtributoBase("vit") + getAtributoBase("int") + getAtributoBase("des") + getAtributoBase("sor")) >= 500 ? 25 : 0,
+      }
+    }
+  },
+  {
     itemId:     "400002",
     itemNome:   "Asas Vitoriosas [1]",
     itemTipo:   "itemMeio",
