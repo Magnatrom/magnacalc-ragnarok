@@ -222,6 +222,7 @@ var items = [
     itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atq": (parseInt(getItemRefino(slot) / 3) * 40) + (hasCombo(slot, itemId, tipoItem, [["28522"]]) ? 70 : 0),
@@ -6789,6 +6790,7 @@ var items = [
     itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
     itemBonus: ["REQ_DFisico"],
     slots: 2,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
     itemFuncao: function(slot, itemId, tipoItem) {
       if(getItemRefino(slot) >= 12) {
         temDrake = true;
