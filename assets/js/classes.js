@@ -187,7 +187,7 @@ var classes = [
           recarga: 0
         },
         golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return [1, 1]
+          return [(tipoArma == "Arma_Adaga" ? 2 : 1), (tipoArma == "Arma_Adaga" ? 2 : 1)]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 700
@@ -499,7 +499,7 @@ var classes = [
           recarga: 0
         },
         golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return [1, 1]
+          return [(tipoArma == "Arma_Adaga" ? 2 : 1), (tipoArma == "Arma_Adaga" ? 2 : 1)]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
           return 700

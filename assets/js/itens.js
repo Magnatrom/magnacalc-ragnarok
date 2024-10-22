@@ -210,6 +210,27 @@ var items = [
     }
   },
   {
+    itemId:     "510147",
+    itemNome:   "Adaga dos Orcs [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 130,
+    itemArmaATQM: 110,
+    itemArmaNivel: 4,
+    itemNivel:  1,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": (parseInt(getItemRefino(slot) / 3) * 40) + (hasCombo(slot, itemId, tipoItem, [["28522"]]) ? 70 : 0),
+        "atqm": (parseInt(getItemRefino(slot) / 3) * 40) + (hasCombo(slot, itemId, tipoItem, [["28522"]]) ? 70 : 0),
+        "danofisicoraca": (getItemRefino(slot) >= 6 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+      }
+    }
+  },
+  {
     itemId:     "13061",
     itemNome:   "Adaga Negra [1]",
     itemTipo:   "itemArma",
@@ -6753,6 +6774,29 @@ var items = [
         "posconjuracao": getItemRefino(slot) >= 9 ? (-12) : 0,
         "danodistancia": getItemRefino(slot) >= 11 ? 10 : 0,
         "danomelee": getItemRefino(slot) >= 11 ? 10 : 0
+      }
+    }
+  },
+  {
+    itemId:     "510146",
+    itemNome:   "Jurupari [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 165,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_WL","Classe_SO","Classe_SE","Classe_TR","Classe_MU","Classe_SC","Classe_GX","Classe_BI","Classe_ME","Classe_KA","Classe_OB"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      if(getItemRefino(slot) >= 12) {
+        temDrake = true;
+      }
+      return {
+        "atq": parseInt(getItemRefino(slot) / 3) * 40,
+        "atqm": parseInt(getItemRefino(slot) / 3) * 40,
+        "danofisicotamanho": (isOpponent("tamanhoMonstro", ["1"]) && getItemRefino(slot) >= 6 ? 20 : 0) + (isOpponent("tamanhoMonstro", ["2"]) && getItemRefino(slot) >= 9 ? 20 : 0),
       }
     }
   },
