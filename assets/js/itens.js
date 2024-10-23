@@ -5478,7 +5478,8 @@ var items = [
         "atributovitalidade": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
         "atributointeligencia": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
         "atributodestreza": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
-        "atributosorte": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0
+        "atributosorte": hasCombo(slot, itemId, tipoItem, [["28392"],["24255"],["24266"],["24298"],["24279"]]) ? 10 : 0,
+        "danode--Aegis_Inferi": 20 + (getItemRefino(slot) * 5)
       }
     }
   },
