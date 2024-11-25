@@ -71,6 +71,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "4684",
+    cartaNome:   "Carta Alma de Eremes",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Laminas_Retalhadoras"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Laminas_Retalhadoras": 20 + (getItemRefino(slot) >= 10 ? 20 : 0) + (getNivelArma(slot) == 4 ? 20 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4601",
     cartaNome:   "Carta Amdarais",
     cartaSlot:   "itemArmadura",
@@ -1886,6 +1898,24 @@ var cartas = [
         "spp": (getItemRefino(slot) >= 9 ? 1 : 0),
         "aspdf": (getItemRefino(slot) >= 12 ? 1 : 0),
         "conjuracaofixap": (getItemRefino(slot) >= 12 ? -7 : 0)
+      }
+    }
+  },
+  {
+    cartaID:     "29596",
+    cartaNome:   "Memória de Eremes",
+    cartaSlot:   "encantamento",
+    cartaClasses: ["Classe_GX"],
+    itemBonus: ["REQ_Disparo_Triplo","REQ_Apunhalar","REQ_Ofensiva_Fatal","REQ_DMagico"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Laminas_Retalhadoras": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) ? (parseInt((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda")) / 5) * 5) : 0,
+        "danode--Retalhacao": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) ? (parseInt((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda")) / 5) * 5) : 0,
+        "danode--Impacto_Meteoro": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) ? (parseInt((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda")) / 5) * 10) : 0,
+        "danode--Destruidor_de_Almas": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) ? (parseInt((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda")) / 5) * 10) : 0,
+        "aspdp": hasCombo(slot, itemId, tipoItem, [["28044"]]) ? (parseInt(getItemRefino(slot) / 3) * 2) : 0,
+        "danode--Castigo_de_Loki": hasCombo(slot, itemId, tipoItem, [["28042"]]) ? (parseInt(getItemRefino(slot) / 3) * 5) : 0,
+        "danode--Laminas_de_Loki": hasCombo(slot, itemId, tipoItem, [["28042"]]) ? (parseInt(getItemRefino(slot) / 3) * 7) : 0,
       }
     }
   },

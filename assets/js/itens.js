@@ -861,6 +861,21 @@ var items = [
     }
   },
   {
+    itemId:     "28509",
+    itemNome:   "Anel Ilusional [1]",
+    itemTipo:   "itemAcessorio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributoforca": 3,
+        "atq": getAtributoBase("for") >= 100 ? 30 : 0
+      }
+    }
+  },
+  {
     itemId:     "490037",
     itemNome:   "Anel Obscuro [1]",
     itemTipo:   "itemAcessorio",
@@ -924,6 +939,25 @@ var items = [
         "precisao": hasCombo(slot, itemId, tipoItem, [["4879"]]) ? 50 : 0,
         "atributosorte": hasCombo(slot, itemId, tipoItem, [["4880"]]) ? 40 : 0,
         "danocritico": hasCombo(slot, itemId, tipoItem, [["4880"]]) ? 30 : 0
+      }
+    }
+  },
+  {
+    itemId:     "490250",
+    itemNome:   "Anel Transcendental [1]",
+    itemTipo:   "itemAcessorioE",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_FOR","REQ_AGI","REQ_VIT","REQ_INT","REQ_DES","REQ_SOR","REQ_Aspd","REQ_HP","REQ_SP","REQ_CVar"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributoforca": 5 + (getNivelBase() >= 180 ? 15 : 0),
+        "atributoagilidade": 5 + (getNivelBase() >= 180 ? 15 : 0),
+        "atributovitalidade": 5 + (getNivelBase() >= 180 ? 15 : 0),
+        "atributointeligencia": 5 + (getNivelBase() >= 180 ? 15 : 0),
+        "atributodestreza": 5 + (getNivelBase() >= 180 ? 15 : 0),
+        "atributosorte": 5 + (getNivelBase() >= 180 ? 15 : 0)
       }
     }
   },
@@ -1986,6 +2020,22 @@ var items = [
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "danofisicochefe": isOpponentChefe() ? (4 + (getAtributoBase("for") >= 90 ? 2: 0) + (getAtributoBase("for") >= 125 ? 4: 0)) : (2 + (getAtributoBase("for") >= 90 ? 1: 0) + (getAtributoBase("for") >= 125 ? 2: 0))
+      }
+    }
+  },
+  {
+    itemId:     "480134",
+    itemNome:   "Avareco [1]",
+    itemTipo:   "itemCapa",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "hpp": 5 + (getItemRefino(slot) >= 7 ? 5 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "danofisicotamanho": (getItemRefino(slot) >= 7 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 10 : 0),
+        "danode--Laminas_Retalhadoras": isClasse(["Classe_GX"]) ? 30 : 0,
       }
     }
   },
@@ -4970,6 +5020,28 @@ var items = [
     }
   },
   {
+    itemId:     "28771",
+    itemNome:   "Detector de Metal [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 200,
+    itemArmaNivel: 4,
+    itemNivel:  170,
+    itemClasses: ["Classe_GX"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 10,
+        "danode--Laminas_Retalhadoras": 10 + (getItemRefino(slot) >= 9 ? 15 : 0),
+        "atq": getItemRefino(slot) >= 7 ? 40 : 0,
+        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
+        "posconjuracao": (getItemRefino(slot) >= 11 ? (-20) : 0) + (hasCombo(slot, itemId, tipoItem, [["32248","32249"],["32250","32251"]]) ? (-7) : 0),
+        "conjuracaofixas": (hasCombo(slot, itemId, tipoItem, [["32248","32249"],["32250","32251"]]) ? (-0.3) : 0),
+      }
+    }
+  },
+  {
     itemId:     "2234",
     itemNome:   "Diadema",
     itemTipo:   "itemTopo",
@@ -6094,6 +6166,32 @@ var items = [
     }
   },
   {
+    itemId:     "610012",
+    itemNome:   "Gélida Ilusional [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Katar",
+    itemArmaATQ: 220,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  120,
+    itemPropriedade: 2,
+    itemClasses: ["Classe_GX"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": getItemRefino(slot) * 5,
+        "danode--Laminas_Retalhadoras": getItemRefino(slot) >= 7 ? 20 : 0,
+        "aspdp": getItemRefino(slot) >= 9 ? 10 : 0,
+        "crit": getItemRefino(slot) >= 11 ? 5 : 0,
+        "danofisicoraca": getItemRefino(slot) >= 11 && isOpponent("racaMonstro", ["6"]) ? 10 : 0,
+        "danofisicopropriedade": getItemRefino(slot) >= 11 && isOpponent("propriedadeMonstro", ["3"]) ? 10 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["28509"]]) ? 5 : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["28509"]]) && getItemRefino(slot) >= 9 ? 20 : 0,
+      }
+    }
+  },
+  {
     itemId:     "13465",
     itemNome:   "Gládio da Nobreza [3]",
     itemTipo:   "itemArma",
@@ -6873,6 +6971,26 @@ var items = [
         "atributointeligencia": 6,
         "atributovitalidade": 6,
         "atributosorte": -6,
+      }
+    }
+  },
+  {
+    itemId:     "1291",
+    itemNome:   "Katar do Sicário [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Katar",
+    itemArmaATQ: 200,
+    itemArmaNivel: 4,
+    itemNivel:  140,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX","Classe_GX_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atributodestreza": 2,
+        "danode--Laminas_Retalhadoras": 30,
+        "danofisicoraca": isOpponent("racaMonstro", ["5","10"]) ? 50 : 0
       }
     }
   },
@@ -8873,6 +8991,50 @@ var items = [
     }
   },
   {
+    itemId:     "28765",
+    itemNome:   "Navalha Carrasca [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 195,
+    itemArmaNivel: 4,
+    itemNivel:  170,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    encantamentos: [
+      ["29596"],
+      ["4832","4833","4834","4808","4820","4821","4818","4817","4816","4863","4864","4865"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danode--Impacto_Meteoro": hasCombo(slot, itemId, tipoItem, [["28766"]]) ? (40 + ((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda") >= 18) ? 20 : 0)) : 0,
+        "danode--Destruidor_de_Almas": hasCombo(slot, itemId, tipoItem, [["28766"]]) ? (40 + ((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda") >= 18) ? 20 : 0)) : 0,
+        "atq": hasCombo(slot, itemId, tipoItem, [["28766"]]) ? (parseInt((getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda")) / 2) * 8) : 0,
+        "danode--Laminas_Retalhadoras": hasCombo(slot, itemId, tipoItem, [["28766"]]) && (getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda") >= 16) ? 40 : 0,
+        "danode--Retaliacao": hasCombo(slot, itemId, tipoItem, [["28766"]]) && (getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda") >= 16) ? 40 : 0,
+        "atqarmap": hasCombo(slot, itemId, tipoItem, [["28766"]]) && (getItemRefino("itemMaoDireita") + getItemRefino("itemMaoEsquerda") >= 18) ? 12 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "28766",
+    itemNome:   "Navalha Repente [3]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Adaga",
+    itemArmaATQ: 100,
+    itemArmaNivel: 4,
+    itemNivel:  170,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_GX"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 3,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+      }
+    }
+  },
+  {
     itemId:     "2202",
     itemNome:   "Óculos Escuros [1]",
     itemTipo:   "itemMeio",
@@ -10284,6 +10446,26 @@ var items = [
         "aspdp": 3,
         "conjuracaovariavel": -3,
         "atributoagilidade": 1
+      }
+    }
+  },
+  {
+    itemId:     "13461",
+    itemNome:   "Selada Maligna [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Espada1",
+    itemArmaATQ: 100,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_RK","Classe_RG","Classe_SC","Classe_GX","Classe_BI","Classe_ME"],
+    itemBonus: ["REQ_DFisico","REQ_TCrit"],
+    slots: 2,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "taxacritica": (getItemRefino(slot) >= 7 ? 30 : 0) + (getItemRefino(slot) >= 10 ? 20 : 0),
+        "aspdf": (getItemRefino(slot) >= 10 ? 1 : 0)
       }
     }
   },

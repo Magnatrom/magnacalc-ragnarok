@@ -647,6 +647,52 @@ var classes = [
           return parseInt(300 * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_Laminas_de_Loki","REQ_IgnDef"]
+      },
+      {
+        id: "Laminas_Retalhadoras--1",
+        nome: "Lâminas Retalhadoras (adaga/espada)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["Arma_Espada1","Arma_Adaga","itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skillcritico",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0.7
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt(1750 * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_Laminas_Retalhadoras","REQ_IgnDef","REQ_DCrit","REQ_TCrit"]
+      },
+      {
+        id: "Laminas_Retalhadoras--2",
+        nome: "Lâminas Retalhadoras (katar)",
+        maoDireita: ["Arma_Katar"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skillcritico",
+          propriedade: false,
+          conjuracaovariavel: 0,
+          conjuracaofixa: 0,
+          posconjuracao: 0.5,
+          recarga: 0.7
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt(1750 * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_Laminas_Retalhadoras","REQ_IgnDef","REQ_DCrit","REQ_TCrit"]
       }
     ]
   },
