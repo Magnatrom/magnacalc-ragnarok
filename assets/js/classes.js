@@ -739,6 +739,98 @@ var classes = [
           return parseInt(1750 * (nivelBase / 100))
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DCorp","REQ_Laminas_Retalhadoras","REQ_IgnDef","REQ_DCrit","REQ_TCrit"]
+      },
+      {
+        id: "Destruidor_de_Almas--1",
+        nome: "Destruidor de Almas (adaga/espada, acerto crítico)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["Arma_Espada1","Arma_Adaga","itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skillcritico",
+          propriedade: false,
+          conjuracaovariavel: 0.25,
+          conjuracaofixa: 0.25,
+          posconjuracao: 2,
+          recarga: 0.15
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1400 + prop.atributoforca + prop.atributointeligencia) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Destruidor_de_Almas","REQ_IgnDef","REQ_DCrit","REQ_TCrit","REQ_CVar","REQ_CFix","REQ_Pos"]
+      },
+      {
+        id: "Destruidor_de_Almas--2",
+        nome: "Destruidor de Almas (adaga/espada, sem crítico)",
+        maoDireita: ["Arma_Espada1","Arma_Adaga"],
+        maoEsquerda: ["Arma_Espada1","Arma_Adaga","itemEscudo"],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0.25,
+          conjuracaofixa: 0.25,
+          posconjuracao: 2,
+          recarga: 0.15
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1400 + prop.atributoforca + prop.atributointeligencia) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Destruidor_de_Almas","REQ_IgnDef","REQ_CVar","REQ_CFix","REQ_Pos"]
+      },
+      {
+        id: "Destruidor_de_Almas--3",
+        nome: "Destruidor de Almas (katar, acerto crítico)",
+        maoDireita: ["Arma_Katar"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skillcritico",
+          propriedade: false,
+          conjuracaovariavel: 0.25,
+          conjuracaofixa: 0.25,
+          posconjuracao: 2,
+          recarga: 0.15
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1400 + prop.atributoforca + prop.atributointeligencia) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Destruidor_de_Almas","REQ_IgnDef","REQ_DCrit","REQ_TCrit","REQ_CVar","REQ_CFix","REQ_Pos"]
+      },
+      {
+        id: "Destruidor_de_Almas--4",
+        nome: "Destruidor de Almas (katar, sem crítico)",
+        maoDireita: ["Arma_Katar"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "curta",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 0.25,
+          conjuracaofixa: 0.25,
+          posconjuracao: 2,
+          recarga: 0.15
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return parseInt((1400 + prop.atributoforca + prop.atributointeligencia) * (nivelBase / 100))
+        },
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_Destruidor_de_Almas","REQ_IgnDef","REQ_CVar","REQ_CFix","REQ_Pos"]
       }
     ]
   },
