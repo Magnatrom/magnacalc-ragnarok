@@ -747,7 +747,7 @@ var classes = [
         maoEsquerda: ["Arma_Espada1","Arma_Adaga","itemEscudo"],
         ataque: {
           tipoDano: "fisico",
-          distancia: "curta",
+          distancia: "longa",
           tipoAtaque: "skillcritico",
           propriedade: false,
           conjuracaovariavel: 0.25,
@@ -770,7 +770,7 @@ var classes = [
         maoEsquerda: ["Arma_Espada1","Arma_Adaga","itemEscudo"],
         ataque: {
           tipoDano: "fisico",
-          distancia: "curta",
+          distancia: "longa",
           tipoAtaque: "skill",
           propriedade: false,
           conjuracaovariavel: 0.25,
@@ -793,7 +793,7 @@ var classes = [
         maoEsquerda: [],
         ataque: {
           tipoDano: "fisico",
-          distancia: "curta",
+          distancia: "longa",
           tipoAtaque: "skillcritico",
           propriedade: false,
           conjuracaovariavel: 0.25,
@@ -816,7 +816,7 @@ var classes = [
         maoEsquerda: [],
         ataque: {
           tipoDano: "fisico",
-          distancia: "curta",
+          distancia: "longa",
           tipoAtaque: "skill",
           propriedade: false,
           conjuracaovariavel: 0.25,
