@@ -5778,6 +5778,39 @@ var items = [
     }
   },
   {
+    itemId:     "400120",
+    itemNome:   "Espólio de Gertie [1]",
+    itemTipo:   "itemTopo",
+    itemNivel:  170,
+    itemClasses: ["Classe_SC","Classe_SC_NT"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": parseInt(getItemRefino(slot) / 2) * 20,
+        "atqm": parseInt(getItemRefino(slot) / 2) * 20,
+        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
+        "danofisicop": getItemRefino(slot) >= 9 ? 15 : 0,
+        "danomagicop": getItemRefino(slot) >= 9 ? 15 : 0,
+        "danofisicotamanho": getItemRefino(slot) >= 11 ? 10 : 0,
+        "danomagicotamanho": getItemRefino(slot) >= 11 ? 10 : 0,
+        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? -10 : 0,
+        "danode--Ofensiva_Fatal": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? (getItemRefino("itemMaoDireita") * 10) : 0,
+        "danomagiconeutro": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicoagua": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicofogo": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicoterra": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicovento": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicoveneno": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicosagrado": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicosombrio": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danomagicofantasma": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? 10 : 0,
+        "danode--Disparo_Triplo": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? (getItemRefino("itemMaoDireita") * 10) : 0,
+      }
+    }
+  },
+  {
     itemId:     "490366",
     itemNome:   "Estatueta Misteriosa [1]",
     itemTipo:   "itemAcessorioE",
@@ -6233,39 +6266,6 @@ var items = [
       return {
         "danofisicoraca": (isOpponent("racaMonstro", ["10","5"]) ? (75 + (getItemRefino("itemMaoDireita") >= 6 ? Math.pow(Math.min(getItemRefino("itemMaoDireita"), 14) - 4, 2) : 0)) : 0),
         "ignoredef": (isOpponent("racaMonstro", ["10","5"]) ? (20 + (getItemRefino("itemMaoDireita") >= 6 ? 5 : 0)) : 0)
-      }
-    }
-  },
-  {
-    itemId:     "400120",
-    itemNome:   "Goat Crown [1]",
-    itemTipo:   "itemTopo",
-    itemNivel:  170,
-    itemClasses: ["Classe_SC","Classe_SC_NT"],
-    itemBonus: ["REQ_DFisico"],
-    slots: 1,
-    itemFuncao: function(slot, itemId, tipoItem) {
-      return {
-        "atq": parseInt(getItemRefino(slot) / 2) * 20,
-        "atqm": parseInt(getItemRefino(slot) / 2) * 20,
-        "aspdp": getItemRefino(slot) >= 7 ? 10 : 0,
-        "danofisicop": getItemRefino(slot) >= 9 ? 15 : 0,
-        "danomagicop": getItemRefino(slot) >= 9 ? 15 : 0,
-        "danofisicotamanho": getItemRefino(slot) >= 11 ? 10 : 0,
-        "danomagicotamanho": getItemRefino(slot) >= 11 ? 10 : 0,
-        "posconjuracao": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? -10 : 0,
-        "danode--Ofensiva_Fatal": hasCombo(slot, itemId, tipoItem, [["28767"]]) ? (getItemRefino("itemMaoDireita") * 10) : 0,
-        "danomagiconeutro": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicoagua": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicofogo": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicoterra": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicovento": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicoveneno": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicosagrado": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicosombrio": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danomagicofantasma": hasCombo(slot, itemId, tipoItem, [["28768"]]) ? (10 + (getItemRefino("itemMaoDireita") * 5)) : 0,
-        "danodistancia": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? 10 : 0,
-        "danode--Disparo_Triplo": hasCombo(slot, itemId, tipoItem, [["18184"]]) ? (getItemRefino("itemMaoDireita") * 10) : 0,
       }
     }
   },
