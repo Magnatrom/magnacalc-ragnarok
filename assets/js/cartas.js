@@ -11,6 +11,20 @@ var cartas = [
     }
   },
   {
+    cartaID:     "300551",
+    cartaNome:   "Carta A-Ji",
+    cartaSlot:   "itemCapa",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_TCrit","REQ_DCorp","REQ_DDist"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "crit": parseInt(getAtributoBase("sor") / 20) * 3,
+        "danomelee": getAtributoBase("sor") >= 125 ? 30 : 0,
+        "danodistancia": getAtributoBase("sor") >= 125 ? 30 : 0,
+      }
+    }
+  },
+  {
     cartaID:     "27322",
     cartaNome:   "Carta Ahat",
     cartaSlot:   "itemAcessorio",
