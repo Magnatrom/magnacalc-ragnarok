@@ -7680,6 +7680,27 @@ var items = [
     }
   },
   {
+    itemId:     "590084",
+    itemNome:   "Maça dos Orcs [2]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Maca",
+    itemArmaATQ: 180,
+    itemArmaATQM: 0,
+    itemArmaNivel: 4,
+    itemNivel:  1,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_SA","Classe_RK","Classe_RG","Classe_AB","Classe_SH","Classe_BI","Classe_ME"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 2,
+    encantamentos: [[...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia], [...encantamentosMalangdoFisico, ...encantamentosMalangdoDistancia]],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": (parseInt(getItemRefino(slot) / 3) * 40) + (hasCombo(slot, itemId, tipoItem, [["28522"]]) ? (getItemRefino(slot) * 10) : 0),
+        "danofisicoraca": (getItemRefino(slot) >= 6 ? 10 : 0) + (getItemRefino(slot) >= 9 ? 15 : 0),
+      }
+    }
+  },
+  {
     itemId:     "16063",
     itemNome:   "Maça Longa Ilusional [2]",
     itemTipo:   "itemArma",
