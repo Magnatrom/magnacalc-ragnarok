@@ -3637,6 +3637,35 @@ var items = [
     }
   },
   {
+    itemId:     "470320",
+    itemNome:   "Caneleira Fantasma [1]",
+    itemTipo:   "itemSapatos",
+    itemNivel:  170,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico"],
+    slots: 0,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atqarmap": 5,
+        "hpp": 7,
+        "spp": 7,
+        "aspdp": 10,
+        "conjuracaofixas": getItemRefino(slot) >= 10 ? (-0.5 + (hasCombo(slot, itemId, tipoItem, [["19439"]]) && getAtributoBase("sor") >= 130 ? (-0.5) : 0)) : 0,
+        "danomelee": getItemRefino(slot) >= 12 ? 15 : 0,
+        "danocritico": hasCombo(slot, itemId, tipoItem, [["28044"]]) ? 15 : 0,
+        "danofisicotamanho": hasCombo(slot, itemId, tipoItem, [["28044","28767"]]) ? (getItemRefino(slot) * 3) : 0,
+        "taxacritica": hasCombo(slot, itemId, tipoItem, [["28044"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? 15 : 0,
+        "danodistancia": hasCombo(slot, itemId, tipoItem, [["28042"]]) ? 15 : 0,
+        "danode--Laminas_de_Loki": hasCombo(slot, itemId, tipoItem, [["28042"]]) ? (getItemRefino(slot) * 5) : 0,
+        "precisaoperfeita": (hasCombo(slot, itemId, tipoItem, [["28042"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 18) ? 30 : 0) + (hasCombo(slot, itemId, tipoItem, [["28767"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 22) ? 50 : 0),
+        "variavelpde--Impacto_Meteoro": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) ? (-100) : 0,
+        "danode--Impacto_Meteoro": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) ? (getItemRefino(slot) * 5) : 0,
+        "recargade--Impacto_Meteoro": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 27) ? (-0.3) : 0,
+        "danofisicop": hasCombo(slot, itemId, tipoItem, [["28765"],["28766"]]) && (getItemRefino(slot) + getItemRefino("itemMaoDireita") >= 33) ? 20 : 0,
+      }
+    }
+  },
+  {
     itemId:     "20944",
     itemNome:   "Capa Anti-Magia [1]",
     itemTipo:   "itemCapa",
