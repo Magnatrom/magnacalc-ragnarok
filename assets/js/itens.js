@@ -5879,6 +5879,46 @@ var items = [
     }
   },
   {
+    itemId:     "450407",
+    itemNome:   "Exoesqueleto Crítico [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  150,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_TCrit"],
+    slots: 1,
+    encantamentos: [],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 100 + (parseInt(getItemRefino(slot) / 2) * 7),
+        "taxacritica": (parseInt(getItemRefino(slot) / 2) * 2),
+        "aspdp": getItemRefino(slot) >= 7 ? 15 : 0,
+        "danocritico": (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["480197"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 23) ? (getItemRefino(slot) + getItemRefino("itemCapa")) : 0),
+        "posconjuracao": (getItemRefino(slot) >= 11 ? (-10) : 0) + (hasCombo(slot, itemId, tipoItem, [["480197"]]) ? (-5) : 0),
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["480197"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 18) ? 10 : 0,
+      }
+    }
+  },
+  {
+    itemId:     "450405",
+    itemNome:   "Exoesqueleto Físico [1]",
+    itemTipo:   "itemArmadura",
+    itemNivel:  150,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_DFisico","REQ_DDist"],
+    slots: 1,
+    encantamentos: [],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 100 + (parseInt(getItemRefino(slot) / 2) * 10),
+        "aspdp": getItemRefino(slot) >= 7 ? 15 : 0,
+        "danodistancia": (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["480124"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 23) ? (getItemRefino(slot) + getItemRefino("itemCapa")) : 0),
+        "danomelee": (getItemRefino(slot) >= 9 ? 10 : 0) + (hasCombo(slot, itemId, tipoItem, [["480124"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 23) ? (getItemRefino(slot) + getItemRefino("itemCapa")) : 0),
+        "posconjuracao": (getItemRefino(slot) >= 11 ? (-10) : 0) + (hasCombo(slot, itemId, tipoItem, [["480124"]]) ? (-5) : 0),
+        "danofisicopropriedade": hasCombo(slot, itemId, tipoItem, [["480124"]]) && (getItemRefino(slot) + getItemRefino("itemCapa") >= 18) ? 10 : 0,
+      }
+    }
+  },
+  {
     itemId:     "19101",
     itemNome:   "Familiar de Combate",
     itemTipo:   "itemBaixo",
