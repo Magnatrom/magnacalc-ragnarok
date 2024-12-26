@@ -1581,7 +1581,7 @@ var cartas = [
     cartaNome:   "Essência de Morroc AGI1",
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_AGI"],
+    itemBonus: ["REQ_AGI","REQ_Aspd"],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 1,
@@ -1595,7 +1595,7 @@ var cartas = [
     cartaNome:   "Essência de Morroc AGI2",
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_AGI"],
+    itemBonus: ["REQ_AGI","REQ_Aspd"],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 2,
@@ -1609,7 +1609,7 @@ var cartas = [
     cartaNome:   "Essência de Morroc AGI3",
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_AGI"],
+    itemBonus: ["REQ_AGI","REQ_Aspd"],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributoagilidade": 4,
@@ -1623,7 +1623,7 @@ var cartas = [
     cartaNome:   "Essência de Morroc DES1",
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_DES"],
+    itemBonus: ["REQ_DES","REQ_CVar"],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 1,
@@ -1637,7 +1637,7 @@ var cartas = [
     cartaNome:   "Essência de Morroc DES2",
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_DES"],
+    itemBonus: ["REQ_DES","REQ_CVar"],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 2,
@@ -1651,7 +1651,7 @@ var cartas = [
     cartaNome:   "Essência de Morroc DES3",
     cartaSlot:   "essencia",
     cartaClasses: ["todas"],
-    itemBonus: ["REQ_DES"],
+    itemBonus: ["REQ_DES","REQ_CVar"],
     itemFuncao: function(slot, itemId, tipoItem) {
       return {
         "atributodestreza": 4,

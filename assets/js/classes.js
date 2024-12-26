@@ -1756,18 +1756,19 @@ var classes = [
           tipoAtaque: "skill",
           propriedade: false,
           conjuracaovariavel: 1,
-          conjuracaofixa: 1,
-          posconjuracao: 0,
-          recarga: 2
+          conjuracaofixa: 0.7,
+          posconjuracao: 0.4,
+          recarga: 1.6
         },
         golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
           return [1, 1]
         },
         formula: function(prop, nivelBase, nivelClasse, tipoArma) {
-          return (3500)
+          return (4000 * (nivelBase / 100))
         },
-        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Tiro_Neutralizante","REQ_CFix"]
-      },]
+        requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Tiro_Neutralizante","REQ_CFix","REQ_CVar","REQ_Pos"]
+      },
+    ]
   },
   {
     classeID: "Classe_KA",

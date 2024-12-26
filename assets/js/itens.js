@@ -3197,7 +3197,9 @@ var items = [
         "spp": 3 + (getItemRefino(slot) >= 5 ? 7 : 0) + (getItemRefino(slot) >= 7 ? 10 : 0),
         "aspdp": (isClasse("Classe_IN") ? 20 : 0),
         "ignoredef": (isClasse("Classe_IN") ? 100 : 0),
-        "danode--Tiro_Neutralizante": (isClasse("Classe_IN") ? 300 : 0),
+        "danode--Tiro_Neutralizante": (isClasse("Classe_IN") ? 600 : 0),
+        "danode--Disparo_Labareda": (isClasse("Classe_IN") ? 250 : 0),
+        "danode--Arremessar_Granada": (isClasse("Classe_IN") ? 200 : 0),
         "conjuracaofixap": (isClasse("Classe_IN") ? -100 : 0),
         "danofisicop": (isClasse("Classe_IN") ? 20 : 0),
         "posconjuracao": (isClasse("Classe_IN") ? -40 : 0)
