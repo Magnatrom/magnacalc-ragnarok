@@ -966,6 +966,7 @@ function calcular() {
   if(hasBuff("2315b")) {  extraAtq += 170; } // Aegis Domini 170 DEF
   if(hasBuff("155")) {  extraAtq += 30; } // Grito de Guerra;
   if(hasBuff("2552")) {  extraAtq += 30; } // Farta Fortuna;
+  if(hasBuff("2563") && ["13221","13201","13220"].includes($("#municoes select").val()) && !hasBuff("2568") && !hasBuff("504")) {  extraAtq += 150; } // Proteção de Platina;
 
   let reducaoDefesaFisicaPesadaMonstro = ((4000 + defesaFisicaFinalMonstro) / (4000 + defesaFisicaFinalMonstro * 10));
 

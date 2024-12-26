@@ -295,6 +295,12 @@ let buffs = [
         disponivel: true
       },
       {
+        skillID: "45c",
+        skillName: "Concentração nv.1",
+        niveis: 1,
+        disponivel: true
+      },
+      {
         skillID: 126,
         skillName: "Flagelo das Feras",
         niveis: 1,
@@ -801,8 +807,8 @@ let buffs = [
         disponivel: true
       },
       {
-        skillID: "45c",
-        skillName: "Concentração nv.1",
+        skillID: 2563,
+        skillName: "Proteção de Platina",
         niveis: 1,
         disponivel: true
       },
