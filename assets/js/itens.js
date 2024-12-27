@@ -40,6 +40,25 @@ let encantamentosMonarca = ["4700", "4701", "4702", "4703", "4730", "4731", "473
 
 var items = [
   {
+    itemId:     "810012",
+    itemNome:   "[MEGA] A.R.-89 [1]",
+    itemTipo:   "itemArma",
+    itemSubtipo: "Arma_Rifle",
+    itemArmaATQ: 170,
+    itemArmaNivel: 4,
+    itemNivel:  100,
+    itemPropriedade: 0,
+    itemClasses: ["Classe_IN"],
+    itemBonus: ["REQ_DFisico","REQ_DDist","REQ_SP","REQ_Explosao_Antimateria"],
+    slots: 1,
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicop": Math.min(getItemRefino(slot) * 10, 100),
+        "conjuracaofixap": (isClasse("Classe_IN") ? -100 : 0),
+      }
+    }
+  },
+  {
     itemId:     "450158",
     itemNome:   "[MEGA] Robe Gelado [1]",
     itemTipo:   "itemArmadura",
@@ -10063,6 +10082,25 @@ var items = [
         "atributodestreza": getItemRefino(slot) >= 10 ? 10 : 0,
         "atributosorte": getItemRefino(slot) >= 10 ? 10 : 0,
         "atributosorte": (getItemRefino(slot) >= 10 ? 10 : 0) + (getItemRefino(slot) >= 12 ? 15 : 0),
+      }
+    }
+  },
+  {
+    itemId:     "410186",
+    itemNome:   "Relógio de Bolso dos Rebeldes [1]",
+    itemTipo:   "itemMeio",
+    itemNivel:  100,
+    itemClasses: ["todas"],
+    itemBonus: ["REQ_Explosao_Antimateria","REQ_Pos","REQ_DFisico"],
+    slots: 1,
+    encantamentos: [
+      ["4700","4730","4740","4710","4720","4750"]
+    ],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danofisicotamanho": 10,
+        "recargade--Explosao_Antimateria": (isClasse("Classe_IN") ? -5 : 0),
+        "posconjuracao": (isClasse("Classe_IN") ? -15 : 0)
       }
     }
   },

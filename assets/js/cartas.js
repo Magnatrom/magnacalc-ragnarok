@@ -685,6 +685,19 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27182",
+    cartaNome:   "Carta Ferlock",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_Explosao_Antimateria"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "atq": 30,
+        "danode--Explosao_Antimateria": 30 + (getItemRefino(slot) >= 10 ? 30 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4080",
     cartaNome:   "Carta Flora",
     cartaSlot:   "itemArma",
