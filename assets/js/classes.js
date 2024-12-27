@@ -1768,6 +1768,29 @@ var classes = [
         },
         requisitos: ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Tiro_Neutralizante","REQ_CFix","REQ_CVar","REQ_Pos"]
       },
+      {
+        id: "Explosao_Antimateria",
+        nome: "Explosão Antimatéria",
+        maoDireita: ["Arma_Rifle"],
+        maoEsquerda: [],
+        ataque: {
+          tipoDano: "fisico",
+          distancia: "longa",
+          tipoAtaque: "skill",
+          propriedade: false,
+          conjuracaovariavel: 2,
+          conjuracaofixa: 1,
+          posconjuracao: 1,
+          recarga: 5
+        },
+        golpes: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return [1, 1]
+        },
+        formula: function(prop, nivelBase, nivelClasse, tipoArma) {
+          return (5000)
+        },
+        requisitos:  ["REQ_Aspd","REQ_DFisico","REQ_DDist","REQ_IgnDef","REQ_Explosao_Antimateria","REQ_CFix","REQ_CVar","REQ_Pos"]
+      }
     ]
   },
   {
