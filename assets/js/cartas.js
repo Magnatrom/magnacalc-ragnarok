@@ -1285,6 +1285,18 @@ var cartas = [
     }
   },
   {
+    cartaID:     "27355",
+    cartaNome:   "Carta Raydric Atirador",
+    cartaSlot:   "itemArma",
+    cartaClasses: ["todas"],
+    itemBonus: ["REQ_DDist"],
+    itemFuncao: function(slot, itemId, tipoItem) {
+      return {
+        "danodistancia": 10 + (hasCombo(slot, itemId, tipoItem, [["4633"]]) ? 5 : 0)
+      }
+    }
+  },
+  {
     cartaID:     "4682",
     cartaNome:   "Carta Renegada Gertie",
     cartaSlot:   "itemCapa",
