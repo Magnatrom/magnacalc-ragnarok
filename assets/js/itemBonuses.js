@@ -339,6 +339,14 @@ let itemBonuses = {
     "nome": "Dano de Cópia Explosiva",
     "porcentagem": true
   },
+  "danode--Explosao_Antimateria": {
+    "nome": "Dano de Explosão Antimatéria",
+    "porcentagem": true
+  },
+  "recargade--Explosao_Antimateria": {
+    "nome": "Recarga de Explosão Antimatéria",
+    "porcentagem": false
+  },
   "danode--Laminas_Retalhadoras": {
     "nome": "Dano de Lâminas Retalhadoras",
     "porcentagem": true
